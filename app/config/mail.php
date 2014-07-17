@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'laravel-recipe.comnect.jp.net', 'name' => 'laravel-recipe-jp'],
 
     /*
     |--------------------------------------------------------------------------
