@@ -10,7 +10,13 @@ interface AuthenticateInterface
 {
 
     /**
-     * @return \GuzzleHttp\Message\ResponseInterface
+     * @return string
      */
     public function getUrl();
+
+    /**
+     * @param $code
+     * @return mixed
+     */
+    public function getToken($code);
 } 

@@ -23,17 +23,24 @@ class AuthenticateController extends BaseController
     }
 
     /**
-     * @return \GuzzleHttp\Stream\StreamInterface|null
+     * @return void
      */
     public function getLogin()
     {
-        return $this->auth->getUrl()->getBody();
+        $data = [
+            'login_url' => $this->auth->getUrl()
+        ];
+        $this->view('auth.login', $data);
     }
 
+    /**
+     *
+     */
     public function getCallback()
     {
-
+        $this->auth->getToken(\Input::get('code'));
     }
+
 
     public function getLogout()
     {
