@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => 'master',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,44 +45,26 @@ return [
     */
 
     'connections' => [
-
-        'sqlite' => [
-            'driver'   => 'sqlite',
-            'database' => __DIR__.'/../database/production.sqlite',
-            'prefix'   => '',
-        ],
-
-        'mysql' => [
+        'master' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'forge',
-            'username'  => 'forge',
-            'password'  => '',
+            'database'  => 'jp_recipes',
+            'username'  => 'homestead',
+            'password'  => 'secret',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ],
-
-        'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => 'localhost',
-            'database' => 'forge',
-            'username' => 'forge',
-            'password' => '',
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
+        'slave' => [
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'jp_recipes',
+            'username'  => 'homestead',
+            'password'  => 'secret',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
         ],
-
-        'sqlsrv' => [
-            'driver'   => 'sqlsrv',
-            'host'     => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => '',
-            'prefix'   => '',
-        ],
-
     ],
 
     /*

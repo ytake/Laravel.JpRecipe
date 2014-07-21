@@ -1,6 +1,8 @@
 <?php
 namespace App\Providers;
 
+use App\Authenticate\Driver\GithubUser;
+use App\Authenticate\Driver\GithubUserProvider;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -10,6 +12,12 @@ use Illuminate\Support\ServiceProvider;
  */
 class ApplicationServiceProvider extends ServiceProvider
 {
+
+
+    public function boot()
+    {
+        $this->registerAuthenticateDriver();
+    }
 
     /**
      * Register the service provider.
@@ -22,6 +30,31 @@ class ApplicationServiceProvider extends ServiceProvider
         //
         $this->app->bind("App\\Authenticate\\AuthenticateInterface", function($app) {
             return $app->make("App\\Authenticate\\Driver\\GitHub", [$app->make("GuzzleHttp\\ClientInterface")]);
+        });
+        $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
+        $this->app->bind("App\Repositories\UserRepositoryInterface", "App\Repositories\Fluent\UserRepository");
+        $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
+
+        // view composer
+        $this->app->view->composer('elements.sidebar', 'App\Composers\CategoryComposer');
+    }
+
+    /**
+     * bootで実行
+     * extend authenticate driver
+     * @access private
+     * @return void
+     */
+    private function registerAuthenticateDriver()
+    {
+        $this->app['auth']->extend('github', function($app) {
+            return new \Illuminate\Auth\Guard(
+                new GithubUserProvider(
+                    $app->make("App\Repositories\AclRepositoryInterface"),
+                    $app->make("App\Repositories\UserRepositoryInterface")
+                ),
+                $app['session.store']
+            );
         });
     }
 }

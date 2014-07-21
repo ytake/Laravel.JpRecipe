@@ -11,3 +11,4 @@ composer.lock
 .idea
 Thumbs.db
 _ide_helper.php
+/app/config/local

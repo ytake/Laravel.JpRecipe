@@ -1,6 +1,7 @@
 <?php
 namespace App\Authenticate\Driver;
 
+use App\Exception\OAuthErrorException;
 use GuzzleHttp\ClientInterface;
 use App\Authenticate\AuthenticateInterface;
 
@@ -18,6 +19,9 @@ class GitHub implements AuthenticateInterface
     /** @var string  */
     protected $accessToken = "https://github.com/login/oauth/access_token";
 
+    /** @var string  */
+    protected $baseUrl = "https://api.github.com";
+
     /** @var \GuzzleHttp\Client  */
     protected $client;
 
@@ -30,6 +34,7 @@ class GitHub implements AuthenticateInterface
     }
 
     /**
+     * ログインURL取得
      * @return string
      */
     public function getUrl()
@@ -43,13 +48,15 @@ class GitHub implements AuthenticateInterface
     }
 
     /**
+     * get access token
      * @param $code
      * @return mixed
+     * @throws \App\Exception\OAuthErrorException
      */
     public function getToken($code)
     {
 
-        return $this->client->post($this->accessToken, [
+        $result = $this->client->post($this->accessToken, [
                 'headers' => [
                     "Content-Type" => "application/x-www-form-urlencodedrn",
                     "Accept" => "application/json"
@@ -61,5 +68,22 @@ class GitHub implements AuthenticateInterface
                     'redirect_uri' => action('auth.callback')
                 ]
             ])->json();
+        if(isset($result['error'])) {
+            throw new OAuthErrorException($result['error_description']);
+        }
+        return $result;
     }
-} 
+
+    /**
+     * @param $accessToken
+     * @return mixed
+     */
+    public function getUser($accessToken)
+    {
+        return $this->client->get("{$this->baseUrl}/user", [
+            'query' => [
+                'access_token' => $accessToken
+            ],
+        ])->json();
+    }
+}

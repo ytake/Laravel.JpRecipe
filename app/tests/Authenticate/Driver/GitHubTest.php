@@ -23,6 +23,6 @@ class GitHubTest extends TestCase
 
     public function testUrl()
     {
-        $this->assertInstanceOf('GuzzleHttp\Message\Response', $this->auth->getUrl());
+        $this->assertInternalType('string', $this->auth->getUrl());
     }
 }
