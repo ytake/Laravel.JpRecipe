@@ -8,8 +8,5 @@
             'getCallback' => 'auth.callback',
             'getLogout' => 'auth.logout',
         ]);
-});
-
-\Route::get('/', function() {
-    return \View::make('hello');
+    \Route::controller('/', 'HomeController', ['getIndex' => 'index']);
 });

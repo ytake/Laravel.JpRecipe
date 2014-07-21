@@ -38,7 +38,9 @@ class AuthenticateController extends BaseController
      */
     public function getCallback()
     {
-        $this->auth->getToken(\Input::get('code'));
+        $accessToken = $this->auth->getToken(\Input::get('code'));
+        var_dump($accessToken);
+        var_dump($this->auth->getUser($accessToken['access_token']));
     }
 
 
