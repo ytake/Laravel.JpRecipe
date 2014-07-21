@@ -76,6 +76,7 @@ class GitHub implements AuthenticateInterface
 
     /**
      * @param $accessToken
+     * @return mixed
      */
     public function getUser($accessToken)
     {

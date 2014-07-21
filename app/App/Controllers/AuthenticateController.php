@@ -34,18 +34,26 @@ class AuthenticateController extends BaseController
     }
 
     /**
-     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getCallback()
     {
         $accessToken = $this->auth->getToken(\Input::get('code'));
-        var_dump($accessToken);
-        var_dump($this->auth->getUser($accessToken['access_token']));
+        $user = $this->auth->getUser($accessToken['access_token']);
+        // GitHubアカウントでログインさせる
+        $result = \Auth::attempt(['name' => $user['login'], 'id' => $user['id']], true);
+        if(!$result) {
+            return \Redirect::action('index')->with('auth_error', 'Forbidden.');
+        }
+        return \Redirect::action('webmaster.index');
     }
 
-
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function getLogout()
     {
-
+        \Auth::logout();
+        return \Redirect::action('index');
     }
 } 

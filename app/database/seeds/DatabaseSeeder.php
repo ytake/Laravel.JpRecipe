@@ -2,7 +2,6 @@
 
 class DatabaseSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -11,8 +10,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Eloquent::unguard();
-
-        // $this->call('UserTableSeeder');
+        $this->call('SectionTableSeeder');
+        $this->call('CategoryTableSeeder');
+        $this->command->info('complete');
     }
-
 }

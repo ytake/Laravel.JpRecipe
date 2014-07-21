@@ -19,4 +19,10 @@ interface AuthenticateInterface
      * @return mixed
      */
     public function getToken($code);
+
+    /**
+     * @param $accessToken
+     * @return mixed
+     */
+    public function getUser($accessToken);
 } 

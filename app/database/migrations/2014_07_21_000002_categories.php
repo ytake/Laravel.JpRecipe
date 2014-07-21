@@ -4,13 +4,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class Users
+ * Class Categories
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class Users extends Migration
+class Categories extends Migration
 {
 
-    protected $table = "users";
+    protected $table = "categories";
 
     /**
      * Run the migrations.
@@ -20,13 +20,17 @@ class Users extends Migration
     {
         \Schema::create($this->table, function($table) {
             $table->engine = 'InnoDB';
-            $table->increments('user_id')->unsigned();
-            $table->string('user_name');
-            $table->integer('github_id')->unique();
-            $table->rememberToken();
+            $table->increments('category_id')->unsigned();
+            $table->integer('section_id')->unsigned();
+            $table->string('slug')->unique('slug', 'CATEGORY_UNIQUE');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('position')->default(1);;
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->index(['user_id', 'github_id'], 'USER_INDEX');
+            $table->index(['slug', 'section_id', 'category_id', 'position'], 'CATEGORY_INDEX');
+            $table->foreign('section_id')->references('section_id')
+                ->on('sections')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

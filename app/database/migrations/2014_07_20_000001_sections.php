@@ -4,13 +4,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class Users
+ * Class Sections
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class Users extends Migration
+class Sections extends Migration
 {
 
-    protected $table = "users";
+    protected $table = "sections";
 
     /**
      * Run the migrations.
@@ -20,13 +20,13 @@ class Users extends Migration
     {
         \Schema::create($this->table, function($table) {
             $table->engine = 'InnoDB';
-            $table->increments('user_id')->unsigned();
-            $table->string('user_name');
-            $table->integer('github_id')->unique();
-            $table->rememberToken();
+            $table->increments('section_id');
+            $table->string('name')->unique();
+            $table->string('description');
+            $table->integer('position')->default(1);
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->index(['user_id', 'github_id'], 'USER_INDEX');
+            $table->index(['section_id', 'position'], 'SECTION_INDEX');
         });
     }
 

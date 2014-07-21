@@ -38,7 +38,7 @@
         if (\Request::ajax()) {
             return \Response::make('Unauthorized', 401);
         } else {
-            return \Redirect::guest('login');
+            return \Redirect::to('/');
         }
     }
 });
@@ -60,7 +60,7 @@
 */
 
 \Route::filter('guest', function() {
-    if (\Auth::check()) return \Redirect::to('/');
+    if (\Auth::check()) return \Redirect::action('webmaster.index');
 });
 
 /*

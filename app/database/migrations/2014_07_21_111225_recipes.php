@@ -4,13 +4,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class Users
+ * Class Recipes
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class Users extends Migration
+class Recipes extends Migration
 {
 
-    protected $table = "users";
+    protected $table = "recipes";
 
     /**
      * Run the migrations.
@@ -20,13 +20,18 @@ class Users extends Migration
     {
         \Schema::create($this->table, function($table) {
             $table->engine = 'InnoDB';
-            $table->increments('user_id')->unsigned();
-            $table->string('user_name');
-            $table->integer('github_id')->unique();
-            $table->rememberToken();
+            $table->increments('recipe_id');
+            $table->string('title')->unique();
+            $table->integer('category_id')->unsigned();
+            $table->text('problem');
+            $table->text('solution');
+            $table->text('discussion');
+            $table->integer('position')->default(1);
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->index(['user_id', 'github_id'], 'USER_INDEX');
+            $table->index(['category_id', 'position', 'recipe_id'], 'RECIPE_INDEX');
+            $table->foreign('category_id')->references('category_id')
+                ->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
