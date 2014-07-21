@@ -7,10 +7,9 @@ use App\Repositories\AclRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 
 /**
- * Class VoltDBUserProvider
- * @package Ytake\LaravelVoltDB\Authenticate
+ * Class GithubUserProvider
+ * @package App\Authenticate\Driver
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
- * @license http://opensource.org/licenses/MIT MIT
  */
 class GithubUserProvider implements UserProviderInterface
 {
