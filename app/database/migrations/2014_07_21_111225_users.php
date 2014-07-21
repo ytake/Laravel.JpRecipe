@@ -23,7 +23,7 @@ class Users extends Migration
             $table->increments('user_id')->unsigned();
             $table->string('user_name');
             $table->integer('github_id');
-            $table->text('content');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
