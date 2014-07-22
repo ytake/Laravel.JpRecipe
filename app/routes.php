@@ -5,6 +5,7 @@
 \Route::when('auth/callback*', 'guest');
 \Route::when('auth/login*', 'guest');
 \Route::when('auth/logout*', 'auth');
+\Route::when('*', 'csrf', ['post']);
 
 \Route::group(['namespace' => 'App\Controllers'], function () {
 
@@ -13,15 +14,25 @@
         \Route::resource('recipe', 'RecipeController', ['only' => ['index', 'show']]);
     });
 
-    \Route::group(['namespace' => 'WebMaster', 'before' => 'auth'], function () {
-        \Route::get('webmaster', ['uses' => 'HomeController@getIndex', 'as' => 'webmaster.index']);
+    \Route::group(['namespace' => 'WebMaster', 'before' => 'auth', 'prefix' => 'webmaster'], function () {
+        \Route::get('/', ['uses' => 'HomeController@getIndex', 'as' => 'webmaster.index']);
+        // recipe
+        \Route::controller('recipe', 'RecipeController', [
+                'getShow' => 'webmaster.recipe.show',
+                'getList' => 'webmaster.recipe.list',
+                'getForm' => 'webmaster.recipe.form',
+                'postConfirm' => 'webmaster.recipe.confirm',
+                'postApply' => 'webmaster.recipe.apply',
+            ]
+        );
     });
-
+    // authenticate
     \Route::controller('auth', 'AuthenticateController', [
             'getLogin' => 'auth.login',
             'getCallback' => 'auth.callback',
             'getLogout' => 'auth.logout',
         ]
     );
+    // top
     \Route::controller('/', 'HomeController', ['getIndex' => 'index']);
 });
