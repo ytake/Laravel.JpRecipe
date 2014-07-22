@@ -11,6 +11,8 @@ use App\Authenticate\AuthenticateInterface;
 class AuthenticateController extends BaseController
 {
 
+    protected $layout = 'layouts.authenticate';
+
     /** @var AuthenticateInterface  */
     protected $auth;
 

@@ -34,6 +34,7 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
         $this->app->bind("App\Repositories\UserRepositoryInterface", "App\Repositories\Fluent\UserRepository");
         $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
+        $this->app->bind("App\Repositories\RecipeRepositoryInterface", "App\Repositories\Fluent\RecipeRepository");
 
         // view composer
         $this->app->view->composer('elements.sidebar', 'App\Composers\CategoryComposer');
