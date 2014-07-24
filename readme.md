@@ -12,3 +12,9 @@ develop
 $ php artisan migrate
 $ php artisan db:seed
 ```
+
+Grunt
+```bash
+$ npm install
+$ grunt
+```
