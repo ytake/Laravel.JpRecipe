@@ -41,6 +41,18 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
     }
 
     /**
+     * @param $column
+     * @param $key
+     * @return array|\Illuminate\Database\Query\Builder|mixed|static
+     */
+    public function getCategoryList($column, $key)
+    {
+        return $this->getConnection('slave')
+            ->orderByRaw('section_id, position ASC')
+            ->remember(240, 'category_list')->lists($column, $key);
+    }
+
+    /**
      * @param $sectionId
      * @return array|static[]
      */

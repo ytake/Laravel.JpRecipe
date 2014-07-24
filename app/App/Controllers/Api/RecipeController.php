@@ -23,4 +23,11 @@ class RecipeController extends Controller
 
     }
 
+    /**
+     * @param $format
+     */
+    public function getFormat($format)
+    {
+
+    }
 }

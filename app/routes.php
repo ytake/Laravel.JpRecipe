@@ -6,11 +6,13 @@
 \Route::when('auth/login*', 'guest');
 \Route::when('auth/logout*', 'auth');
 \Route::when('*', 'csrf', ['post']);
+\Route::when('webmaster/recipe*', 'post.once', ['post']);
 
 \Route::group(['namespace' => 'App\Controllers'], function () {
 
     // for API
     \Route::group(['namespace' => 'Api', 'prefix' => 'api/v1'], function () {
+        \Route::post('hook', 'HookController@postHook');
         \Route::resource('recipe', 'RecipeController', ['only' => ['index', 'show']]);
     });
 
