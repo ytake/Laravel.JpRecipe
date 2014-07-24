@@ -21,6 +21,13 @@ interface CategoryRepositoryInterface
     public function getCategories();
 
     /**
+     * @param $column
+     * @param $key
+     * @return \Illuminate\Database\Query\Builder|mixed|static
+     */
+    public function getCategoryList($column, $key);
+
+    /**
      * @param $sectionId
      * @return array|static[]
      */

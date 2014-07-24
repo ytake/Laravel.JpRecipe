@@ -38,6 +38,10 @@ class ApplicationServiceProvider extends ServiceProvider
 
         // view composer
         $this->app->view->composer('elements.sidebar', 'App\Composers\CategoryComposer');
+        /**
+         * ユーザー独自のフィルター実装
+         */
+        $this->app->router->filter('post.once', 'App\Filters\PostOnceFilter');
     }
 
     /**
