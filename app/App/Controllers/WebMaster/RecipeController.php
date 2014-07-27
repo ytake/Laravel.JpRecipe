@@ -2,8 +2,8 @@
 namespace App\Controllers\WebMaster;
 
 use App\Controllers\BaseController;
-use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\RecipeRepositoryInterface;
+use App\Repositories\CategoryRepositoryInterface;
 
 /**
  * Class RecipeController
@@ -76,10 +76,16 @@ class RecipeController extends BaseController
      */
     public function postConfirm($one = null)
     {
-        //
         $request = \Input::only([
                 'title', 'category_id', 'problem', 'solution', 'discussion'
             ]);
+        // validator
+        $validate = $this->recipe->validate($request, 'webmaster.rule');
+        if(!$validate) {
+            return \Redirect::route('webmaster.recipe.form')
+                ->withErrors($this->recipe->getErrors())->withInput();
+        }
+
         $data = [
             'id' => $one,
             'hidden' => $this->setHiddenVars($request),

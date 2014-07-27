@@ -2,7 +2,7 @@
 namespace App\Presenter;
 
 use Ciconia\Common\Text;
-use Ciconia\Markdown;
+use Ciconia\Markdown as Md;
 use Ciconia\Renderer\RendererAwareTrait;
 use Ciconia\Extension\Gfm\FencedCodeBlockExtension;
 
@@ -24,7 +24,7 @@ class CodeBlockExtension extends FencedCodeBlockExtension
     /**
      * {@inheritdoc}
      */
-    public function register(Markdown $markdown)
+    public function register(Md $markdown)
     {
         $this->markdown = $markdown;
 
@@ -53,7 +53,7 @@ class CodeBlockExtension extends FencedCodeBlockExtension
                 if (!$lang->isEmpty()) {
                     $options = array(
                         'attr' => array(
-                            'class' => 'highlight highlight-' . $lang->lower()
+                            'class' => 'prettyprint ' . $lang->lower()
                         )
                     );
                 }

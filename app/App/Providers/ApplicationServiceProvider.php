@@ -1,9 +1,9 @@
 <?php
 namespace App\Providers;
 
-use App\Authenticate\Driver\GithubUser;
-use App\Authenticate\Driver\GithubUserProvider;
+use Ciconia\Ciconia;
 use Illuminate\Support\ServiceProvider;
+use App\Authenticate\Driver\GithubUserProvider;
 
 /**
  * Class ApplicationServiceProvider
@@ -42,6 +42,10 @@ class ApplicationServiceProvider extends ServiceProvider
          * ユーザー独自のフィルター実装
          */
         $this->app->router->filter('post.once', 'App\Filters\PostOnceFilter');
+
+        $this->app->bindShared('markdown', function($app) {
+            return new \App\Presenter\Markdown(new Ciconia());
+        });
     }
 
     /**
