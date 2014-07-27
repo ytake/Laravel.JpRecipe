@@ -59,7 +59,7 @@ return [
     "not_in" => "選択された:attributeは正しくありません。",
     "numeric" => ":attributeには、数字を指定してください。",
     "regex" => ":attributeに正しい形式をご指定ください。",
-    "required" => ":attributeは必ず指定してください。",
+    "required" => ":attributeを必ず記述してください。",
     "required_if" => ":otherが:valueの場合、:attributeも指定してください。",
     "required_with" => ":valuesを指定する場合は、:attributeも指定してください。",
     "required_with_all" => ":valuesを指定する場合は、:attributeも指定してください。",
@@ -103,5 +103,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'レシピタイトル',
+        'problem' => '"困った時例"',
+        'solution' => '解決方法',
+        'discussion' => '関連事項やアドバイス'
+    ],
 ];

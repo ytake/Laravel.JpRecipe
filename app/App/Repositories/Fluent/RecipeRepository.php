@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\Fluent;
 
+use App\Validates\CustomRule;
 use App\Repositories\RecipeRepositoryInterface;
 
 /**
@@ -10,6 +11,8 @@ use App\Repositories\RecipeRepositoryInterface;
  */
 class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterface
 {
+
+    use CustomRule;
 
     protected $cacheKey = "recipe:";
 
@@ -32,5 +35,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
                     'recipe.*', 'cat.name'
                 ]);
     }
+
+
 
 }
