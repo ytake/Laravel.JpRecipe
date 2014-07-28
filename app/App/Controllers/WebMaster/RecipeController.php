@@ -38,10 +38,19 @@ class RecipeController extends BaseController
         $this->category = $category;
     }
 
-
+    /**
+     * レシピ詳細
+     * @param null $one
+     */
     public function getShow($one = null)
     {
-
+        $recipe = $this->recipe->getRecipe($one);
+        $category = $this->category->getCategory($recipe->category_id);
+        $data = [
+            'recipe' => $recipe,
+            'category' => $category
+        ];
+        $this->view('webmaster.recipe.show', $data);
     }
 
     /**
@@ -66,6 +75,9 @@ class RecipeController extends BaseController
             'id' => $one,
             'categories' => $this->category->getCategoryList('description', 'category_id')
         ];
+        if($one) {
+            $data['recipe'] = $this->recipe->getRecipe($one);
+        }
         $this->view('webmaster.recipe.form', $data);
     }
 
@@ -80,9 +92,12 @@ class RecipeController extends BaseController
                 'title', 'category_id', 'problem', 'solution', 'discussion'
             ]);
         // validator
+        if($one) {
+            $this->recipe->rule['webmaster.rule']['title'] = "required|unique:recipes,title,{$one},recipe_id";
+        }
         $validate = $this->recipe->validate($request, 'webmaster.rule');
         if(!$validate) {
-            return \Redirect::route('webmaster.recipe.form')
+            return \Redirect::route('webmaster.recipe.form', ['one' => $one])
                 ->withErrors($this->recipe->getErrors())->withInput();
         }
 
@@ -96,11 +111,33 @@ class RecipeController extends BaseController
 
     /**
      * 実行
+     * @param null $one
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function postApply($one = null)
     {
         if(\Input::get('_return')) {
             return \Redirect::route('webmaster.recipe.form', ['id' => $one])->withInput();
+        }
+        $request = \Input::only([
+                'title', 'category_id', 'problem', 'solution', 'discussion'
+            ]);
+
+        try {
+            // added
+            if(is_null($one)) {
+                $this->recipe->addRecipe($request);
+            // updated
+            }else{
+                $this->recipe->updateRecipe($one, $request);
+            }
+            // session remove
+            \Session::forget(self::SESSION_KEY);
+            $this->view('webmaster.recipe.apply');
+        } catch(\Illuminate\Database\QueryException $e) {
+
+            return \Redirect::route('webmaster.recipe.form', ['one' => $one])
+                ->withErrors(['title' => 'そのタイトルはすでに登録されています'])->withInput();
         }
     }
 

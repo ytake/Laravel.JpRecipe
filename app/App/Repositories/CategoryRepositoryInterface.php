@@ -32,4 +32,10 @@ interface CategoryRepositoryInterface
      * @return array|static[]
      */
     public function getCategoryFromSection($sectionId);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getCategory($id);
 }

@@ -18,6 +18,7 @@
 
     \Route::group(['namespace' => 'WebMaster', 'before' => 'auth', 'prefix' => 'webmaster'], function () {
         \Route::get('/', ['uses' => 'HomeController@getIndex', 'as' => 'webmaster.index']);
+
         // recipe
         \Route::controller('recipe', 'RecipeController', [
                 'getShow' => 'webmaster.recipe.show',
@@ -27,6 +28,7 @@
                 'postApply' => 'webmaster.recipe.apply',
             ]
         );
+
     });
     // authenticate
     \Route::controller('auth', 'AuthenticateController', [

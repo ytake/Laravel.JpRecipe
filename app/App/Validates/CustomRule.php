@@ -13,7 +13,7 @@ trait CustomRule
     protected $errors;
 
     /** @var array  */
-    protected $rule = [
+    public $rule = [
         'webmaster.rule' => [
             'title' => 'required|unique:recipes,title',
             'category_id' => 'required',
@@ -54,5 +54,17 @@ trait CustomRule
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * @param null $name
+     * @return array
+     */
+    public function getRule($name = null)
+    {
+        if(is_null($name)) {
+            return $this->rule;
+        }
+        return $this->rule[$name];
     }
 } 

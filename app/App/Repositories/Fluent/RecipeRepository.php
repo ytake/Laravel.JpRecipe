@@ -36,6 +36,44 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
                 ]);
     }
 
+    /**
+     * @param array $attribute
+     * @return mixed
+     */
+    public function addRecipe(array $attribute)
+    {
+        $this->table = 'recipes';
+        return $this->add($attribute);
+    }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function deleteRecipe($id)
+    {
+        $this->table = 'recipes';
+        return $this->delete($id);
+    }
+
+    /**
+     * @param $id
+     * @param array $attribute
+     * @return mixed
+     */
+    public function updateRecipe($id, array $attribute)
+    {
+        $this->table = 'recipes';
+        return $this->update($id, $attribute);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getRecipe($id)
+    {
+        return $this->find($id);
+    }
 
 }

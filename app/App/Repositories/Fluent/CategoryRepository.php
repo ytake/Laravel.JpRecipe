@@ -63,4 +63,13 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
             ->remember(240, "{$this->cacheKey}section:{$sectionId}")
             ->get();
     }
+
+    /**
+     * @param $id
+     * @return mixed|static
+     */
+    public function getCategory($id)
+    {
+        return $this->find($id);
+    }
 }

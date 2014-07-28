@@ -1,8 +1,7 @@
 <?php
 namespace App\Presenter;
 
-use Ciconia\Ciconia;
-use Ciconia\Extension\Gfm;
+use Parsedown;
 
 /**
  * Class Markdown
@@ -14,21 +13,15 @@ use Ciconia\Extension\Gfm;
 class Markdown implements MarkdownInterface
 {
 
-    /** @var \Ciconia\Ciconia  */
+    /** @var \Parsedown  */
     protected $parser;
 
     /**
-     * @param Ciconia $parser
+     * @param Parsedown $parser
      */
-    public function __construct(Ciconia $parser)
+    public function __construct(Parsedown $parser)
     {
         $this->parser = $parser;
-        $this->parser->addExtension(new CodeBlockExtension);
-        $this->parser->addExtension(new Gfm\TaskListExtension());
-        $this->parser->addExtension(new Gfm\InlineStyleExtension());
-        $this->parser->addExtension(new Gfm\WhiteSpaceExtension());
-        $this->parser->addExtension(new Gfm\TableExtension());
-        $this->parser->addExtension(new Gfm\UrlAutoLinkExtension());
     }
 
     /**
@@ -42,13 +35,13 @@ class Markdown implements MarkdownInterface
     {
         //
         if(!$life || is_null($cacheKey)) {
-            return $this->parser->render($text);
+            return $this->parser->text($text);
         }
 
         if(\Cache::has($cacheKey)) {
             return \Cache::get($cacheKey);
         }
-        $result = $this->parser->render($text);
+        $result = $this->parser->text($text);
         \Cache::put($cacheKey, $text, $life);
         return $result;
     }
