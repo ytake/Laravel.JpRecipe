@@ -38,4 +38,10 @@ interface CategoryRepositoryInterface
      * @return mixed
      */
     public function getCategory($id);
+
+    /**
+     * @param $slug
+     * @return mixed
+     */
+    public function getCategoryFromSlug($slug);
 }

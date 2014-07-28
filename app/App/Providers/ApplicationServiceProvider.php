@@ -2,6 +2,7 @@
 namespace App\Providers;
 
 use Parsedown;
+use App\Commands\AddRecipeCommand;
 use Illuminate\Support\ServiceProvider;
 use App\Authenticate\Driver\GithubUserProvider;
 
@@ -17,6 +18,7 @@ class ApplicationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerAuthenticateDriver();
+        $this->registerCommands();
     }
 
     /**
@@ -48,6 +50,7 @@ class ApplicationServiceProvider extends ServiceProvider
         });
     }
 
+
     /**
      * bootで実行
      * extend authenticate driver
@@ -65,5 +68,25 @@ class ApplicationServiceProvider extends ServiceProvider
                 $app['session.store']
             );
         });
+    }
+
+    /**
+     *
+     */
+    protected function registerCommands()
+    {
+        //
+        $this->app['jp-recipe.add'] = $this->app->share(function($app) {
+                return new AddRecipeCommand(
+                    $app->make("App\Repositories\CategoryRepositoryInterface"),
+                    $app->make("App\Repositories\RecipeRepositoryInterface")
+                );
+            });
+        $this->commands('jp-recipe.add');
+    }
+
+    public function provides()
+    {
+        return ['jp-recipe.add'];
     }
 }

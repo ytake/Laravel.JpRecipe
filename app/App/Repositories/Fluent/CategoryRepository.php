@@ -72,4 +72,16 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
     {
         return $this->find($id);
     }
+
+    /**
+     * @param $slug
+     * @return mixed|static
+     */
+    public function getCategoryFromSlug($slug)
+    {
+        return $this->getConnection('slave')
+            ->where('slug', strtolower($slug))
+            ->remember(240, strtolower($slug))
+            ->first();
+    }
 }
