@@ -1,7 +1,7 @@
 <?php
 namespace App\Providers;
 
-use Ciconia\Ciconia;
+use Parsedown;
 use Illuminate\Support\ServiceProvider;
 use App\Authenticate\Driver\GithubUserProvider;
 
@@ -44,7 +44,7 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->router->filter('post.once', 'App\Filters\PostOnceFilter');
 
         $this->app->bindShared('markdown', function($app) {
-            return new \App\Presenter\Markdown(new Ciconia());
+            return new \App\Presenter\Markdown(new Parsedown);
         });
     }
 

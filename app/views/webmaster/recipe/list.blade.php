@@ -18,7 +18,8 @@
                         <th>#</th>
                         <th>タイトル</th>
                         <th>カテゴリ</th>
-                        <th>作成者</th>
+                        <th>詳細</th>
+                        <th>&nbsp;</th>
                     </tr>
                     @if(count($list))
                     @foreach($list as $row)
@@ -26,6 +27,9 @@
                         <td>{{$row->recipe_id}}</td>
                         <td>{{$row->title}}</td>
                         <td>{{$row->name}}</td>
+                        <td>
+                            {{HTML::link(action('webmaster.recipe.show', ['one' => $row->recipe_id]), '詳細', ['class' => 'btn btn-info btn-xs'])}}
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     @endforeach
