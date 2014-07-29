@@ -76,4 +76,12 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         return $this->find($id);
     }
 
+    /**
+     * @param $title
+     * @return mixed|static
+     */
+    public function getRecipeFromTitle($title)
+    {
+        return $this->getConnection('slave')->where('recipe.title', $title)->first();
+    }
 }

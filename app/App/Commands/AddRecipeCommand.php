@@ -35,10 +35,8 @@ class AddRecipeCommand extends Command
      * @param CategoryRepositoryInterface $category
      * @param RecipeRepositoryInterface $recipe
      */
-    public function __construct(
-        CategoryRepositoryInterface $category,
-        RecipeRepositoryInterface $recipe
-    ) {
+    public function __construct(CategoryRepositoryInterface $category, RecipeRepositoryInterface $recipe)
+    {
         parent::__construct();
         $this->category = $category;
         $this->recipe = $recipe;
@@ -58,36 +56,51 @@ class AddRecipeCommand extends Command
             if($category) {
                 $files = "{$path}/{$directory}";
                 if($scan = scandir($files)) {
+                    // insert
+                    $this->scanFile($scan, $files, $category);
+                }
+            }
+        }
+    }
 
-                    foreach ($scan as $value) {
-                        if ($value != "." &&  $value != "..") {
-                            $file = \File::get("{$path}/{$directory}/{$value}");
-                            $problem = $this->getParseContents('problem', $file);
-                            $solution = $this->getParseContents('solution', $file);
-                            $discussion = $this->getParseContents('discussion', $file);
-                            $title = $this->getParseHeaderTitle($file);
-                            if($problem && $solution && $discussion && $title) {
-                                $array = [
-                                    'problem' => trim($problem),
-                                    'category_id' => $category->category_id,
-                                    // @todo
-                                    'solution' => str_replace(['{php}', '{/php}'], ['```php', '```'], trim($solution)),
-                                    'discussion' => trim($discussion),
-                                    'title' => trim($title)
-                                ];
-                                try {
-                                    $this->recipe->addRecipe($array);
-                                    $this->info("added : {$path}/{$directory}/{$value}");
-                                } catch(\Illuminate\Database\QueryException $e) {
-                                    $this->comment("Duplicate : {$path}/{$directory}/{$value}");
-                                }
-                            }
-                        }
+    /**
+     * @param array $dir
+     * @param $files
+     * @param \stdClass $category
+     * @return void
+     */
+    protected function scanFile(array $dir, $files, \stdClass $category)
+    {
+
+        foreach ($dir as $value) {
+
+            if ($value != "." &&  $value != "..") {
+                $file = \File::get("{$files}/{$value}");
+                $problem = $this->getParseContents('problem', $file);
+                $solution = $this->getParseContents('solution', $file);
+                $discussion = $this->getParseContents('discussion', $file);
+                $title = $this->getParseHeaderTitle($file);
+
+                if($problem && $solution && $discussion && $title) {
+                    $array = [
+                        'problem' => trim($problem),
+                        'category_id' => $category->category_id,
+                        'solution' => trim($this->convertGfm($solution)),
+                        'discussion' => trim($this->convertGfm($discussion)),
+                        'title' => trim($title)
+                    ];
+                    try {
+                        // @todo
+                        $this->recipe->addRecipe($array);
+                        $this->info("added : {$files}/{$value}");
+                    } catch(\Illuminate\Database\QueryException $e) {
+                        $this->comment("Duplicate : {$files}/{$value}");
                     }
                 }
             }
         }
     }
+
 
     /**
      * @access private
@@ -97,7 +110,7 @@ class AddRecipeCommand extends Command
      */
     private function getParseContents($tag, $file)
     {
-        $preg = preg_match_all("/\{$tag\}(.*?)\{\/$tag\}/s", $file, $matches);
+        $preg = preg_match_all("/\{$tag\}(.*?)\{\/$tag\}/us", $file, $matches);
         if($preg) {
             return end($matches)[0];
         }
@@ -111,7 +124,7 @@ class AddRecipeCommand extends Command
      */
     private function getParseHeaderTitle($file)
     {
-        $preg = preg_match_all("/---(.*?)---/s", $file, $matches);
+        $preg = preg_match_all("/---(.*?)---/us", $file, $matches);
         if($preg) {
             $explode = explode("\n", end($matches)[0]);
             if($explode) {
@@ -124,5 +137,24 @@ class AddRecipeCommand extends Command
             return false;
         }
         return false;
+    }
+
+    /**
+     * @param string $string
+     * @return string
+     */
+    protected function convertGfm($string)
+    {
+        $pattern = [
+            "/{((?!\/)(php|javascript|bash|java|css|html))}/us",
+            "/{(\/.*?)}/us",
+            "/\[\[((.*?))\]\]/us"
+        ];
+        $replace = [
+            "```$1",
+            "```",
+            "[$1](" . action('home.recipe') . ")"
+        ];
+        return preg_replace($pattern, $replace, $string);
     }
 }

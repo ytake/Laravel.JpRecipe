@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'document_path' => base_path() . "/doc/recipes",
+    'document_path' => base_path() . "/docs/recipes",
 ];

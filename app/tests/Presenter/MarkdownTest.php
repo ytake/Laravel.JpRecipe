@@ -13,7 +13,7 @@ class MarkdownTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->markdown = new Markdown(new Ciconia);
+        $this->markdown = new Markdown(new \Parsedown());
     }
 
     public function testInstance()
@@ -28,8 +28,10 @@ class MarkdownTest extends TestCase
         $text = "```php
 echo 'hello';
 ```";
-        $output = "<pre class=\"highlight highlight-php\"><code>echo 'hello';
-</code></pre>";
+        $output = "<pre><code class=\"language-php\">echo 'hello';</code></pre>";
         $this->assertSame($output, $this->markdown->render($text));
+        $text = "[aaaa](http://example.com)";
+        $this->assertSame("<p><a href=\"http://example.com\">aaaa</a></p>", $this->markdown->render($text));
+        $this->assertSame("<p><code>Person</code></p>", $this->markdown->render("`Person`"));
     }
 } 

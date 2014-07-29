@@ -38,5 +38,9 @@
         ]
     );
     // top
-    \Route::controller('/', 'HomeController', ['getIndex' => 'index']);
+    \Route::controller('/', 'HomeController', [
+            'getIndex' => 'home.index',
+            'getRecipe' => 'home.recipe'
+        ]
+    );
 });
