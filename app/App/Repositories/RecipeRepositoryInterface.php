@@ -39,4 +39,10 @@ interface RecipeRepositoryInterface
      * @return mixed
      */
     public function getRecipe($id);
+
+    /**
+     * @param $title
+     * @return mixed
+     */
+    public function getRecipeFromTitle($title);
 }
