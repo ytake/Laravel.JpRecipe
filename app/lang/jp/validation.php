@@ -107,6 +107,8 @@ return [
         'title' => 'レシピタイトル',
         'problem' => '"困った時例"',
         'solution' => '解決方法',
-        'discussion' => '関連事項やアドバイス'
+        'discussion' => '関連事項やアドバイス',
+        'name' => 'カテゴリー名',
+        'description' => '詳細',
     ],
 ];

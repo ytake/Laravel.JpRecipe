@@ -1,8 +1,8 @@
 <?php
 namespace App\Authenticate\Driver;
 
-use App\Exception\OAuthErrorException;
 use GuzzleHttp\ClientInterface;
+use App\Exception\OAuthErrorException;
 use App\Authenticate\AuthenticateInterface;
 
 /**

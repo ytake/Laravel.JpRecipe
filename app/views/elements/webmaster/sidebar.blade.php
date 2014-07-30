@@ -11,6 +11,11 @@
                     <i class="fa fa-desktop fa-3x"></i>レシピ
                 </a>
             </li>
+            <li>
+                <a @if(Request::is("webmaster/category*"))class="active-menu"@endif href="/webmaster/category/list">
+                    <i class="fa fa-desktop fa-3x"></i>カテゴリー
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

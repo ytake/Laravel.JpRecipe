@@ -35,4 +35,18 @@ class BaseController extends Controller
     {
         $this->layout->content = \View::make($path, $data);
     }
+
+    /**
+     * @access private
+     * @param array $array
+     * @return array
+     */
+    protected function setHiddenVars(array $array)
+    {
+        $attributes = [];
+        foreach($array as $key => $value) {
+            $attributes[] = \Form::hidden($key, $value);
+        }
+        return implode("\n", $attributes);
+    }
 }

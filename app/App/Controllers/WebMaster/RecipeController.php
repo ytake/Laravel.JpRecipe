@@ -14,10 +14,10 @@ class RecipeController extends BaseController
 {
 
     // constants
-    const PER_PAGE = 10;
+    const PER_PAGE = 25;
 
     // add recipes
-    const SESSION_KEY = 'add_recipe';
+    const SESSION_KEY = 'session_recipe';
 
     /** @var string  */
     protected $layout = 'layouts.webmaster';
@@ -59,7 +59,8 @@ class RecipeController extends BaseController
     public function getList()
     {
         $data = [
-            'list' => $this->recipe->getRecipes()
+            'list' => $this->recipe->getRecipes(self::PER_PAGE, \Input::get('category_id')),
+            'categories' => ['' => 'すべて'] + $this->category->getCategoryList('name', 'category_id')
         ];
         $this->view('webmaster.recipe.list', $data);
     }
@@ -93,9 +94,9 @@ class RecipeController extends BaseController
             ]);
         // validator
         if($one) {
-            $this->recipe->rule['webmaster.rule']['title'] = "required|unique:recipes,title,{$one},recipe_id";
+            $this->recipe->rule['webmaster.recipe']['title'] = "required|unique:recipes,title,{$one},recipe_id";
         }
-        $validate = $this->recipe->validate($request, 'webmaster.rule');
+        $validate = $this->recipe->validate($request, 'webmaster.recipe');
         if(!$validate) {
             return \Redirect::route('webmaster.recipe.form', ['one' => $one])
                 ->withErrors($this->recipe->getErrors())->withInput();
@@ -133,27 +134,12 @@ class RecipeController extends BaseController
             }
             // session remove
             \Session::forget(self::SESSION_KEY);
-            $this->view('webmaster.recipe.apply');
+            $this->view('webmaster.recipe.apply', ['id' => $one]);
         } catch(\Illuminate\Database\QueryException $e) {
 
             return \Redirect::route('webmaster.recipe.form', ['one' => $one])
                 ->withErrors(['title' => 'そのタイトルはすでに登録されています'])->withInput();
         }
-    }
-
-
-    /**
-     * @access private
-     * @param array $array
-     * @return array
-     */
-    private function setHiddenVars(array $array)
-    {
-        $attributes = [];
-        foreach($array as $key => $value) {
-            $attributes[] = \Form::hidden($key, $value);
-        }
-        return implode("\n", $attributes);
     }
 
 }

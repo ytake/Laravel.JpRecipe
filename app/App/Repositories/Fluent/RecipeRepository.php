@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories\Fluent;
 
-use App\Validates\CustomRule;
+use App\Validator\CustomRule;
 use App\Repositories\RecipeRepositoryInterface;
 
 /**
@@ -24,13 +24,19 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
 
     /**
      * @param int $limit
+     * @param $categoryId
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getRecipes($limit = 25)
+    public function getRecipes($limit = 25, $categoryId = '')
     {
-        return $this->getConnection('slave')
-            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id')
-            ->orderBy('recipe.recipe_id', 'DESC')
+        $query = $this->getConnection('slave')
+            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id');
+
+        if($categoryId != '') {
+            $query->where('cat.category_id', $categoryId);
+        }
+
+        return $query->orderBy('recipe.recipe_id', 'DESC')
             ->paginate($limit, [
                     'recipe.*', 'cat.name'
                 ]);
@@ -43,6 +49,11 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
     public function addRecipe(array $attribute)
     {
         $this->table = 'recipes';
+
+        if(!isset($attribute['position'])) {
+            $position = $this->getRecipePosition($attribute['category_id']);
+            $attribute['position'] = (int)$position + 1;
+        }
         return $this->add($attribute);
     }
 
@@ -83,5 +94,15 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
     public function getRecipeFromTitle($title)
     {
         return $this->getConnection('slave')->where('recipe.title', $title)->first();
+    }
+
+    /**
+     * @param $categoryId
+     * @return mixed
+     */
+    private function getRecipePosition($categoryId)
+    {
+        return $this->getConnection('slave')
+            ->where('category_id', $categoryId)->max('position');
     }
 }
