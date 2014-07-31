@@ -1,5 +1,5 @@
 ---
-Title:    Registering an After Application Filter
+Title:    フィルター"After"を実装する
 Topics:   filters
 Code:     App::after()
 Id:       54
@@ -7,16 +7,16 @@ Position: 7
 ---
 
 {problem}
-You want to do work after every request in your application.
+リクエストの度に、毎回実行される処理を実装したい(ControllerやRoute等)
 {/problem}
 
 {solution}
-Register a "after" application filter.
+フィルターの"after"をフレームワークに登録します。
 
 {php}
 App::after(function($request, $response)
 {
-    // Capture last response
+    // 実行後にレスポンスを書き出す例
     $content = $response->getContent();
     File::put(storage_path().'/logs/last_response.txt', $content);
 });
@@ -24,7 +24,10 @@ App::after(function($request, $response)
 {/solution}
 
 {discussion}
-You can modify the response.
+レスポンスは任意で自由に変更する事ができます。
 
-Since after filters receive the response object, you can make changes to the response within this filter. See [[Understanding the Request Lifecycle]] to understand exactly when application after filters are called.
+このフィルターはレスポンスのオブジェクトを受け取った後に実行される為、
+レスポンスをフィルター内で変更する事ができます
+こちらも参考にしてみて下さい [[Understanding the Request Lifecycle]]
+アプリケーション処理後に実行されるフィルターについて、理解を深める事ができます。
 {/discussion}

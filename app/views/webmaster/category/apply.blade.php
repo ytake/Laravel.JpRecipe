@@ -8,9 +8,9 @@
     <div class="panel panel-default">
         <div class="panel-body">
             @if($id)
-            新しいカテゴリーが追加されました。
+            カテゴリーを編集しました。
             @else
-            カテゴリーを編集しました
+            新しいカテゴリーが追加されました。
             @endif
             <br />
             {{HTML::link(action('webmaster.category.list'), '一覧へ', ['class' => 'btn btn-info'])}}

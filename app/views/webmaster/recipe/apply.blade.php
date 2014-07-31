@@ -8,9 +8,9 @@
     <div class="panel panel-default">
         <div class="panel-body">
             @if($id)
-            新しいレシピが追加されました。
+            レシピを編集しました。
             @else
-            レシピを編集しました
+            新しいレシピが追加されました。
             @endif
             <br />
             {{HTML::link(action('webmaster.recipe.list'), '一覧へ', ['class' => 'btn btn-info'])}}

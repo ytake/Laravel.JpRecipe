@@ -1,5 +1,5 @@
 ---
-Title:    Artisan Password Reminder Commands
+Title:    Artisan パスワードリマインダーコマンド
 Topics:   authentication, configuration
 Code:     -
 Id:       79
@@ -7,19 +7,19 @@ Position: 13
 ---
 
 {problem}
-You want to know which artisan commands deal with Laravel's password reminder features.
+Artisanコマンドで、Laravelで実装されているパスワードリマインダーを使いたい
 {/problem}
 
 {solution}
-Here's the list.
+関連するコマンドリストを挙げましょう
 
 * `php artisan auth:reminders` - [[Creating a Migration for Password Reminders]]
 * `php artisan auth:clear-reminders` - [[Clearing Expired Password Reminders]]
 * `php artisan auth:reminders-controller` - [[Creating a Reminders Controller]]
 
-Of course, you could also just type `php artisan` and read through the list of commands.
+もちろん、`php artisan`とコンソールで打てば実装されているコマンドリストが表示されます。
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}
