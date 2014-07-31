@@ -1,0 +1,19 @@
+/**
+ * Laravel.JpRecipe default Cascading Style Sheets
+ *
+ */
+body {
+    font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo, sans-serif;
+}
+.navbar-brand {
+    height: auto;
+}
+
+.search {
+    color: #fff;
+    background-color: #f4726d;
+}
+.emerald {
+    color: #fff;
+    background-color: #f4a46a;
+}

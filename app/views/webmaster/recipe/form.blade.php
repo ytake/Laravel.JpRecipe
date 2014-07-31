@@ -1,11 +1,7 @@
 @section('styles')
 <link href="/css/dataTables.bootstrap.css" rel="stylesheet" type='text/css' />
-<link href="/css/dist/fancybox/jquery.fancybox.css" rel="stylesheet" type='text/css' />
 @stop
 @section('scripts')
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.11/jquery.mousewheel.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-<script src="/js/preview.js"></script>
 @stop
 @section('content')
 <h2>レシピ@if($id) 編集@else 追加@endif</h2>

@@ -16,6 +16,13 @@ interface CategoryRepositoryInterface
     public function addCategory(array $attribute);
 
     /**
+     * @param $id
+     * @param array $attribute
+     * @return mixed
+     */
+    public function updateCategory($id, array $attribute);
+
+    /**
      * @return array|static[]
      */
     public function getCategories();
@@ -44,4 +51,9 @@ interface CategoryRepositoryInterface
      * @return mixed
      */
     public function getCategoryFromSlug($slug);
+
+    /**
+     * @return mixed
+     */
+    public function getNavigationCategory();
 }

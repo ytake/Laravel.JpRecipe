@@ -7,6 +7,7 @@
 \Route::when('auth/logout*', 'auth');
 \Route::when('*', 'csrf', ['post']);
 \Route::when('webmaster/recipe*', 'post.once', ['post']);
+\Route::when('webmaster/category*', 'post.once', ['post']);
 
 \Route::group(['namespace' => 'App\Controllers'], function () {
 
@@ -28,7 +29,15 @@
                 'postApply' => 'webmaster.recipe.apply',
             ]
         );
-
+        // category
+        \Route::controller('category', 'CategoryController', [
+                'getShow' => 'webmaster.category.show',
+                'getList' => 'webmaster.category.list',
+                'getForm' => 'webmaster.category.form',
+                'postConfirm' => 'webmaster.category.confirm',
+                'postApply' => 'webmaster.category.apply',
+            ]
+        );
     });
     // authenticate
     \Route::controller('auth', 'AuthenticateController', [

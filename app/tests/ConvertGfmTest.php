@@ -26,9 +26,9 @@ function()
     echo "aaaa";
 }
 {/php}
-{javascript}
+{js}
 console.log("aaaa");
-{/javascript}
+{/js}
 ';
 
         $convert = "```php
@@ -37,7 +37,7 @@ function()
     echo \"aaaa\";
 }
 ```
-```javascript
+```js
 console.log(\"aaaa\");
 ```
 ";
@@ -51,7 +51,7 @@ console.log(\"aaaa\");
     protected function convertGfm($string)
     {
         $pattern = [
-            "/{((?!\/)(php|javascript|bash|java|css|html))}/us",
+            "/{((?!\/)(php|js|bash|java|css|html))}/us",
             "/{(\/.*?)}/us",
             "/\[\[((.*?))\]\]/us"
         ];

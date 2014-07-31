@@ -33,10 +33,12 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->bind("App\\Authenticate\\AuthenticateInterface", function($app) {
             return $app->make("App\\Authenticate\\Driver\\GitHub", [$app->make("GuzzleHttp\\ClientInterface")]);
         });
+
         $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
         $this->app->bind("App\Repositories\UserRepositoryInterface", "App\Repositories\Fluent\UserRepository");
-        $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
         $this->app->bind("App\Repositories\RecipeRepositoryInterface", "App\Repositories\Fluent\RecipeRepository");
+        $this->app->bind("App\Repositories\SectionRepositoryInterface", "App\Repositories\Fluent\SectionRepository");
+        $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
 
         // view composer
         $this->app->view->composer('elements.sidebar', 'App\Composers\CategoryComposer');
@@ -49,7 +51,6 @@ class ApplicationServiceProvider extends ServiceProvider
             return new \App\Presenter\Markdown(new Parsedown);
         });
     }
-
 
     /**
      * bootで実行
@@ -71,7 +72,7 @@ class ApplicationServiceProvider extends ServiceProvider
     }
 
     /**
-     *
+     * register commands
      */
     protected function registerCommands()
     {
@@ -85,8 +86,13 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->commands('jp-recipe.add');
     }
 
+    /**
+     * @return array
+     */
     public function provides()
     {
-        return ['jp-recipe.add'];
+        return [
+            'jp-recipe.add'
+        ];
     }
 }

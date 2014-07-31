@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\Fluent;
 
+use App\Validator\CustomRule;
 use App\Repositories\CategoryRepositoryInterface;
 
 /**
@@ -10,6 +11,8 @@ use App\Repositories\CategoryRepositoryInterface;
  */
 class CategoryRepository extends AbstractFluent implements CategoryRepositoryInterface
 {
+
+    use CustomRule;
 
     /** @var string  */
     protected $cacheKey = "category:";
@@ -27,7 +30,25 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
      */
     public function addCategory(array $attribute)
     {
+        $attribute['slug'] = \Str::slug($attribute['name']);
+        if(!isset($attribute['position'])) {
+            $position = $this->getCategoryPosition($attribute['section_id']);
+            $attribute['position'] = (int)$position + 1;
+        }
+        \Cache::forget('category_list');
+        \Cache::forget('nav_category');
         return $this->add($attribute);
+    }
+
+    /**
+     * @param $id
+     * @param array $attribute
+     * @return mixed
+     */
+    public function updateCategory($id, array $attribute)
+    {
+        \Cache::forget('category_list');
+        return $this->update($id, $attribute);
     }
 
     /**
@@ -83,5 +104,35 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
             ->where('slug', strtolower($slug))
             ->remember(240, strtolower($slug))
             ->first();
+    }
+
+    /**
+     * @param $sectionId
+     * @return mixed
+     */
+    private function getCategoryPosition($sectionId)
+    {
+        return $this->getConnection('slave')
+            ->where('section_id', $sectionId)->max('position');
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getNavigationCategory()
+    {
+        if(\Cache::has('nav_category')) {
+            return \Cache::get('nav_category');
+        }
+        $sql = "SELECT cat.*, COUNT(recipe.category_id) AS recipe_count"
+            ." FROM categories AS cat"
+            ." LEFT JOIN recipes AS recipe ON recipe.category_id = cat.category_id"
+            ." GROUP BY recipe.category_id"
+            ." ORDER BY slug ASC";
+        $result = \DB::connection('slave')->select($sql);
+        if($result) {
+            \Cache::add('nav_category', $result, 360);
+        }
+        return $result;
     }
 }

@@ -79,7 +79,8 @@ class AddRecipeCommand extends Command
                 $problem = $this->getParseContents('problem', $file);
                 $solution = $this->getParseContents('solution', $file);
                 $discussion = $this->getParseContents('discussion', $file);
-                $title = $this->getParseHeaderTitle($file);
+                $title = $this->getParseHeader('title', $file);
+                $position = $this->getParseHeader('position', $file);
 
                 if($problem && $solution && $discussion && $title) {
                     $array = [
@@ -87,7 +88,8 @@ class AddRecipeCommand extends Command
                         'category_id' => $category->category_id,
                         'solution' => trim($this->convertGfm($solution)),
                         'discussion' => trim($this->convertGfm($discussion)),
-                        'title' => trim($title)
+                        'title' => trim($title),
+                        'position' => trim($position)
                     ];
                     try {
                         // @todo
@@ -119,18 +121,29 @@ class AddRecipeCommand extends Command
 
     /**
      * @access private
+     * @param $element
      * @param $file
      * @return bool
      */
-    private function getParseHeaderTitle($file)
+    private function getParseHeader($element, $file)
     {
         $preg = preg_match_all("/---(.*?)---/us", $file, $matches);
         if($preg) {
             $explode = explode("\n", end($matches)[0]);
             if($explode) {
                 foreach($explode as $row) {
-                    if(strpos($row, 'Title:') === 0) {
-                        return trim(str_replace('Title:', '', $row));
+                    switch ($element)
+                    {
+                        case 'title':
+                            if(strpos($row, 'Title:') === 0) {
+                                return trim(str_replace('Title:', '', $row));
+                            }
+                            break;
+                        case 'position':
+                            if(strpos($row, 'Position:') === 0) {
+                                return trim(str_replace('Position:', '', $row));
+                            }
+                            break;
                     }
                 }
             }
@@ -146,7 +159,7 @@ class AddRecipeCommand extends Command
     protected function convertGfm($string)
     {
         $pattern = [
-            "/{((?!\/)(php|javascript|bash|java|css|html))}/us",
+            "/{((?!\/)(php|js|bash|java|css|html|text))}/us",
             "/{(\/.*?)}/us",
             "/\[\[((.*?))\]\]/us"
         ];
