@@ -133,7 +133,7 @@ class RecipeController extends BaseController
             }
             // session remove
             \Session::forget(self::SESSION_KEY);
-            $this->view('webmaster.recipe.apply');
+            $this->view('webmaster.recipe.apply', ['id' => $one]);
         } catch(\Illuminate\Database\QueryException $e) {
 
             return \Redirect::route('webmaster.recipe.form', ['one' => $one])
