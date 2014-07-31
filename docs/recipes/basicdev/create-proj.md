@@ -7,7 +7,7 @@ Position: 1
 ---
 
 {problem}
-Laravelでコーディングする準備が整ったが、
+Laravelでコーディングする準備が整ったが、  
 プロジェクトの作成方法やインストール等がわからない
 {/problem}
 
@@ -17,18 +17,17 @@ composerを使ってプロジェクトを作成します。
 {bash}
 laravel:~$ composer create-project laravel/laravel myapp
 {/bash}
-実行したら1、2分だけ完了までお待ち下さい。
+実行したら1、2分だけ完了までお待ち下さい。  
 完了後に、`myapp`ディレクトリに、初期状態のプロジェクトが作成されます。
 {/solution}
 
 {discussion}
-このcomposerコマンドは色々な事をします。
-This single Composer command does a lot.
+このcomposerコマンドは色々な事をします。  
+`create-project`コマンドは、初期状態のLaravelのディレクトリ構造を作成し、  
+ライブラリなどを管理する`composer.json`を使用して、  
+自動的に依存しているライブラリ等をインストールします。
 
-`create-project`コマンドは、初期状態のLaravelのディレクトリ構造を作成し、
-ライブラリなどを管理する`composer.json`を使用して、自動的に依存しているライブラリ等をインストールします。
-
-初期状態で作成されるディレクトリ構造は次の通りです:
+初期状態で作成されるディレクトリ構造は次の通りです:  
 
 {text}
 myapp : プロジェクトのディレクトリ
