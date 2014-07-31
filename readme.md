@@ -13,6 +13,12 @@ $ php artisan migrate
 $ php artisan db:seed
 ```
 
+added recipes
+```bash
+$ php artisan jp-recipe:add
+```
+
+
 Grunt
 ```bash
 $ npm install
