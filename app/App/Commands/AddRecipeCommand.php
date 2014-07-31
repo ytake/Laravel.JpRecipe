@@ -159,7 +159,7 @@ class AddRecipeCommand extends Command
     protected function convertGfm($string)
     {
         $pattern = [
-            "/{((?!\/)(php|js|bash|java|css|html))}/us",
+            "/{((?!\/)(php|js|bash|java|css|html|text))}/us",
             "/{(\/.*?)}/us",
             "/\[\[((.*?))\]\]/us"
         ];
