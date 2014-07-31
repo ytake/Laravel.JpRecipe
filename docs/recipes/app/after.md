@@ -26,8 +26,8 @@ App::after(function($request, $response)
 {discussion}
 レスポンスは任意で自由に変更する事ができます。
 
-このフィルターはレスポンスのオブジェクトを受け取った後に実行される為、
-レスポンスをフィルター内で変更する事ができます
-こちらも参考にしてみて下さい [[Understanding the Request Lifecycle]]
+このフィルターはレスポンスのオブジェクトを受け取った後に実行される為、  
+レスポンスをフィルター内で変更する事ができます  
+こちらも参考にしてみて下さい [[Understanding the Request Lifecycle]]  
 アプリケーション処理後に実行されるフィルターについて、理解を深める事ができます。
 {/discussion}
