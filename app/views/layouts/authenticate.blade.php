@@ -15,10 +15,8 @@
     @yield('styles')
 </head>
 <body>
-@include('elements.navigation')
-<div class="container">
-    @yield('content')
-</div>
+@include('elements.header')
+@yield('content')
 @include('elements.footer')
 <script src="//code.jquery.com/jquery-1.10.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

@@ -1,5 +1,5 @@
 ---
-Title:    Checking Your Environment
+Title:    実行している環境を確認
 Topics:   environment
 Code:     App::environment(), App::isLocal(), App::runningUnitTests()
 Id:       1
@@ -7,47 +7,44 @@ Position: 1
 ---
 
 {problem}
-You need to know the environment.
+実行している環境が知りたい
 
-You've reached a point in your application where it would be handy to know what your environment is, but aren't sure the best way to determine this.
+環境による処理の切り分けを行いたいときに、  
+アプリケーションの実行されている環境の取得方法を知っていると便利ですが、  
+どれが最善の方法なのかがわからない
 {/problem}
 
 {solution}
-There are several
+いくつか方法があります
 
-If you're specifically checking for **local** or **testing** you can do the following.
-
-{php}
-if (App::isLocal())
-{
+もし、現在の環境が**local**か、**testing**なのかを知りたい場合は、  
+次の様に確認する事ができます  
+```php
+if (App::isLocal()) {  
+  　// 実行環境がlocal
     echo "environment=local\n";
-}
-elseif (App::runningUnitTests())
-{
+} elseif (App::runningUnitTests()) {
+  　// 実行環境がtesting
     echo "environment=testing\n";
 }
-{/php}
+```
 
-Otherwise, you can check against a list or check the environment individually.
-
-{php}
-if (App::environment('production', 'staging'))
-{
+それ以外では、それぞれの環境名を照らし合わせて確認する事ができます
+```php
+if (App::environment('production', 'staging')) {
     echo "I'm on production or staging\n";
-}
-else
-{
+} else {
     echo "environment=", App::environment(), "\n";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-The environment setting is bound to `'env'` in the IoC container.
+環境設定は、Iocコンテナに`'env'`として登録されています。
 
-{php}
+```php
 echo app('env');
-{/php}
+```
 
-See [[Environment Specific Configurations]] for details on setting the environment.
+環境設定について詳しく紹介しています [[Environment Specific Configurations]] for d
 {/discussion}

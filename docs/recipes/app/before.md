@@ -1,5 +1,5 @@
 ---
-Title:    Registering a Before Application Filter
+Title:    "Before"フィルターを実装する
 Topics:   filters
 Code:     App::before()
 Id:       53
@@ -7,32 +7,36 @@ Position: 6
 ---
 
 {problem}
-You want to do work immediately before every request in your application.
+リクエスト受信時に、コントローラーより先に実行される処理を実装・登録したい
 {/problem}
 
 {solution}
-Register a "before" application filter.
+"Before"フィルターは次の様に登録出来ます
 
-{php}
+```php
 App::before(function($request)
 {
     if ($request->ajax())
     {
-        // Returning a value will short-circut the life cycle and
-        // keep any requests from being processed further
+        // この例ではajaxを用いたリクエストの場合に、
+        // コントローラーで実行される前にフィルターで処理をします
         return Response::json(['error' => 'AJAX not allowed']);
     }
-    // No return value allows processing to continue as normal
+    // 処理されるべきものが無い場合はそのまま通過し、
+    // コントローラーなどが実行されます
 });
-{/php}
+```
 {/solution}
 
 {discussion}
 You can movidy the request in application before filters.
 
-The `$request` object is an `Illuminate\Http\Request`.
+`$request`は`Illuminate\Http\Request`オブジェクトです。
 
-A common place to put "before" application filters is in the `app/filters.php` file.
+"before"フィルターを実装する一般的なファイルは、`app/filters.php`になりますが、  
+サービスプロバイダー等で実装する事も可能です。
 
-Be sure to understand exactly when application before filters are called. See the **Calls app before filters** in the Running Steps section of [[Understanding the Request Lifecycle]] for details.
+アプリケーション処理前に実行されるフィルターについて、理解を深める事ができます。  
+[[Understanding the Request Lifecycle]] **Calls app before filters**  
+の実行手順のセクションに詳細が記述されています。  
 {/discussion}
