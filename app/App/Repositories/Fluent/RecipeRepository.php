@@ -27,19 +27,32 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
      * @param $categoryId
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getRecipes($limit = 25, $categoryId = '')
+    public function getRecipesPage($limit = 25, $categoryId = null)
     {
         $query = $this->getConnection('slave')
             ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id');
 
-        if($categoryId != '') {
+        if(!is_null($categoryId)) {
             $query->where('cat.category_id', $categoryId);
         }
-
         return $query->orderBy('recipe.recipe_id', 'DESC')
-            ->paginate($limit, [
-                    'recipe.*', 'cat.name'
-                ]);
+            ->paginate($limit, ['recipe.*', 'cat.name']);
+        return $query->get(['recipe.*', 'cat.name']);
+    }
+
+    /**
+     * @param string $categoryId
+     * @return array|static[]
+     */
+    public function getRecipesFromCategory($categoryId = null)
+    {
+        $query = $this->getConnection('slave')
+            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id');
+        if(!is_null($categoryId)) {
+            $query->where('cat.category_id', $categoryId);
+        }
+        return $query->orderBy('recipe.recipe_id', 'DESC')
+            ->remember(240, "recipe:category:{$categoryId}")->get(['recipe.*', 'cat.name']);
     }
 
     /**
@@ -75,6 +88,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
     public function updateRecipe($id, array $attribute)
     {
         $this->table = 'recipes';
+        \Cache::forget("recipe:category:{$attribute['category_id']}");
         return $this->update($id, $attribute);
     }
 

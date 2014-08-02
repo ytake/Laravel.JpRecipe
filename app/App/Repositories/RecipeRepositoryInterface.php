@@ -11,10 +11,10 @@ interface RecipeRepositoryInterface
 
     /**
      * @param int $limit
-     * @param $categoryId
+     * @param int $categoryId
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getRecipes($limit = 25, $categoryId = '');
+    public function getRecipesPage($limit = 25, $categoryId = null);
 
     /**
      * @param array $attribute
@@ -46,4 +46,10 @@ interface RecipeRepositoryInterface
      * @return mixed
      */
     public function getRecipeFromTitle($title);
+
+
+    /**
+     * @param int $categoryId
+     */
+    public function getRecipesFromCategory($categoryId = null);
 }

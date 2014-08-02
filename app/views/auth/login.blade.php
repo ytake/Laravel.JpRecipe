@@ -9,6 +9,9 @@
     <div align="center">
         <a class="btn btn-info" href="{{$login_url}}">ログイン</a>
     </div>
+    <div align="center">
+        レシピ寄稿希望の方はユーザーグループまでお問い合わせください。
+    </div>
 </div>
 @stop
 @section('styles')

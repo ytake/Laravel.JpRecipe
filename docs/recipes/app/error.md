@@ -1,5 +1,5 @@
 ---
-Title:    Registering an Error Handler
+Title:    エラーハンドラの登録
 Topics:   -
 Code:     App::error()
 Id:       204
@@ -7,33 +7,38 @@ Position: 22
 ---
 
 {problem}
-You want to add your own error handler.
+独自のエラーハンドラを追加したい
 {/problem}
 
 {solution}
-Register it with the `App::error()` method.
+`App::error()`を利用して追加します。
 
-{php}
+```php
 App::error(function($exception)
 {
     die('ERROR: '.$exception->getMessage());
 });
-{/php}
+```
+上記のコードは、フレームワーク全体のエラーハンドラをプッシュします。
+`app/start/global.php`などの最初に実行されるファイルに記述しておけば、
+例外発生時にどんな処理よりも先に実行されます
 
-The code above pushes the error handler to the top of the stack. Meaning it will have the first chance at processing the exception. You'll want to set it up some place early in the request lifecycle (such as `app/start/global.php`).
-
-You can type-hint the exception to only handle a particular type of exception.
-
-{php}
+例外をタイプヒントで指定する事で、その例外にあわせた処理を実行させる事ができます。
+```
+// この例は、RuntimeExceptionがスローされた場合にのみ処理されます
 App::error(function(RuntimeException $exception)
 {
     return View::make('error', compact('exception'));
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-To finish error processing return a value from your handler.
+エラーが処理され、ハンドラから値が返却されます。
 
-This will return the value as a response to the user. If you don't return a value then the next error handler will be called. Not returning a value is handy for some functions, such as logging.
+このサンプルは、ビューに例外処理が描画されて、ユーザーに通知されます。  
+複数のエラーハンドラが登録されている場合に、  
+ここで特に値等を返さ無い場合は、登録されている次のハンドラが実行されます。  
+値を返さずに、ログに書き出したり、例外を記述したメールを送信する等、
+様々な要望に沿って、簡単に便利に実装ができると思います。
 {/discussion}

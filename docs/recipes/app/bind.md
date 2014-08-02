@@ -1,5 +1,5 @@
 ---
-Title:    Binding an Interface to an Implementation
+Title:    インターフェイスと実装の関連付け
 Topics:   IoC container
 Code:     App::bind(), App::make()
 Id:       33
@@ -7,32 +7,37 @@ Position: 4
 ---
 
 {problem}
-PHP cannot instantiate interfaces
+PHPはインターフェイスをインスタンス化することはできません　　
 
-But you like to write beautiful code following SOLID design principles. How can you make interfaces automatically resolve into concrete classes?
+ソリッド設計原則に従う、綺麗なコードを書くのが好き、  
+またはテストしやすい設計にしたい場合、  
+どうやってインターフェイスとクラスを自動的に関連付ければ良いのでしょうか？
 {/problem}
 
 {solution}
-Use `App::bind()`
+`App::bind()`を使います
 
 {php}
-// Bind as an alias
+// FooInterfaceをFooClassと関連付ける
 App::bind('FooInterface', 'FooClass');
 
-// Bind as a closure
+// FooInterfaceを無名関数と関連付ける事もできます
 App::bind('FooInterface', function($app)
 {
 	return new FooClass;
 });
 {/php}
-
-Now, with the above code, whenever you call `App::make('FooInterface')` you'll receive a new instance of a FooClass.
+上記の様に記述すると、いつでもどこでも`App::make('FooInterface')`で  
+FooClassをインスタンス化する事ができます。
 {/solution}
 
 {discussion}
-Programming to interfaces is powerful.
+インターフェイスはプログラミングをより強力なものにしてくれます。  
 
-When you write code which directly deals with interfaces and leave the decision of what the concrete implementation of those interfaces will be to another area of your application, you've created a powerful application where whole sections of implementation can easily be swapped out.
+インターフェイスを直接指定する事で実装を切り離し、  
+別のところで具体的な実装を関連付ける事で、  
+それぞれの実装を簡単に入れ替える事ができ、  
+より強力な、拡張性の高いアプリケーションになります
 
-See [[Where to Keep Your Application Bindings]]
+[[Where to Keep Your Application Bindings]]　もご覧下さい
 {/discussion}

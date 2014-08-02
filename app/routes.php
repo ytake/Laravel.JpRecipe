@@ -49,7 +49,8 @@
     // top
     \Route::controller('/', 'HomeController', [
             'getIndex' => 'home.index',
-            'getRecipe' => 'home.recipe'
+            'getRecipe' => 'home.recipe',
+            'getCategory' => 'home.category'
         ]
     );
 });

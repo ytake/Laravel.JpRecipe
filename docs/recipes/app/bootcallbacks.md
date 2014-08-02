@@ -1,5 +1,5 @@
 ---
-Title:    Registering Booting or Booted Callbacks
+Title:    Booting、Booted Callbacksを登録する
 Topics:   callbacks
 Code:     App::booted(), App::booting()
 Id:       103
@@ -7,32 +7,33 @@ Position: 11
 ---
 
 {problem}
-You want something to happen during the boot process.
+アプリケーション起動中になにかを動作させたい
 
-You have a service provider you want to perform a specific task right before or right after the application is booted.
+アプリケーションが起動される直前、  
+または直後に特定のタスクを実行するサービスプロバイダがあります
 {/problem}
 
 {solution}
-Use `App::booting()` or `App::booted()`
+`App::booting()` または `App::booted()` を利用します
 
 {php}
 App::booted(function($app)
 {
-    // Code to execute right before the app is booted.
+    // アプリケーション起動前に実行されます
 });
 App::booting(function($app)
 {
-    // Code to execute right after the app is booted.
+    // アプリケーション起動後に実行されます
 })
 {/php}
 {/solution}
 
 {discussion}
-Understand where this happens in the request lifecycle.
+リクエストのライフサイクルを理解しましょう
 
-1. First, all the service providers are booted.
-2. Next, any `booting()` callbacks are called.
-3. Finally, any `booted()` callbacks are called.
+1. まず最初に全てのサービスプロバイダが起動されます
+2. 次に、`booting()`がコールされます
+3. 最後に`booted()`がコールされます
 
-See [[Understanding the Request Lifecycle]].
+[[Understanding the Request Lifecycle]]をご覧下さい
 {/discussion}

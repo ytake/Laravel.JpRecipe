@@ -1,5 +1,5 @@
 ---
-Title:    Registering a Maintenance Mode Handler
+Title:    メンテナンスモードのハンドラを登録する
 Topics:   -
 Code:     App::down(), App::isDownForMaintenance()
 Id:       121
@@ -7,13 +7,14 @@ Position: 15
 ---
 
 {problem}
-You want code to automatically execute when your application is down.
+アプリケーションがダウンしているときに、自動的に何かを実行したい  
 
-You know you can use the `App::isDownForMaintenance()` method, but you'd like your application to take appropriate action at the appropriate time when it's in maintenance mode.
+`App::isDownForMaintenance()`メソッドを利用出来ますが、  
+それをメンテナンス時に適切に実行出来る様なアプリケーションにします
 {/problem}
 
 {solution}
-Register a handler with `App::down()`.
+`App::down()`でハンドラを登録します。  
 
 {php}
 App::down(function()
@@ -22,13 +23,16 @@ App::down(function()
 });
 {/php}
 
-That snippet of code will output the `maintenance.mode` view with a HTTP status code of 503.
+この少しのコードで、`maintenance.mode`ビューと共に、  
+HTTPステータスコードの503を出力します。
 {/solution}
 
 {discussion}
-The first thing your application does after loading and booting is execute your down handler if needed.
+アプリケーションがロードされて、起動した後に  
+登録したダウンハンドラがあれば、最初に実行します
 
-Yo can see where this occurs in [[Understanding the Request Lifecycle]]. Look at the **Running Steps**.
+[[Understanding the Request Lifecycle]]の**Running Steps**を見れば、  
+発生する場面を理解する事ができます
 
-See also [[Checking if the Application is Down for Maintenance]].
+また[[Checking if the Application is Down for Maintenance]]も見てみるといいでしょう
 {/discussion}

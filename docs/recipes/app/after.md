@@ -7,7 +7,7 @@ Position: 7
 ---
 
 {problem}
-リクエストの度に、毎回実行される処理を実装したい(ControllerやRoute等)
+リクエスト後に、毎回実行される処理を実装したい(ControllerやRoute等)
 {/problem}
 
 {solution}

@@ -45,4 +45,13 @@ class SectionRepository extends AbstractFluent implements SectionRepositoryInter
             ->orderBy('section_id', 'ASC')
             ->remember(240, 'section_list')->lists($column, $key);
     }
+
+    /**
+     * @param $sectionId
+     * @return mixed|static
+     */
+    public function getSection($sectionId)
+    {
+        return $this->find($sectionId);
+    }
 }
