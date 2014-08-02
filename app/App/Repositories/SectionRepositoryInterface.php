@@ -22,4 +22,10 @@ interface SectionRepositoryInterface
      * @return mixed
      */
     public function getSectionList($column, $key);
+
+    /**
+     * @param $sectionId
+     * @return mixed
+     */
+    public function getSection($sectionId);
 }

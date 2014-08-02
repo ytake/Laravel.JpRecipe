@@ -30,15 +30,16 @@
     <link rel="dns-prefetch" href="//disqus.com">
     <link rel="shortcut icon" href="/icon/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="/icon/favicon.png">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/dist/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/dist/animate.css" rel="stylesheet">
-    <link href="/css/dist/main.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/dist/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/dist/animate.css" rel="stylesheet" type="text/css">
+    <link href="/css/dist/main.css" rel="stylesheet" type="text/css">
+    <link href="/css/dist/flaticon/flaticon.css" rel="stylesheet" type="text/css" >
     <!--[if lt IE 9]>
     <script src="/js/dist/html5shiv.js"></script>
     <script src="/js/dist/respond.min.js"></script>
     <![endif]-->
-    <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/default.css" rel="stylesheet" type="text/css">
     @yield('styles')
 </head>
 <body>

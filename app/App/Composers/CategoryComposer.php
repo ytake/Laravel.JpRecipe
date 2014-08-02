@@ -28,6 +28,6 @@ class CategoryComposer
      */
     public function compose($view)
     {
-        $view->with('categories', $this->category->getCategories());
+        $view->with('categories', $this->category->getNavigationCategory());
     }
 } 

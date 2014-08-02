@@ -4,6 +4,19 @@
  */
 body {
     font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo, sans-serif;
+
+}
+.wet-asphalt {
+    background-color: #333;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus
+{
+    background-color: #252525;
+}
+
+.midnight-blue {
+    background-color: #252525;
 }
 .navbar-brand {
     height: auto;
@@ -11,9 +24,28 @@ body {
 
 .search {
     color: #fff;
-    background-color: #f4726d;
+    background: url('/images/background/header.jpg') no-repeat scroll 0% 0% #F4726D;
 }
-.emerald {
+.site-hero {
+    background: none repeat scroll 0 0 #ff691c;
+    padding: 35px 0;
+}
+.recipe-info {
     color: #fff;
-    background-color: #f4a46a;
+}
+body > section {
+    padding: 20px 0;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: 40px;
+    font-style: normal;
+    margin-left: 2px;
+}.flaticon-add65:before {
+     content: "\e000";
+}
+
+.badge-info {
+    background-color: #F4726D;
 }

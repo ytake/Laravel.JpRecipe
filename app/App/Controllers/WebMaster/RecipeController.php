@@ -59,7 +59,7 @@ class RecipeController extends BaseController
     public function getList()
     {
         $data = [
-            'list' => $this->recipe->getRecipes(self::PER_PAGE, \Input::get('category_id')),
+            'list' => $this->recipe->getRecipesPage(self::PER_PAGE, \Input::get('category_id')),
             'categories' => ['' => 'すべて'] + $this->category->getCategoryList('name', 'category_id')
         ];
         $this->view('webmaster.recipe.list', $data);

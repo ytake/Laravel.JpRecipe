@@ -26,8 +26,8 @@ $app = new \Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment([
 
-    'local' => ['homestead', '*.local'],
-    'develop' => ['dev*', '*.excite.co.jp']
+    'local' => ['homestead'],
+    'develop' => ['dev*', '*.local']
 ]);
 
 /*

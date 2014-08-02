@@ -46,7 +46,8 @@ class CategoryController extends BaseController
     {
         $category = $this->category->getCategory($one);
         $data = [
-            'category' => $category
+            'category' => $category,
+            'section' => $this->section->getSection($category->section_id),
         ];
         $this->view('webmaster.category.show', $data);
     }

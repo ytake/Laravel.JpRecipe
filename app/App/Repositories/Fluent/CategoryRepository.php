@@ -80,7 +80,7 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
     public function getCategoryFromSection($sectionId)
     {
         return $this->getConnection('slave')
-            ->where('section_id', $sectionId)
+            ->where('section_id', $sectionId)->orderBy('position', 'ASC')
             ->remember(240, "{$this->cacheKey}section:{$sectionId}")
             ->get();
     }
