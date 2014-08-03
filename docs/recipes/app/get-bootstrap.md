@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Application Bootstrap File
+Title:    アプリケーションのBootstrapファイルを取得する
 Topics:   -
 Code:     App::getBootstrapFile()
 Id:       198
@@ -7,27 +7,26 @@ Position: 16
 ---
 
 {problem}
-You want to know the application bootstrap file.
+アプリケーションのbootstrapファイルを取得したい
 {/problem}
 
 {solution}
-Use the `App::getBootstrapFile()`.
+`App::getBootstrapFile()`を利用します
 
-This returns the full path to the bootstrap file.
-
-{php}
+このメソッドは、bootstrapファイルへのフルパスを返却します。
+```php
 echo App::getBootstrapFile();
-{/php}
+```
 
-Will output something like.
-
-{text}
+次のように出力されます  
+```text
 /apps/example/vendor/laravel/framework/src/Illuminate/Foundation/start.php
-{/text}
+```
 {/solution}
 
 {discussion}
-This is a low-level method.
+これはローレベルのメソッドです。
 
-You can see where this file is loaded in [[Understanding the Request Lifecycle]]. In **The Booting Steps**, it's the block right after "Starts Application" labeled "laravel/start.php".
+このbootstrapが読み込まれるタイミングは [[Understanding the Request Lifecycle]] に記載されています。  
+**The Booting Steps**にある図の"Starts Application"の後の"laravel/start.php"で読み込まれます。
 {/discussion}

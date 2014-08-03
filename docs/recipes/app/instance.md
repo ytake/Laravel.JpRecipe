@@ -1,5 +1,5 @@
 ---
-Title:    Storing a Value in the IoC Container
+Title:    IoCコンテナに値を格納する
 Topics:   IoC container
 Code:     app(), App::instance(), App::make()
 Id:       3
@@ -7,30 +7,38 @@ Position: 3
 ---
 
 {problem}
-You want to store a value in the IoC container
+IoCコンテナに値を保存したい
 
-You understand the IoC container is an integral part of Laravel's core and would like to store a value in it, making the value available to another area of your application.
+IoCコンテナはLaravelの実装の中でも、最もコアな部分であり、  
+格納されている値をアプリケーション内で自由に使用できる、ということを理解しておきましょう  
 {/problem}
 
 {solution}
-Use `App::instance()`
+`App::instance()`を利用します
 
-{php}
+```php
 $is_evening = (date('G') > 18) ? true : false;
 App::instance('myapp.evening', $is_evening);
-{/php}
+```
 
-You can later access your value with `App::make('myapp.evening')` or even `app('myapp.evening')`.
+設定した後に`App::make('myapp.evening')`または、  
+`app('myapp.evening')`を利用して、値を取得します
 {/solution}
 
 {discussion}
-The IoC container is more than a dependency resolver
+IoCコンテナは依存解決以外にも様々な用途に使用できます。
 
-Of course, resolving dependencies is where the IoC container shines, but you can store anything in it.
+依存解決でIoCコンテナが輝くのはもちろんのことですが、  
+それ以外にも色々な値を格納することができます
 
-Be careful your key doesn't conflict with one of Laravel's built-in keys. Don't use values such as 'view', 'log', or 'event'. There's a long list of values not to use, here's just a partial list:
+注意点としては、すでにLaravelで格納する為に使われているキー名はコンフリクトを起こすので、注意してください。  
+すでに使われているキー名は以下の通りです  
+`_view`, `exception.plain`, `env`, `exception`, `encrypter`, `view.engine.resolver`,  
+`events`, `files`, `session.store`, `db`, `whoops.handler`, `redirect`, `router`,  
+`url`, `command.workbench`, `cookie`, `package.creator`, `exception.debug`, `whoops`,
+`view.finder`, `db.factory`, `session_`
 
-_view, exception.plain, env, exception, encrypter, view.engine.resolver, events, files, session.store, db, whoops.handler, redirect, router, url, command.workbench, cookie, package.creator, exception.debug, whoops, view.finder, db.factory, session_
-
-It's probably best to have all your application keys begin with something specific to your application, such as **`'myapp.'`**.
+コンフリクトを防ぐには、  
+アプリケーションのプロジェクト名やベンダー名などをプレフィックスなどにして利用するのが確実です。  
+例えば`myapp.session_`などです  
 {/discussion}

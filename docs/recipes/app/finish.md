@@ -1,5 +1,5 @@
 ---
-Title:    Registering a Finish Callback
+Title:    App::Finishコールバックの登録方法
 Topics:   -
 Code:     App::finish()
 Id:       200
@@ -7,21 +7,22 @@ Position: 18
 ---
 
 {problem}
-You want to have code execute after the request is sent to the user, but before the application terminates.
+リクエスト処理後にアプリケーションが終了する前に任意の処理を実装したい
 {/problem}
 
 {solution}
-Use the `App::finish()` method to register a finish callback.
+`App::finish()`メソッドを利用して、コールバック処理を実装することができます
 
-{php}
-App::finish(function($request, $response)
-{
-    // Use request and/or response to do logging or some after
-    // main processing stuff
+```php
+App::finish(function($request, $response) {
+
+    // リクエストやレスポンスの内容を使って、
+    // 処理内容をログに出力したり、様々な処理を記述できます
 });
-{/php}
+```
 
-**NOTE:** Although `$request` and `$response` are provided to the callback, modification of either of these will have no affect in the application.
+**注意** `$request`と`$response`はコールバックで利用しますが、  
+そのものは変更されないため、アプリケーションには影響しません
 {/solution}
 
 {discussion}

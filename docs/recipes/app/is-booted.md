@@ -1,5 +1,5 @@
 ---
-Title:    Checking if the Application is Booted
+Title:    アプリケーションが起動されているかどうかを判定する
 Topics:   -
 Code:     App::isBooted()
 Id:       57
@@ -7,31 +7,34 @@ Position: 10
 ---
 
 {problem}
-You want to know if your application is booted.
+アプリケーションが起動されているかどうかを判定したい
 {/problem}
 
 {solution}
-Use the `App::isBooted()` method.
+`App::isBooted()`メソッドが利用できます
 
-{php}
-// Usually in a service provider
-if (App::isBooted())
-{
-    // Take action when booted
+```php
+// サービスプロバイダーで記述すると良いかもしれません
+if (App::isBooted())　{
+    // 起動したら処理するものを書きましょう
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-Booting occurs at a low level.
+起動の判定はローレベルで行われます
 
-Your application is "booted" before the request is even dispatched. It is booted before `app/start/global.php` or `app/routes.php` or `app/filters.php` is loaded. _(These files are loaded within a "booted" callback.)_
+リクエスト処理の前に`booted`が割り当てられ、実行されます。　　
+`app/start/global.php`、`app/routes.php`または、`app/filters.php`がロードされる前に起動されます。  
+(これらのファイルは、`booted`のコールバック内でロードされます)
 
-Booting the application occurs internally and consists of three steps:
+アプリケーションの起動は3つのステップから成り立っています:
 
-1. Call any registered "booting" callbacks.
-2. Flag the application as booted.
-3. Call any registered "booted" callbacks.
+1. "booting"で登録した処理がコールバックされる
+2. "起動した"と扱われます
+3. "booted"で登録した処理がコールバックされる
 
-Therefore, the most likely places you'll use `App::isBooted()` are within any registered "booting" or "booted" callbacks. Or within a service provider.
+したがって、確実に実装するには`App::isBooted()`を利用したり、  
+"booting"、または "booted"コールバックか、  
+サービスプロバイダ内に実装しましょう。
 {/discussion}
