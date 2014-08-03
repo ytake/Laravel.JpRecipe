@@ -1,5 +1,5 @@
 ---
-Title:    Installing Laravel
+Title:    Laravelのインストール方法
 Topics:   CodeIgniter, Composer, installation, Zend Framework
 Code:     -
 Id:       22
@@ -7,21 +7,27 @@ Position: 8
 ---
 
 {problem}
-You want to install Laravel.
+Laravelをインストールしたい
 
-You're ready to build beautiful web applications using PHP's best framework so you want to install Laravel and get going.
+webサーバやPHPのインストール、mcryptの導入が済んでいる必要があります
+これからPHPフレームワークの中でもエレガントで、学習、実務にもベストなLaravelをインストールするには・・・
 {/problem}
 
 {solution}
-There is no solution.
+今までのフレームワークのような、ダウンロードして、解凍して設置する  
+インストール方法はありません  
 {/solution}
 
 {discussion}
-You do not install Laravel.
+Laravel次の様な方法ではインストールしないでください
 
-Unlike [CodeIgniter](http://ellislab.com/codeigniter) or [Zend Framework](http://framework.zend.com/), you do not download and install Laravel.
+[CodeIgniter](http://ellislab.com/codeigniter)や[Zend Framework](http://framework.zend.com/)のように、  
+ダウンロードして、解凍して設置するのはお勧めしません。
 
-Instead, you create a new project and specify Laravel as one of the project's dependencies. This allows Composer to download and install the version of Laravel you want to use as part of your project.
+その代わりに、composerを利用してLaravelのプロジェクトを作成します。  
+composerを利用することで、任意のLaravelのバージョンでプロジェクト作成をしたり、  
+Laravelが依存しているパッケージなどを自動的に導入して、プロジェクトを構築します。  
 
-Laravel makes this process easy to accomplish with a single command. See [[Creating a Laravel Project]] for details on creating a new Laravel project.
+簡単な一行のコマンドで作成が行われます。
+[[Creating a Laravel Project]]でLaraveのプロジェクトの作成方法が記述されています
 {/discussion}
