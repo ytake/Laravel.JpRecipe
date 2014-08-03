@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Default Request Class
+Title:    デフォルトのRequestクラスを取得する
 Topics:   -
 Code:     App::requestClass()
 Id:       209
@@ -7,19 +7,19 @@ Position: 27
 ---
 
 {problem}
-You want to see what the class is that Laravel uses to build the request.
+Laravelのリクエスト処理を構築しているクラスを知りたい
 {/problem}
 
 {solution}
-Use the `App::requestClass()` method.
+`App::requestClass()`メソッドが利用できます
 
-{php}
+```php
 echo "Request Class = ", App::requestClass();
-{/php}
+```
 {/solution}
 
 {discussion}
-The same method is used for changing the default request class.
-
-But you must call the method differently. See [[Changing the Default Request Class]].
+デフォルトのリクエストクラスを変更する場合も同じクラスを利用しますが、
+指定の方法は、少し異なります。  
+[[Changing the Default Request Class]]を参考にしてください。
 {/discussion}

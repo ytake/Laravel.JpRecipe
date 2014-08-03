@@ -1,5 +1,5 @@
 ---
-Title:    Checking if the Application is Down for Maintenance
+Title:    アプリケーションの停止がメンテナンスが理由で停止しているのか判定する
 Topics:   -
 Code:     App::isDownForMaintenance()
 Id:       120
@@ -7,28 +7,28 @@ Position: 14
 ---
 
 {problem}
-You want to check if your application is down for maintenance.
+アプリケーションの停止が、メンテナンスによるものなのかどうかを判定したい
 {/problem}
 
 {solution}
-Use the `App::isDownForMaintenance()` method.
+`App::isDownForMaintenance()`メソッドを利用します
 
-{php}
-if (App::isDownForMaintenance())
-{
-    die("We're currently down for maintenance.");
+```php
+if (App::isDownForMaintenance()) {
+    die("メンテナンスのためシステムを停止しています");
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-There's a better way to do this.
+これらを使う利点はいくつかあります
 
-See the [[Registering a Maintenance Mode Handler]] recipe. This will allow you to set up an action to occur automatically when you're application is in maintenance mode.
+[[Registering a Maintenance Mode Handler]]レシピをご覧ください  
+メンテナンスモードで実行されている場合に、自動で実行されるアクションを設定できます  
 
-Note that your application is considered in maintenance mode of the file `app/storage/meta/down` exists on your file system.
+メンテナンスモードのときに`app/storage/meta/down`にファイルが存在していることに注意してください
 
-See also:
+以下のレシピも参考にしてください:
 
 * [[Registering a Maintenance Mode Handler]]
 * [[Putting the Application in Maintenance Mode]]

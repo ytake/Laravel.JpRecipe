@@ -1,5 +1,5 @@
 ---
-Title:    Checking if You're Running in the Console
+Title:    コンソールで実行しているか判定する
 Topics:   console, environment
 Code:     App::runningInConsole(), php_sapi_name()
 Id:       2
@@ -7,24 +7,24 @@ Position: 2
 ---
 
 {problem}
-You want to check if your application is running in the console.
+現在実行されているのが、コンソールで実行されているものかどうかを判定したい  
 
-You know you can check `php_sapi_name()` but would like to use the more elegant, Laravel way.
+`php_sapi_name()`で現在実行されているインターフェースを取得する子ができますが、  
+Laravelの場合は、もっとエレガントな方法で取得可能です  
 {/problem}
 
 {solution}
-Use `App::runningInConsole()`
+`App::runningInConsole()`を利用します
 
-{php}
-if (App::runningInConsole())
-{
-	echo "I'm in the console, baby!";
+```php
+if (App::runningInConsole()) {
+	echo "consoleで実行中！";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-Laravel actually uses `php_sapi_name()` to implement this method.
+実際はLaravelは`php_sapi_name()`を利用して実装しています
 
-If `php_sapi_name()` equals `'cli'` then your code is running in the console.
+`php_sapi_name()`の値が`'cli'`であれば、コンソールで実行されていると判定できます
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Installing Redis
+Title:    Redisインストール
 Topics:   installation, redis
 Code:     -
 Id:       95
@@ -7,19 +7,19 @@ Position: 12
 ---
 
 {problem}
-You want to speed up your application using a cache.
+cacheやsessionでより早い速度が必要
 {/problem}
 
 {solution}
-Install Redis
+Redisをインストールします
 
-{bash}
+```bash
 $ sudo apt-get install -y redis-server
-{/bash}
+```
 {/solution}
 
 {discussion}
-Now you can configure your cache to use your redis server.
+redisをcache等で利用するには設定をする必要があります
 
-See See [[Setting up the Redis Cache Driver]] for instructions.
+指定方法は[[Setting up the Redis Cache Driver]]をご覧ください
 {/discussion}

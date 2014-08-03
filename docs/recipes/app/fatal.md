@@ -1,5 +1,5 @@
 ---
-Title:    Registering an Error Handler for Fatal Errors
+Title:    Fatalエラーのエラーハンドリング
 Topics:   -
 Code:     App::error(), App::fatal()
 Id:       206
@@ -7,32 +7,32 @@ Position: 24
 ---
 
 {problem}
-You want to catch and handle fatal errors yourself.
+Fatalエラー処理を独自に実装したい
 {/problem}
 
 {solution}
-Register a handler with `App::fatal()`.
+`App::fatal()`を使ってハンドラーを登録します
 
-This will intercept `FatalErrorException` errors. The full namespace to this type of error is `Symfony\Component\Debug\Exception\FatalErrorException`.
+これは`FatalErrorException`をインターセプトします。  
+このエクセプションは具体的には`Symfony\Component\Debug\Exception\FatalErrorException`がスローされます
 
-{php}
-App::fatal(function($exception)
-{
+```php
+App::fatal(function($exception) {
     die('FATAL ERROR: '.$exception->getMessage());
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-Fatal error exception handling is tricky.
+Fatalエラー例外処理には注意が必要です。  
 
-When it doesn't work there's usually just a few reasons:
+動作しない場合、いくつかの考えられる原因があります：
 
-* `php.ini` does not have `display_startup_errors` on
-* The error is occurring in part of Laravel's foundation code.
-* The error is severe enough that error handling cannot run.
+* `php.ini` で `display_startup_errors` がonになっていない
+* Laravelの基盤となるコアクラスなどでエラーが発生している
+* エラーを100%処理するのは様々な要因があり、難しい場合がある
 
-Fatal errors are those defined by PHP to be: `E_ERROR`, `E_CORE_ERROR`, `E_COMPILE_ERROR`,  or `E_PARSE`.
+`E_ERROR`,`E_CORE_ERROR`,`E_COMPILE_ERROR` または `E_PARSE`、これらのFatalエラーはPHPの設定で定義されています。
 
-When your application terminates and there was an unhandled exception that caused the termination then Laravel throws a fatal error.
+未定義の例外が原因でアプリケーションが終了した時に、LaravelはFatalエラーをスローします。
 {/discussion}

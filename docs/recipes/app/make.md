@@ -1,5 +1,5 @@
 ---
-Title:    Resolving Objects from the IoC Container
+Title:    IoCコンテナでオブジェクトを生成する
 Topics:   IoC container
 Code:     app(), App::bind(), App::instance(), App::make(), App::singleton()
 Id:       44
@@ -7,84 +7,112 @@ Position: 5
 ---
 
 {problem}
-You have something stashed in the IoC container you want to retrieve.
+取得したい何かがIoCコンテナに格納されている
 
-You have a interface binding, an object, or even a piece of data in the IoC container and need to access it in your application.
+インターフェースがバインドされているオブジェクトや、何かのクラス、  
+または配列などの何かのデータなどはIoCコンテナを通じて取得すると、  
+テストのしやすさや、拡張性が高くなるということを覚えておきましょう
 {/problem}
 
 {solution}
-Use `App::make()`.
+`App::make()`を利用すると簡単に生成したり取得ができます
 
-This is the complement `App::bind()`.
+これは`App::bind()`と共に使用するとよりLaravelらしくなります
 
-{php}
-// Somewhere in your code
-App::bind('myclass', function($app)
-{
+```php
+// どこかにMyCoolClassを、'myclass'という名前で生成する様に記述します
+App::bind('myclass', function($app) {
     return new MyCoolClass();
 });
 
-// Later
+// 生成したい場所でmyclassが生成されます
 $myclass = App::make('myclass');
-{/php}
+```
 
-It also complements `App::instance()`.
+`App::instance()`とあわせて利用することもできます
 
-{php}
-// Somewhere in your code
+```php
+// どこかに $mydata変数を 'mydata'として格納します。
 App::instance('mydata', $mydata);
 
-// Later
+// 先ほどのインスタンス生成と同様に利用しましょう
 $mydata = App::make('mydata');
-{/php}
+```
 
-You can also retrieve singleton objects.
-
-{php}
-// Somewhere in your code
+シングルトンを利用したい時も同様に使用できます
+```php
+// どこかに'stdClass'をシングルトンとして格納しておきます
 App::singleton('mysingleton', 'stdClass');
 
-// Later
+// 生成したいところで記述しましょう
 $var = App::make('mysingleton');
 $var->test = '123';
 
-// Even later
+// さらに利用します
 $var2 = App::make('mysingleton');
 echo $var2->test;
-{/php}
+```
 {/solution}
 
 {discussion}
-`App::make()` is sort of a swiss-army knife of type resolution.
+`App::make()`を利用した様々な解決方法はとても簡単で、強力です  
 
-You can construct classes, resolving dependencies automatically.
+依存解決の方法としてコンストラクタでタイプヒントで指定すると、  
+自動で依存を解決してくれます  
 
-{php}
-class Foo {
+```php
+class Foo
+{
+    // Fooクラス  
 }
-class Bar {
+
+class Bar
+{
+
     protected $foo;
+
+    // Barクラスのコンストラクタに、Fooクラスを$foo変数で利用する、と指定します
     public function __construct(Foo $foo)
     {
         $this->foo = $foo;
     }
 }
 
-// Construct Bar, automatically injecting a Foo instance
+// makeでBarを生成すると、Barのコンストラクタで指定されたFooが自動で解決されます。
 $bar = App::make('Bar');
-{/php}
 
-You can resolve interfaces which have been bound to the IoC container.
+// このように記述する必要がなく、IoCコンテナが自動的に解決してくれます
+$bar = new Bar(new Foo);
+```
 
-{php}
+インターフェースもIoCコンテナが自動的に解決します
+
+```php
 App::bind('SomeInterface', 'SomeClassImplementingSomeInterface');
-
+// SomeClassImplementingSomeInterfaceが取得できます
 $var = App::make('SomeInterface');
-{/php}
 
-Also, you can use `app()` as an alias to `App::make()`.
+// コンストラクタでinterfaceを指定してみましょう
+class Bar
+{
 
-{php}
+    protected $some;
+
+    //
+    public function __construct(SomeInterface $some)
+    {
+        $this->some = $some;
+    }
+}
+
+// こちらも同様です
+$bar = App::make('Bar');
+
+```
+
+ヘルパー関数で用意されている`app()`は`App::make()`のエイリアスです
+
+```php
 $obj = app('stdClass');
-{/php}
+```
 {/discussion}
