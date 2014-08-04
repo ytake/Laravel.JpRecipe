@@ -1,9 +1,9 @@
 <?php
 namespace App\Controllers;
 
-use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
+use App\Repositories\CategoryRepositoryInterface;
 
 /**
  * Class HomeController
@@ -42,8 +42,13 @@ class HomeController extends BaseController
      */
     public function getIndex()
     {
+        $sections = $this->section->getSections();
+        foreach($sections as $section) {
+            $section->recipes = $this->recipe->getRecipeFromSectionByRand($section->section_id);
+        }
         $data = [
-            'sections' => $this->section->getSections()
+            'latest' => $this->recipe->getLatestRecipe(5),
+            'sections' => $sections
         ];
         $this->view('home.index', $data);
     }

@@ -119,4 +119,48 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         return $this->getConnection('slave')
             ->where('category_id', $categoryId)->max('position');
     }
+
+
+    /**
+     * セクション内でランダムにレシピを取得
+     * @param $sectionId
+     * @param int $limit
+     * @return array
+     */
+    public function getRecipeFromSectionByRand($sectionId, $limit = 3)
+    {
+        if(\Cache::has("rand_recipe:{$sectionId}")) {
+            return \Cache::get("rand_recipe:{$sectionId}");
+        }
+        $sql = "SELECT cat.description, cat.name, recipe.title, recipe.recipe_id, cat.category_id"
+            . " FROM categories AS cat"
+            . " INNER JOIN recipes AS recipe ON cat.category_id = recipe.category_id"
+            . " WHERE cat.section_id = ?"
+            . " ORDER BY RAND() LIMIT ?";
+        $params = [
+            $sectionId, $limit
+        ];
+        $result = \DB::connection('slave')->select($sql, $params);
+        if($result) {
+            \Cache::add("rand_recipe:{$sectionId}", $result, 10);
+        }
+        return $result;
+    }
+
+
+    /**
+     * 最新レシピの取得
+     * @param int $limit
+     * @return mixed|void
+     */
+    public function getLatestRecipe($limit = 5)
+    {
+        return $this->getConnection('slave')
+            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id')
+            ->orderBy('recipe.recipe_id', 'DESC')->take($limit)
+            ->remember(240, "latest_recipe:" . date("YmdH"))
+            ->get([
+                    "recipe.*", "cat.name"
+                ]);
+    }
 }

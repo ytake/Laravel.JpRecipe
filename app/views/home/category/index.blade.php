@@ -13,8 +13,8 @@
             </div><!--/.categories-->
         </aside>
         <div class="col-sm-9 col-sm-pull-3">
-            <div class="blog">
-                <div class="blog-item">
+            <div class="recipe-content">
+                <div class="recipe-item">
                     <div id="pricing-table" class="row">
                         <div class="col-md-12 col-xs-12">
                             <h1><span class="glyphicon glyphicon-glass"></span>{{$category->name}} カテゴリー</h1>

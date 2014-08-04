@@ -25,6 +25,7 @@ body {
 .search {
     color: #fff;
     background: url('/images/background/header.jpg') no-repeat scroll 0% 0% #F4726D;
+    padding: 35px;
 }
 .site-hero {
     background: none repeat scroll 0 0 #ff691c;
@@ -48,4 +49,15 @@ body > section {
 
 .badge-info {
     background-color: #F4726D;
+}
+
+.recipe-content .recipe-item {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.mt-40 {
+    margin-top: -40px;
 }
