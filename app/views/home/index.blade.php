@@ -54,18 +54,29 @@
             </div><!--/.categories-->
         </aside>
         <div class="col-sm-9 col-sm-pull-3">
-            <div class="blog">
-                <div class="blog-item">
+            <div class="recipe-content">
+                <div class="recipe-item">
                     <div id="pricing-table" class="row">
                     @for($i = 1; $i <= count($sections); $i++)
                         <div class="col-md-6 col-xs-6">
-                            <div align="center">
-                                <h3>{{$sections[$i - 1]->name}}</h3>
-                            </div>
-                            <div align="center">
-                                <span class="glyphicon glyphicon-ok"></span>
+                            <h3><span class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;{{$sections[$i - 1]->name}}</h3>
+                            <span class="glyphicon glyphicon-ok"></span>
                             {{$sections[$i - 1]->description}}
-                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <dl>
+                                            @foreach($sections[$i - 1]->recipes as $recipe)
+                                            <dt>
+                                                <h5>
+                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;{{$recipe->title}}
+                                                </h5>
+                                            </dt>
+                                            @endforeach
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table>
                         </div><!--/.col-md-3-->
                     @if($i != 0 && $i % 2 == 0)
                     </div>
@@ -75,47 +86,49 @@
                     </div>
                 </div>
             </div>
-            <div class="blog">
-                <div class="blog-item">
+            <div class="recipe-content">
+                <div class="recipe-item">
                     <div id="pricing-table" class="row">
                         <div class="col-md-6 col-xs-6">
-                            <div align="center">
-                                <h3>最新レシピ</h3>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                            </dl>
+                            <h3><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>&nbsp;&nbsp;最新レシピ</h3>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <dl>
+                                            @foreach($latest as $late)
+                                            <dt>
+                                                <h5>
+                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;{{$late->title}}
+                                                </h5>
+                                            </dt>
+                                            <dd>
+                                                <div align="right">
+                                                    <small>
+                                                        <a href="{{route('home.category', ['one' => $late->category_id])}}">
+                                                            <span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;{{$late->name}}
+                                                        </a>
+                                                    </small>
+                                                </div>
+                                            </dd>
+                                            @endforeach
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table>
                         </div><!--/.col-md-3-->
                         <div class="col-md-6 col-xs-6">
-                            <div align="center">
-                                <h3>人気レシピ</h3>
-                            </div>
-                            <dl class="dl-horizontal">
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                                <dd>0 views / section / category</dd>
-                                <hr />
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                                <dd>0 views / section / category</dd>
-                                <hr />
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                                <dd>0 views / section / category</dd>
-                                <hr />
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                                <dd>0 views / section / category</dd>
-                                <hr />
-                                <dt><span class="glyphicon glyphicon-cutlery"></span>レシピ名</dt>
-                                <dd>レシピ</dd>
-                                <dd>0 views / section / category</dd>
-                                <hr />
-                            </dl>
+                            <h3><span class="glyphicon glyphicon-sort-by-attributes"></span>&nbsp;&nbsp;人気レシピ</h3>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <dl>
+
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table>
                         </div><!--/.col-md-3-->
                     </div>
-                    <hr />
                 </div>
             </div>
         </div><!--/.col-md-8-->

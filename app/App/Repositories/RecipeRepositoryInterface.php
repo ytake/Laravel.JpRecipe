@@ -52,4 +52,18 @@ interface RecipeRepositoryInterface
      * @param int $categoryId
      */
     public function getRecipesFromCategory($categoryId = null);
+
+    /**
+     * セクション内でランダムにレシピを取得
+     * @param $sectionId
+     * @param int $limit
+     * @return array
+     */
+    public function getRecipeFromSectionByRand($sectionId, $limit = 3);
+
+    /**
+     * @param int $limit
+     * @return mixed
+     */
+    public function getLatestRecipe($limit = 5);
 }
