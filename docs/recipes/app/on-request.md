@@ -1,5 +1,5 @@
 ---
-Title:    Calling a Static Method on the Default Request Class
+Title:    静的にデフォルトのリクエストクラスをコールする
 Topics:   -
 Code:     App::onRequest()
 Id:       212
@@ -7,43 +7,46 @@ Position: 29
 ---
 
 {problem}
-You want to call a static method on the request class.
+リクエストクラスを静的に利用したい
 
-But, in case the default class was overridden you want to make sure you're calling the correct class.
+リクエストクラスをオーバーライドしている場合などに確認することができます
 {/problem}
 
 {solution}
-Use the `App::onRequest()` method.
+`App::onRequest()`メソッドを利用します
 
-This method takes two arguments, the method name, and an array of parameters for the method. If the method you wish to call takes no arguments, you can omit the array of parameters.
+このメソッドは二つの引数、メソッド名、およびメソッドのパラメータの配列を取ります。  
+引数を仕様しない場合はパラメータの配列を省略することができます。
 
-{php}
+```php
 $request = App::onRequest('createFromGlobals');
-{/php}
+```
 
-See also [[Changing the Default Request Class]].
+こちらも参考にしてください [[Changing the Default Request Class]].
 {/solution}
 
 {discussion}
-What are the available methods you can call?
+デフォルトのリクエストクラスで、利用できるものは以下のものです
 
-Here's a quick list of what's provided at the time of this writing:
+執筆時にものですので、変更されている場合があります:
 
-* `createFromBase(SymfonyRequest $request)` - Create an Illuminate request from a Symfony instance.
-* `createFromGlobals()` - Creates a new request with values from PHP's super globals.
-* `create($uri, $method, $parameters, $cookies, $files, $server, $content)` - Creates a Request based on a given URI and configuration.
-* `setFactory($callable)` - Sets a callable able to create a Request instance.
-* `setTrustedProxies(array $proxies)` - Sets a list of trusted proxies.
-* `getTrustedProxies()` - Gets the list of trusted proxies.
-* `setTrustedHosts(array $hostPatterns)` - Sets a list of trusted host patterns.
-* `getTrustedHosts()` - Gets the list of trusted host patterns.
-* `setTrustedHeaderName($key, $value)` - Sets the name for trusted headers.
-* `getTrustedHeaderName($key)` - Get the trusted proxy header name.
-* `normalizeQueryString($qs)` - Normalize a query string.
-* `enableHttpMethodParameterOverride()` - Enables support for the _method request parameter to determine the intended HTTP method.
-* `getHttpMethodParameterOverride()` - Checks whether support for the _method request parameter is enabled.
+* `createFromBase(SymfonyRequest $request)` - SymfonyのRequest関連のコンポーネント
+* `createFromGlobals()` - PHPのスーパーグローバル変数
+* `create($uri, $method, $parameters, $cookies, $files, $server, $content)` - 指定されたURIと設定に基づいてリクエストを作成します
+* `setFactory($callable)` - Requestのインスタンスを作成して利用出来る状態にします
+* `setTrustedProxies(array $proxies)` - 信頼されたプロキシのリストを設定します
+* `getTrustedProxies()` - 設定されたプロキシのリストを返却します
+* `setTrustedHosts(array $hostPatterns)` - 信頼されたホストを設定します
+* `getTrustedHosts()` - 設定されたホストを返却します
+* `setTrustedHeaderName($key, $value)` - 信頼されたヘッダー情報を設定します
+* `getTrustedHeaderName($key)` - 設定されたヘッダーを返却します
+* `normalizeQueryString($qs)` - クエリーの文字列を正規化します
+* `enableHttpMethodParameterOverride()` - 意図したHTTPメソッドを指定するため、リクエストパラメータのサポートを有効にします
+* `getHttpMethodParameterOverride()` - リクエストパラメータのサポートの状態を確認します
 
-And if you're overriding the default request class, any public static methods in your class can also be called with `App::onRequest()`.
+デフォルトのリクエストクラスをオーバーライドしているのであれば、  
+任意のpublic、またはstaticメソッドなどを`App:: onRequest`で呼び出すことができます。
 
-Keep in mind this list was taken directly from the source code and can change at any point. For a definitive list you should consult the source code yourself.
+ここに挙げたリストは、任意で変更する事ができるということを覚えておいてください。  
+現時点の利用可能なクラスなどは、ソースコードを直接確認してください
 {/discussion}

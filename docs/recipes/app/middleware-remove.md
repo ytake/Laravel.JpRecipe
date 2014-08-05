@@ -1,5 +1,5 @@
 ---
-Title:    Removing Middleware from the Application
+Title:    アプリケーションからミドルウェア(HttpKernel)を削除する
 Topics:   middleware
 Code:     App::forgetMiddleware()
 Id:       112
@@ -7,33 +7,34 @@ Position: 13
 ---
 
 {problem}
-You want to remove a piece of middleware from the your application.
+ミドルウェアの一部を削除したい
 {/problem}
 
 {solution}
-Use the `App::removeMiddleware()` method.
+`App::forgetMiddleware()`メソッドを利用します
 
-{php}
-// Remove a class you've already registered
-App::removeMiddleware('MyApp\Middleware');
+```php
+// 独自のクラスを登録してある場合はそれを指定します
+App::forgetMiddleware('MyApp\Middleware');
 
-// Remove the FrameGuard middleware
-App::removeMiddleware('Illuminate\Http\FrameGuard');
-{/php}
+// LaravelのFrameGuardクラスを削除します
+App::forgetMiddleware('Illuminate\Http\FrameGuard');
+```
 {/solution}
 
 {discussion}
-This low level method must be called early in the lifecycle.
+ローレベルのメソッドですが、実行する場合はリクエストのライフサイクルの中でも早いうちに実行しなければなりません  
 
-Specifically, it must be called within the `register()` method of a service provider. If you call it any later it will have no effect.
+記述する具体的な場所は、サービスプロバイダーの`register()`に記述します。  
+`register()`の後に呼ばれるメソッドなどでは、効果がありません
 
-The point you must call this method is before the block labeled "Build stacked HTTP Kernel" in the booting steps displayed in the [[Understanding the Request Lifecycle]] recipe.
+[[Understanding the Request Lifecycle]]の、"Build stacked HTTP Kernel"の部分が該当します。  
 
-You cannot remove the following middleware from your application:
+ただし、次のクラスは削除する事ができません:
 
 * `Illuminate\Cookie\Guard`
 * `Illumiante\Cookie\Queue`
 * `Illuminate\Session\Middleware`
 
-These items are provided by Laravel's core.
+これらはLaravelのコアクラスの為、削除はできません
 {/discussion}

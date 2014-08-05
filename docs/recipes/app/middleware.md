@@ -1,5 +1,5 @@
 ---
-Title:    Registering HttpKernel Middleware
+Title:    ミドルウェア(HttpKernel)を登録する
 Topics:   middleware
 Code:     App::middleware()
 Id:       111
@@ -7,37 +7,40 @@ Position: 12
 ---
 
 {problem}
-You want to modify some aspect of the request or response at a low level.
+ローレベルで、リクエストやレスポンスを独自に変更したい
 
-You know you could use before filters or after filters, but the function you want to perform is global across your entire application and it's at a low level.
+`before filters`または`after filters`を学習してある事が前提ですが、  
+これらはローレベルで有りながらもアプリケーションでグローバルに作用します
 {/problem}
 
 {solution}
-Use the `App::middleware()` method.
+`App::middleware()`メソッドを利用します
 
-First you must register your middleware. We'll call the class `MyApp\Middleware` in this example.
+まず、ミドルウェアクラス `MyApp\Middleware` として、クラスを登録します。
 
-{php}
+```php
 App::middleware('MyApp\Middleware');
-{/php}
+```
 
-Then you must have the class `MyApp\Middleware` in your application to handle things.
+`MyApp\Middleware`クラスはアプリケーション内に設置してなければいけません。
 
-If your class takes additional construction arguments, you can specify those arguments when you register the middleware.
+登録するクラスのコンストラクタで引数が必要な場合は、  
+次の様に指定する事ができます
 
-{php}
-// 1 arg
-App::middleware('MyApp\Middleware', array($arg1));
+```php
+// 引数が1つ
+App::middleware('MyApp\Middleware', [$arg1]);
 
-// 2+ args
-App::middleware('MyApp\Middleware', array($arg1, $arg2));
-{/php}
+// 引数が2つ以上
+App::middleware('MyApp\Middleware', [$arg1, $arg2]);
+```
 {/solution}
 
 {discussion}
-It's important to know where the middleware processing occurs. See [[Understanding the Request Lifecycle]].
+ミドルウェアの処理が実行される場所を知るのは、重要なポイントの一つです
+[[Understanding the Request Lifecycle]]を参考にしてください  
 
-Here are some other recipes for middleware:
+ミドルウェアに関連するレシピは下記のものです:
 
 * [[Understanding What Middleware Is]]
 * [[Creating a Simple Middleware Class]]
