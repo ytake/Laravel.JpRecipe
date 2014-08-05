@@ -10,6 +10,8 @@ class RecipeControllerTest extends TestCase
     {
         parent::setUp();
         \App::bind("App\Repositories\SectionRepositoryInterface", "App\Tests\StubRepositories\SectionRepository");
+        \App::bind("App\Repositories\CategoryRepositoryInterface", "App\Tests\StubRepositories\CategoryRepository");
+        \App::bind("App\Repositories\RecipeRepositoryInterface", "App\Tests\StubRepositories\RecipeRepository");
     }
 
     /**

@@ -3,7 +3,6 @@ namespace App\Tests\Presenter;
 
 use App\Presenter\Markdown;
 use App\Tests\TestCase;
-use Ciconia\Ciconia;
 
 class MarkdownTest extends TestCase
 {
@@ -34,4 +33,4 @@ echo 'hello';
         $this->assertSame("<p><a href=\"http://example.com\">aaaa</a></p>", $this->markdown->render($text));
         $this->assertSame("<p><code>Person</code></p>", $this->markdown->render("`Person`"));
     }
-} 
+}
