@@ -5,22 +5,25 @@ use App\Repositories\RecipeRepositoryInterface;
 
 class RecipeRepository implements RecipeRepositoryInterface
 {
-    // stub array
-    /** @var array  */
-    protected $sections = [
-        [
-            "section_id" => "1",
-            "name" => "test1",
-            "description" => "test1",
-            "position" => "1"
-        ],
-        [
-            "section_id" => "2",
-            "name" => "test2",
-            "description" => "test2",
-            "position" => "1"
-        ],
-    ];
+
+    /**
+     * セクション内でランダムにレシピを取得
+     * @param $sectionId
+     * @param int $limit
+     * @return array
+     */
+    public function getRecipeFromSectionByRand($sectionId, $limit = 3)
+    {
+        // TODO: Implement getRecipeFromSectionByRand() method.
+    }
+
+    /**
+     * @param int $limit
+     * @return mixed
+     */public function getLatestRecipe($limit = 5)
+    {
+        // TODO: Implement getLatestRecipe() method.
+    }
 
     /**
      * @param int $limit
@@ -84,11 +87,7 @@ class RecipeRepository implements RecipeRepositoryInterface
     public function getRecipesFromCategory($categoryId = null)
     {
         // TODO: Implement getRecipesFromCategory() method.
-    }
-
-    function __call($name, $arguments)
-    {
-        // TODO: Implement __call() method.
+        return [];
     }
 
 

@@ -7,9 +7,9 @@ php:
   - hhvm
 
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev
-  - chmod -R 777 tests/storage
+  - composer self-update
+  - composer install
+  - chmod -R 777 app/storage
 
 script: phpunit
 

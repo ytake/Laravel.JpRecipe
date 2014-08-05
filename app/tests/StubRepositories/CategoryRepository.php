@@ -7,18 +7,46 @@ class CategoryRepository implements CategoryRepositoryInterface
 {
     // stub array
     /** @var array  */
-    protected $sections = [
+    protected $categories = [
         [
-            "section_id" => "1",
-            "name" => "test1",
-            "description" => "test1",
-            "position" => "1"
+            "category_id" => 1,
+            "section_id" => 1,
+            "slug" => "help",
+            "name" => "Help",
+            "description" => "testing",
+            "position" => "1",
+            "created_at" => '1970-01-01 00:00:00',
+            "updated_at" => '1970-01-01 00:00:00',
         ],
         [
-            "section_id" => "2",
-            "name" => "test2",
-            "description" => "test2",
-            "position" => "1"
+            "category_id" => 2,
+            "section_id" => 2,
+            "slug" => "help",
+            "name" => "Help",
+            "description" => "testing",
+            "position" => "1",
+            "created_at" => '1970-01-01 00:00:00',
+            "updated_at" => '1970-01-01 00:00:00',
+        ],
+        [
+            "category_id" => 3,
+            "section_id" => 3,
+            "slug" => "help",
+            "name" => "Help",
+            "description" => "testing",
+            "position" => "1",
+            "created_at" => '1970-01-01 00:00:00',
+            "updated_at" => '1970-01-01 00:00:00',
+        ],
+        [
+            "category_id" => 4,
+            "section_id" => 4,
+            "slug" => "help",
+            "name" => "Help",
+            "description" => "testing",
+            "position" => "1",
+            "created_at" => '1970-01-01 00:00:00',
+            "updated_at" => '1970-01-01 00:00:00',
         ],
     ];
 
@@ -48,6 +76,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function getCategories()
     {
         // TODO: Implement getCategories() method.
+        return (object) $this->categories;
     }
 
     /**
@@ -57,7 +86,7 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategoryList($column, $key)
     {
-        // TODO: Implement getCategoryList() method.
+
     }
 
     /**
@@ -66,7 +95,13 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategoryFromSection($sectionId)
     {
-        // TODO: Implement getCategoryFromSection() method.
+        $result = [];
+        foreach($this->categories as $category) {
+            if($category['section_id'] == $sectionId) {
+                $result[] = (object) $category;
+            }
+        }
+        return $result;
     }
 
     /**
