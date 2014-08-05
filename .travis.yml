@@ -11,7 +11,12 @@ before_script:
   - composer install
   - chmod -R 777 app/storage
 
-script: phpunit
+script:
+  - mkdir -p build/logs
+  - phpunit --coverage-clover build/logs/clover.xml --configuration phpunit.xml tests
+
+after_script:
+  - php vendor/bin/coveralls -v
 
 notifications:
   emails:
