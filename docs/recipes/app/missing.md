@@ -1,5 +1,5 @@
 ---
-Title:    Registering a 404 Error Handler
+Title:    404エラーを登録
 Topics:   -
 Code:     App::missing()
 Id:       203
@@ -7,26 +7,31 @@ Position: 21
 ---
 
 {problem}
-You want to trap any 404 errors you application generates.
+404エラーを任意のものに変更したい
 {/problem}
 
 {solution}
-Use the `App::missing()` method.
+`App::missing()`メソッドを利用します
 
-You'll place this code somewhere in your startup code. Usually `app/start/global.php`.
+一般的な設置場所は`app/start/global.php`ですが、早期に実行される場所であればどこにでも設置出来ます  
+サービスプロバイダなどでも構いません
 
-{php}
-App::missing(function($exception)
-{
+```php
+App::missing(function($exception) {
+    // not-found.blade.phpなどを使って任意のメッセージを表示したりします
     return View::make('not-found')->withMessage($exception->getMessage());
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-Return a `Response` with your handler to finish the processing.
+処理が終了すると`Response`を返却します。
 
-In other words, if your missing handler returns anything, all further error handlers will be ignored and the response will be returned to the user.
+適切にハンドラなどを設置していない場合は、  
+アクセスしたユーザーなどにそのままエラーを返却します。  
+Laravelのエラー画面などがそのまま表示される事になる場合もありますので、適切に処理を記述しましょう。
 
-Sometimes, such as error logging, you don't want your handler to return anything. You may want it to do a bit of processing and allow other handlers to continue as normal.
+場合によっては、ここでエラー内容をログとして出力して、  
+他のハンドラで処理をする等、色々なパターンで利用出来ます。  
+要望にあった内容で実装してみてください。  
 {/discussion}

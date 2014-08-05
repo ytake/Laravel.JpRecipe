@@ -3,5 +3,5 @@
  * compiler
  */
 return [
-    app_path() . '/App/Controllers/BaseController.php',
+    //app_path() . '/App/Controllers/BaseController.php',
 ];

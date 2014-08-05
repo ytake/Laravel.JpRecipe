@@ -1,8 +1,5 @@
 @extends('layouts.default')
 @section('scripts')
-<!--
-<script type="text/jsx" src="/js/react/content.js"></script>
--->
 @stop
 @section('content')
 <section class="container">
@@ -21,7 +18,7 @@
                             <p class="lead">{{$category->description}}</p>
                             <hr />
                             @foreach($list as $row)
-                            <p><span class="glyphicon glyphicon-cutlery">&nbsp;{{$row->title}}</p>
+                            <p><span class="glyphicon glyphicon-cutlery">&nbsp;{{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['alt' => $row->title, 'title' => $row->title])}}</p>
                             @endforeach
                         </div><!--/.col-md-3-->
                     </div>

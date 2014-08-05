@@ -5,18 +5,18 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="robots" content="index">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="">
+    <meta property="og:title" content="@yield('title', 'Laravel Recipes日本語版')">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="{{Request::url()}}">
     <meta property="og:image" content="">
     <meta property="og:description" content="">
     <meta name="twitter:card" value="summary"/>
     <meta name="twitter:site" value=""/>
     <meta name="twitter:creator" value=""/>
-    <meta name="twitter:url" value=""/>
-    <meta name="twitter:title" value=""/>
+    <meta name="twitter:url" value="{{Request::url()}}"/>
+    <meta name="twitter:title" value="@yield('title', 'Laravel Recipes日本語版')"/>
     <meta name="twitter:description" value=""/>
-    <meta name="twitter:image" value=""/>
+    <meta name="twitter:image" value="" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yuuki Takezawa and LaravelJp contributors">
     <meta name="description" content="PHPフレームワーク Laravelの実装事例等を詳細に記述した情報を掲載したレシピサイトです。">
@@ -48,8 +48,6 @@
 @include('elements.footer')
 <script src="//code.jquery.com/jquery-1.10.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/react.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.11.0/JSXTransformer.js"></script>
 @yield('scripts')
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

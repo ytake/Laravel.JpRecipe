@@ -11,7 +11,11 @@ use Illuminate\Routing\Controller;
 class BaseController extends Controller
 {
 
+    /** @var string  */
     protected $layout = 'layouts.default';
+
+    /** @var string  */
+    protected $title = "Laravel Recipes日本語版";
 
     /**
      * Setup the layout used by the controller.
@@ -34,6 +38,17 @@ class BaseController extends Controller
     protected function view($path, $data = [])
     {
         $this->layout->content = \View::make($path, $data);
+    }
+
+    /**
+     * @param null $string
+     * @return void
+     */
+    protected function title($string = null)
+    {
+        $title = ($string) ? " | $string" : null;
+        $this->title = $this->title . $title;
+        \View::inject('title', $this->title);
     }
 
     /**
