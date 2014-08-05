@@ -57,7 +57,9 @@ body > section {
     margin-bottom: 20px;
     padding-left: 20px;
 }
-
+.recipe-title {
+    padding-top: 15px;
+}
 .mt-40 {
     margin-top: -40px;
 }

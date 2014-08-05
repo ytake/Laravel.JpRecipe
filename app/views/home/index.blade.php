@@ -69,7 +69,8 @@
                                             @foreach($sections[$i - 1]->recipes as $recipe)
                                             <dt>
                                                 <h5>
-                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;{{$recipe->title}}
+                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
+                                                    {{HTML::linkAction('home.recipe', $recipe->title, ['one' => $recipe->recipe_id], ['alt' => $recipe->title, 'title' => $recipe->title])}}
                                                 </h5>
                                             </dt>
                                             @endforeach
@@ -98,7 +99,8 @@
                                             @foreach($latest as $late)
                                             <dt>
                                                 <h5>
-                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;{{$late->title}}
+                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
+                                                    {{HTML::linkAction('home.recipe', $late->title, ['one' => $late->recipe_id], ['alt' => $late->title, 'title' => $late->title])}}
                                                 </h5>
                                             </dt>
                                             <dd>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Repositories\AnalyticsRepositoryInterface;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
@@ -22,19 +23,25 @@ class HomeController extends BaseController
     /** @var RecipeRepositoryInterface  */
     protected $recipe;
 
+    /** @var AnalyticsRepositoryInterface  */
+    protected $analytics;
+
     /**
      * @param SectionRepositoryInterface $section
      * @param CategoryRepositoryInterface $category
      * @param RecipeRepositoryInterface $recipe
+     * @param AnalyticsRepositoryInterface $analytics
      */
     public function __construct(
         SectionRepositoryInterface $section,
         CategoryRepositoryInterface $category,
-        RecipeRepositoryInterface $recipe
+        RecipeRepositoryInterface $recipe,
+        AnalyticsRepositoryInterface $analytics
     ) {
         $this->section = $section;
         $this->category = $category;
         $this->recipe = $recipe;
+        $this->analytics = $analytics;
     }
 
     /**
@@ -59,7 +66,17 @@ class HomeController extends BaseController
      */
     public function getRecipe($one = null)
     {
-
+        // アクセス保存
+        $this->analytics->setCount($one);
+        // recipe取得
+        $recipe = $this->recipe->getRecipe($one);
+        $recipe->category = $this->category->getCategory($recipe->category_id);
+        $data = [
+            'recipe' => $recipe,
+        ];
+        // title設定
+        $this->title($recipe->title);
+        $this->view('home.recipe.index', $data);
     }
 
     /**
