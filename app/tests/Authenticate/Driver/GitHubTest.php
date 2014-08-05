@@ -25,4 +25,21 @@ class GitHubTest extends TestCase
     {
         $this->assertInternalType('string', $this->auth->getUrl());
     }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     */
+    public function testGetToken()
+    {
+        // disable access_token
+        $this->auth->getToken('testing');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     */
+    public function testGetUser()
+    {
+        $this->auth->getUser('testing');
+    }
 }
