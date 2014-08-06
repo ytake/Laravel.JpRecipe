@@ -21,7 +21,7 @@
     <meta name="author" content="Yuuki Takezawa and LaravelJp contributors">
     <meta name="description" content="PHPフレームワーク Laravelの実装事例等を詳細に記述した情報を掲載したレシピサイトです。">
     <meta name="keywords" content="Laravel, framework, php, ララベル, フレームワーク, 日本語, チュートリアル, サンプル" />
-    <title>@yield('title', 'Laravel Recipes日本語版')</title>
+    <title>@yield('title', Config::get('recipe.title'))</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//code.jquery.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">

@@ -13,7 +13,6 @@
 
     // for API
     \Route::group(['namespace' => 'Api', 'prefix' => 'api/v1'], function () {
-        \Route::post('hook', 'HookController@postHook');
         \Route::resource('recipe', 'RecipeController', ['only' => ['index', 'show']]);
     });
 
@@ -39,6 +38,7 @@
             ]
         );
     });
+    \Route::get('feed/{format?}', ['uses' => 'FeedController@getIndex', 'as' => 'feed.index']);
     // authenticate
     \Route::controller('auth', 'AuthenticateController', [
             'getLogin' => 'auth.login',

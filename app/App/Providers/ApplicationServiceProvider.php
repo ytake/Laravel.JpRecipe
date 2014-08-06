@@ -33,6 +33,8 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->bind("App\\Authenticate\\AuthenticateInterface", function($app) {
             return $app->make("App\\Authenticate\\Driver\\GitHub", [$app->make("GuzzleHttp\\ClientInterface")]);
         });
+        // feed provider
+        $this->app->bind("App\Presenter\FeedInterface", "App\Presenter\Feed");
 
         $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
         $this->app->bind("App\Repositories\UserRepositoryInterface", "App\Repositories\Fluent\UserRepository");

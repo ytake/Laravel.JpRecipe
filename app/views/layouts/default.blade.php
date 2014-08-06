@@ -5,7 +5,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="robots" content="index">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="@yield('title', 'Laravel Recipes日本語版')">
+    <meta property="og:title" content="@yield('title', Config::get('recipe.title'))">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{Request::url()}}">
     <meta property="og:image" content="">
@@ -14,14 +14,14 @@
     <meta name="twitter:site" value=""/>
     <meta name="twitter:creator" value=""/>
     <meta name="twitter:url" value="{{Request::url()}}"/>
-    <meta name="twitter:title" value="@yield('title', 'Laravel Recipes日本語版')"/>
+    <meta name="twitter:title" value="@yield('title', Config::get('recipe.title'))"/>
     <meta name="twitter:description" value=""/>
     <meta name="twitter:image" value="" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yuuki Takezawa and LaravelJp contributors">
     <meta name="description" content="PHPフレームワーク Laravelの実装事例等を詳細に記述した情報を掲載したレシピサイトです。">
     <meta name="keywords" content="Laravel, framework, php, ララベル, フレームワーク, 日本語, チュートリアル, サンプル" />
-    <title>@yield('title', 'Laravel Recipes日本語版')</title>
+    <title>@yield('title', Config::get('recipe.title'))</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//code.jquery.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">

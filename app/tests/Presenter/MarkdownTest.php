@@ -20,6 +20,12 @@ class MarkdownTest extends TestCase
         $this->assertInstanceOf('App\Presenter\Markdown', $this->markdown);
     }
 
+    public function testProperty()
+    {
+        $reflectionProperty = $this->getProtectProperty('App\Presenter\Markdown', 'parser');
+        $this->assertInstanceOf('Parsedown', $reflectionProperty->getValue($this->markdown));
+    }
+
     public function testRender()
     {
         $create = $this->markdown->render('##markdown');

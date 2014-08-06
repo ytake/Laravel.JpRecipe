@@ -6,6 +6,21 @@ use App\Repositories\RecipeRepositoryInterface;
 class RecipeRepository implements RecipeRepositoryInterface
 {
 
+    public $array = [
+        [
+            "recipe_id" => 1,
+            "title" => "Speeding up Development with Generators",
+            "category_id" => 23,
+            "problem" => "You'd like to speed up your development workflow by using generators.",
+            "solution" => 'testing',
+            "discussion" => "testing",
+            "position" => 1,
+            'created_at' => "1970-00-00 00:00:00",
+            'updated_at' => "1970-00-00 00:00:00",
+            "name" => "testing"
+        ],
+    ];
+
     /**
      * セクション内でランダムにレシピを取得
      * @param $sectionId
@@ -86,8 +101,12 @@ class RecipeRepository implements RecipeRepositoryInterface
      */
     public function getRecipesFromCategory($categoryId = null)
     {
+        $result = [];
         // TODO: Implement getRecipesFromCategory() method.
-        return [];
+        foreach($this->array as $array) {
+            $result[] = (object)$array;
+        }
+        return $result;
     }
 
 
