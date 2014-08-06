@@ -6,8 +6,20 @@ body {
     font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo, sans-serif;
 
 }
+
 .wet-asphalt {
     background-color: #333;
+}
+
+.header-color {
+    background-color: white;
+	color: black !important;
+	border-bottom: 2px solid gray;
+}
+
+.header-logo {
+	height: 38px;
+	margin-top: 3px;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus
@@ -26,10 +38,29 @@ body {
     color: #fff;
     background: url('/images/background/header.jpg') no-repeat scroll 0% 0% #F4726D;
     padding: 35px;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-radius: 15px;
 }
+
+.title-back {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: ivory !important;
+}
+
 .site-hero {
     background: none repeat scroll 0 0 #ff691c;
-    padding: 35px 0;
+	padding: 35px 0 20px;
+}
+
+.right-line {
+	border-right: 1px solid;
+	height: 140px;
+}
+
+.container {
+	width: 85%;
 }
 .recipe-info {
     color: #fff;
@@ -57,9 +88,32 @@ body > section {
     margin-bottom: 20px;
     padding-left: 20px;
 }
+
 .recipe-title {
     padding-top: 15px;
 }
+
+.content-border {
+	border: 3px solid;
+}
+
+.side-content-border {
+	border: 3px solid;
+	border-radius: 7px;
+	background-color: white;
+}
+
+.disqus-content-border {
+	border: 3px solid;
+	padding: 20px 20px;
+	border-radius: 7px;
+	margin-bottom: 20px;
+}
+
+.backcolor-white {
+	background-color: white;
+}
+
 .mt-40 {
     margin-top: -40px;
 }
