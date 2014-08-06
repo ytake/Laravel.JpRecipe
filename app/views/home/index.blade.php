@@ -9,7 +9,7 @@
     <section id="services" class="recipe-info">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 right-line">
                     <div class="media">
                         <div class="pull-left">
                             <i class="flaticon-fire14 icon-md"></i>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div><!--/.col-md-4-->
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 right-line">
                     <div class="media">
                         <div class="pull-left">
                             <i class="flaticon-icomoon1 icon-md"></i>
@@ -48,14 +48,14 @@
 </div>
 <section class="container">
     <div class="row">
-        <aside class="col-sm-3 col-sm-push-9">
+        <aside class="col-sm-3 col-sm-push-9 side-content-border">
             <div class="widget categories">
                 @include('elements.sidebar')
             </div><!--/.categories-->
         </aside>
         <div class="col-sm-9 col-sm-pull-3">
             <div class="recipe-content">
-                <div class="recipe-item">
+                <div class="recipe-item content-border">
                     <div id="pricing-table" class="row">
                     @for($i = 1; $i <= count($sections); $i++)
                         <div class="col-md-6 col-xs-6">
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="recipe-content">
-                <div class="recipe-item">
+                <div class="recipe-item content-border">
                     <div id="pricing-table" class="row">
                         <div class="col-md-6 col-xs-6">
                             <h3><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>&nbsp;&nbsp;最新レシピ</h3>
