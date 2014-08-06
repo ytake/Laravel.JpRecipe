@@ -2,7 +2,7 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'laraveljprecipe';
-    var disqus_title = "@yield('title', 'Laravel Recipes日本語版')";
+    var disqus_title = "@yield('title', Config::get('recipe.title'))";
     var disqus_url = '{{Request::url()}}';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

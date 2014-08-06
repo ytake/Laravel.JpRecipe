@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex,nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Laravel Recipes日本語版 | webmaster')</title>
+    <title>@yield('title', Config::get('recipe.title') . ' | webmaster')</title>
     <link rel="shortcut icon" href="/icon/favicon.png" type="image/x-icon">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.css" rel="stylesheet" />

@@ -1,10 +1,11 @@
 <?php
 namespace App\Controllers\Api;
 
-use App\Repositories\CategoryRepositoryInterface;
+use Nocarrier\Hal;
+use Illuminate\Routing\Controller;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
-use Illuminate\Routing\Controller;
+use App\Repositories\CategoryRepositoryInterface;
 
 /**
  * API only
@@ -24,63 +25,103 @@ class RecipeController extends Controller
     /** @var RecipeRepositoryInterface  */
     protected $recipe;
 
+    /** @var Hal */
+    protected $hal;
+
     /**
      * @param SectionRepositoryInterface $section
      * @param CategoryRepositoryInterface $category
      * @param RecipeRepositoryInterface $recipe
+     * @param Hal $hal
      */
     public function __construct(
         SectionRepositoryInterface $section,
         CategoryRepositoryInterface $category,
-        RecipeRepositoryInterface $recipe
+        RecipeRepositoryInterface $recipe,
+        Hal $hal
     ) {
         $this->section = $section;
         $this->category = $category;
         $this->recipe = $recipe;
-    }
-
-
-    public function index()
-    {
-        $array = [];
-        $sections = $this->section->getSections();
-        $i = 0;
-        foreach($sections as $section) {
-            $array[$i] = [
-                'sections' => [
-                    'name' => $section->name,
-                ]
-            ];
-            $categories = $this->category->getCategoryFromSection($section->section_id);
-            foreach($categories as $category) {
-                $result = $this->recipe->getRecipesFromCategory($category->category_id);
-                $array[$i]['sections']['categories'][] = [
-                    'description' => $category->description,
-                    'data' => array_map(function($data) {
-                            return [
-                                'id' => $data->recipe_id,
-                                'title' => $data->title
-                            ];
-                        }, $result)
-                ];
-            }
-            $i++;
-        }
-        return \Response::json($array);
-    }
-
-    public function show($id)
-    {
-
+        $this->hal = $hal;
     }
 
     /**
-     * @param array $array
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $input = \Input::get('format', 'json');
+        $array = [];
+        $result = $this->recipe->getRecipesFromCategory();
+        if($result) {
+            foreach($result as $row) {
+                $params = [
+                    'id' => $row->recipe_id,
+                    'title' => $row->title,
+                    'category' => [
+                        'name' => $row->name
+                    ]
+                ];
+                $array[] = $params;
+                if($input == 'hal') {
+                    $this->hal->addLink('recipes', route('home.recipe', ['one' => $row->recipe_id]), $params);
+                }
+            }
+        }
+        if($input == 'hal') {
+            $this->hal->setUri('self');
+            $this->hal->addLink('self', route('home.index'));
+            $array = $this->hal;
+        }
+        return $this->render($array, $input);
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show($id)
+    {
+        $input = \Input::get('format', 'json');
+        $array = [];
+        $recipe = $this->recipe->getRecipe($id);
+        if($recipe) {
+            $category = $this->category->getCategory($recipe->category_id);
+            $array = [
+                'id' => $recipe->recipe_id,
+                'title' => $recipe->title,
+                'problem' => $recipe->problem,
+                'category' => [
+                    'description' => $category->description,
+                    'name' => $category->name,
+                ],
+            ];
+        }
+        // render for hypermedia
+        if($input == 'hal') {
+            $this->hal->setUri(route('home.recipe', ['one' => $id]));
+            $this->hal->setData($array);
+            $array = $this->hal;
+        }
+        return $this->render($array, $input);
+    }
+
+    /**
+     * @param $array
      * @param string $format
      * @return \Illuminate\Http\JsonResponse
      */
-    public function render(array $array, $format = 'json')
+    public function render($array = null, $format = 'json')
     {
-
+        switch($format)
+        {
+            case "hal":
+                return \Response::hal($array);
+                break;
+            default:
+                return \Response::json($array);
+                break;
+        }
     }
 }
