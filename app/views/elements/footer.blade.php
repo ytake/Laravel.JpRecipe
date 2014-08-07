@@ -1,4 +1,4 @@
-<div class="container disqus-content-border backcolor-white">
+<div class="container disqus-content">
     @if(!Request::is('auth/login*'))
     @include('elements.disqus')
     @endif

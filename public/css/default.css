@@ -12,9 +12,8 @@ body {
 }
 
 .header-color {
-    background-color: white;
+    background-color: ivory;
 	color: black !important;
-	border-bottom: 2px solid gray;
 }
 
 .header-logo {
@@ -38,25 +37,20 @@ body {
     color: #fff;
     background: url('/images/background/header.jpg') no-repeat scroll 0% 0% #F4726D;
     padding: 35px;
-	margin-left: 40px;
-	margin-right: 40px;
-	border-radius: 15px;
 }
 
 .title-back {
 	padding-top: 20px;
-	padding-bottom: 20px;
+	background-color: ivory !important;
+}
+
+.title-back {
 	background-color: ivory !important;
 }
 
 .site-hero {
     background: none repeat scroll 0 0 #ff691c;
-	padding: 35px 0 20px;
-}
-
-.right-line {
-	border-right: 1px solid;
-	height: 140px;
+	padding: 50px 0 35px;
 }
 
 .container {
@@ -83,10 +77,15 @@ body > section {
 }
 
 .recipe-content .recipe-item {
-    background-color: #fff;
-    border-radius: 5px;
     margin-bottom: 20px;
-    padding-left: 20px;
+}
+
+.disqus-content {
+	margin-bottom: 20px;
+}
+
+.backcolor-white {
+	background-color: white;
 }
 
 .recipe-title {
@@ -116,4 +115,33 @@ body > section {
 
 .mt-40 {
     margin-top: -40px;
+}
+
+.pt35 {
+	padding-top: 35px;
+}
+
+@media screen and (max-width: 767px) {
+	.pc-sns-btn {
+		display: none;	
+	}
+
+	.navbar-collapse > .nav > li {
+		border-top: 1px solid;
+	}
+}
+
+@media screen and (min-width: 767px) {
+	.sp-sns-btn {
+		display: none;	
+	}
+}
+
+.bg-black {
+	background-color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+	color: black !important;
 }
