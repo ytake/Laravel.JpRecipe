@@ -1,4 +1,12 @@
 <ul class="nav nav-stacked">
+    <li><h3 class="highlight">Category</h3></li>
+    @foreach($categories as $category)
+    <li>
+        <a href="{{route('home.category', ['one' => $category->category_id])}}" alt="{{$category->description}}" title="{{$category->description}}"><strong>{{$category->name}}</strong>&nbsp;&nbsp;<span class="badge badge-info">{{$category->recipe_count}}</span></a>
+    </li>
+    @endforeach
+</ul>
+<ul class="nav nav-stacked pt35 pc-sns-btn">
     <li>
         <div class="fb-like" data-href="{{Request::url()}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
     </li>
@@ -11,12 +19,4 @@
     <li>
         <div class="g-plus" data-action="share" data-href="{{Request::url()}}"></div>
     </li>
-</ul>
-<ul class="nav nav-stacked">
-    <li><h3 class="highlight">Category</h3></li>
-    @foreach($categories as $category)
-    <li>
-        <a href="{{route('home.category', ['one' => $category->category_id])}}" alt="{{$category->description}}" title="{{$category->description}}"><strong>{{$category->name}}</strong>&nbsp;&nbsp;<span class="badge badge-info">{{$category->recipe_count}}</span></a>
-    </li>
-    @endforeach
 </ul>

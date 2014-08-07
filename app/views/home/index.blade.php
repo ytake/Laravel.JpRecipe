@@ -48,14 +48,14 @@
 </div>
 <section class="container">
     <div class="row">
-        <aside class="col-sm-3 col-sm-push-9 side-content-border">
+        <aside class="col-sm-3 col-sm-push-9">
             <div class="widget categories">
                 @include('elements.sidebar')
             </div><!--/.categories-->
         </aside>
         <div class="col-sm-9 col-sm-pull-3">
             <div class="recipe-content">
-                <div class="recipe-item content-border">
+                <div class="recipe-item">
                     <div id="pricing-table" class="row">
                     @for($i = 1; $i <= count($sections); $i++)
                         <div class="col-md-6 col-xs-6">
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="recipe-content">
-                <div class="recipe-item content-border">
+                <div class="recipe-item">
                     <div id="pricing-table" class="row">
                         <div class="col-md-6 col-xs-6">
                             <h3><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>&nbsp;&nbsp;最新レシピ</h3>
@@ -134,6 +134,20 @@
                 </div>
             </div>
         </div><!--/.col-md-8-->
+		<ul class="nav nav-stacked sp-sns-btn">
+			<li>
+				<div class="fb-like" data-href="{{url()}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+			</li>
+			<li>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{url()}}" data-text="laravel-recipes.comnect.jp.net">Tweet</a>
+			</li>
+			<li>
+				<a href="http://b.hatena.ne.jp/entry/{{url()}}" class="hatena-bookmark-button" data-hatena-bookmark-title="111111" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+			</li>
+			<li>
+				<div class="g-plus" data-action="share" data-href="{{url()}}"></div>
+			</li>
+		</ul>
     </div><!--/.row-->
 </section>
 @stop
