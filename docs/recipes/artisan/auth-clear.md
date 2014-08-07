@@ -1,5 +1,5 @@
 ---
-Title:    Clearing Expired Password Reminders
+Title:    期限切れパスワードのリマインダーをクリアする
 Topics:   artisan, authentication, password reminders
 Code:     -
 Id:       72
@@ -7,15 +7,16 @@ Position: 20
 ---
 
 {problem}
-Your password reminders table is getting large.
+パスワードリマインダーテーブルが巨大になってきている。
 
-Lots of records exist in the table.
+多くのレコードがテーブルに存在します。
 {/problem}
 
 {solution}
-Use the `php artisan auth:clear-reminders` command.
+`php artisan auth:clear-reminders`コマンドが利用できます。
 
 This will clear out any expired tokens from the `password_reminders` table.
+このコマンドは`password_reminders`テーブルから全ての期限切れトークンを削除します。
 
 {php}
 $ php artisan auth:clear-reminders
@@ -23,7 +24,7 @@ $ php artisan auth:clear-reminders
 {/solution}
 
 {discussion}
-Run this command periodically.
+定期的にコマンドを実行してください。
 
-You may even want to have a cron job run this once a day or once a week.
+１日１回、もしくは１週間に１回はcronのジョブでコマンドを実行することになるでしょう。
 {/discussion}
