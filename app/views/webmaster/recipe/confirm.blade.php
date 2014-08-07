@@ -1,9 +1,10 @@
 @section('styles')
 <link href="/css/dataTables.bootstrap.css" rel="stylesheet" type='text/css' />
-<link href="/css/dist/prism/prism.css" rel="stylesheet" />
+<link href="/css/dist/highlight/styles/monokai.css" rel="stylesheet" />
 @stop
 @section('scripts')
-<script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="/js/dist/highlight/highlight.pack.js"></script>
+<script src="/js/application.js"></script>
 @stop
 @section('content')
 <h2>レシピ@if($id) 編集@else 追加@endif</h2>
