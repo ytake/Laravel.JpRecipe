@@ -17,6 +17,16 @@ class Feed implements FeedInterface
     /** @var string */
     protected $format;
 
+    /** @var array  */
+    protected $header = [
+        'atom' => [
+            'Content-Type' => 'application/atom+xml'
+        ],
+        'rss' => [
+            'Content-Type' => 'application/rss+xml; charset=utf-8'
+        ]
+    ];
+
     /**
      * @param ZendFeed $feed
      */
@@ -34,22 +44,30 @@ class Feed implements FeedInterface
         $this->feed->setTitle(\Config::get('recipe.title'));
         $this->feed->setLink(url());
         $this->feed->setFeedLink(route('feed.index', ['format' => $format]), $format);
+        $this->feed->setDescription(\Config::get('recipe.title'));
         $this->feed->setDateModified(time());
         $this->feed->addAuthor([
                 'name'  => 'Yuuki Takezawa',
                 'email' => 'yuuki.takezawa@comnect.jp.net'
             ]);
         $this->feed->addHub('http://pubsubhubbub.appspot.com/');
-
         $this->format = $format;
     }
 
     /**
-     * @return mixed|string
+     * @return ZendFeed
+     */
+    public function getFeeder()
+    {
+        return $this->feed;
+    }
+
+    /**
+     * @return \Illuminate\Http\Response|mixed
      */
     public function render()
     {
-        return $this->feed->export($this->format);
+        $feed = $this->feed->export($this->format);
+        return \Response::make($feed, 200, $this->header[$this->format]);
     }
-
 } 

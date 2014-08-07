@@ -160,7 +160,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
             ->orderBy('recipe.recipe_id', 'DESC')->take($limit)
             ->remember(240, "latest_recipe:" . date("YmdH"))
             ->get([
-                    "recipe.*", "cat.name"
+                    "recipe.*", "cat.name", "cat.description"
                 ]);
     }
 }
