@@ -109,5 +109,13 @@ class RecipeRepository implements RecipeRepositoryInterface
         return $result;
     }
 
-
+    public function all()
+    {
+        $result = [];
+        // TODO: Implement getRecipesFromCategory() method.
+        foreach($this->array as $array) {
+            $result[] = (object)$array;
+        }
+        return $result;
+    }
 } 

@@ -37,7 +37,6 @@ class Markdown implements MarkdownInterface
         if(!$life || is_null($cacheKey)) {
             return $this->parser->text($text);
         }
-
         if(\Cache::has($cacheKey)) {
             return \Cache::get($cacheKey);
         }

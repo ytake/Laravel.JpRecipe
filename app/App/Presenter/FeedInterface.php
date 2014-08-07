@@ -16,7 +16,12 @@ interface FeedInterface
     public function setHeaders($format = 'atom');
 
     /**
-     * @return mixed
+     * @return \Illuminate\Http\Response|mixed
      */
     public function render();
+
+    /**
+     * @return \Zend\Feed\Writer\Feed
+     */
+    public function getFeeder();
 } 
