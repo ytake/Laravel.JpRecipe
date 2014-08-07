@@ -1,9 +1,10 @@
 @extends('layouts.default')
 @section('styles')
-<link href="/css/dist/prism/prism.css" rel="stylesheet" />
+<link href="/css/dist/highlight/styles/monokai.css" rel="stylesheet" />
 @stop
 @section('scripts')
-<script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="/js/dist/highlight/highlight.pack.js"></script>
+<script src="/js/application.js"></script>
 @stop
 @section('content')
 <section class="container">
