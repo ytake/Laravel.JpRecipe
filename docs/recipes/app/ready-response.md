@@ -1,5 +1,5 @@
 ---
-Title:    Determining if the Application is Ready for Responses
+Title:    アプリケーションがリクエスト処理の準備ができているかどうか
 Topics:   -
 Code:     App::isBooted(), App::readyForResponses()
 Id:       201
@@ -7,27 +7,29 @@ Position: 19
 ---
 
 {problem}
-You want to know if your application is ready for responses.
+アプリケーションがリクエスト処理の準備ができているかどうか確認したい
 {/problem}
 
 {solution}
-Use the `App::readyForResponses()` method.
+`App::readyForResponses()`メソッドを利用したい
 
-{php}
+```php
 // In a service provider
-if (App::readyForResponses())
-{
-    // Take action when booted
+if (App::readyForResponses()) {
+    // アプリケーションが起動していたら、準備が整っている場合に何かしたいコード
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This is an alias to `App::isBooted()`.
+`App::isBooted()`のエイリアス、つまり同じものです
 
-See [[Checking if the Application is Booted]].
+こちらを参照してください [[Checking if the Application is Booted]].
 
-Since the application is ready for a response as soon as it's booted, and the application isn't booted until all the service providers are loaded, then any normal code in your application (`app/start/global.php`, controllers, routes, views) will always return a `true` result from this method.
+アプリケーションの仕組みとして、  
+リクエスト関連の処理が先に整ってから各サービスプロバイダーが読み込まれるまで、  
+任意のコード内では(`app/start/global.php`, `controllers`, `routes`, `views`)、  
+常に`true`が返却されます。
 
-The only place that makes sense to call this is in service providers.
+サービスプロバイダに記述するのが一番理にかなっているかもしれません。 
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Registering a "Last Chance" Error Handler
+Title:    最終的なエラーハンドラ登録
 Topics:   -
 Code:     App::error(), App::pushError()
 Id:       205
@@ -7,24 +7,24 @@ Position: 23
 ---
 
 {problem}
-You want to handle errors _ONLY_ if nothing else handles them.
+色々エラー処理を登録しているが、そのなかでも任意のところだけでエラー処理を行いたい
 {/problem}
 
 {solution}
-Use the `App::pushError()` method.
+`App:pushError()`メソッドを利用します
 
-This will add your handler to the bottom of the stack instead of the top of the stack.
+これは処理のスタック中に追加して、優先して実行する様にします
 
-{php}
-App::pushError(function($exception)
-{
+```php
+App::pushError(function($exception) {
     die('ERROR: '.$exception->getMessage());
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-This is exactly like `App::error()`.
+これは、`App::error()`とほぼ同等です。
 
-Except the handler is placed on the bottom of the stack instead of the top. See [[Registering an Error Handler]].
+違いは、`App::error()`よりも`App:pushError()`がハンドラーとして利用されます  
+こちらを参照してください[[Registering an Error Handler]].
 {/discussion}

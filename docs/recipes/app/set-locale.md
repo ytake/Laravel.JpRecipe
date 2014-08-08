@@ -1,5 +1,5 @@
 ---
-Title:    Set the Current Application Locale
+Title:    現在の言語環境を設定する
 Topics:   -
 Code:     App::setLocale()
 Id:       208
@@ -7,28 +7,27 @@ Position: 26
 ---
 
 {problem}
-You want to change your application's locale.
+現在の言語環境を変更したい
 {/problem}
 
 {solution}
-Use the `App::setLocale()` method.
+`App::setLocale()`メソッドを利用します
 
-{php}
-// Change to Spanish
+```php
+// 'es' Spanishに変更する
 App::setLocale('es');
-{/php}
+```
 
-Now the locale is `es` for the remainder of the request.
-
-Remember: the next request the locale will be back to whatever the configuration specifies.
+リクエストの処理内で`es`に変更したとして、  
+次の処理をする場合は、またアプリケーションで設定されているデフォルトの言語環境に戻る事を覚えておいてください
 {/solution}
 
 {discussion}
-This does more than simply changing `app.locale` in the configuration.
+これは単に`app.locale`の言語環境を変更するものではありません
 
-It does three things:
+変更方法は3つあります:
 
-1. Changes `app.locale` in the currently loaded configuration values.
-2. Sets the locale of the translator.
-3. Fires a `locale.changed` event which your application can listen for.
+1. `app.locale`の設定値を変更する
+2. 翻訳関連処理で言語を指定する
+3. `locale.changed`イベントをアプリケーションで検知する
 {/discussion}
