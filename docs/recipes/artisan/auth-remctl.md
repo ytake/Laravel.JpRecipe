@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Reminders Controller
+Title:    リマインダーコントローラの作成
 Topics:   artisan, authentication, password reminders
 Code:     -
 Id:       73
@@ -7,24 +7,24 @@ Position: 21
 ---
 
 {problem}
-You want to create the code to implement password reminders.
+パスワードリマインダーを実装するためのコードを作成したい。
 {/problem}
 
 {solution}
-Use the `php artisan auth:reminders-controller` command.
+`php artisan auth:reminders-controller`コマンドが利用できます。
 
 {php}
 $ php artisan auth:reminders-controller
 {/php}
 
-This creates a file in your `app/controllers` directory which contains handlers for the following routes:
+以下のルートのハンドラを含み、`app/controllers`ディレクトリにファイルが生成されます。
 
-* GET /password/remind - Display the password reminder view
-* POST /password/remind - Handles a POST request to remind user of password.
-* GET /password/reset/{token} - Display the password reset view for a token
-* POST /password/reset - Handles the request to reset user's password
+* GET /password/remind - パスワードリマインダービューを表示します。
+* POST /password/remind - パスワードリマインドのPOSTリクエストをハンドルします。
+* GET /password/reset/{token} - トークンのためのパスワードリセットビューを表示します。
+* POST /password/reset - パスワードリセットのリクエストをハンドルします。
 
-Here's the file `controllers/RemindersController.php` which was created using this method.
+メソッドを利用し、生成されたファイルは`controllers/RemindersController.php`にあります。
 
 {php}
 <?php
@@ -42,7 +42,7 @@ class RemindersController extends Controller {
   }
 
   /**
-   * Handle a POST request to remind a user of their password.
+	 * パスワードリマインドのPOSTリクエストをハンドルします。
    *
    * @return Response
    */
@@ -59,7 +59,7 @@ class RemindersController extends Controller {
   }
 
   /**
-   * Display the password reset view for the given token.
+	 * 与えられたトークンのパスワードリセットビューを表示します。
    *
    * @param  string  $token
    * @return Response
@@ -72,7 +72,7 @@ class RemindersController extends Controller {
   }
 
   /**
-   * Handle a POST request to reset a user's password.
+	 * パスワードのリセットPOSTリクエストをハンドルします。
    *
    * @return Response
    */
@@ -104,7 +104,7 @@ class RemindersController extends Controller {
 ?>
 {/php}
 
-You only need to add one line to your `app/routes.php` file to set up routing for this controller.
+上記のコントローラーをルートに設定するため`app/routes.php`ファイルに１行追加する必要があります。
 
 {php}
 Route::controller('password', 'RemindersController');
@@ -112,22 +112,25 @@ Route::controller('password', 'RemindersController');
 {/solution}
 
 {discussion}
-You should modify this.
+以下の変更が必要になります。
 
-Using the `php artisan auth:reminders-controller` is a good place to start, but you'll probably want to make some modifications specific to your application.
+`php artisan auth:reminders-controller`の利用はリマインダーを使い始めるには調度良いですが、
+おそらくアプリケーションにいくつかの変更をしたくなると思います。
 
-If you're using namespaces then move the controller elsewhere, edit it as appropriate, and edit your routes.
+名前空間を使用している場合、コマンド実行後にRemindersControllerを別の場所に移動し、適切に編集し、ルートの編集を行います。
 
-#### Changing to a RESTful implementation
+#### RESTfulな実装に変更
 
-One suggestion is to change from using a Controller routing, to a more RESTful way of handling things. To do this:
+何かをハンドリングする方法よりコントローラのルーティングを利用したRESTfulな方法に変更をするとよいでしょう。
+以下の様に行います。
 
 * Change the `getRemind()` method to `index()`.
 * Change the `postRemind()` method to `store()`.
 * Change the `getReset()` method to `show()`.
 * Change the `postReset()` method to `update()`.
 
-You'll also have to update your views accordingly. Then your `app/routes.php` file should contain.
+これに応じてビューを更新する必要があります。
+また、`app/routes.php`ファイルも同じく変更する必要があります。
 
 {php}
 Route::resource('password', 'RemindersController', array(
