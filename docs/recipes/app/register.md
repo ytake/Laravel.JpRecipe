@@ -1,5 +1,5 @@
 ---
-Title:    Registering a Service Provider With the Application
+Title:    サービスプロバイダの登録方法
 Topics:   service providers
 Code:     App::register()
 Id:       199
@@ -7,40 +7,46 @@ Position: 17
 ---
 
 {problem}
-You want to register a service provider with your application.
+アプリケーションにサービスプロバイダを登録したい
 {/problem}
 
 {solution}
-Add a class name to the `providers[]` array in `app/config/app.php`.
+`app/config/app.php`内の`providers[]`配列に、作成したサービスプロバイダを追加します。
 
-This is the normal way to load service providers. You add the name to the end of the array in `app/config/app.php`.
-
-{php}
-'providers' => array(
+これは通常のサービスプロバイダ登録方法で、  
+`app/config/app.php`の`providers[]`配列の最後に追加します。  
+環境毎に異なるサービスプロバイダを記述する場合は、それぞれの`app/config/環境/app.php`にで同じ様に追加してください
+```php
+'providers' => [
     ...
     'MyApp\Providers\MyServiceProvider',
-),
-{/php}
+],
+```
 
-Then, during the bootup portion of your application, Laravel will determine if the service provider is deferred. If not it will call your service provider's `register()` method and later, when the application boots, it will call your service provider's `boot()` method.
+サービスプロバイダの`register()`記述する事で、Laravelが判断する様になり、
+遅延束縛として実行時に任意のクラスや設定したものが実行されます。  
+その後、サービスプロバイダの`boot()`が実行されます。
 {/solution}
 
 {discussion}
-You can register service providers directly with `App::register()`.
+`App::register()`を使って、直接記述する事もできます。
 
-This is a low level function.
+これはローレベルで実行されます。
 
-You can call it with the name of your provider class, or an actual instance of the class.
+実装したサービスプロバイダ、またはサービスプロバイダクラスのインスタンスで利用する事ができます。
 
-{php}
+```php
 App::register('MyApp\Providers\MyServiceProvider');
 
 // or
 $provider = new MyApp\Providers\MyServiceProvider;
 App::register($provider);
-{/php}
+```
 
-This will immediately call your provider's `register()` method and if the application has been booted it will call the `boot()` method.
+この場合は、指定したサービスプロバイダの`register()`が実行され、  
+アプリケーションが起動してから、`boot()`が実行されます。  
+処理の流れは`app/config/app.php`に書いた場合と同様です。
 
-Generally, the method of adding the provider to the `app/config/app.php` is a better technique of adding service providers because it keeps all your providers in one location, easily managed.
+サービスプロバイダを決まった場所に設置することで、管理やメンテナンス性も向上しますので、  
+通常は`app/config/app.php`でサービスプロバイダを追加するのをお勧めします。
 {/discussion}
