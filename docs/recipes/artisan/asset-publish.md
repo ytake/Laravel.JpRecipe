@@ -1,5 +1,5 @@
 ---
-Title:    Publishing a Package's Assets to Your Public Directory
+Title:    公開されているパッケージを利用する
 Topics:   artisan
 Code:     -
 Id:       279
@@ -7,27 +7,29 @@ Position: 26
 ---
 
 {problem}
-You want to copy a third party package's assets to your application.
+サードパーティのパッケージをアプリケーションにコピーしたい
 {/problem}
 
 {solution}
-Use the `php artisan asset:publish` command.
+`php artisan asset:publish`コマンドが利用出来ます
 
 {bash}
 $ php artisan asset:publish cool-package
 {/bash}
 
-This copies the assets from the third party package into your application's `public/packages/cool-package` directory, making them available in the web space.
+サードパーティのパッケージをアプリケーションの`public/packages/cool-package`ディレクトリへコピーし、
+ウェブ上で利用することが出来ます。
 {/solution}
 
 {discussion}
-For non-Laravel packages you may need to specify the path.
+Laravel向けではないパッケージでは、パスを指定しなければならない可能性があります。
 
 {bash}
 $ php artisan asset:publish cool-package --path=/package/dir
 {/bash}
 
 For workbench packages, you can simply specify the workbench name.
+ワークベンチのパッケージの場合、ワークベンチ名を指定してください。
 
 {bash}
 $ php artisan asset:publish --bench=cool-package
