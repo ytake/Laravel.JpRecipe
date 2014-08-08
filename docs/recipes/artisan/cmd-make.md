@@ -1,5 +1,5 @@
 ---
-Title:    Creating a New Artisan Command
+Title:    新しくArtisanコマンドを作りたい
 Topics:   artisan
 Code:     -
 Id:       284
@@ -7,20 +7,21 @@ Position: 31
 ---
 
 {problem}
-You want to add a new command to artisan.
+新しいArtisanコマンドを追加したい。
 {/problem}
 
 {solution}
-Use the `php artisan command:make` utility.
+`php artisan command:make`コマンドが利用できます。
 
-This will set up a command skeleton for you.
+このコマンドは作成するコマンドの土台を設定してくれます。
 
 {bash}
 $ php artisan command:make TestCommand
 Command created successfully.
 {/bash}
 
-This will create a `TestCommand.php` in your `app/commands` directory. The skeleton created looks like:
+コマンドを実行することで`app/commands`ディレクトリの中に`TestCommand.php`を生成します。
+このファイルの内容は以下の通りです。
 
 {php}
 <?php
@@ -32,21 +33,22 @@ use Symfony\Component\Console\Input\InputArgument;
 class TestCommand extends Command {
 
   /**
-   * The console command name.
+   * コンソールコマンド名
    *
    * @var string
    */
   protected $name = 'command:name';
 
   /**
-   * The console command description.
+   * 
+   * コンソールコマンドの説明
    *
    * @var string
    */
   protected $description = 'Command description.';
 
   /**
-   * Create a new command instance.
+   * コマンドのインスタンスを生成
    *
    * @return void
    */
@@ -56,7 +58,7 @@ class TestCommand extends Command {
   }
 
   /**
-   * Execute the console command.
+   * コンソールコマンドの実行
    *
    * @return mixed
    */
@@ -66,7 +68,7 @@ class TestCommand extends Command {
   }
 
   /**
-   * Get the console command arguments.
+   * コンソールコマンドの引数を取得
    *
    * @return array
    */
@@ -78,7 +80,7 @@ class TestCommand extends Command {
   }
 
   /**
-   * Get the console command options.
+   * コンソールコマンドのオプションを取得
    *
    * @return array
    */
@@ -93,25 +95,27 @@ class TestCommand extends Command {
 ?>
 {/php}
 
-You would then edit this skeleton, updating the command specifics provided, and implementing the `fire()` method.
+この状態から編集していく必要があります。
+コマンドの詳細を記述し、`fire()`メソッドを実装していきます。
 {/solution}
 
 {discussion}
-You still need to make artisan aware of the command.
+次にコマンドをArtisanに認識させます。
 
-Add the following line to your `app/start/artisan.php` file.
+`app/start/artisan.php`ファイルに以下を追記してください。
 
 {php}
 Artisan::add(new TestCommand);
 {/php}
 
-Depending on the structure of your project, you may also have to dump the autoloader.
+プロジェクトの構造に応じて、オートローダーをダンプする必要があります。
 
 {bash}
 $ composer dump-autoload
 {/bash}
 
-Now the command you created will be available. Artisan should list your new command in its list of commands.
+コマンドが使える形で作成できました。
+listコマンドを実行すると新しいコマンドが表示されていることでしょう。
 
 {bash}
 $ php artisan list

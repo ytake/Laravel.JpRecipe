@@ -1,5 +1,5 @@
 ---
-Title:    Rolling Back All Database Migrations
+Title:    データベースマイグレーションをロールバックしたい
 Topics:   artisan, migrations
 Code:     -
 Id:       67
@@ -7,29 +7,28 @@ Position: 15
 ---
 
 {problem}
-You want to undo all database migrations.
+全てのデータベースマイグレーションを元に戻したい。
 
-You want a clean database, with no tables in it.
+テーブルが何もないクリーンなデータベースにしたい。
 {/problem}
 
 {solution}
-Use the `php artisan migrate:reset`.
+`php artisan migrate:reset`コマンドがが利用できます。
 
 {php}
 $ php artisan migrate:reset
 {/php}
 
-You can use the `--pretend` option to see what would happen without affecting any data.
-
+データに影響を与えていないか見るためには`--pretend`オプションが利用できます。
 {php}
 $ php artsian migrate:reset --pretend
 {/php}
 {/solution}
 
 {discussion}
-This is like calling `migrate:rollback` over and over again.
+このコマンドは`migrate:rollback`を何度も呼び出しているようなものです。
 
-In fact, you could repeatedly call `php artisan migrate:rollback` and there's nothing left to rollback.
+実際、`php artisan migrate:rollback`を何度も呼び出すこともできますが、rollbackの本来の使い方ではありません。
 
-The only table left in your database when this command completes is the `migrations` table and it will be empty.
+このコマンドの実行完了後、データベースに残っているのは中身が空の`migrations`テーブルのみになります。
 {/discussion}

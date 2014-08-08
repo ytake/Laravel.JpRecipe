@@ -1,5 +1,5 @@
 ---
-Title:    Generating a New Application Key
+Title:    アプリケーションキーの作成
 Topics:   artisan
 Code:     Hash::make()
 Id:       283
@@ -7,11 +7,11 @@ Position: 30
 ---
 
 {problem}
-You want to set a new application key.
+新しいアプリケーションキーを作成したい。
 {/problem}
 
 {solution}
-Use the `php artisan key:generate` command.
+`php artisan key:generate`コマンドが利用できます。
 
 {bash}
 $ php artisan key:generate
@@ -20,11 +20,11 @@ Application key [Idgz1PE3zO9iNc0E3oeH3CHDPX9MzZe3] set successfully.
 {/solution}
 
 {discussion}
-You shouldn't need to do this.
+これは無理に行う必要はありません。
 
-When you first create your Laravel application, `key:generate` is automatically called.
+Laravelアプリケーションを初めて作成した時に、自動で`key:generate`が呼ばれます。
 
-So it should already be set for you.
+なので、既にアプリケーションキーはされているため行う必要がないのです。
 
-If you change it by executing the command again, be aware that passwords saved with `Hash::make()` will no longer be valid.
+もしコマンドを再び実行して変更する場合は、`Hash::make()`でセーブされたパスワードはもう有効ではないということに注意して下さい。
 {/discussion}

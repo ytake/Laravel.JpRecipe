@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Migration for Sessions
+Title:    セッション用のマイグレーションを作成したい
 Topics:   artisan
 Code:     -
 Id:       70
@@ -7,17 +7,18 @@ Position: 18
 ---
 
 {problem}
-You need to create the table to store database sessions.
+データベースのセッションを保存するテーブルを作成する必要があります。
 {/problem}
 
 {solution}
-Use the `php artisan session:table` command.
+`php artisan session:table`コマンドが利用できます。
 
 {php}
 $ php artisan session:table
 {/php}
 
-Note that this only creates the migration, you'll still need to run the migration.
+このコマンドはただマイグレーションを作成しているだけなことに注意して下さい。
+まだマイグレーションを実行する必要があります。
 
 {php}
 $ php artisan migrate
@@ -26,6 +27,8 @@ $ php artisan migrate
 
 {discussion}
 This is only needed if you use database sessions.
+データベースセッションを使う場合のみ、これは必須です。
 
-If you change the driver in `app/config/session.php` to `database`, then you'll need to create the table to store your sessions in. This command accomplishes that.
+`database`に`app/config/session.php`でドライバの変更をする場合、セッションを保存するテーブルを作成する必要があります。
+このコマンドはそれを手助けしてくれます。
 {/discussion}

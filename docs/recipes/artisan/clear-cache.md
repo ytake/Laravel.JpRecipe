@@ -1,5 +1,5 @@
 ---
-Title:    Clearing the Application Cache
+Title:    アプリケーションキャッシュをクリアしたい
 Topics:   artisan, cache
 Code:     Cache::flush()
 Id:       104
@@ -7,11 +7,11 @@ Position: 23
 ---
 
 {problem}
-You want to clear your application cache.
+アプリケーションキャッシュをクリアしたい
 {/problem}
 
 {solution}
-Use the `php artisan cache:clear' command.
+`php artisan cache:clear'コマンドが利用できます。
 
 {php}
 $ php artisan cache:clear
@@ -19,12 +19,11 @@ $ php artisan cache:clear
 {/solution}
 
 {discussion}
-This does two things.
+このコマンドは以下の２つのことを行っています。
 
-1. `Cache::flush()` is called to empty the cache.
-2. The `app/storage/meta/services.json` file is erased. This file is created
-   as Laravel tries to optimize the loading of the service providers your
-   application uses.
+1. キャッシュを空にするために`Cache::flush()`呼び出されます。
+2. `app/storage/meta/services.json`ファイルは削除され、
+   アプリケーションで使用しているサービスプロバイダの読み込みを最適化しようとします。
 
-_Please note that since this command deletes a file from the local file system, if you have multiple servers running your application you must execute it on each server._
+_このコマンドはローカルファイルシステムからファイルを削除するので、アプリケーションが動いている複数のサーバを持っている場合は上記のコマンドをそれぞれのサーバで実行する必要があります。_
 {/discussion}
