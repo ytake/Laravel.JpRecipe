@@ -1,5 +1,5 @@
 ---
-Title:    Displaying Laravel's Change Log
+Title:    Laravelの変更ログを表示したい
 Topics:   artisan
 Code:     -
 Id:       4
@@ -7,19 +7,20 @@ Position: 4
 ---
 
 {problem}
-You want to see what's changed in the Laravel framework.
+Laravelフレームワークの変更を見たい。
 
-You've recently upgraded and are curious about what are the new features available to you.
+最新のアップグレードにどんな新機能が追加されたか気になる。
 {/problem}
 
 {solution}
-Use the `php artisan changes` command.
+`php artisan changes`コマンドが利用できます。
 
 {bash}
 $ php artisan changes
 {/bash}
 
-You'll see a list of the latest documented changes. Something similar to:
+最新の変更点リストが表示されます。
+以下のように表示されます。
 
 {text}
 Changes For Laravel 4.1.x
@@ -51,9 +52,9 @@ Changes For Laravel 4.1.x
 {/solution}
 
 {discussion}
-You can also show changes for a previous version.
+以前のバージョンの変更点も表示したい。
 
-Let's say you want to see the change log for version 4.0
+例えばバージョン4.0の変更点を見たい場合は以下のようにコマンドを実行します。
 
 {bash}
 $ php artisan changes 4.0.x
@@ -68,7 +69,7 @@ Changes For Laravel 4.0.x
 -> Added mail.pretend configuration option.
 {/text}
 
-Viewing the change log is a great way to see the documented changes, but there are many, many changes that don't appear in the change log.
+変更ログを表示することはドキュメントの変更点を確認する良いやり方ですが、変更ログに表示されない変更点も数多くあります。
 
-Visit [GitHub](https://github.com/laravel/framework/commits/master) to see the complete revision history.
+[GitHub](https://github.com/laravel/framework/commits/master) にアクセスして、変更点が全て書かれたリビジョンヒストリーを見て下さい。
 {/discussion}

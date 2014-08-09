@@ -1,5 +1,5 @@
 ---
-Title:    Optimizing the Framework for Better Performance
+Title:    パフォーマンス改善するためにフレームワークを最適化したい
 Topics:   artisan
 Code:     -
 Id:       60
@@ -7,19 +7,19 @@ Position: 8
 ---
 
 {problem}
-You want your application to run as quickly as possible.
+アプリケーションを可能な限り高速化したい。
 {/problem}
 
 {solution}
-Use the `php artisan optimize' command.
+`php artisan optimize`コマンドが利用できます。
 
 {php}
 $ php artisan optimize
 {/php}
 
-This will generate an optimized class loader.
+このコマンドは最適化されたクラスローダを生成します。
 
-If you're testing and `Config::get('app.debug')` is true, then you must use the `--force` option to force the class loader to be created.
+`Config::get('app.debug')`がtrueでテストしている場合、`--force`オプションを利用することで強制的にクラスローダを生成します。
 
 {php}
 $ php artisan optimize --force
@@ -27,11 +27,11 @@ $ php artisan optimize --force
 {/solution}
 
 {discussion}
-Add your own classes to be preloaded.
+追加した独自クラスをプリロードしたい。
 
-If your application has classes that are frequently used, you can add your own classes to the optimization process.
+アプリケーションで頻繁に使用されるクラスがある場合、独自クラスを最適化プロセスに追加することができます。
 
-Just edit `app/config/compiled.php` and add the filenames of your own classes in.
+`app/config/compiled.php`に独自クラスのファイル名を追記します。
 
 {php}
 <?php
@@ -43,13 +43,14 @@ return array(
 ?>
 {/php}
 
-Optimization creates a single file (`bootstrap/compiled.php`) containing all the classes with the comments removed.
+最適化は`bootstrap/compiled.php`ファイルを、コメントを削除した全てのクラスを含んで生成します。
 
-#### One caveat about adding your own classes
+#### 独自クラスを追加するときの注意
 
-If you're using namespaces, be sure and `use` any classes at the top of your files. Failure to do so can generate errors.
+名前空間を使用している場合、必ず全てのクラスに使用しているか確認して下さい。
+使用していないとエラーの可能性があります。
 
-For instance, let's say you have a controller class you're putting in the compiled list for optimizaton.
+例えば、最適化のためコンパイルされたリストにコントロールクラスを置いているとしましょう。
 
 {php}
 <?php namespace MyApp\Controllers;
@@ -61,6 +62,9 @@ class HomeController extends \Controller {
 {/php}
 
 This file will generate an error. This is because of multiple namespaces in the single, optimized file. If you add `use Controller;` then there won't be an issue.
+このファイルではエラーが発生します。
+最適化された単一のファイルに複数の名前空間があるためです。
+`use Controller;`を追加することで問題はなくなるでしょう。
 
 {php}
 <?php namespace MyApp\Controllers;
@@ -73,5 +77,5 @@ class HomeController extends Controller {
 ?>
 {/php}
 
-Notice the differences?
+この違いに注意して下さい。
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Displaying the Current Environment
+Title:    現在の環境を表示したい
 Topics:   artisan, environment
 Code:     -
 Id:       6
@@ -7,13 +7,13 @@ Position: 5
 ---
 
 {problem}
-You're not sure what the console environment is.
+今のコンソール環境がどうなっているのか分からない。
 
-Your web page is appearing correctly, but you suspect the environment the console is using is different that the web.
+Webページが正しく表示されていても、コンソールの環境がWebページと異なっている場合があります。
 {/problem}
 
 {solution}
-Use `php artisan env`
+`php artisan env`コマンドが利用できます。
 
 {text}
 $ php artisan env
@@ -22,9 +22,11 @@ Current application environment: production
 {/solution}
 
 {discussion}
-Be careful with your environment detections.
+現在の環境には注意して下さい。
 
-The environment setting allows you to set up custom configurations for different machines. Most often this is used to configure database settings and API access points differently between production and development. If you do not pay close attention to your environment detection the situation can arise where web requests operate with one environment setting and console requests use a different one.
+環境設定で別のマシンのカスタム設定を設定することが出来ます。
+大抵の場合、これは開発と本番で違ったデータベース設定やAPIアクセス先を設定するために用いられます。
+現在の環境に細心の注意を払わないと、リクエストが別の環境の設定を元に処理されたり、コンソールリクエストも別の環境のものを使う可能性があります。
 
-See [[Checking Your Environment]] for instructions using PHP Code to determine your environment.
+使用する環境を決めるPHPコードの記述方法は [[Checking Your Environment]] を参照して下さい。
 {/discussion}

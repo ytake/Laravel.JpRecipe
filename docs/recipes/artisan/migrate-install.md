@@ -1,5 +1,5 @@
 ---
-Title:    Creating the Migration Repository
+Title:    マイグレーションリポジトリを作成したい
 Topics:   artisan, migrations
 Code:     -
 Id:       63
@@ -7,13 +7,14 @@ Position: 11
 ---
 
 {problem}
-You want to create the migration repository.
+マイグレーションリポジトリを作成したい。
 
-You know the migration repository holds a list of all your database migrations. Since you're ready to create some migrations you want to start by creating the repository.
+マイグレーションリポジトリが全てのデータベースマイグレーションをリストとして持っていることは知っていると思います。
+いくつかのマイグレーションは作成準備ができていると思いますので、マイグレーションリポジトリの作成をしてみます。
 {/problem}
 
 {solution}
-Use the `php artisan migrate:install` command.
+`php artisan migrate:install`コマンドが利用できます。
 
 {php}
 $ php artisan migrate:install
@@ -21,7 +22,8 @@ $ php artisan migrate:install
 {/solution}
 
 {discussion}
-You don't really need to do this.
+このコマンドは必ずしも必要というわけではありません。
 
-Laravel automatically creates the migration repository as needed. But if you want to check that it's created correctly, which is a good test that your database is configured right, then use the command.
+Laravelは自動的に必要なマイグレーションリポジトリを作成します。
+ただ、もしデータベースが正しく設定されているかのテストを作成したい場合はこのコマンドを使うことになるでしょう。
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Rolling Back the Last Database Migration
+Title:    データベースマイグレーションをロールバックしたい
 Topics:   artisan, migrations
 Code:     -
 Id:       66
@@ -7,25 +7,25 @@ Position: 14
 ---
 
 {problem}
-You want to "undo" your last database migration.
+データベースマイグレーションの最後の状態に戻したい。
 {/problem}
 
 {solution}
-Use the `php artisan migrate:rollback` command.
+`php artisan migrate:rollback`コマンドが利用できます。
 
 {php}
 $ php artisan migrate:rollback
 {/php}
 
-The command will list the migrations which have been undone.
+このコマンドはマイグレーションを戻し、一覧を表示します。
 
-To see what rollback will do, use the `--pretend` option.
+ロールバックが何をしているか見るには、`--pretend`オプションを利用します。
 
 {php}
 $ php artisan migrate:rollback --pretend
 {/php}
 
-You can also specify a database connection other than the default one.
+デフォルト以外のデータベース接続を指定することも出来ます。
 
 {php}
 $ php artisan migrate:rollback --pretend --database=other-one
@@ -33,9 +33,9 @@ $ php artisan migrate:rollback --pretend --database=other-one
 {/solution}
 
 {discussion}
-This command will undo the last "set" of migrations.
+このコマンドは最後の状態のマイグレーションの設定に戻します。
 
-If the previous time you ran `php artisan migrate` ended up performing three different migrations, then `php artisan migrate:rollback` will undo those three migrations.
+以前`php artisan migrate`を動かし、３つの異なるマイグレーションを行った場合、`php artisan migrate:rollback`を実行するとこの３つのマイグレーションが戻ります。
 
-This encourages small, incremental changes to your database.
+これはデータベースの変更の増加を少なくしようと促しています。
 {/discussion}

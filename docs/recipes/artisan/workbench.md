@@ -1,5 +1,5 @@
 ---
-Title:    Creating a New Package Workbench
+Title:    新しいパッケージのワークベンチを作成したい
 Topics:   artisan, packages
 Code:     -
 Id:       74
@@ -7,19 +7,19 @@ Position: 22
 ---
 
 {problem}
-You want to create a package to share across your Laravel projects.
+Laravelプロジェクト間で共有できるパッケージを作成したい。
 {/problem}
 
 {solution}
-Use the `php artisan workbench` command.
+`php artisan workbench`コマンドが利用できます。
 
-This will allow you to develop your package along side an application.
+このコマンドはアプリケーションと同じようにパッケージを開発できるようにします。
 
 {php}
 $ php artisan workbench yourname/packagename
 {/php}
 
-If you also want to create Laravel specific resources, use the `--resources` option.
+Laravel特有のリソースを作成する場合は、`--resources`オプションを利用します。
 
 {php}
 $ php artisan workbench yourname/packagename --resources
@@ -27,28 +27,28 @@ $ php artisan workbench yourname/packagename --resources
 {/solution}
 
 {discussion}
-The Laravel workbench is a great way to work on packages.
+Laravelワークベンチはパッケージを動作させるのに最適な方法です。
 
-Using the workbench provides a quicker workflow for package development.
+ワークベンチを使用することでパッケージ開発の迅速なワークフローを提供します。
 
-When you create a new workbench, the following structure is created.
+新しいワークベンチを作成すると、次のような構造が作成されます。
 
 {text}
-myapp : project directory
-|- workbench : workbench directory
-|---- yourname : vendor directory
-|------- packagename : package root
-|---------- src : Source directory
-|------------- Yourname : Vendor name again
-|---------------- Packagename : Package name again
-|------------------- PackageServiceProvider.php - a skeleton
-|---------- tests : Directory for unit testing
-|---------- vendor : Your package's vendor directory
+myapp : プロジェクトディレクトリ
+|- workbench : ワークベンチディレクトリ
+|---- yourname : ベンダーディレクトリ
+|------- packagename : パッケージルート
+|---------- src : ソースディレクトリ
+|------------- Yourname : ベンダー名
+|---------------- Packagename : パッケージ名
+|------------------- PackageServiceProvider.php - パッケージの土台
+|---------- tests : ユニットテスト用ディレクトリ
+|---------- vendor : パッケージのベンダーディレクトリ
 {/text}
 
-If you use the `--resources` option then `config`, `controllers`, `lang`, `migrations`, and `views` will be also be created in the `src` directory.
+`--resources`オプションを使用することで、`config`、 `controllers`、 `lang`、 `migrations`、そして`views`が`src`ディレクトリに生成されます。
 
-Laravel's bootstrap will load any workbench packages automatically.
+Laravelのブートストラップが自動的にワークベンチを読み込みます。
 
-When you're finished developing your package, you can check everything below the `workbench` directory into a new Github repository, making it available for others to use.
+パッケージの開発が完了したら、新しいGithubリポジトリへ`workbench`ディレクトリ以下全てを置き、パッケージを他のユーザが利用可能な状態にします。
 {/discussion}

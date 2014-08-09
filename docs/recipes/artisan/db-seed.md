@@ -1,5 +1,5 @@
 ---
-Title:    Seeding Your Database
+Title:    データベースでのシーディング
 Topics:   artisan
 Code:     -
 Id:       69
@@ -7,19 +7,19 @@ Position: 17
 ---
 
 {problem}
-You want to seed your database.
+データベースでシードを使用したいです。
 
-You've already written your database seeds and now you want to tell Laravel to seed the database.
+データベースのシードは既に記述していて、Laravelでそのシードを使用したいです。
 {/problem}
 
 {solution}
-Use the `php artisan db:seed` command.
+`php artisan db:seed`コマンドが利用できます。
 
 {php}
 $ php artisan db:seed
 {/php}
 
-If you're using a different class than default for the root seeder, you can use the `--class` option.
+ルートシーダとは違ったクラスを使用している場合、`--class`オプションが使用できます。
 
 {php}
 $ php artisan db:seed --class=MyDatabaseSeeder
@@ -27,7 +27,7 @@ $ php artisan db:seed --class=MyDatabaseSeeder
 {/solution}
 
 {discussion}
-Seeding is usually done for testing.
+シーディングは通常テスト用に使われます。
 
-It's a great way to generate a standard set of records on your development machine.
+開発マシン上で標準なレコードを生成しておく場合には良い方法です。
 {/discussion}

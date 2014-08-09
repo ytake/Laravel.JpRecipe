@@ -1,5 +1,5 @@
 ---
-Title:    Interacting With Your Application
+Title:    LaravelでREPLを行いたい
 Topics:   artisan
 Code:     -
 Id:       280
@@ -7,13 +7,13 @@ Position: 27
 ---
 
 {problem}
-You want an easy way to interact with your application.
+アプリケーションと簡単に対話したい。
 {/problem}
 
 {solution}
-Use the `php artisan tinker` command.
+`php artisan tinker`コマンドが利用できます。
 
-This command provides a REPL (Read-Eval-Print Loop) for PHP with your application's settings already loaded.
+このコマンドは設定が既に読み込まれているPHPアプリケーションのためのREPL (Read-Eval-Print Loop)を提供しています。
 
 {text}
 $ php artisan tinker
@@ -22,7 +22,7 @@ http:://your.app.url
 [2] > exit;
 {/text}
 
-You can access the database, use models, etc.
+データベースへのアクセス、モデルを使うなどが可能です。
 
 {text}
 $ php artisan tinker
@@ -39,11 +39,13 @@ Chuck
 {/solution}
 
 {discussion}
-The tinker command uses _Boris_.
+tinkerコマンドは_Boris_を使っています。
 
-_Boris_ is a robust, little REPL for PHP. Check out their web page at [github.com/d11wtq/boris](https://github.com/d11wtq/boris).
+_Boris_はPHPのための小さく、堅実なREPLです。
+[github.com/d11wtq/boris](https://github.com/d11wtq/boris)のページをチェックしてみてください。
 
 {tip}
-If the tinker command doesn't work for you, it is very likely the `disable_functions` setting in your `php.ini` contains the needed `pcntl_()` functions. Put a comment before this line in your `php.ini` and that should allow tinker to work.
+tinkerコマンドが動作しない場合は`php.ini`の`disable_functions`の設定に`pcntl_()`関数が含まれている可能性が非常に高いです。
+`php.ini`のこの行をコメントアウトし、tinkerを使用できるようにする必要があります。
 {/tip}
 {/discussion}

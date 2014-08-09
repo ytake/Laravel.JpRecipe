@@ -1,5 +1,5 @@
 ---
-Title:    Running PHP's Built-in Web Server
+Title:    PHPのビルトインサーバを動かしたい
 Topics:   artisan
 Code:     -
 Id:       282
@@ -7,28 +7,28 @@ Position: 29
 ---
 
 {problem}
-You want to quickly test your Laravel application.
+Laravelアプリケーションのテストを素早くやりたい。
 
-But you don't want to set up a web server.
+けど、Webサーバの設定はしたくない。
 {/problem}
 
 {solution}
-Use the `php artisan serve` command.
+`php artisan serve`コマンドが利用できます。
 
 {bash}
 $ php artisan serve
 Laravel development server started on http://localhost:8000
 {/bash}
 
-Now you can point your browser to `http://localhost:8000` and see your application.
+ブラウザ上で`http://localhost:8000`にアクセスすると、アプリケーションが見れるようになりました。
 
-Press `Ctrl-C` to stop the server.
+`Ctrl-C`を押すことでサーバは停止できます。
 {/solution}
 
 {discussion}
-Use the `--port` option to specify a different port.
+別のポートを指定するには`--port`オプションを利用します。
 
-If you want a port other than default, just specify it.
+デフォルト以外のポートを使用するには以下のように指定します。
 
 {bash}
 $ php artisan serve --port=8080

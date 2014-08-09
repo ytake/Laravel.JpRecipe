@@ -1,5 +1,5 @@
 ---
-Title:    Publishing a Package's Configuration to Your Application
+Title:    パッケージ設定をアプリケーション上で公開したい
 Topics:   artisan
 Code:     -
 Id:       277
@@ -7,23 +7,24 @@ Position: 24
 ---
 
 {problem}
-You want to copy a third party's configuration to your application.
+サードパーティの設定をアプリケーション上にコピーしたい。
 {/problem}
 
 {solution}
-Use the `php artisan config:publish` command.
+`php artisan config:publish`コマンドが利用できます。
 
 {bash}
 $ php artisan config:publish cool-package
 {/bash}
 
-This creates all needed configuration files in your `app/config/packages/cool-package` directory.
+このコマンドは必要な設定ファイル全てを`app/config/packages/cool-package`ディレクトリに生成します。
 
-Often, this is a single file named `config.php`.
+多くの場合は、ファイル名称を単に`config.php`にすることでしょう。
 {/solution}
 
 {discussion}
-For non-Laravel packages you may need to specify the path.
+Laravel向けでないパッケージではパスを明記する必要性があります。
+
 
 {bash}
 $ php artisan config:publish cool-package --path=/some/config/dir
