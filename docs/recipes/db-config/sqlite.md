@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the SQLite Database Driver
+Title:    SQLiteドライバーの設定方法
 Topics:   configuration, SQLite
 Code:     -
 Id:       118
@@ -7,48 +7,52 @@ Position: 2
 ---
 
 {problem}
-You want to use SQLite as your database.
+アプリケーションでSQLiteをデータベースとして利用したい
 
-You know SQLite is a "server-less" database and don't want to bother with setting up a database server.
+SQLiteは他のデータベースとは違い、"サーバを必要としない"ので、  
+SQLiteの設定等は特に必要ありません  
 {/problem}
 
 {solution}
-Edit the `app/config/database.php` configuration.
+`app/config/database.php`で設定します。
 
-{php-lines}
+```php
 <?php
-return array(
+return [
     'default' => 'sqlite',
-    'connections' => array(
-        'sqlite' => array(
+    'connections' => [
+        'sqlite' => [
             'driver'   => 'sqlite',
             'database' => __DIR__.'/../database/production.sqlite',
             'prefix'   => '',
-        ),
-    ),
-);
-?>
-{/php}
+        ],
+    ],
+];
+```
 {/solution}
 
 {discussion}
-You must have the PHP Driver installed. See [[Installing SQLite]] for setting up the PHP driver.
+PHPでSQLiteを利用する場合は、ドライバーがインストールされている必要があります。  
+ドライバーのインストール方法については[[Installing SQLite]]を参照にしてください。
 
-In the above configuration example, line #7 points to your database. You may want to change this to your `app/storage` directory.
+上記の設定はサンプルです。  
+sqliteのファイルを任意のディレクトリ等に設置する場合は、  
+''database' => __DIR__.'/../database/production.sqlite','を変更して下さい。
 
-{php}
+```php
+// app/storage内に置く場合
 'database' => app_path() . '/storage/production.sqlite',
-{/php}
+```
 
-Or even create a folder within the storage directory.
+もちろん、新規でどこかにディレクトリを作成して設置しても構いません。
 
-{bash}
+```bash
 $ mkdir app/storage/databases
-{/bash}
+```
 
-Be sure to update your configuration to the new location.
+設定ファイルを変更する事を忘れないようにしましょう。
 
-{php}
+```php
 'database' => app_path() . '/storage/databases/production.sqlite',
-{/php}
+```
 {/discussion}

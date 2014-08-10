@@ -35,4 +35,26 @@ class AddRecipeCommandTest extends TestCase
             ->with('recipe.document_path')->andReturn(__DIR__ . "/../../../docs/recipes");
         $this->command->run(new \Symfony\Component\Console\Input\ArrayInput([]), new \Symfony\Component\Console\Output\NullOutput);
     }
+
+    public function testParseContent()
+    {
+        $filePath = \File::get(__DIR__ . "/../docs/test.md");
+        $reflectionMethod = $this->getProtectMethod($this->command, 'getParseContents');
+        $result = $reflectionMethod->invokeArgs($this->command, ["solution", $filePath]);
+$text = "
+unit testing
+{php}
+phpunit
+{/php}
+";
+        $this->assertSame($text, $result);
+    }
+
+    public function testParseHeader()
+    {
+        $filePath = \File::get(__DIR__ . "/../docs/test.md");
+        $reflectionMethod = $this->getProtectMethod($this->command, 'getParseHeader');
+        $result = $reflectionMethod->invokeArgs($this->command, ["title", $filePath]);
+        $this->assertSame("test.md", $result);
+    }
 }

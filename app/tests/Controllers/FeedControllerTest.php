@@ -66,10 +66,21 @@ class FeedControllerTest extends TestCase
     /**
      * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
+    public function testSiteMapError()
+    {
+        $this->client->request('POST', '/sitemap.xml');
+        $this->client->request('PATCH', '/sitemap.xml');
+        $this->client->request('DELETE', '/sitemap.xml');
+    }
+
+    /**
+     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
     public function testNotFoundUri()
     {
         $this->client->request('PUT', '/feed/atom');
         $this->client->request('POST', '/feed/rss');
         $this->client->request('GET', '/feed/xml');
+        $this->client->request('DELETE', '/feed/xml');
     }
 } 

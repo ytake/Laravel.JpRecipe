@@ -127,7 +127,7 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
         $sql = "SELECT cat.*, COUNT(recipe.category_id) AS recipe_count"
             ." FROM categories AS cat"
             ." LEFT JOIN recipes AS recipe ON recipe.category_id = cat.category_id"
-            ." GROUP BY recipe.category_id"
+            ." GROUP BY cat.category_id"
             ." ORDER BY slug ASC";
         $result = \DB::connection('slave')->select($sql);
         if($result) {

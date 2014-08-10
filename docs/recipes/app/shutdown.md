@@ -1,5 +1,5 @@
 ---
-Title:    Calling the Registered Shutdown Callbacks
+Title:    Shutdownコールバック処理を実行する
 Topics:   callbacks
 Code:     App::shutdown()
 Id:       56
@@ -7,26 +7,28 @@ Position: 9
 ---
 
 {problem}
-You want to call any registered shutdown functions directly.
+直接Shutdownコールバック処理を実行したい
 
-You're exiting your Laravel application in a non-standard way, and want to call any shutdown callbacks that have been registered with your application.
+Laravelアプリケーションが予期せぬエラーで終了した場合等に、  
+登録してあるShutdownコールバックを任意で使用したい  
 {/problem}
 
 {solution}
-Use `App::shutdown()`
+`App::shutdown()`を利用します
 
-You can call `App::shutdown()` without any arguments to automatically call what's registered.
+引数等を指定せずに`App::shutdown()`と記述する事で、  
+登録してある処理を実行させる事が出来ます。
 
-{php}
-// Call registered callbacks
+```php
+// 登録済みのShutdownコールバック実行
 App::shutdown();
-{/php}
+```
 {/solution}
 
 {discussion}
-This is non-standard.
+これは標準的なものではありません。
 
-Calling this method directly is not part of the standard request lifecycle.
-
-Also, note that calling `App::shutdown()` does not actually exit your application, it only calls the registered shutdown callbacks.
+これを実行する事で、リクエストのライフサイクルは標準的な流れで処理されません。
+また、`App::shutdown()`は、アプリケーションが終了していない場合でも、  
+任意に実行出来る事に注意して下さい。  
 {/discussion}

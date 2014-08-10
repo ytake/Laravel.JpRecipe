@@ -42,4 +42,17 @@ class GitHubTest extends TestCase
     {
         $this->auth->getUser('testing');
     }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     */
+    public function testFailedGithubUser()
+    {
+        $this->auth->getGithubUser('laravel-js-recipes:testing');
+    }
+
+    public function testTrueGithubUser()
+    {
+        $this->assertInternalType('array', $this->auth->getGithubUser('ytake'));
+    }
 }

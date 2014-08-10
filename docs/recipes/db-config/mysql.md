@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the MySQL Database Driver
+Title:    MySQLドライバーの設定方法
 Topics:   configuration
 Code:     -
 Id:       58
@@ -15,13 +15,13 @@ This seems to be a popular choice, so you want to use it yourself.
 {solution}
 Edit the `app/config/database.php` configuration.
 
-{php-lines}
+```php
 <?php
-return array(
+return [
     'fetch' => PDO::FETCH_CLASS,
     'default' => 'mysql',
-    'connections' => array(
-        'mysql' => array(
+    'connections' => [
+        'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'your-hostname',
             'database'  => 'your-dbname',
@@ -30,11 +30,10 @@ return array(
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
-        ),
-    ),
-);
-?>
-{/php}
+        ],
+    ],
+];
+```
 {/solution}
 
 {discussion}

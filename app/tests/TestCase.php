@@ -44,4 +44,15 @@ class TestCase extends BaseTest
         $property->setAccessible(true);
         return $property;
     }
+
+    /**
+     * Migrate the database
+     */
+    protected function prepareForTests()
+    {
+        \Artisan::call("migrate:reset");
+        \Artisan::call('migrate');
+        \Artisan::call('db:seed');
+        \Artisan::call('jp-recipe:add');
+    }
 }

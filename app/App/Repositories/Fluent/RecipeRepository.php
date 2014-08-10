@@ -37,7 +37,6 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         }
         return $query->orderBy('recipe.recipe_id', 'DESC')
             ->paginate($limit, ['recipe.*', 'cat.name']);
-        return $query->get(['recipe.*', 'cat.name']);
     }
 
     /**
@@ -132,17 +131,15 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         if(\Cache::has("rand_recipe:{$sectionId}")) {
             return \Cache::get("rand_recipe:{$sectionId}");
         }
-        $sql = "SELECT cat.description, cat.name, recipe.title, recipe.recipe_id, cat.category_id"
-            . " FROM categories AS cat"
-            . " INNER JOIN recipes AS recipe ON cat.category_id = recipe.category_id"
-            . " WHERE cat.section_id = ?"
-            . " ORDER BY RAND() LIMIT ?";
-        $params = [
-            $sectionId, $limit
-        ];
-        $result = \DB::connection('slave')->select($sql, $params);
+        $result = $this->getConnection('slave')
+            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id')
+            ->where('cat.section_id', $sectionId)
+            ->orderByRaw('RAND()')->take($limit)
+            ->get([
+                    "cat.description", "cat.name", "recipe.title", "recipe.recipe_id", "cat.category_id"
+                ]);
         if($result) {
-            \Cache::add("rand_recipe:{$sectionId}", $result, 10);
+            \Cache::add("rand_recipe:{$sectionId}", $result, 100);
         }
         return $result;
     }
@@ -162,5 +159,41 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
             ->get([
                     "recipe.*", "cat.name", "cat.description"
                 ]);
+    }
+
+    /**
+     * キーワード検索
+     * @param array $text
+     * @param int $current
+     * @param int $limit
+     * @return array|\Illuminate\Pagination\Paginator|mixed
+     */
+    public function getRecipesFromText(array $text, $current = 1, $limit = 25)
+    {
+        $params = [];
+        $wheres = [];
+        $selectCount = "SELECT COUNT(recipe.recipe_id) AS count";
+        $select = "SELECT recipe.title, recipe.recipe_id, category.category_id, category.name, category.description";
+
+        $commonQuery = " FROM recipes AS recipe"
+            ." INNER JOIN categories AS category ON category.category_id = recipe.category_id";
+        if($text) {
+            foreach($text as $row) {
+                $wheres[] = "CONCAT(\" \", recipe.title, recipe.problem, recipe.solution, recipe.discussion) LIKE ?";
+                $params[] = "%{$row}%";
+            }
+            $commonQuery .= " WHERE (" . implode(" OR ", $wheres) . ")";
+        }
+        //
+        $count = \DB::connection('slave')->selectOne($selectCount . $commonQuery, $params);
+        //
+        $selectQuery = " GROUP BY recipe.recipe_id ORDER BY recipe_id ASC LIMIT ?, ?";
+        $params[] = ($current - 1) * $limit;
+        $params[] = $limit;
+        $result = \DB::connection('slave')->select($select . $commonQuery . $selectQuery, $params);
+        if($count) {
+            return \Paginator::make($result, $count->count, $limit);
+        }
+        return $result;
     }
 }

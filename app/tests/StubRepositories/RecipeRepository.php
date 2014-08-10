@@ -2,9 +2,11 @@
 namespace App\Tests\StubRepositories;
 
 use App\Repositories\RecipeRepositoryInterface;
+use App\Validator\CustomRule;
 
 class RecipeRepository implements RecipeRepositoryInterface
 {
+    use CustomRule;
 
     public $array = [
         [
@@ -118,4 +120,23 @@ class RecipeRepository implements RecipeRepositoryInterface
         }
         return $result;
     }
+
+    /**
+     * @param array $text
+     * @param int $current
+     * @param int $limit
+     * @return mixed
+     */
+    public function getRecipesFromText(array $text, $current = 1, $limit = 25)
+    {
+        // TODO: Implement getRecipesFromText() method.
+        $result = [];
+        // TODO: Implement getRecipesFromCategory() method.
+        foreach($this->array as $array) {
+            $result[] = (object)$array;
+        }
+        return $result;
+    }
+
+
 } 

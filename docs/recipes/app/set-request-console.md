@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Request for the Console Environment
+Title:    コマンドライン向けリクエスト処理の設定
 Topics:   -
 Code:     App::setRequestForConsoleEnvironment()
 Id:       211
@@ -7,23 +7,26 @@ Position: 28
 ---
 
 {problem}
-You have a console application and want to set the request.
+コマンドラインから、リクエストを設定したい
 {/problem}
 
 {solution}
-Use the `App::setRequestForConsoleEnvironment()`.
+`App::setRequestForConsoleEnvironment()`メソッドを利用します
 
-Usually, you don't need the whole HTTP layer Laravel provides when developing console utilities. But when you do, you can use this command.
+通常は、コマンドラインアプリケーションを実装する上では、HTTP関連のものは必要ないはずですが、  
+どうしてもHTTP関連の、リクエスト処理等を実行したい場合に利用します
 
-{php}
+```php
 App::setRequestForConsoleEnvironment();
-{/php}
+```
 {/solution}
 
 {discussion}
-This is most handy with unit testing.
+主に使われるのはユニットテストでしょう。
 
-When unit testing sometimes it's nice to "fake" a request environment.
+ユニットテストでは、実際に利用していない嘘の環境として実行させたりします。
 
-If you're deriving your unit tests from the file Laravel provides for you (`app/tests/TestCase.php`) the `App::setRequestForConsoleEnvironment()` is called automatically for you.
+ユニットテスト時は、`app/tests/TestCase.php`に記述されているとおり、  
+'testing'環境として自動で実行します。  
+
 {/discussion}

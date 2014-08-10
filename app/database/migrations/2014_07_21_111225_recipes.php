@@ -33,6 +33,10 @@ class Recipes extends Migration
             $table->foreign('category_id')->references('category_id')
                 ->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
+        // for index(text length)
+        \DB::connection('master')->statement(
+            "ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))"
+        );
     }
 
     /**

@@ -28,6 +28,9 @@
     <link rel="dns-prefetch" href="//connect.facebook.net">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="alternate" type="application/rss+xml" title="レシピのRSS" href="" />
+    <link rel="alternate" type="application/rss+xml" title="レシピのAtomFeed" href="" />
+    <link rel="alternate" type="application/rss+xml" title="XML Sitemaps" href="" />
     <link rel="shortcut icon" href="/icon/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="/icon/favicon.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">

@@ -45,7 +45,7 @@ class AuthenticateController extends BaseController
         // GitHubアカウントでログインさせる
         $result = \Auth::attempt(['name' => $user['login'], 'id' => $user['id']], true);
         if(!$result) {
-            return \Redirect::action('index')->with('auth_error', 'Forbidden.');
+            return \Redirect::action('home.index')->withErrors(['auth_error' => 'Forbidden.']);
         }
         return \Redirect::action('webmaster.index');
     }
