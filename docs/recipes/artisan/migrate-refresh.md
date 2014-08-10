@@ -1,5 +1,5 @@
 ---
-Title:    Resetting and Re-running All Migrations
+Title:    全てのマイグレーションを再実行・リセットしたい
 Topics:   artisan, migrations
 Code:     -
 Id:       68
@@ -7,19 +7,19 @@ Position: 16
 ---
 
 {problem}
-You want to reset and re-run all your migrations.
+マイグレーションを再実行・リセットしたい。
 
-Maybe you've made some database changes by hand. You want to get your database to the exact structure a fresh install would have.
+手動でデータベースにいくつかの変更を加えてしまったので、最新の状態にデータベースを戻したい。
 {/problem}
 
 {solution}
-Use the `php artisan migrate:refresh` command.
+`php artisan migrate:refresh`コマンドが利用できます。
 
 {php}
 $ php artisan migrate:refresh
 {/php}
 
-To reseed the database when complete, you can use the `--seed` option.
+最新の状態に戻した後、データベースに再度シーディングをかけるには`--seed`オプションが利用できます。
 
 {php}
 $ php artisan migrate:refresh --seed
@@ -27,18 +27,20 @@ $ php artisan migrate:refresh --seed
 {/solution}
 
 {discussion}
-This command saves a few steps.
+このコマンドはいくつかのステップに分かれています。
 
-Instead of issuing ...
+内容としては・・・
 
 {php}
 $ php artisan migrate:reset
 $ php artisan migrate
 {/php}
 
-This one command combines both functions.
+このコマンド一つで上記のコマンドを兼ね備えています。
 
 {tip}
-**Something to keep in mind.** When you clear all your migrations and run migrations again this creates a new migration set. A subsequent `migrate:rollback` will rollback all migrations performed in this set.
+**備考** 
+マイグレーションをクリアする時や、マイグレーション再び実行する時にはマイグレーションの設定に基づき作成されます。
+`migrate:rollback`実行後には設定に基づき全てのマイグレーションがロールバックされるでしょう。
 {/tip}
 {/discussion}

@@ -1,6 +1,6 @@
 ---
 Name:        Artisan
-Description: Recipes dealing with Laravel's Artisan command
+Description: LaravelのArtisanコマンドのレシピ
 Id:          2
 Position:    2
 ---

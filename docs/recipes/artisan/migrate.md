@@ -1,5 +1,5 @@
 ---
-Title:    Running Database Migrations
+Title:    データベースマイグレーションを実行したい
 Topics:   artisan, migrations
 Code:     -
 Id:       65
@@ -7,31 +7,31 @@ Position: 13
 ---
 
 {problem}
-You want to run your database migrations.
+データベースマイグレーションを実行したい。
 {/problem}
 
 {solution}
-Use the `php artisan migrate` command.
+`php artisan migrate`コマンドが利用できます。
 
 {php}
 $ php artisan migrate
 {/php}
 
-You'll see a list of what migrations ran.
+実行したマイグレーションを一覧で見ることができます。
 
-If you just want to see what _would_ happen if you were to migrate, use the `--pretend` option.
+マイグレートを実行した時に何が起こっているか見る場合は、`--pretend`オプションを利用します。
 
 {php}
 $ php artisan migrate --pretend
 {/php}
 
-This will show you everything that would happen to your data, but doesn't actually make any changes.
+このコマンドはデータに何が起こっているか全て表示します、しかし実際に変更されるわけではありません。
 {/solution}
 
 {discussion}
-You can seed your database too.
+データベースにシーディングすることも可能です。
 
-Use the `--seed` option and your database will be seeded after the migrations occur. That is, if you have any seeds set up.
+シードが設定されていればマイグレーションの実行後に`--seed`オプションを利用することでデータベースがシーディングされます。
 
-See [[Seeding Your Database]] recipe.
+[[Seeding Your Database]]レシピを参照して下さい。
 {/discussion}

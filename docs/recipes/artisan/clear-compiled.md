@@ -1,5 +1,5 @@
 ---
-Title:    Clearing the Compiled Class
+Title:    コンパイルされたクラスをクリアしたい
 Topics:   artisan
 Code:     -
 Id:       59
@@ -7,13 +7,13 @@ Position: 7
 ---
 
 {problem}
-You want to clear the compiled classes.
+コンパイルされたクラスをクリアしたい。
 
-You know that Larvel can optimize class loading and want to clear any optimizations for testing.
+ご存知の通り、Laravelはクラスローディングの最適化や、テストのために最適化をクリアすることができます。
 {/problem}
 
 {solution}
-Use the `php artisan clear-compiled' command.
+`php artisan clear-compiled`コマンドが利用できます。
 
 {php}
 $ php artisan clear-compiled
@@ -21,10 +21,10 @@ $ php artisan clear-compiled
 {/solution}
 
 {discussion}
-This deletes two files:
+このコマンドは２つのファイルを削除します。
 
-1. The `bootstrap/compiled.php` file. This file is created when you optimize classes.
-2. The `app/storage/meta/services.json` file. This file is created as Laravel tries to optimize the loading of the service providers your application uses.
+1. `bootstrap/compiled.php`、このファイルは最適化されたクラスを生成するためのファイルになります。
+2. `app/storage/meta/services.json`、このファイルはアプリケーションで使用されているサービスプロバイダの読み込みを最適化するためのファイルになります。
 
-See also [[Optimizing the Framework for Better Performance]].
+[[Optimizing the Framework for Better Performance]]の項目も見て下さい。
 {/discussion}

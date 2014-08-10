@@ -1,5 +1,5 @@
 ---
-Title:    Publishing a Package's Views to Your Application
+Title:    パッケージのビューをアプリケーション上で公開したい
 Topics:   artisan
 Code:     -
 Id:       278
@@ -7,21 +7,21 @@ Position: 25
 ---
 
 {problem}
-You want to copy a third party's views to your application.
+サードパーティのビューをアプリケーションへコピーしたい。
 {/problem}
 
 {solution}
-Use the `php artisan view:publish` command.
+`php artisan view:publish`コマンドが利用できます。
 
 {bash}
 $ php artisan view:publish cool-package
 {/bash}
 
-This creates all needed configuration files in your `app/views/cool-package` directory.
+このコマンドは`app/views/cool-package`ディレクトリへ必要な設定ファイルを生成します。
 {/solution}
 
 {discussion}
-For non-Laravel packages you may need to specify the path.
+Laravel向けでないパッケージの場合、パスの指定が必要になります。
 
 {bash}
 $ php artisan view:publish cool-package --path=/package/view/dir

@@ -1,5 +1,5 @@
 ---
-Title:    Bringing the Application Out of Maintenance Mode
+Title:    アプリケーションのメンテナンスモードを解除したい
 Topics:   artisan
 Code:     -
 Id:       62
@@ -7,15 +7,15 @@ Position: 10
 ---
 
 {problem}
-You need to bring your application out of "maintenance" mode.
+アプリケーションのメンテナンスモードを解除する必要があります。
 
-You've been in maintenance mode and are ready to make your application live.
+アプリケーションの準備ができて、メンテナンスモードの状態になっています。
 {/problem}
 
 {solution}
-Use the `php artisan up` command.
+`php artisan up`コマンドが利用できます。
 
-This clears a flag on your application specifying it's no longer in maintenance mode.
+このコマンドはメンテナンスモードのフラグをクリアします。
 
 {php}
 $ php artisan up
@@ -23,7 +23,7 @@ $ php artisan up
 {/solution}
 
 {discussion}
-This command deletes a file.
+このコマンドはファイルを削除します。
 
-What this command actually does is delete the file `app/storage/meta/down`.
+このコマンドは`app/storage/meta/down`というファイルを削除しています。
 {/discussion}

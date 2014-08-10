@@ -1,5 +1,5 @@
 ---
-Title:    Tailing a Log File on a Remote Server
+Title:    リモートサーバのログファイルを追跡したい
 Topics:   artisan
 Code:     -
 Id:       281
@@ -7,15 +7,15 @@ Position: 28
 ---
 
 {problem}
-You want to see the contents of your application's log file.
+アプリケーションのログファイルの内容を見たい。
 
-You'd like to view the log in real-time, seeing new entries as they occur.
+ログをリアルタイムで表示したい。
 {/problem}
 
 {solution}
-Use the `php artisan tail` command.
+`php artisan tail`コマンドが利用できます。
 
-Using the command by itself will display the contents of `app/storage/logs/laravel.log` in your local application.
+コマンドを実行するとローカルアプリケーションにある`app/storage/logs/laravel.log`の内容が表示されます。
 
 {bash}
 $ php artisan tail
@@ -24,9 +24,9 @@ log contents
 ...
 {/bash}
 
-Press `Ctrl+C` to exit the log tail.
+ログの追跡を止めるには`Ctrl+C`を押します。
 
-If you set up a remote connection in `app/config/remote.php`, you can use the tail command to view the log file on the remote machine.
+`app/config/remote.php`にリモート接続の設定を行うと、リモートマシン上のログファイルを追跡することができます。
 
 {bash}
 $ php artisan tail remote-name
@@ -35,11 +35,12 @@ log contents
 ...
 {/bash}
 
-Press `Ctrl+C` to exit the log tail.
+ログの追跡を止めるには`Ctrl+C`を押します。
+
 {/solution}
 
 {discussion}
-For non-standard log files use the `--path` option.
+非標準のログファイルには`--path`オプションを利用します。
 
 {bash}
 $ php artisan tail --path=/full/path/to/log.file

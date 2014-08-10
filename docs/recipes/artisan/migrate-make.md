@@ -1,5 +1,5 @@
 ---
-Title:    Creating a New Migration
+Title:    新しいマイグレーションを作成したい
 Topics:   artisan, migrations
 Code:     -
 Id:       64
@@ -7,33 +7,35 @@ Position: 12
 ---
 
 {problem}
-You want to create a new database migration.
+新しいデータベースマイグレーションを作成したい。
 
-You understand that migrations are sort of a version control for your database and are ready to use them.
+マイグレーションがデータベースのバージョン管理の一つであると分かっており、これらを使用する準備ができているとします。
 {/problem}
 
 {solution}
-Use the `php artisan migrate:make` command.
+`php artisan migrate:make`コマンドが利用できます。
 
-This command creates a skeleton migration template for you in the `app/database/migrations` directory. After issuing the command you can edit the newly created file and add any needed specifics. _(Such as additional fields, indexes, etc.)_
+このコマンドは`app/database/migrations`ディレクトリにマイグレーションテンプレートを土台として作成します。
+After issuing the command you can edit the newly created file and add any needed specifics. _(Such as additional fields, indexes, etc.)_
+コマンド実行後、生成されたファイルに必要となる詳細を追記していきます。_(追加フィールド、インデックスなど)_
 
-To create a new table, use the `--create` option.
+`--create`オプションを使うことによって、新しいテーブルを作成できます。
 
 {php}
 $ php artisan migrate:make --create=users create_users_table
 {/php}
 
-To update an existing table, use the `--table` option.
+既に存在するテーブルを更新する場合は、`--table`オプションを使います。
 
 {php}
 $ php artisan migrate:make --table=users add_name_to_users
 {/php}
 
-If you want your migrations stored in a location other than `app/database/migrations` you can use the `--path` option to the command.
+マイグレーションが`app/database/migrations`以外の場所にある場合は、`--path`オプションでコマンドが実行できます。
 {/solution}
 
 {discussion}
-Migrations are powerful.
+マイグレーションはパワフルです。
 
-Using migrations will provide a history how your application's database has changed and grown over time.
+マイグレーションを使用することでデータベースの変更履歴を見ることができます。
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Putting the Application in Maintenance Mode
+Title:    メンテナンスモードを作成したい
 Topics:   artisan
 Code:     -
 Id:       61
@@ -7,15 +7,15 @@ Position: 9
 ---
 
 {problem}
-You need to put your application in "maintenance" mode.
+メンテナンスモードをアプリケーションに置きたいです。
 
-You're performing database updates, or other changes to your application and it'd be best if users couldn't access the system for a while.
+メンテナンスモードの間は、データベースの更新やその他の変更を行うためにユーザがアクセス出来ないようにしたい。
 {/problem}
 
 {solution}
-Use the `php artisan down` command.
+`php artisan down`コマンドが利用できます。
 
-This sets a flag on your application specifying it's in maintenance mode.
+このコマンドはメンテナンスモードフラグを設定します。
 
 {php}
 $ php artisan down
@@ -23,11 +23,12 @@ $ php artisan down
 {/solution}
 
 {discussion}
-Don't forget to handle maintenance mode.
+メンテナンスモードの操作を忘れないようにしてください。
 
-See the [[Registering a Maintenance Mode Handler]] recipe.
+[[Registering a Maintenance Mode Handler]]レシピを見て下さい。
 
-What this command actually does is creates the empty file `app/storage/meta/down`. Existence of this file is the maintenance mode flag.
+このコマンドが何をしているかというと、`app/storage/meta/down`に空のファイルを作成しています。
+このファイルがメンテナンスモードのフラグになっています。
 
-If your application runs on several machines in a web farm then you must use the `php artisan down` command on each machine.
+Webファーム内の複数のマシンでアプリケーションが動いている場合、各マシン上で`php artisan down`コマンドの実行が必要になります。
 {/discussion}
