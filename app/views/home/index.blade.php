@@ -48,6 +48,18 @@
 </div>
 <section class="container">
     <div class="row">
+        @if($errors->has('words'))
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                {{$errors->first('words')}}
+            </div>
+        @endif
+        @if($errors->has('auth_error'))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                {{$errors->first('auth_error')}}
+            </div>
+        @endif
         <aside class="col-sm-3 col-sm-push-9">
             <div class="widget categories">
                 @include('elements.sidebar')
@@ -104,13 +116,11 @@
                                                 </h5>
                                             </dt>
                                             <dd>
-                                                <div align="right">
-                                                    <small>
-                                                        <a href="{{route('home.category', ['one' => $late->category_id])}}">
-                                                            <span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;{{$late->name}}
-                                                        </a>
-                                                    </small>
-                                                </div>
+                                                <small>
+                                                    <a href="{{route('home.category', ['one' => $late->category_id])}}">
+                                                        <span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;{{$late->name}}
+                                                    </a>
+                                                </small>
                                             </dd>
                                             @endforeach
                                         </dl>
@@ -124,7 +134,22 @@
                                 <tr>
                                     <td>
                                         <dl>
-
+                                            @foreach($popular as $row)
+                                            <dt>
+                                                <h5>
+                                                    <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
+                                                    {{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['alt' => $row->title, 'title' => $row->title])}}
+                                                </h5>
+                                            </dt>
+                                            <dd>
+                                                <small>
+                                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;{{$row->views}}:views&nbsp;/&nbsp;
+                                                    <a href="{{route('home.category', ['one' => $row->category_id])}}">
+                                                        <span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;{{$row->name}}
+                                                    </a>
+                                                </small>
+                                            </dd>
+                                            @endforeach
                                         </dl>
                                     </td>
                                 </tr>

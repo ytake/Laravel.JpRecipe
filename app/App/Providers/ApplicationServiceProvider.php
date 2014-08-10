@@ -1,6 +1,9 @@
 <?php
 namespace App\Providers;
 
+use App\Authenticate\Driver\GitHub;
+use App\Commands\AddAccountCommand;
+use App\Commands\CleanCommand;
 use Parsedown;
 use App\Commands\AddRecipeCommand;
 use Illuminate\Support\ServiceProvider;
@@ -81,7 +84,7 @@ class ApplicationServiceProvider extends ServiceProvider
      */
     protected function registerCommands()
     {
-        //
+        // recipe追加コマンド
         $this->app['jp-recipe.add'] = $this->app->share(function($app) {
                 return new AddRecipeCommand(
                     $app->make("App\Repositories\CategoryRepositoryInterface"),
@@ -89,6 +92,21 @@ class ApplicationServiceProvider extends ServiceProvider
                 );
             });
         $this->commands('jp-recipe.add');
+        // cleanupコマンド
+        $this->app['jp-recipe:cleanup'] = $this->app->share(function($app) {
+                return new CleanCommand(
+                    $app->make("App\Repositories\AnalyticsRepositoryInterface")
+                );
+            });
+        $this->commands('jp-recipe:cleanup');
+        // アクセス許可ユーザー追加
+        $this->app['jp-recipe:add-allow-account'] = $this->app->share(function($app) {
+                return new AddAccountCommand(
+                    $app->make("App\\Authenticate\\Driver\\GitHub", [$app->make("GuzzleHttp\\ClientInterface")]),
+                    $app->make("App\Repositories\AclRepositoryInterface")
+                );
+            });
+        $this->commands('jp-recipe:add-allow-account');
     }
 
     /**
@@ -97,7 +115,9 @@ class ApplicationServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'jp-recipe.add'
+            'jp-recipe.add',
+            'jp-recipe:cleanup',
+            'jp-recipe:add-allow-account'
         ];
     }
 }

@@ -41,7 +41,7 @@ class Markdown implements MarkdownInterface
             return \Cache::get($cacheKey);
         }
         $result = $this->parser->text($text);
-        \Cache::put($cacheKey, $text, $life);
+        \Cache::put($cacheKey, $result, $life);
         return $result;
     }
 }

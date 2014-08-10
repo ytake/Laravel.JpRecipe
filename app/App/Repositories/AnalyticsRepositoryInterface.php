@@ -15,7 +15,14 @@ interface AnalyticsRepositoryInterface
     public function setCount($recipeId);
 
     /**
+     * @param int $from
+     * @param int $to
      * @return mixed
      */
-    public function getSortedCount();
+    public function getSortedCount($from = 0, $to = 4);
+
+    /**
+     * @return mixed
+     */
+    public function getDisableKey();
 } 

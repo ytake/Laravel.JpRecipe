@@ -39,4 +39,12 @@ echo 'hello';
         $this->assertSame("<p><a href=\"http://example.com\">aaaa</a></p>", $this->markdown->render($text));
         $this->assertSame("<p><code>Person</code></p>", $this->markdown->render("`Person`"));
     }
+
+
+    public function testCacheRender()
+    {
+        $create = $this->markdown->render('##markdown', 'testing');
+        $this->assertSame("<h2>markdown</h2>", $create);
+        $this->assertSame("<h2>markdown</h2>", \Cache::get('testing'));
+    }
 }

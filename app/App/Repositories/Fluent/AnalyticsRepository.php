@@ -39,11 +39,44 @@ class AnalyticsRepository implements AnalyticsRepositoryInterface
     }
 
     /**
-     * @return mixed
+     * @param int $from
+     * @param int $to
+     * @return array|mixed
      */
-    public function getSortedCount()
+    public function getSortedCount($from = 0, $to = 4)
     {
-        return \Redis::connection('default')
-            ->zrange(self::SORTED_SET_PREFIX, 0, -1, 'withscores');
+        $result = \Redis::connection('default')
+            ->zrevrange(self::SORTED_SET_PREFIX, $from, $to, 'withscores');
+        if(count($result)) {
+
+            return array_map(
+                function ($scores){
+                    $array = [
+                        'recipe_id' => str_replace(self::SET_PREFIX, '', $scores[0]),
+                        'views' => $scores[1]
+                    ];
+                    return (object) $array;
+                },
+                $result
+            );
+        }
+        return $result;
+    }
+
+    /**
+     * Redis cleanup function
+     * 不要になったKeyを削除
+     * @return void
+     */
+    public function getDisableKey()
+    {
+        $redis = \Redis::connection('default');
+        $previous = date("Ymd", strtotime("0day", strtotime(date("Ymd"))));
+        $result = $redis->keys(self::SET_PREFIX . "{$previous}*");
+        $redis->pipeline(function($pipe) use ($result){
+            foreach($result as $row) {
+                $pipe->del($row);
+            }
+        });
     }
 }

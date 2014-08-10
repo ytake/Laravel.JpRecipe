@@ -23,8 +23,14 @@ class GithubUserTest extends TestCase
     public function testInstance()
     {
         $this->assertInstanceOf("App\Authenticate\Driver\GithubUser", $this->user);
+    }
+
+    public function testChangeValue()
+    {
         $this->assertSame(1, $this->user->getAuthIdentifier());
         $this->assertSame('', $this->user->getAuthPassword());
         $this->assertSame('abcdefghijklmn', $this->user->getRememberToken());
+        $this->user->setRememberToken('testing');
+        $this->assertSame('testing', $this->user->getRememberToken());
     }
 } 

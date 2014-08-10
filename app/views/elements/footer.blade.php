@@ -1,7 +1,5 @@
 <div class="container disqus-content">
-    @if(!Request::is('auth/login*'))
     @include('elements.disqus')
-    @endif
 </div>
 <section id="bottom" class="wet-asphalt">
     <div class="container">

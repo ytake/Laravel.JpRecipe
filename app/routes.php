@@ -38,6 +38,9 @@
             ]
         );
     });
+    //
+    \Route::get('search', ['uses' => 'SearchController@getIndex', 'as' => 'search.index']);
+    //
     \Route::get('feed/{format?}', ['uses' => 'FeedController@getIndex', 'as' => 'feed.index']);
     \Route::get('sitemap.xml', ['uses' => 'FeedController@getSiteMap', 'as' => 'sitemap']);
     // authenticate

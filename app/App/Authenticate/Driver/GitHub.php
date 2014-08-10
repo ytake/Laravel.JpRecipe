@@ -86,4 +86,13 @@ class GitHub implements AuthenticateInterface
             ],
         ])->json();
     }
+
+    /**
+     * @param $username
+     * @return mixed
+     */
+    public function getGithubUser($username)
+    {
+        return $this->client->get("{$this->baseUrl}/users/{$username}")->json();
+    }
 }

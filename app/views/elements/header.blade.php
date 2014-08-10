@@ -16,6 +16,7 @@
         </div>
     </div>
 </header><!--/header-->
+@if(!Request::is('auth/login*'))
 <div class="title-back">
 	<section id="title" class="search">
 		<div>
@@ -24,14 +25,17 @@
 					<h1>レシピ検索</h1>
 				</div>
 			</div>
-			<form role="form">
+			{{\Form::open(['action' => 'search.index', 'method' => 'GET'])}}
 				<div class="input-group">
-					<input type="text" class="form-control" autocomplete="off" placeholder="Search">
+					{{Form::text('words', Input::get('words'), ['class' => "form-control", 'autocomplete' => "off", 'placeholder' => "検索したいキーワードを入力して下さい"])}}
 					<span class="input-group-btn">
-						<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-search"></i></button>
+						<button class="btn btn-danger" type="submit">
+    						<i class="glyphicon glyphicon-search"></i>
+						</button>
 					</span>
 				</div>
-			</form>
+			{{\Form::close()}}
 		</div>
 	</section>
 </div>
+@endif

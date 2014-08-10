@@ -175,6 +175,20 @@ class CategoryTableSeeder extends Seeder
             'description' => 'パッケージ開発のレシピ',
             'position' => 4,
         ],
+        [
+            'section_id' => 2,
+            'slug' => 'testing',
+            'name' => 'Testing',
+            'description' => 'LaravelのUnit Test関連のレシピ',
+            'position' => 15,
+        ],
+        [
+            'section_id' => 4,
+            'slug' => 'solution',
+            'name' => 'Solution',
+            'description' => 'PHP全般の開発を便利にするソリューション関連のレシピ',
+            'position' => 5,
+        ],
     ];
 
     /**

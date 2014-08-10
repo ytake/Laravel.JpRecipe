@@ -66,4 +66,12 @@ interface RecipeRepositoryInterface
      * @return mixed
      */
     public function getLatestRecipe($limit = 5);
+
+    /**
+     * @param array $text
+     * @param int $current
+     * @param int $limit
+     * @return mixed
+     */
+    public function getRecipesFromText(array $text, $current = 1, $limit = 25);
 }

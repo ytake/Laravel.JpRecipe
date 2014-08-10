@@ -55,7 +55,8 @@ class HomeController extends BaseController
         }
         $data = [
             'latest' => $this->recipe->getLatestRecipe(5),
-            'sections' => $sections
+            'sections' => $sections,
+            'popular' => $this->getContentsRanking()
         ];
         $this->view('home.index', $data);
     }
@@ -89,5 +90,24 @@ class HomeController extends BaseController
             'list' => $this->recipe->getRecipesFromCategory($one)
         ];
         $this->view('home.category.index', $data);
+    }
+
+    /**
+     * @access private
+     * @return mixed
+     */
+    private function getContentsRanking()
+    {
+        $result = $this->analytics->getSortedCount();
+        if($result) {
+            foreach ($result as $row) {
+                $recipe = $this->recipe->getRecipe($row->recipe_id);
+                $category = $this->category->getCategory($recipe->category_id);
+                $row->category_id = $recipe->category_id;
+                $row->title = $recipe->title;
+                $row->name = $category->name;
+            }
+        }
+        return $result;
     }
 }

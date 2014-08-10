@@ -2,6 +2,7 @@
 namespace App\Commands;
 
 use Illuminate\Console\Command;
+use App\Repositories\AnalyticsRepositoryInterface;
 
 /**
  * Class CleanCommand
@@ -23,18 +24,30 @@ class CleanCommand extends Command
      */
     protected $description = "redis cleanup";
 
-    public function __construct()
+    /** @var AnalyticsRepositoryInterface */
+    protected $analytics;
+
+    /**
+     * @param AnalyticsRepositoryInterface $analytics
+     */
+    public function __construct(AnalyticsRepositoryInterface $analytics)
     {
         parent::__construct();
+        $this->analytics = $analytics;
     }
 
     /**
-     * Execute the console command.
-     * @return void
+     * @throws \Exception
+     * @throws \Predis\Connection\ConnectionException
      */
     public function fire()
     {
-
+        try {
+            $this->analytics->getDisableKey();
+            $this->info("cleanup for Redis key");
+        } catch(\Predis\Connection\ConnectionException $error) {
+            throw $error;
+        }
     }
 
 }

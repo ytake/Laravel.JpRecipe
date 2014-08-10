@@ -26,6 +26,9 @@ trait CustomRule
             'name' => 'required|regex:/^[a-zA-Z]+$/|unique:categories,name',
             'description' => 'required',
         ],
+        'search' => [
+            'words' => 'required',
+        ],
     ];
 
     /**
