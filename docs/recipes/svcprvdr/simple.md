@@ -38,12 +38,14 @@ $ composer dump-autoload
 を必ず実行しましょう。  
 PSR利用の場合は`dump-autoload`は不要です。
 
-{php}
-<?php namespace MyApp\Providers;
+```php
+<?php
+namespace MyApp\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class TestServiceProvider extends ServiceProvider {
+class TestServiceProvider extends ServiceProvider
+{
 
     /**
      * Register the service provider.
@@ -55,16 +57,15 @@ class TestServiceProvider extends ServiceProvider {
         //
     }
 }
-?>
-{/php}
+
+```
 次に、`app/config/app.php`の`providers[]`配列に今作成したクラスを追加します。
 
-{php}
-    'providers' => array(
-        ...
+```php
+    'providers' => [
         'MyApp\Providers\TestServiceProvider',
-    ),
-{/php}
+    ],
+```
 これだけです！これでサービスプロバイダーが有効になります。
 {/solution}
 

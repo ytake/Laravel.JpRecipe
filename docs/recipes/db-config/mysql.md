@@ -7,13 +7,13 @@ Position: 1
 ---
 
 {problem}
-You want to use MySQL as your database.
+アプリケーションでMySQLをデータベースとして利用したい
 
-This seems to be a popular choice, so you want to use it yourself.
+アプリケーションにMySQLを選択するというのは、ごく一般的なものです。  
 {/problem}
 
 {solution}
-Edit the `app/config/database.php` configuration.
+`app/config/database.php`で設定します。
 
 ```php
 <?php
@@ -37,33 +37,26 @@ return [
 {/solution}
 
 {discussion}
-Laravel sets up MySQL as the default.
+LaravelはMySQLをデフォルトのデータベースとしていますので、  
+Laravelを新規にインストールした場合には必ずデフォルトがMySQLになっています。
 
-On a fresh install, the default configuration is for MySQL.
+設定する上で重要なポイントを紹介します。
 
-Here's the important points about the above configuration file.
+`connections[]`配列内の`mysql`キーは接続先の識別子として利用します。  
+名前が何であっても、正しく指定すればいくつものデータベースを接続して利用する事が出来ます。
 
-Line 4
+この設定は、`mysql`という名前で接続します
 
-: The name `mysql` can be anything, as long as it matches a key in the `connections[]` array.
+'host':接続先のホスト名が`localhost`として設定されていますが、
+接続先のデータベースホスト名などを記述して下さい。  
 
-Line 6
+'database':利用するデータベース名を指定してください。
+当然ですが、データベース名などはLaravelではなく`MySQL`で作成するものです。
 
-: Here's the start of the configuration for the connection named `mysql`.
-
-Line 8
-
-: The hostname of your database. Very likely this is `localhost`.
-
-Line 9
-
-: The name of the database. Keep in mind you need to create this database outside Laravel.
-
-Line 10 and 11
-
-: Supply the username and password used for accessing your database.
+'username', 'password': アクセス時に必要なアカウント、パスワード名を指定してください。  
+不明な場合は`MySQL`で確認しましょう。
 
 #### See also
 
-The [[Installing MySQL]] recipe.
+まだ`MySQL`がインストールされていない場合は[[Installing MySQL]]レシピも参考にしてください.
 {/discussion}

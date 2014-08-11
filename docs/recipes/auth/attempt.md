@@ -1,5 +1,5 @@
 ---
-Title:    Attempting to Authenticate with Credentials
+Title:    資格情報を使って認証する
 Topics:   -
 Code:     Auth::attempt()
 Id:       219
@@ -7,37 +7,89 @@ Position: 24
 ---
 
 {problem}
-You want to log a user on with code.
+ユーザーログインを実装したい
 
-Instead of the normal way using filters, you need to validate a user's credentials and optionally log them in.
+資格情報を使った通常のログインや、  
+自動ログインなどを実装する事ができます。
 {/problem}
 
 {solution}
-Use the `Auth::attempt()` method.
+`Auth::attempt()`メソッドを利用します
 
-You must provide the credentials.
-
-{php}
+資格情報に必要な情報を用意しなければなりません
+```php
+// ユーザー名とパスワードを利用します
 $success = Auth::attempt(['username' => 'me', 'password' => 'pass']);
-{/php}
+```
 
-This will attempt to log the user on using `username = 'me' and 'password' == Hash::make('pass')`. If successful, `true` is returned and the user is logged in.
+`username = 'me' and 'password' == Hash::make('pass')`を利用してログインします。  
+成功した場合は`true`が返却され、ログインします。  
+失敗した場合は`false`が返却されます
 
-The second argument specifies whether or not to set the "remember me" cookie. The default value of this second argument is `false`.
+第二引数を利用すると、cookieを利用した自動ログインを実装することができます。  
+デフォルトでは第二引数はfalseに指定されているため、  
+自動ログインを実装する場合は`true`に変更してください。
 
-{php}
+```php
 $success = Auth::attempt($credentials, true);
-{/php}
+```
 
-Now, if `$success` return `true`, the remember me cookie will be set.
+`$success`で`true`が返却された時に、自動ログインのcookieがセットされます。
 
-If you only want to validate and not log the user in, you can pass a third option. The default for this third option is `true`.
+第三引数を利用してログインを検証しないようにする事ができます。  
+デフォルトでは、`true`に指定されています。
 
-{php}
+```php
 $success = Auth::attempt($credentials, false, false);
-{/php}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+デフォルトで利用する場合、  
+`password`は、`\Hash::make('pass')`を使って認証処理が実行される事を覚えておいてください。  
+
+データベースを使用して、Auth::attempt()を利用する場合は、  
+次のようなテーブルを用意してください。  
+
+```php
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUsersTable extends Migration
+{
+
+    /**
+     * Run the migrations.
+     * @return void
+     */
+    public function up()
+    {
+        //
+        Schema::create('users', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->string('username', 32);
+            $table->string('email', 320);
+            $table->string('remember_token', 64);
+            $table->string('password', 64);
+            $table->timestamps();
+            $table->index(['id', 'username', 'password'], 'USER_INDEX');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+        Schema::drop('users');
+    }
+}
+
+```
 {/discussion}

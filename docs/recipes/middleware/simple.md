@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Simple Middleware Class
+Title:    簡単でシンプルなミドルウェアクラスを作成
 Topics:   middleware
 Code:     -
 Id:       114
@@ -7,97 +7,99 @@ Position: 2
 ---
 
 {problem}
-You want to add middleware to your application but don't know where to begin.
+アプリケーションにミドルウェアクラスを追加したいが、どこに置くべきなのかわからない
 {/problem}
 
 {solution}
-Create a simple middleware class.
+簡単なミドルウェアクラスを作ってみましょう
 
-#### Step 1 - Create the class
+#### Step 1 - クラスを作りましょう
 
-{php}
-<?php namespace MyApp;
+```php
+<?php
+namespace MyApp;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class Middleware implements HttpKernelInterface {
+class Middleware implements HttpKernelInterface
+{
 
-  protected $app;
+    /** @var HttpKernelInterface */
+    protected $app;
 
-  /**
-   * Constructor
-   */
-  public function __construct(HttpKernelInterface $app)
-  {
-    $this->app = $app;
-  }
+    /**
+     * Constructor
+     * @param HttpKernelInterface $app
+     */
+    public function __construct(HttpKernelInterface $app)
+    {
+        $this->app = $app;
+    }
 
-  /**
-   * Handle the request, return the response
-   *
-   * @implements HttpKernelInterface::handle
-   *
-   * @param  \Symfony\Component\HttpFoundation\Request  $request
-   * @param  int   $type
-   * @param  bool  $catch
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function handle(Request $request,
-    $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
-  {
-    // 1) Modify incoming request if needed
-    ...
+    /**
+     * Handle the request, return the response
+     *
+     * @implements HttpKernelInterface::handle
+     *
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @param  int   $type
+     * @param  bool  $catch
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function handle(Request $request,
+        $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
+    {
+        // 1) Modify incoming request if needed
+        // ...
 
-    // 2) Chain the app handler to get the response
-    $response = $this->app->handle($request, $type, $catch);
+        // 2) Chain the app handler to get the response
+        $response = $this->app->handle($request, $type, $catch);
 
-    // 3) Modify the response if needed
-    ...
+        // 3) Modify the response if needed
+        // ...
 
-    // 4) Return the response
-    return $response;
-  }
+        // 4) Return the response
+        return $response;
+    }
 }
-?>
-{/php}
+```
 
-#### Step 2 - Register the Middleware Class
+#### Step 2 - ミドルウェアクラスを登録しましょう
 
-You need to do this in the `register()` method of a service provider.
+サービスプロバイダの`register()`メソッドに記述します
 
-{php}
-App::middleware('MyApp\Middleware');
-{/php}
+```php
+\App::middleware('MyApp\Middleware');
+```
 
-{tip}
-Alternatively you can install a simple package I created which allows you to register your middleware in `app/start/preboot.php`. See [Laravel-Hooks](https://github.com/ChuckHeintzelman/Laravel-Hooks) for details.
-{/tip}
+[Laravel-Hooks](https://github.com/ChuckHeintzelman/Laravel-Hooks)パッケージを使用して、  
+簡単に追加することもできます
 {/solution}
 
 {discussion}
-The above class doesn't do anything.
+上記で実装したクラスは特に何も実行されません
 
-But it's a good skeleton to start with. Obviously, you'll need to change the namespace and classname to fit your application.
+簡単な作成方法と、設置場所を学習しました。  
+実際に追加等をする場合は、アプリケーションの規約等に従い、  
+名前空間やクラス名を任意の名前で実装してください。
 
-Then you may want to try logging something to make sure it works. You can update the `handle()` method of your class as specified below.
+`handle()`メソッドを利用して、ログ出力等を実装してテストや動作確認などを行って見ましょう。  
+```php
+// In step #1) リクエスト内容を変更してみましょう
 
-{php}
-// In step #1) Modify incoming request if needed
-
-// Log to a file. Since app/start/global.php hasn't been hit
-// yet the Log facade isn't set to log to a file yet. So just
-// write directly to a file.
+// ファイルにログを出力します。 app/start/global.php はまだ実行されていません。
+// そのため、Logファサードはまだ動作しません
+// 直接ログに出力してみます
 $logfile = storage_path().'/logs/laravel.log';
 error_log("Middleware entry\n", 3, $logfile);
 
-// In step #3) Modify reponse if needed
+// In step #2) レスポンスを変更してみましょう
 
-// Log to a file. We're safe to use the Log facade now that
-// it should be set up in app/start/global.php
-Log::info("Middleware exit");
-{/php}
-
-Now you can examine your `app/storage/logs/laravel.log` file to see that your middleware works.
+// ファイルにログ出力します. 先ほどの例とは違い、Logファサードは動作します。
+// `app/start/global.php`でログ関連の設定をする必要があります。
+\Log::info("Middleware exit");
+```
+実際に動作しているかどうかは、`app/storage/logs/laravel.log`で確認する事ができます
 {/discussion}
