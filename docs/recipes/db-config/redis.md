@@ -19,13 +19,49 @@ RedisはNoSQLとよばれるもので、RDBMSでは無いため、
 
 ```php
 <?php
- 'redis' => [
-'cluster' => false,
-'default' => [
-'host' => '127.0.0.1',
-'port' => 6379,
-'database' => 0,
-],
-],
+'redis' => [
+    'cluster' => false,
+    'default' => [
+        'host' => '127.0.0.1',
+        'port' => 6379,
+        'database' => 0,
+    ],
+]
 ```
 {/solution}
+
+{discussion}
+Redisを利用する場合に、デフォルトでは特にドライバーをインストールする必要はありません。  
+Laravelでは、`predis`ライブラリを利用していて、  
+接続等はすべてこのライブラリがカバーしてくれます。  
+`phpredis`を利用したい方は、エクステンションをインストールして下さい。  
+
+クラスター環境を利用する場合は、  
+'cluster' => true,'として、お使いの環境に合わせてください。
+
+デフォルトでは利用するデータベース番号は0になっていますが、  
+任意のデータベース番号を指定して下さい。  
+predisではこの他にも多くのオプションが利用できます。  
+
+Redisでパスワードを利用する場合は、次の様に配列キーを追加して指定してください。
+```php
+'default' => [
+    'host' => '127.0.0.1',
+    'port' => 6379,
+    'database' => 0,
+    'password' => 'laravel-recipes'
+],
+```
+`AUTH`が実行される様になります。  
+
+タイムアウトを指定したい場合も同様に指定します。
+
+```php
+'default' => [
+    'host' => '127.0.0.1',
+    'port' => 6379,
+    'database' => 0,
+    'timeout' => 300
+],
+```
+{/discussion}
