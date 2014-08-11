@@ -1,5 +1,5 @@
 ---
-Title:    Understanding What Middleware Is
+Title:    ミドルウェアについて理解する
 Topics:   middleware
 Code:     -
 Id:       113
@@ -7,40 +7,47 @@ Position: 1
 ---
 
 {problem}
-You've heard about Laravel's middleware, but don't understand it.
+Laravelの"ミドルウェア"について理解したい
 {/problem}
 
 {solution}
-It's pretty easy really.
+非常に簡単なものです。
 
-Each middleware class is constructed with a reference to the middleware below it and must implement the `handle()` method. This creates a _stack_ of middleware.
+それぞれのミドルウェアクラスは、いくつかのLaravelミドルウェアを用いて構成され、  
+`handle()`メソッドを利用して実装されています。
 
-{text}
-+---------------------+
-| Your middleware     |
-+---------------------+
-| Session middleware  |
-+---------------------+
-| Cookie middleware   |
-+---------------------+
-| Laravel application |
-+---------------------+
-{/text}
+```
++--------------------------+
+| ユーザー ミドルウェアクラス  |
++--------------------------+
+| Session ミドルウェア       |
++--------------------------+
+| Cookie ミドルウェア        |
++--------------------------+
+| Laravel application      |
++--------------------------+
+```
 
-The `handle()` method your middleware implements will receive the Request. Your `handle()` implementation must do four things:
+`handle()`メソッドを使ってリクエストを受信するように実装します。  
+`handle()`メソッドでは下記の４つを実装する必要があります。
 
-1. Modify the Request if needed.
-2. Call the middleware below it, receiving the Response.
-3. Modify the Response if needed.
-4. Returns the Response.
+1. 必要に応じてリクエストを変更します
+2. ミドルウェアを利用して、レスポンスを受信します
+3. 必要に応じてレスポンスを変更します
+4. レスポンスを返却します。
 
-The whole process operates a bit like Russian Nested Dolls. The Laravel application is that tiny, innermost doll.
+ロシアのマトリョーシカをイメージしてください。  
+Laravelアプリケーションは最も小さい人形であり、  
+様々なミドルウェアに包まれて実装されています。
 
-When the Laravel application's `handle()` method is called, it will boot the application, dispatch the request and return the response.
+Laravelアプリケーションでは、`handle()`メソッドが呼ばれると、  
+アプリケーション起動後にすぐにリクエストが処理されて、  
+レスポンスを返却します。
 {/solution}
 
 {discussion}
-Don't forget you can also shutdown your middleware.
+ミドルウェアもシャットダウンできる事を忘れないでください。
 
-If your middleware class implements `TerminableInterface` then when the application shuts down your middleware's `terminate()` method will be called.
+`TerminableInterface`を利用して実装している場合、  
+アプリケーションがシャットダウンする時に`terminate()`が呼ばれます。
 {/discussion}

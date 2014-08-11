@@ -17,8 +17,7 @@ Position: 15
 `App::down()`でハンドラを登録します。  
 
 {php}
-App::down(function()
-{
+App::down(function() {
     return Response::view('maintenance.mode', array(), 503);
 });
 {/php}
