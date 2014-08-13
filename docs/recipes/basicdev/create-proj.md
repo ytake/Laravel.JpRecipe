@@ -14,9 +14,9 @@ Laravelでコーディングする準備が整ったが、
 {solution}
 composerを使ってプロジェクトを作成します。
 
-{bash}
-laravel:~$ composer create-project laravel/laravel myapp
-{/bash}
+```bash
+$ composer create-project laravel/laravel myapp
+```
 実行したら1、2分だけ完了までお待ち下さい。  
 完了後に、`myapp`ディレクトリに、初期状態のプロジェクトが作成されます。
 {/solution}
@@ -29,7 +29,7 @@ laravel:~$ composer create-project laravel/laravel myapp
 
 初期状態で作成されるディレクトリ構造は次の通りです:  
 
-{text}
+```
 myapp : プロジェクトのディレクトリ
 |- app : アプリケーションディレクトリ
 |---- commands : コンソールコマンド
@@ -52,5 +52,5 @@ myapp : プロジェクトのディレクトリ
 |- bootstrap : フレームワークのbootstrap関連のファイル置き場
 |- public : ドキュメントルート
 |- vendor : composerがインストールした依存関係のライブラリはこちらです
-{/text}
+```
 {/discussion}
