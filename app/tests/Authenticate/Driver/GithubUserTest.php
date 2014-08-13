@@ -33,4 +33,12 @@ class GithubUserTest extends TestCase
         $this->user->setRememberToken('testing');
         $this->assertSame('testing', $this->user->getRememberToken());
     }
+
+    public function testAccessProperty()
+    {
+        $this->user->hello = 'test';
+        $this->assertSame('test', $this->user->hello);
+        unset($this->user->hello);
+        $this->assertSame(false, isset($this->user->hello));
+    }
 } 

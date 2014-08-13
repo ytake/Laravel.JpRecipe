@@ -17,7 +17,6 @@ class CategoryComposerTest extends TestCase
         $this->compose = new CategoryComposer(
             \App::make("App\Repositories\CategoryRepositoryInterface")
         );
-
     }
 
     public function testInstance()
