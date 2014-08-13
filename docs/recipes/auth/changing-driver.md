@@ -1,5 +1,5 @@
 ---
-Title:    Changing Your Authentication Driver
+Title:    認証のドライバーを変更する
 Topics:   authentication, configuration
 Code:     config/auth.php
 Id:       10
@@ -7,25 +7,30 @@ Position: 7
 ---
 
 {problem}
-You don't want to use the Eloquent authentication driver.
+`Eloquent`を使わずに他のドライバーを使用したい
 
-You want to use Laravel's built in `Auth` package, but don't want to use the default driver.
+Laravelの`Auth`機能をそのまま利用したいが、デフォルトのドライバーではないものを利用したい
 {/problem}
 
 {solution}
-Switch to the **database** authentication driver.
+認証のドライバを **database** に変更する事が出来ます。
 
-Edit `app/config/auth.php` and change the driver.
+`app/config/auth.php`のドライバー項目を変更してみましょう
 
-{php}
-  	'driver' => 'database',
-{/php}
+```php
+'driver' => 'database',
+```
 
-If you're using a different table than **users** then see [[Changing Your Authentication Table]].
+アプリケーションで、認証関連で利用したいテーブルが、Laravelデフォルトの、
+**users** ではない場合は、環境に合わせて変更する必要があります。
+[[Changing Your Authentication Table]]を参考にして下さい。
 {/solution}
 
 {discussion}
-Out of the box you have two choices.
+Laravelで、デフォルトで用意されているドライバは二種類です。
 
-Laravel only provides an **eloquent** option and a **database** option out of the box. You can create your own driver though. See [[Using Your Own Authentication Driver]] for details.
+**Eloquent** と **database** の二種のうちどれかを利用する事が出来ますが、  
+これ以外にもユーザーの環境に合わせて独自のドライバを追加する事ができます。  
+具体的には、認証管理などをAPIで行っている場合や、`mongodb`を利用している場合などです。  
+ドライバの詳細については、[[Using Your Own Authentication Driver]]に記載されています。
 {/discussion}

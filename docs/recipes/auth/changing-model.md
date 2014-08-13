@@ -1,5 +1,5 @@
 ---
-Title:    Changing Your Authentication Model
+Title:    認証に使うモデルを変更する
 Topics:   authentication, configuration
 Code:     config/auth.php, RemindableInterface, UserInterface
 Id:       11
@@ -7,33 +7,39 @@ Position: 8
 ---
 
 {problem}
-You need the change the authentication model from the default `User`.
+デフォルトの`User`ではなく、別のモデルを利用したい
 
-Your application is using namespaces or you want to use a differently named model for users.
+開発をしているアプリケーションは、名前空間等を利用している場合等、  
+デフォルトの`User`ではなく別のモデルを指定する必要があります
 {/problem}
 
 {solution}
-Edit `app/config/auth.php` to change the model.
+`app/config/auth.php` のモデルの項目を変更しましょう。
 
-{php}
-  	'model' => 'MyApp\Models\User',
-{/php}
+```php
+'model' => 'MyApp\Models\User',
+```
+例えばこの様な指定になります。
+
 {/solution}
 
 {discussion}
-Don't forget the required interfaces.
+認証で利用するモデルは、決まったインターフェースを実装している必要があります。
 
-If you're using your own model it's important that your model implements Auth's `UserInterface`. If you're implementing the password reminder feature it should also implement `RemindableInterface`.
+認証に独自のモデルを利用する場合は、必ず`UserInterface`を実装して下さい。  
+また、パスワードのリマインダーを利用する場合は、  
+`RemindableInterface`を必ず実装しなければなりません。
 
-{php}
-<?php namespace MyApp\Models;
+```php
+<?php
+namespace MyApp\Models;
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends \Eloquent implements UserInterface, RemindableInterface
 {
-	...
+    // 実装内容
 }
-{/php}
+```
 {/discussion}
