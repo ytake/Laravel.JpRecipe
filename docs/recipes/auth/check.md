@@ -1,5 +1,5 @@
 ---
-Title:    Determining if the Current User is Authenticated
+Title:    現在アクセスしているユーザーが認証済みかどうか確認する
 Topics:   authentication
 Code:     Auth::check()
 Id:       80
@@ -7,43 +7,54 @@ Position: 14
 ---
 
 {problem}
-You want to see if a user is logged in.
+ユーザーがログインしているか確認したい
 
-You know Laravel automatically keeps the authenticated user in the session. You want to check if the current request has a user logged in and authenticated.
+Laravelは自動的にSessionを利用して、認証ユーザーを維持しています  
+現在アクセスしているユーザーがSessionが有効状態かどうかを知りたい場合の確認方法です
 {/problem}
 
 {solution}
-Use `Auth::check()`.
+`Auth::check()`を使いましょう
 
-The `Auth::check()` method returns true or false.
+`Auth::check()`メソッドは、簡単に`true`か`false`を返却します
 
-{php}
-if (Auth::check())
-{
-    echo "Yay! You're logged in.";
+```php
+if (Auth::check()) {
+    echo "ログイン済みのユーザー！";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-Several things happen behind the scenes when you do this.
+これらは通常、見えない所で実行します。
 
-First Laravel checks if the current session has the id of a user. If so, then an attempt is made to retrieve the user from the database.
+Sessionに userのidが含まれる場合は、  
+データベースからユーザー情報を取得する為に、Laravelがチェックします。
 
-If that fails, then Laravel checks for the "remember me" cookie. If that's present then once again an attempt is made to retrieve the user from the database.
+取得できなかった場合、Laravelは`remember me`Cookieをチェックします。  
+そして再び、それを利用してデータベースからの取得を試みます。  
 
-Only if a valid user is retrieved from the database is `true` returned.
+データベースからユーザー情報が見つかった場合にのみ、`true`が返却されます。
 
-#### The 'guest' filter uses this method
+シンプルで簡単に利用できますが、  
+デフォルトの状態でそのまま利用する場合は、  
+この処理が走るたびに都度データベースにアクセスする事を覚えておいて下さい。  
+小さなシステムであれば、特に気にする必要はありませんが、  
+大規模なシステムではボツルネックになる場合もあり得ます。
 
-Laravel provides a default implementation of the **guest** filter in `app/filters.php`.
+#### 'guest'フィルターはこのメソッドを利用しています
 
-{php}
-Route::filter('guest', function()
-{
-    if (Auth::check()) return Redirect::to('/');
+Laravelは`app/filters.php`内で、  
+**guest** フィルターはデフォルトで実装されています。
+
+```php
+Route::filter('guest', function() {
+    if (Auth::check()) {
+        return Redirect::to('/');
+    }
 });
-{/php}
+```
 
-This default implementation is used when you want to add a filter to a route that is only accessible by guests (aka users who are not logged in). If a user _is_ logged in then they are redirected to the home page.
+未ログインユーザーのみがアクセス可能であるルートにこのフィルターを指定した場合、  
+すでにログインしている場合は、`/`、つまりトップページにリダイレクトされる事になります。
 {/discussion}
