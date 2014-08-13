@@ -28,6 +28,9 @@ RedisはNoSQLとよばれるもので、RDBMSでは無いため、
     ],
 ]
 ```
+
+Redisでサポートされている機能については公式サイトを参考にして下さい  
+[Redis](http://redis.io/)
 {/solution}
 
 {discussion}
@@ -52,7 +55,7 @@ Redisでパスワードを利用する場合は、次の様に配列キーを追
     'password' => 'laravel-recipes'
 ],
 ```
-`AUTH`が実行される様になります。  
+`AUTH`コマンドが実行される様になります。  
 
 タイムアウトを指定したい場合も同様に指定します。
 

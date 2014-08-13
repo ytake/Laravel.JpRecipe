@@ -1,5 +1,5 @@
 ---
-Title:    Installing Apache
+Title:    Apacheのインストール
 Topics:   Apache, installation
 Code:     -
 Id:       20
@@ -7,25 +7,31 @@ Position: 6
 ---
 
 {problem}
-You have no web server installed.
+まだWebサーバがインストールされていない。
 
-You'd like to install a web server for your Laravel application to use.
+Laravelアプリケーションを利用するWebサーバをインストールしたい
 {/problem}
 
 {solution}
-Install Apache.
+Apacheをインストールしましょう。
 
-{bash}
-laravel:~$ sudo apt-get install -y apache2 libapache2-mod-php5
-laravel:~$ sudo a2enmod rewrite
-laravel:~$ sudo service apache2 restart
-{/bash}
+お使いのサーバのOSによってコマンドは異なります
+### ubuntu14.04
+```bash
+$ sudo apt-get install -y apache2 libapache2-mod-php5
+$ sudo a2enmod rewrite
+$ sudo service apache2 restart
+```
+サービスで`apache2`を指定して、  
+restart|start|stopなどを実行して下さい
 {/solution}
 
 {discussion}
-Apache is the most dominant web server on the Internet.
+Apacheはご存知の通り、現在最も普及しているWebサーバです。
 
-Notice the second line in the above instructions. This enables **mod-rewrite** with Apache. This is required for Laravel to work correctly.
+インストールの内容にある通り、ApacheでLaravelを利用するには、  
+**mod-rewrite** が必ず必要となります。
+正常に動かない場合は、**mod-rewrite** がインストールされているか忘れずに確認してください。
 
-See also [[Creating an Apache VirtualHost]]
+vhostsの設定方法については、[[Creating an Apache VirtualHost]]をご覧ください。
 {/discussion}
