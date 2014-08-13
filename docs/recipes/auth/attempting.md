@@ -1,5 +1,5 @@
 ---
-Title:    Listening for Authentication Attempts
+Title:    認証処理中に内容を確認する
 Topics:   -
 Code:     Auth::attempting()
 Id:       220
@@ -7,26 +7,26 @@ Position: 25
 ---
 
 {problem}
-You want to execute code whenever an authentication attempt is made.
+認証時に都度実行される処理を実装したい
 {/problem}
 
 {solution}
-Use the `Auth::attempting()` method.
+`Auth::attempting()`メソッドを利用します。
 
 {php}
-Auth::attempting(function($credentials, $remember, $login)
-{
-    // Log the attempt or some other such activity
+Auth::attempting(function($credentials, $remember, $login) {
+    // 認証処理、またはその内容をログに書き出したり、任意の処理を記述します
 });
 {/php}
 
-Note this fires when the attempt is made, whether or not the attempt would be successful.
+これは、認証に成功したか失敗したかに関わらずに、必ず実行される事に注意してください。
 {/solution}
 
 {discussion}
-Where should the code for listening for authentication attempts go?
+これらの処理を記述するにあたって、ファイルの設置場所等はどこにすればいいのでしょうか？
 
-If you have a helpers file for event listening, use that (see [[Creating a Helpers File]]).
+Event用のヘルパーファイルなどがある場合はそれを利用しても構いません。  
+[[Creating a Helpers File]]も参考にしてください。
 
-Otherwise you can put the code in a service provider or `app/start/global.php`.
+それ以外では、サービスプロバイダー、または`app/start/global.php`に記述しましょう。
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Attempting to Authenticate Using Basic Auth
+Title:    Basic認証を利用した認証処理
 Topics:   -
 Code:     Auth::basic()
 Id:       217
@@ -7,45 +7,52 @@ Position: 22
 ---
 
 {problem}
-You want to authenticate the user using HTTP basic authentication.
+ログインなどの認証処理に、Basic認証を利用したい
 {/problem}
 
 {solution}
-Use the `Auth::basic()` method.
+`Auth::basic()`メソッドを利用します。
 
-You can use it without any arguments and it will try matching the HTTP auth user to the email.
+引数等を指定せずにBasic認証を行う場合は、'email'を使って認証します。  
+これは、`Auth::basic()`の引数でデフォルトとして指定されています。
 
-{php}
+```php
 $result = Auth::basic();
-if ($result)
-{
-    throw new Exception('invalid credentials');
+if ($result) {
+    throw new \Exception('invalid credentials');
 }
-{/php}
+```
 
-If the _user_ field is something other than `'email'` you can specify it with the first argument.
+`'email'`ではなく、任意のフィールドを指定する場合は、第一引数で指定する事ができます。
+下記の例は、`username`を指定した例です。
 
-{php}
+```php
 $result = Auth::basic('username');
-if ($result)
-{
-    throw new Exception('invalid credentials');
+if ($result) {
+    throw new \Exception('invalid credentials');
 }
-{/php}
+```
+他にもリクエストの値を直接含める事も可能です。
 
-You can even pass the actual request you want to use. Normally, it uses the current request.
-
-{php}
+```php
 $result = Auth::basic('email', $request);
-{/php}
+```
 
-Regardless of the method you use, the method returns a Response which you can pass back to the user for a _401 Invalid Credentials_ error.
+ただしくない認証情報が渡された場合は、  
+_401 Invalid Credentials_ が返却されます。
 {/solution}
 
 {discussion}
-The validation will fire an `auth.attempt` event with the credentials.
+認証処理は、`auth.attempt`イベントとして登録されています
 
-If the authentication is successful then a `auth.login` event will fire.
+認証が成功した場合は、`auth.login`イベントが発生します。
 
-The `Auth::basic()` method is used by the default `auth.basic` filter Laravel provides.
+それぞれのイベントは、`\Event::listen()`を利用することで、  
+任意の処理等を実装する事ができます。
+```php
+Event::listen('auth.login', function($user) {
+    // 任意の処理
+});
+```
+`auth.basic`フィルターを使って、`Auth::basic()`を実装しましょう。
 {/discussion}
