@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Cookie Jar Used for Authentication
+Title:    認証で利用されるCookieJarを取得する
 Topics:   -
 Code:     Auth::getCookieJar()
 Id:       225
@@ -7,21 +7,23 @@ Position: 30
 ---
 
 {problem}
-You want to access the cookie creator used by authentication.
+アプリケーションの認証で利用されるCookieJarを取得したい
 {/problem}
 
 {solution}
-Use the `Auth::getCookieJar()` method.
+`Auth::getCookieJar()`メソッドを利用します。
 
-{php}
+```php
 $cookies = Auth::getCookieJar();
-{/php}
+```
 
-Note if authentication isn't using cookies a `RuntimeException` will be thrown.
+CookieJarを利用していない場合は、`RuntimeException`がスローされる事に注意してください
 {/solution}
 
 {discussion}
-Usually you can just access the `Cookie` facade.
+一般的には、`Cookie`を利用する事をお勧めします
 
-By default Laravel uses the same cookie driver for both the `Cookie` facade and the `Auth` facade. This means unless your application is explicitly setting the cookie jar, it's easier to use the `Cookie` facade when dealing with cookies.
+デフォルトでは、Laravelは`Cookie`ファサードと`Auth`ファサードの両方に同じクッキードライバを使用しています。  
+アプリケーションが明示的にCookieJarを設定されていない限り、  
+クッキーを扱う場合は`Cookie`ファサードを使用する方が簡単です。
 {/discussion}
