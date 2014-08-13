@@ -33,7 +33,8 @@ class AddRecipeCommandTest extends TestCase
     {
         \Config::shouldReceive('get')->once()
             ->with('recipe.document_path')->andReturn(__DIR__ . "/../../../docs/recipes");
-        $this->command->run(new \Symfony\Component\Console\Input\ArrayInput([]), new \Symfony\Component\Console\Output\NullOutput);
+        $this->assertInternalType('integer', $this->command->run(new \Symfony\Component\Console\Input\ArrayInput([]), new \Symfony\Component\Console\Output\NullOutput));
+        $this->assertSame('recipes to database', $this->command->getDescription());
     }
 
     public function testParseContent()
