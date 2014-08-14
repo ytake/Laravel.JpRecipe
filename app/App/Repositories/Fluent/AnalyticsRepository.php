@@ -45,20 +45,25 @@ class AnalyticsRepository implements AnalyticsRepositoryInterface
      */
     public function getSortedCount($from = 0, $to = 4)
     {
-        $result = \Redis::connection('default')
-            ->zrevrange(self::SORTED_SET_PREFIX, $from, $to, 'withscores');
-        if(count($result)) {
+        $result = [];
+        try {
+            $result = \Redis::connection('default')
+                ->zrevrange(self::SORTED_SET_PREFIX, $from, $to, 'withscores');
+            if(count($result)) {
 
-            return array_map(
-                function ($scores){
-                    $array = [
-                        'recipe_id' => str_replace(self::SET_PREFIX, '', $scores[0]),
-                        'views' => $scores[1]
-                    ];
-                    return (object) $array;
-                },
-                $result
-            );
+                return array_map(
+                    function ($scores){
+                        $array = [
+                            'recipe_id' => str_replace(self::SET_PREFIX, '', $scores[0]),
+                            'views' => $scores[1]
+                        ];
+                        return (object) $array;
+                    },
+                    $result
+                );
+            }
+        } catch (\Predis\Connection\ConnectionException $e) {
+
         }
         return $result;
     }

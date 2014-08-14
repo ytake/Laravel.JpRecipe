@@ -58,4 +58,32 @@ phpunit
         $result = $reflectionMethod->invokeArgs($this->command, ["title", $filePath]);
         $this->assertSame("test.md", $result);
     }
+
+    public function testConvertGfm()
+    {
+        $filePath = \File::get(__DIR__ . "/../docs/test.md");
+        $reflectionMethod = $this->getProtectMethod($this->command, 'convertGfm');
+        $text = '{php}
+function()
+{
+    echo "aaaa";
+}
+{/php}
+{js}
+console.log("aaaa");
+{/js}
+';
+        $convert = "```php
+function()
+{
+    echo \"aaaa\";
+}
+```
+```js
+console.log(\"aaaa\");
+```
+";
+        $result = $reflectionMethod->invokeArgs($this->command, ["string" => $text]);
+        $this->assertSame($convert, $result);
+    }
 }

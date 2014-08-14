@@ -4,12 +4,12 @@ return [
     'connections' => [
         'master' => [
             'driver' => 'sqlite',
-            'database' => app_path().'/tests/database/testing.sqlite',
+            'database' => app_path().'/tests/Database/testing.sqlite',
             'prefix' => '',
         ],
         'slave' => [
             'driver' => 'sqlite',
-            'database' => app_path().'/tests/database/testing.sqlite',
+            'database' => app_path().'/tests/Database/testing.sqlite',
             'prefix' => '',
         ],
     ],

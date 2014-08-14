@@ -1,5 +1,5 @@
 <?php
-namespace App\Tests\Controllers\Api;
+namespace App\Tests\Controllers;
 
 use Mockery AS m;
 use App\Tests\TestCase;

@@ -52,6 +52,6 @@ return [
     |
     */
 
-    'storage' => __DIR__.'/../app/storage',
+    'storage' => __DIR__.'/../storage',
 
 ];
