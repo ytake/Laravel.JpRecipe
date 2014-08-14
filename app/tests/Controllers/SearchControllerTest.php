@@ -27,15 +27,26 @@ class SearchControllerTest extends TestCase
         $this->assertInstanceOf("Illuminate\Http\RedirectResponse", $this->controller->getIndex());
     }
 
-    /**
-     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     */
+
     public function testRequestSearch()
     {
         $this->client->request('GET', '/search');
         $this->assertTrue($this->client->getResponse()->isRedirect());
+    }
+
+    /**
+     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
+    public function testNotAllowedAccess()
+    {
         $this->client->request('POST', '/search');
         $this->client->request('PATCH', '/search');
         $this->client->request('DELETE', '/search');
+    }
+
+    public function testProperty()
+    {
+        $reflectionProperty = $this->getProtectProperty($this->controller, 'recipe');
+        $this->assertInstanceOf("App\Tests\StubRepositories\RecipeRepository", $reflectionProperty->getValue($this->controller));
     }
 } 

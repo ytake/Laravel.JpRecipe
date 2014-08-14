@@ -35,4 +35,13 @@ class ValidateTest extends TestCase
         $this->assertInstanceOf("Illuminate\Support\MessageBag", $this->validate->getErrors());
         $this->assertSame(true, $this->validate->validate(['words' => 'testing'], 'search'));
     }
+
+    public function testGetRule()
+    {
+        $this->assertInternalType('array', $this->validate->getRule());
+        $this->assertArrayHasKey('webmaster.recipe', $this->validate->getRule());
+        $this->assertArrayHasKey('webmaster.category', $this->validate->getRule());
+        $this->assertArrayHasKey('search', $this->validate->getRule());
+        $this->assertSame($this->validate->getRule(), $this->validate->rule);
+    }
 }
