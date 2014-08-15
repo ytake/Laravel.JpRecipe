@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Authentication User Provider
+Title:    認証ユーザープロバイダーの取得
 Topics:   -
 Code:     Auth::getProvider()
 Id:       235
@@ -7,23 +7,27 @@ Position: 40
 ---
 
 {problem}
-You want to access the user provider the authentication uses.
+認証で利用されるユーザープロバイダーにアクセスしたい
 {/problem}
 
 {solution}
-Use the `Auth::getProvider()` method.
+`Auth::getProvider()`メソッドを利用します
 
-{php}
+```php
 $provider = Auth::getProvider();
-{/php}
+```
 {/solution}
 
 {discussion}
-The provider will be based on how your authentication is configured.
+プロバイダーは、認証の設定などのコンフィグに基づいて利用されます。
 
-It'll be the provider for the driver you set up in the your `app/config/auth.php`. See [[Changing Your Authentication Driver]].
+`app/config/auth.php`で設定したドライバーのプロバイダーになっているはずです。
+[[Changing Your Authentication Driver]]も参考にしてください。
 
-If you're using the `database` configuration driver, the provider will be `Illuminate\Auth\DatabaseUserProvider`. If you're using the `eloquent` configuration driver the provider will be `Illuminate\Auth\EloquentUserProvider`.
+具体的には、デフォルトで用意されている`database`をドライバーとして利用する場合、  
+`Illuminate\Auth\DatabaseUserProvider`がプロバイダーとなり、  
+`eloquent`を選択した場合は、  
+`Illuminate\Auth\EloquentUserProvider`がプロバイダーとなります
 
-If you set up a custom authentication driver, the user provider will be whatever you set up.
+独自の認証ドライバを利用する場合は、それに応じた独自のプロバイダーとなります。
 {/discussion}

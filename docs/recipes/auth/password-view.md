@@ -1,5 +1,5 @@
 ---
-Title:    Changing the View For Password Reminders
+Title:    パスワードリマインダーで利用するビューを変更
 Topics:   authentication, configuration
 Code:     -
 Id:       76
@@ -7,17 +7,18 @@ Position: 10
 ---
 
 {problem}
-You don't care for the default email sent users for password reminders.
+パスワードリマインダーで利用するビューを変更したい
 {/problem}
 
 {solution}
-Change the email view.
+ビューは自由に変更出来ます。  
+`app/views/emails/auth`ディレクトリにある、`reminder.blade.php`を編集しましょう
 
-You can edit the file `reminder.blade.php` in the `app/views/emails/auth` directory. This is what the password reminder component uses to build the email.
+この パスワードリマインダーは`email`を利用します
 
-The default version is below.
+デフォルトは以下の通りです
 
-{html}
+```html
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -25,36 +26,37 @@ The default version is below.
   </head>
   <body>
     <h2>Password Reset</h2>
-
     <div>
       To reset your password, complete this form:
       {{ URL::to('password/reset', array($token)) }}.
     </div>
   </body>
 </html>
-{/html}
+```
+`app/config/auth.php`を編集して、
+ビュー自体を変更したり、他のディレクトリのビューを指定することもできます。  
 
-You can change the view itself, or change the location of the view by editing your `app/config/auth.php` file.
+```php
+'reminder' => [
+    'email' => 'emails.auth.reminder',
+],
+```
 
-{php}
-    'reminder' => array(
-        'email' => 'emails.auth.reminder',
-    ),
-{/php}
-
-Simply change the `reminder.email` setting to a different view name.
+簡単に`reminder.email`を他のビューに指定する事ができます
 {/solution}
 
 {discussion}
-This is the only default view provided by Laravel.
+これはLaravelで用意されている唯一のデフォルトのビューです
 
-But, if you followed the recipe for [[Creating a Reminders Controller]] then there are two more views you'll need to create.
-
+レシピに従って実装する場合は、[[Creating a Reminders Controller]]  
+2つのビューを作成する必要が有ります
+### 1
 `views/password/remind.blade.php`
 
-: This view should be created to accept an email address. This will be the view your application should link to with a "Forgot Password?" type link.
-
+: このビューはメールアドレスを利用出来る様にしましょう。"パスワードを忘れましたか？"等のリンクを用意しましょう
+### 2
 `views/password/reset.blade.php`
 
-: This view should be created for a user to change their password. The email the user recieves contains a link back to this form. The form must contain four fields: 'email', 'password', 'password_confirmation', and 'token'.
+: このビューはパスワードを変更するユーザーが利用するものです。リマインダーのメールにこのページのリンクを含めましょう。  
+このページのフィールドに'email', 'password', 'password_confirmation', 'token'を必ず含めてください。
 {/discussion}

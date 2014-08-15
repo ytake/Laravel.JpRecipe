@@ -1,5 +1,5 @@
 ---
-Title:    Logging a User In Without Sessions or Cookies
+Title:    Cookieやsessionを使わない認証
 Topics:   -
 Code:     Auth::once()
 Id:       215
@@ -7,25 +7,24 @@ Position: 20
 ---
 
 {problem}
-You want to log a user in without using cookies or the session.
+Cookieやsessionを使わずに認証をおこないたい
 {/problem}
 
 {solution}
-Use the `Auth::once()` method.
+`Auth::once()`メソッドを利用します
 
-This method takes an array containing the user's credentials.
+このメソッドは、資格情報を配列で指定します
 
-{php}
+```php
 $logged_in = Auth::once(['username' => 'test', 'password' => 'test']);
-if ( ! $logged_in)
-{
-    throw new Exception('not logged in');
+if (!$logged_in) {
+    throw new \Exception('not logged in');
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-The user will remain _"logged in"_ only for the current request.
+現在のリクエストでのみ、_"ログイン"_ 状態となります
 
-This is a handy method to use when testing.
+このメソッドはテストで利用すると便利です
 {/discussion}

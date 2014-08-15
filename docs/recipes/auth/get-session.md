@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Session Store Used for Authentication
+Title:    認証に利用されているセッションストアを取得
 Topics:   -
 Code:     Auth::getSession()
 Id:       237
@@ -7,19 +7,22 @@ Position: 42
 ---
 
 {problem}
-You want to access the session store used by authentication.
+認証で利用されるセッションストアにアクセスしたい
 {/problem}
 
 {solution}
-Use the `Auth::getSession()` method.
+`Auth::getSession()`メソッドを利用します。
 
-{php}
+```php
 $request = Auth::getSession();
-{/php}
+```
 {/solution}
 
 {discussion}
-Usually you can just access the `Session` facade.
+通常は`Session`ファサードを用いてアクセスします。
 
-By default Laravel uses the same session store for both the `Session` facade and the `Auth` facade. This means unless your application is explicitly setting the session store, it's easier to use the `Session` facade.
+デフォルトでは、Laravelは`Session`ファサードと`Auth`ファサードの両方で  
+同じセッションストアを使用しています。  
+アプリケーションで明示的にセッションストアの設定しない場合は、  
+`Session`ファサードを利用する事で簡単に取得する事ができます。
 {/discussion}

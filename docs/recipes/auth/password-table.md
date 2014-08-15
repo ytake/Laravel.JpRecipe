@@ -1,5 +1,5 @@
 ---
-Title:    Changing Your Password Reminder Table
+Title:    パスワードリマインダーで使用するテーブルを変更
 Topics:   authentication, configuration
 Code:     -
 Id:       78
@@ -7,27 +7,30 @@ Position: 12
 ---
 
 {problem}
-You want to use a different password reminder table.
+パスワードリマインダーで使用するテーブルを変更したい
 
-You know Laravel is set up to use the `password_reminders` table by default, but you want a different table for your application.
+デフォルトでは、`password_reminders`テーブルを利用する様に指定されています。  
+これを使用せずに、任意のテーブルを利用する様に変更してみましょう
 {/problem}
 
 {solution}
-Edit your `app/config/auth.php` file.
+`app/config/auth.php`ファイルで指定します
 
-{php}
-    'reminder' => array(
-        'table' => 'password_reminders',
-    ),
-{/php}
+```php
+'reminder' => [
+    'table' => 'password_reminders',
+],
+```
 
-Change the table value to the table name you wish to use.
+使用したいテーブル名に変更しましょう
 {/solution}
 
 {discussion}
-Don't forget to update your migrations.
+パワスードリマインダー関連のマイグレーションを更新するのを忘れない様にしてください
 
-If you're using artisan to create the table (see [[Creating a Migration for Password Reminders]]), make sure you update your migration.
+artisanコマンドを利用してテーブルを作成する場合は、更新を忘れないでください。  
+[[Creating a Migration for Password Reminders]]を参照してください　　
 
-Or you could create a migration for your table from scratch. See [[Creating a New Migration]].
+または新規でマイグレーションを作成する事もできます。  
+[[Creating a New Migration]]を参照してください。  
 {/discussion}

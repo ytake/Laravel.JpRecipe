@@ -1,5 +1,5 @@
 ---
-Title:    Changing the Password Reminder Expiration
+Title:    パスワードリマインダーの有効期限を変更
 Topics:   authentication, configuration
 Code:     -
 Id:       77
@@ -7,23 +7,22 @@ Position: 11
 ---
 
 {problem}
-You don't like the default password expiration of one hour.
+デフォルトのパスワード有効時間を1時間から任意に変更したい
 {/problem}
 
 {solution}
-Edit your `app/config/auth.php` file.
+`app/config/auth.php`ファイルで指定します
 
-{php}
-    'reminder' => array(
-        'expire' => 60,
-    ),
-{/php}
-
-Change the value of 60 to your desired expiration.
+```php
+'reminder' => [
+    'expire' => 60,
+],
+```
+期限を60として変更されます
 {/solution}
 
 {discussion}
-The expiration time is a security feature.
+有効期限は、セキュリティ関連の機能です  
 
-This keeps tokens sent your users short-lived so there's less time for hackers to guess.
+期限時間を短くする事で、セキュリティの強化にも繋がります
 {/discussion}
