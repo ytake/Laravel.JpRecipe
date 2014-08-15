@@ -39,7 +39,7 @@ $result = Auth::basic('email', $request);
 ```
 
 ただしくない認証情報が渡された場合は、  
-_401 Invalid Credentials_ が返却されます。
+_401 Invalid Credentials_ エラーが返却されます。
 {/solution}
 
 {discussion}

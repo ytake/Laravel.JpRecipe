@@ -1,5 +1,5 @@
 ---
-Title:    Logging in a User by ID Without Sessions or Cookies
+Title:    Cookieやsessionを使わないユーザーIDを使った認証
 Topics:   -
 Code:     Auth::onceUsingId()
 Id:       223
@@ -7,27 +7,27 @@ Position: 28
 ---
 
 {problem}
-You want to log a user in by the user id.
+ユーザーのIDを利用してログインさせたい
 
-But, you want them only available in the current request.
+現在のリクエストのみで有効なログインをさせたい
 {/problem}
 
 {solution}
-Use the `Auth::onceUsingId()` method.
+`Auth::onceUsingId()`メソッドを利用します
 
-{php}
-$success = Auth::onceUsingId($user_id);
-if ( ! $success)
-{
-    throw new Exception('failed!');
+```php
+$success = \Auth::onceUsingId($user_id);
+if (!$success) {
+    throw new \Exception('failed!');
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This is similar to `Auth::once()`.
+これは`Auth::once()`と同等です。
 
-But it doesn't do the authentication. You pass the `$user_id` and if the id is valid, the user is logged in for the current session.
+しかし、実際には認証はしません。  
+指定した`$user_id`が有効な値であれば、現在のセッションでのみ有効なログインとして扱います
 
-See also [[Logging a User In Without Sessions or Cookies]].
+[[Logging a User In Without Sessions or Cookies]]も参考にしてください
 {/discussion}

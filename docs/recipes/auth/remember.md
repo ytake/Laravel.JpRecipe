@@ -1,5 +1,5 @@
 ---
-Title:    Determine if the User Was Authenticated Via the Remember Cookie
+Title:    Cookieを使って認証されたかどうかを確認
 Topics:   authentication
 Code:     Auth::viaRemember()
 Id:       83
@@ -7,26 +7,24 @@ Position: 17
 ---
 
 {problem}
-You want to know how the user was authenticated.
+何を使って認証されたかを知りたい
 
-You know there's only two possibilities. Either they were already logged into the existing session or they were automatically logged in with the "remember me" cookie.
+認証には二通りあることを理解しておいてください。  
+"remember me" cookieを使って認証したかどうかを取得する事ができます
 {/problem}
 
 {solution}
-Use the `Auth::viaRemember()` method.
+`Auth::viaRemember()`メソッドを利用します
 
-{php}
-if (Auth::viaRemember())
-{
-    echo "Aha, you logged in with the remember me cookie.";
+```php
+if (\Auth::viaRemember()) {
+    echo "remember me cookieを使ってログイン";
+} else {
+    echo "HTTPリクエストを使ってログイン";
 }
-else
-{
-    echo "You were already logged in for this request.";
-}
-{/php}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}

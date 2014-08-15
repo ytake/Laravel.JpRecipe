@@ -1,5 +1,5 @@
 ---
-Title:    Determining if No User is Logged In
+Title:    ユーザーがログインしていないかどうかを確認
 Topics:   authentication
 Code:     Auth::guest()
 Id:       81
@@ -7,48 +7,51 @@ Position: 15
 ---
 
 {problem}
-You want to see if there is not a user logged in.
+ユーザーがログインしていない状態かどうかを確認したい
 
-You know Laravel automatically keeps the authenticated user in the session. You want to check if the current request doesn't have a user logged in.
+認証されたユーザーはセッションで保持されている事を知っている事が前提になります。  
+現在アクセスしているユーザーがログイン済みかどうかを確認しましょう
 {/problem}
 
 {solution}
-Use `Auth::guest()`.
+`Auth::guest()`を利用します
 
-The `Auth::guest()` method returns true or false.
+`Auth::guest()`メソッドは、true か falseのみを返却します
 
-{php}
-if (Auth::guest())
-{
-    echo "Bummer! You need to log in, dude.";
+```php
+if (Auth::guest()) {
+    echo "ログインしていません、ログインしてください！";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-`Auth::guest()` complements `Auth::check()`.
+`Auth::guest()`と`Auth::check()`は全く逆の利用方法になります
 
-It is the exact opposite. In fact, here's how `Auth::guest()` is actually implemented.
-
-{php}
-    public function guest()
-    {
-        return ! $this->check();
-    }
-{/php}
-
-See [[Determining if the Current User is Authenticated]].
-
-#### The 'auth' filter uses this method
-
-Laravel provides a default implementation of the **auth** filter in `app/filters.php`.
-
-{php}
-Route::filter('auth', function()
+以下は使用例です。
+```php
+public function guest()
 {
-    if (Auth::guest()) return Redirect::guest('login');
-});
-{/php}
+    return ! $this->check();
+}
+```
 
-This default implementation is used when you want to add a filter to a route that ensures the route is only accessed by logged in users. Since `Auth::guest()` returns `true` if no user is logged on, then this implementation simply redirects the user to your application's login page.
+[[Determining if the Current User is Authenticated]]を参考にしてください。
+
+#### 'auth'フィルターでこのメソッドを利用する場合
+
+Laravelは **auth** フィルターを `app/filters.php`で用意しています。
+
+```php
+Route::filter('auth', function() {
+    if (Auth::guest()) {
+        return Redirect::guest('login');
+    }
+});
+```
+
+これは、ルーターで'auth'フィルタが指定されている場合に、  
+ログイン認証済みのユーザーアクセスはそのまま通過し、  
+未ログインユーザーの場合は、ルーターで指定された'login'にリダイレクトされます。  
+'login'を任意のURIなどに変更して利用してください
 {/discussion}

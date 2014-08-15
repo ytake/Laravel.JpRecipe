@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Currently Cached Authenticated User
+Title:    キャッシュされている認証済みユーザーの取得
 Topics:   -
 Code:     Auth::getUser(), Auth::user()
 Id:       229
@@ -7,27 +7,27 @@ Position: 34
 ---
 
 {problem}
-You want to get the currently cached authenticated user.
+キャッシュされた認証済みユーザーの情報を取得したい
 
-But if there is no user cached, you do not want to attempt authentication.
+キャッシュされていない場合でも、再ログイン認証を要求する様にはしたくない
 {/problem}
 
 {solution}
-Use the `Auth::getUser()` method.
+`Auth::getUser()`メソッドを利用します。
 
-{php}
+```php
 $user = Auth::getUser();
-if ( ! $user)
-{
-    echo "No user is currently authenticated.";
+if(!$user) {
+    echo "現在アクセスしているユーザーは認証されていません";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-The `Auth::getUser()` and `Auth::user()` methods are slightly different.
+`Auth::getUser()` と `Auth::user()`は少々異なります。
 
-That `Auth::user()` will attempt to authenticate a user from the session or the "remember me" cookie if there is not a user cached.
+`Auth::user()`はキャッシュされたデータが無い場合、  
+またはセッション情報が無い場合は"remember me"Cookieを利用して認証を試みます。
 
-`Auth::getUser()` only returns a user if they've already been authenticated successfully.
+`Auth::getUser()`は、認証済みのユーザーかどうかだけを返却します。  
 {/discussion}

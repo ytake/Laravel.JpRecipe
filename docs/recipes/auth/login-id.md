@@ -1,5 +1,5 @@
 ---
-Title:    Manually Logging a User by ID
+Title:     ユーザーのIDを利用してログインする
 Topics:   -
 Code:     Auth::login(), Auth::loginUsingId()
 Id:       222
@@ -7,31 +7,32 @@ Position: 27
 ---
 
 {problem}
-You want to manually log a user in from their ID.
+ユーザーIDを使ってログイン認証をしたい
 {/problem}
 
 {solution}
-Use the `Auth::loginUsingId()` method.
+`Auth::loginUsingId()`メソッドを利用します
 
-{php}
+```php
 $user = Auth::loginUsingId($user_id);
-if ( ! $user)
-{
-    throw new Exception('Error logging in');
+if (!$user) {
+    throw new Exception('ログイン出来ませんでした');
 }
-{/php}
+```
 
-This will lookup the user from the `$user_id`, log them into the session, and return the user object. If `null` is returned, then you know the `$user_id` was invalid.
+`$user_id`からユーザーデータを検索してログイン状態としてセッションに保持し、  
+ユーザーオブジェクトを返却しますが、  
+ユーザーデータが存在しない場合は`null`が返却されます
 
-If you want the "remember me" cookie to be set, pass `true` as the second argument.
-
-{php}
+"remember me"Cookieを使ってログインを記憶させる場合は次の様に、第二引数にtrueを指定してください
+```php
 Auth::loginUsingId($user_id, true);
-{/php}
+```
 {/solution}
 
 {discussion}
-This does basically the same thing as `Auth::login()`.
+基本的には`Auth::login()`と同じ動作をします。
 
-In fact, after this method looks up the user it calls `Auth::login()`. See [[Manually Logging a User In]] for more details.
+このメソッドは、ユーザー検索後に`Auth::login()`を利用してログインさせます。
+詳細は[[Manually Logging a User In]] を参照してください。
 {/discussion}

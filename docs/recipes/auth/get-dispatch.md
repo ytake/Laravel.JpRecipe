@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Event Dispatcher for Authentication
+Title:    認証で使用されるイベントを取得する
 Topics:   -
 Code:     Auth::getDispatcher()
 Id:       231
@@ -7,19 +7,22 @@ Position: 36
 ---
 
 {problem}
-You want to access the event dispatcher used by authentication.
+認証で使用されるイベントにアクセスしたい
 {/problem}
 
 {solution}
-Use the `Auth::getDispatcher()` method.
+`Auth::getDispatcher()`メソッドを利用します
 
-{php}
+```php
 $events = Auth::getDispatcher();
-{/php}
+```
 {/solution}
 
 {discussion}
-Usually you can just access the `Event` facade.
+通常は`Event`ファサードを利用してアクセス、取得する事ができます
 
-By default Laravel uses the same event driver for both the `Event` facade and the `Auth` facade. This means unless your application is explicitly setting the event dispatcher, it's easier to use the `Event` facade.
+デフォルトでは、Laravelは`Event`ファサードと`Auth`ファサードの両方で  
+同じイベント·ドライバを使用しています。  
+アプリケーションで明示的にイベントディスパッチャーを設定しない場合は、  
+`Event`ファサードを利用する事で簡単に取得する事ができます。
 {/discussion}

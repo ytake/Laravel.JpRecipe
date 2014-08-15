@@ -1,5 +1,5 @@
 ---
-Title:    Performing a Stateless HTTP Basic Login
+Title:    ステートレスなBasic認証
 Topics:   -
 Code:     Auth::basic(), Auth::onceBasic()
 Id:       218
@@ -7,56 +7,54 @@ Position: 23
 ---
 
 {problem}
-You want to authenticate the user using HTTP basic authentication.
+Basic認証を用いた認証を利用したい
 
-But you don't want cookies or the session to be used.
+cookieやsessionは利用しないで行いたい
 {/problem}
 
 {solution}
-Use the `Auth::onceBasic()` method.
+`Auth::onceBasic()`メソッドを利用します
 
-This operates just like `Auth::basic()` but instead of _"logging in"_ the user is available for the current request only.
+`Auth::basic()`に変わって、ログイン状態にしますが、  
+基本的には現在のリクエストのみで認証済みの状態になります
 
-You can use it without any arguments and it will try matching the HTTP auth user to the email.
+引数を指定せずに利用した場合は、`email`のフィールドを利用して認証します
 
-{php}
-$result = Auth::onceBasic();
-if ($result)
-{
-    throw new Exception('invalid credentials');
+```php
+$result = \Auth::onceBasic();
+if ($result) {
+    throw new \Exception('invalid credentials');
 }
-{/php}
+```
 
-If the _user_ field is something other than `'email'` you can specify it with the first argument.
+`email`以外のフィールドを利用する場合は、第一引数でフィールド名を指定してください　
 
-{php}
-$result = Auth::onceBasic('username');
-if ($result)
-{
-    throw new Exception('invalid credentials');
+```php
+$result = \Auth::onceBasic('username');
+if ($result) {
+    throw new \Exception('invalid credentials');
 }
-{/php}
+```
 
-You can even pass the actual request you want to use. Normally, it uses the current request.
+リクエストの値を直接含める事も可能です。
 
-{php}
-$result = Auth::onceBasic('email', $request);
-{/php}
-
-Regardless of the method you use, the method returns a Response which you can pass back to the user for a _401 Invalid Credentials_ error.
+```php
+$result = \Auth::onceBasic('email', $request);
+```
+ただしくない認証情報が渡された場合は、  
+_401 Invalid Credentials_ エラーが返却されます。
 {/solution}
 
 {discussion}
-This is ideal to set up a filter for API authentication.
+APIの認証等で利用されるケースが多いと思います
 
-Here's a sample `auth.api` filter.
-
-{php}
-Route::filter('auth.api', function()
-{
-  return Auth::onceBasic();
+`auth.api`フィルターとして実装する例です
+```php
+Route::filter('auth.api', function() {
+    return Auth::onceBasic();
 });
-{/php}
-
-By adding this filter to REST API routes, the request will return immediately with a _401 Invalid Credentials_ error when not authenticated, but will not store authentication details in a cookie or the session.
+```
+APIなどでこのフィルターを利用する場合、  
+認証情報が正しくない場合は、_401 Invalid Credentials_ エラーを返却しますが、  
+cookieやsessionで認証情報等を保存する事はありません
 {/discussion}

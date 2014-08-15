@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Cookie Name Used for Authentication
+Title:    認証で使用されるCookieの名前を取得する
 Topics:   -
 Code:     Auth::getName()
 Id:       228
@@ -7,19 +7,19 @@ Position: 33
 ---
 
 {problem}
-You want to know the name of the cookie used for authentication.
+認証で使用されるCookieの名前を知りたい
 {/problem}
 
 {solution}
-Use the `Auth::getName()` method.
+`Auth::getName()`メソッドを利用します
 
-{php}
+```php
 $cookie_name = Auth::getName();
-{/php}
+```
 {/solution}
 
 {discussion}
-This is a long name beginning with the word 'login_'.
+このCookieの名前は'login_'から始まる、長い文字列です
 
-Most often, it's something like `login_82e5d2c56bdd0811318f0cf078b78bfc`.
+大体は `login_82e5d2c56bdd0811318f0cf078b78bfc` の様な文字列になります。
 {/discussion}

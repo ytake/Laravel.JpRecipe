@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Authentication Request Instance
+Title:    認証リクエストのインスタンスを取得
 Topics:   -
 Code:     Auth::getRequest()
 Id:       233
@@ -7,19 +7,23 @@ Position: 38
 ---
 
 {problem}
-You want to access the request instance used by authentication.
+認証で利用されるリクエストのインスタンスにアクセスしたい
 {/problem}
 
 {solution}
-Use the `Auth::getRequest()` method.
+`Auth::getRequest()`メソッドを利用します
 
-{php}
+```php
 $request = Auth::getRequest();
-{/php}
+```
 {/solution}
 
 {discussion}
-Usually you can just access the `Request` facade.
+通常は`Request`ファサードを用いてアクセスします。
 
-By default Laravel uses the same request for both the `Request` facade and the `Auth` facade. This means unless your application is explicitly setting the request, it's easier to use the `Request` facade.
+デフォルトでは、Laravelは`Request`ファサードと`Auth`ファサードの両方で  
+同じリクエストを使用しています。  
+アプリケーションで明示的にリクエストの設定しない場合は、  
+`Request`ファサードを利用する事で簡単に取得する事ができます。
+
 {/discussion}

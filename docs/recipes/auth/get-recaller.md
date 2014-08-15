@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Remember Me Cookie Name
+Title:    'Remember Me'で利用されるCookie名を取得
 Topics:   -
 Code:     Auth::getRecallerName()
 Id:       227
@@ -7,19 +7,19 @@ Position: 32
 ---
 
 {problem}
-You need to know the name for the "remember me" cookie.
+"remember me"で利用されるcookie名を知りたい
 {/problem}
 
 {solution}
-Use the `Auth::getRecallerName()` method.
+`Auth::getRecallerName()`メソッドを利用します
 
-{php}
+```php
 $remember_name = Auth::getRecallerName();
-{/php}
+```
 {/solution}
 
 {discussion}
-This is a long name beginning with the word 'remember_'.
+このCookieの名前は'remember_'から始まる、長い文字列です
 
-Most often, it's something like `remember_82e5d2c56bdd0811318f0cf078b78bfc`.
+大体は `remember_82e5d2c56bdd0811318f0cf078b78bfc` の様な文字列になります。
 {/discussion}

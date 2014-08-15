@@ -1,5 +1,5 @@
 ---
-Title:    Manually Logging a User In
+Title:    手動でログインする
 Topics:   -
 Code:     Auth::attempt(), Auth::login()
 Id:       221
@@ -7,32 +7,35 @@ Position: 26
 ---
 
 {problem}
-You want to manually log a user in.
+手動でログインさせたい
 {/problem}
 
 {solution}
-Use the `Auth::login()` method.
+`Auth::login()`メソッドを利用します
 
-This logs the user into the current session, bypassing any authentication.
+これは、認証処理をパスして、現在のセッションにログインとしてユーザーを保持します
 
-{php}
+```php
 $user = User::find($user_id);
 Auth::login($user);
-{/php}
+```
 
-You can also specify `true` as the second parameter to set the "remember me" cookie.
+ログインを記憶させる様にするには、第二引数に"remember me"Cookieを使用する様に  
+`true`を指定します。
 
-{php}
-Auth::login($user, true);
-{/php}
+```php
+\Auth::login($user, true);
+```
 {/solution}
 
 {discussion}
-The `Auth::attempt()` method does this automatically.
+`Auth::attempt()`は自動でこれらの処理をおこないます。
 
-In face, if the authentication is successful, `Auth::attempt()` will call `Auth::login()` internally.
+`Auth::attempt()`は、認証が成功した場合に、内部で`Auth::login()`を利用します
 
-But, if you need to bypass authentication altogether, this is a great method to use. It's especially useful when testing: just create a temporary route to log a user in using this method.
+細かい認証処理が必要ではない時でも、`Auth::attempt()`を利用するのをおすすめします  
+ただし、テスト時等では複雑な処理は必要ない為、  
+`Auth::login()`を利用すると良いでしょう
 
-This will fire the `auth.login` event.
+これらは、`auth.login`イベントを発生させます。
 {/discussion}
