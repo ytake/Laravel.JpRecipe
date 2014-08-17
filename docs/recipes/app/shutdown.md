@@ -21,7 +21,7 @@ Laravelアプリケーションが予期せぬエラーで終了した場合等�
 
 ```php
 // 登録済みのShutdownコールバック実行
-App::shutdown();
+\App::shutdown();
 ```
 {/solution}
 

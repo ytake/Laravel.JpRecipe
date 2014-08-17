@@ -19,7 +19,7 @@ Position: 29
 引数を仕様しない場合はパラメータの配列を省略することができます。
 
 ```php
-$request = App::onRequest('createFromGlobals');
+$request = \App::onRequest('createFromGlobals');
 ```
 
 こちらも参考にしてください [[Changing the Default Request Class]].

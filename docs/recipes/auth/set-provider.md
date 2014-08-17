@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Authentication User Provider
+Title:    認証で利用するユーザープロバイダーを設定する
 Topics:   -
 Code:     Auth::setProvider()
 Id:       236
@@ -7,23 +7,28 @@ Position: 41
 ---
 
 {problem}
-You want to use a different user provider for authentication.
+認証で利用するユーザープロバイダーを別のものにしたい
 {/problem}
 
 {solution}
-Use the `Auth::setProvider()` method.
+`Auth::setProvider()`メソッドを利用します
 
-{php}
-Auth::setProvider($user_provider);
-{/php}
+```php
+\Auth::setProvider($user_provider);
+```
 
-The provider must implement `Illuminate\Auth\UserProviderInterface`.
+認証で使用するプロバイダーは、  
+インターフェースの`Illuminate\Auth\UserProviderInterface`を継承して実装しなければなりません
 {/solution}
 
 {discussion}
-This is an advanced topic.
+これは高度なトピックです。
 
-Generally, the authentication driver you use will automatically set up the correct user provider.
+一般的には、認証で使用するドライバにあわせて、  
+自動的に対応したユーザープロバイダーを設定します。
 
-But this method is available for customization. Make sure you call this method before the authentication routines are accessed. Either a service provider or in `app/start/global.php` is a good location.
+当然ですが、環境によっては標準のものを利用しないケースもあります。  
+標準的なものを使わずに、カスタマイズして独自のドライバー等を実装することが可能です。  
+認証ルーチンが実行される前に、このメソッドが実行されるようにします。  
+実装する場合は、サービスプロバイダーまたは `app/start/global.php`を利用しましょう
 {/discussion}

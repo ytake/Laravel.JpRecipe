@@ -16,16 +16,14 @@ Position: 11
 {solution}
 `App::booting()` または `App::booted()` を利用します
 
-{php}
-App::booted(function($app)
-{
+```php
+App::booted(function($app) {
     // アプリケーション起動前に実行されます
 });
-App::booting(function($app)
-{
+App::booting(function($app) {
     // アプリケーション起動後に実行されます
 })
-{/php}
+```
 {/solution}
 
 {discussion}

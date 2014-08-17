@@ -17,7 +17,7 @@ Laravelの場合は、もっとエレガントな方法で取得可能です
 `App::runningInConsole()`を利用します
 
 ```php
-if (App::runningInConsole()) {
+if (\App::runningInConsole()) {
 	echo "consoleで実行中！";
 }
 ```

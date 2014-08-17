@@ -14,13 +14,11 @@ Position: 6
 "Before"フィルターは次の様に登録出来ます
 
 ```php
-App::before(function($request)
-{
-    if ($request->ajax())
-    {
+\App::before(function($request) {
+    if ($request->ajax()) {
         // この例ではajaxを用いたリクエストの場合に、
         // コントローラーで実行される前にフィルターで処理をします
-        return Response::json(['error' => 'AJAX not allowed']);
+        return \Response::json(['error' => 'AJAX not allowed']);
     }
     // 処理されるべきものが無い場合はそのまま通過し、
     // コントローラーなどが実行されます
@@ -29,8 +27,6 @@ App::before(function($request)
 {/solution}
 
 {discussion}
-You can movidy the request in application before filters.
-
 `$request`は`Illuminate\Http\Request`オブジェクトです。
 
 "before"フィルターを実装する一般的なファイルは、`app/filters.php`になりますが、  

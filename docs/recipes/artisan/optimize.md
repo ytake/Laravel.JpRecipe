@@ -13,17 +13,17 @@ Position: 8
 {solution}
 `php artisan optimize`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan optimize
-{/php}
+```
 
 このコマンドは最適化されたクラスローダを生成します。
 
 `Config::get('app.debug')`がtrueでテストしている場合、`--force`オプションを利用することで強制的にクラスローダを生成します。
 
-{php}
+```bash
 $ php artisan optimize --force
-{/php}
+```
 {/solution}
 
 {discussion}
@@ -33,15 +33,14 @@ $ php artisan optimize --force
 
 `app/config/compiled.php`に独自クラスのファイル名を追記します。
 
-{php}
+```php
 <?php
-return array(
+return [
     'app\MyApp\Respostitory\PeopleInterface.php',
     'app\MyApp\Reposititory\DatabasePeople.php',
     'app\MyApp\Controllers\HomeController.php',
-);
-?>
-{/php}
+];
+```
 
 最適化は`bootstrap/compiled.php`ファイルを、コメントを削除した全てのクラスを含んで生成します。
 
@@ -52,30 +51,31 @@ return array(
 
 例えば、最適化のためコンパイルされたリストにコントロールクラスを置いているとしましょう。
 
-{php}
-<?php namespace MyApp\Controllers;
+```php
+<?php
+namespace MyApp\Controllers;
 
-class HomeController extends \Controller {
+class HomeController extends \Controller
+{
     ...
 }
-?>
-{/php}
+```
 
-This file will generate an error. This is because of multiple namespaces in the single, optimized file. If you add `use Controller;` then there won't be an issue.
 このファイルではエラーが発生します。
 最適化された単一のファイルに複数の名前空間があるためです。
 `use Controller;`を追加することで問題はなくなるでしょう。
 
-{php}
-<?php namespace MyApp\Controllers;
+```php
+<?php
+namespace MyApp\Controllers;
 
 use Controller;
 
-class HomeController extends Controller {
-    ...
+class HomeController extends Controller
+{
+    //...
 }
-?>
-{/php}
+```
 
 この違いに注意して下さい。
 {/discussion}

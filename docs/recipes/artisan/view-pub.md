@@ -13,9 +13,9 @@ Position: 25
 {solution}
 `php artisan view:publish`コマンドが利用できます。
 
-{bash}
+```bash
 $ php artisan view:publish cool-package
-{/bash}
+```
 
 このコマンドは`app/views/cool-package`ディレクトリへ必要な設定ファイルを生成します。
 {/solution}
@@ -23,7 +23,7 @@ $ php artisan view:publish cool-package
 {discussion}
 Laravel向けでないパッケージの場合、パスの指定が必要になります。
 
-{bash}
+```bash
 $ php artisan view:publish cool-package --path=/package/view/dir
-{/bash}
+```
 {/discussion}

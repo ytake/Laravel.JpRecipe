@@ -14,7 +14,7 @@ Position: 25
 `App::getLocale()`メソッドを利用します
 
 ```php
-if (App::getLocale() == 'en') {
+if (\App::getLocale() == 'en') {
     echo "It's English!";
 }
 ```

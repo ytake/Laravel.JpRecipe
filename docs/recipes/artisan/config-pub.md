@@ -13,9 +13,9 @@ Position: 24
 {solution}
 `php artisan config:publish`コマンドが利用できます。
 
-{bash}
+```bash
 $ php artisan config:publish cool-package
-{/bash}
+```
 
 このコマンドは必要な設定ファイル全てを`app/config/packages/cool-package`ディレクトリに生成します。
 
@@ -26,7 +26,7 @@ $ php artisan config:publish cool-package
 Laravel向けでないパッケージではパスを明記する必要性があります。
 
 
-{bash}
+```bash
 $ php artisan config:publish cool-package --path=/some/config/dir
-{/bash}
+```
 {/discussion}

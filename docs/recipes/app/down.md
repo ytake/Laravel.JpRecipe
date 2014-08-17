@@ -16,11 +16,11 @@ Position: 15
 {solution}
 `App::down()`でハンドラを登録します。  
 
-{php}
-App::down(function() {
-    return Response::view('maintenance.mode', array(), 503);
+```php
+\App::down(function() {
+    return \Response::view('maintenance.mode', array(), 503);
 });
-{/php}
+```
 
 この少しのコードで、`maintenance.mode`ビューと共に、  
 HTTPステータスコードの503を出力します。
@@ -33,5 +33,5 @@ HTTPステータスコードの503を出力します。
 [[Understanding the Request Lifecycle]]の**Running Steps**を見れば、  
 発生する場面を理解する事ができます
 
-また[[Checking if the Application is Down for Maintenance]]も見てみるといいでしょう
+また[[アプリケーションの停止がメンテナンスが理由で停止しているのか判定する]]も見てみるといいでしょう
 {/discussion}

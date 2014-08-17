@@ -14,7 +14,7 @@ Position: 8
 Shutdownでコールバック処理を実装します。
 
 ```php
-App::shutdown(function() {
+\App::shutdown(function() {
     // 終了間際に実行させたいコード
 });
 ```

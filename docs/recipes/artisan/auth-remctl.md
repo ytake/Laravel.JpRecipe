@@ -13,9 +13,9 @@ Position: 21
 {solution}
 `php artisan auth:reminders-controller`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan auth:reminders-controller
-{/php}
+```
 
 以下のルートのハンドラを含み、`app/controllers`ディレクトリにファイルが生成されます。
 
@@ -26,10 +26,11 @@ $ php artisan auth:reminders-controller
 
 メソッドを利用し、生成されたファイルは`controllers/RemindersController.php`にあります。
 
-{php}
+```php
 <?php
 
-class RemindersController extends Controller {
+class RemindersController extends Controller
+{
 
   /**
    * Display the password reminder view.
@@ -38,7 +39,7 @@ class RemindersController extends Controller {
    */
   public function getRemind()
   {
-    return View::make('password.remind');
+    return \View::make('password.remind');
   }
 
   /**
@@ -48,13 +49,13 @@ class RemindersController extends Controller {
    */
   public function postRemind()
   {
-    switch (Password::remind(Input::only('email')))
-    {
-      case Password::INVALID_USER:
-        return Redirect::back()->with('error', Lang::get($reason));
 
-      case Password::REMINDER_SENT:
-        return Redirect::back()->with('status', Lang::get($reason));
+    switch (\Password::remind(Input::only('email'))) {
+      case \Password::INVALID_USER:
+        return \Redirect::back()->with('error', \Lang::get($reason));
+
+      case \Password::REMINDER_SENT:
+        return \Redirect::back()->with('status', \Lang::get($reason));
     }
   }
 
@@ -66,9 +67,10 @@ class RemindersController extends Controller {
    */
   public function getReset($token = null)
   {
-    if (is_null($token)) App::abort(404);
-
-    return View::make('password.reset')->with('token', $token);
+    if (is_null($token)) {
+      \App::abort(404);
+    }
+    return \View::make('password.reset')->with('token', $token);
   }
 
   /**
@@ -78,37 +80,34 @@ class RemindersController extends Controller {
    */
   public function postReset()
   {
-    $credentials = Input::only(
+    $credentials = \Input::only([
       'email', 'password', 'password_confirmation', 'token'
-    );
+    ]);
 
-    $response = Password::reset($credentials, function($user, $password)
-    {
-      $user->password = Hash::make($password);
-
+    $response = \Password::reset($credentials, function($user, $password) {
+      $user->password = \Hash::make($password);
       $user->save();
     });
 
     switch ($response)
     {
-      case Password::INVALID_PASSWORD:
-      case Password::INVALID_TOKEN:
-      case Password::INVALID_USER:
-        return Redirect::back()->with('error', Lang::get($response));
+      case \Password::INVALID_PASSWORD:
+      case \Password::INVALID_TOKEN:
+      case \Password::INVALID_USER:
+        return \Redirect::back()->with('error', \Lang::get($response));
 
-      case Password::PASSWORD_RESET:
-        return Redirect::to('/');
+      case \Password::PASSWORD_RESET:
+        return \Redirect::to('/');
     }
   }
 }
-?>
-{/php}
+```
 
 上記のコントローラーをルートに設定するため`app/routes.php`ファイルに１行追加する必要があります。
 
-{php}
-Route::controller('password', 'RemindersController');
-{/php}
+```php
+\Route::controller('password', 'RemindersController');
+```
 {/solution}
 
 {discussion}
@@ -132,9 +131,9 @@ Route::controller('password', 'RemindersController');
 これに応じてビューを更新する必要があります。
 また、`app/routes.php`ファイルも同じく変更する必要があります。
 
-{php}
-Route::resource('password', 'RemindersController', array(
-    'only' => array('index', 'store', 'show', 'update')
-));
-{/php}
+```php
+Route::resource('password', 'RemindersController', [
+    'only' => ['index', 'store', 'show', 'update']
+]);
+```
 {/discussion}

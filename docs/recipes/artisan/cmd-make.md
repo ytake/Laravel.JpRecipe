@@ -1,5 +1,5 @@
 ---
-Title:    新しくArtisanコマンドを作りたい
+Title:    新しくArtisanコマンドを作りたい(Artisan::add)
 Topics:   artisan
 Code:     -
 Id:       284
@@ -15,22 +15,23 @@ Position: 31
 
 このコマンドは作成するコマンドの土台を設定してくれます。
 
-{bash}
+```bash
 $ php artisan command:make TestCommand
 Command created successfully.
-{/bash}
+```
 
 コマンドを実行することで`app/commands`ディレクトリの中に`TestCommand.php`を生成します。
 このファイルの内容は以下の通りです。
 
-{php}
+```php
 <?php
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class TestCommand extends Command {
+class TestCommand extends Command
+{
 
   /**
    * コンソールコマンド名
@@ -40,7 +41,7 @@ class TestCommand extends Command {
   protected $name = 'command:name';
 
   /**
-   * 
+   *
    * コンソールコマンドの説明
    *
    * @var string
@@ -92,8 +93,8 @@ class TestCommand extends Command {
     );
   }
 }
-?>
-{/php}
+
+```
 
 この状態から編集していく必要があります。
 コマンドの詳細を記述し、`fire()`メソッドを実装していきます。
@@ -104,20 +105,20 @@ class TestCommand extends Command {
 
 `app/start/artisan.php`ファイルに以下を追記してください。
 
-{php}
-Artisan::add(new TestCommand);
-{/php}
+```php
+\Artisan::add(new TestCommand);
+```
 
 プロジェクトの構造に応じて、オートローダーをダンプする必要があります。
 
-{bash}
+```bash
 $ composer dump-autoload
-{/bash}
+```
 
 コマンドが使える形で作成できました。
 listコマンドを実行すると新しいコマンドが表示されていることでしょう。
 
-{bash}
+```bash
 $ php artisan list
-{/bash}
+```
 {/discussion}

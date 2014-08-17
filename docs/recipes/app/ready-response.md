@@ -15,7 +15,7 @@ Position: 19
 
 ```php
 // In a service provider
-if (App::readyForResponses()) {
+if (\App::readyForResponses()) {
     // アプリケーションが起動していたら、準備が整っている場合に何かしたいコード
 }
 ```
@@ -24,12 +24,12 @@ if (App::readyForResponses()) {
 {discussion}
 `App::isBooted()`のエイリアス、つまり同じものです
 
-こちらを参照してください [[Checking if the Application is Booted]].
+こちらを参照してください [[アプリケーションが起動されているかどうかを判定する]].
 
 アプリケーションの仕組みとして、  
 リクエスト関連の処理が先に整ってから各サービスプロバイダーが読み込まれるまで、  
 任意のコード内では(`app/start/global.php`, `controllers`, `routes`, `views`)、  
 常に`true`が返却されます。
 
-サービスプロバイダに記述するのが一番理にかなっているかもしれません。 
+サービスプロバイダに記述するのが一番理にかなっているかもしれません。
 {/discussion}

@@ -14,7 +14,7 @@ Position: 14
 `App::isDownForMaintenance()`メソッドを利用します
 
 ```php
-if (App::isDownForMaintenance()) {
+if (\App::isDownForMaintenance()) {
     die("メンテナンスのためシステムを停止しています");
 }
 ```
@@ -23,14 +23,14 @@ if (App::isDownForMaintenance()) {
 {discussion}
 これらを使う利点はいくつかあります
 
-[[Registering a Maintenance Mode Handler]]レシピをご覧ください  
+[[メンテナンスモードのハンドラを登録する]]レシピをご覧ください  
 メンテナンスモードで実行されている場合に、自動で実行されるアクションを設定できます  
 
 メンテナンスモードのときに`app/storage/meta/down`にファイルが存在していることに注意してください
 
 以下のレシピも参考にしてください:
 
-* [[Registering a Maintenance Mode Handler]]
-* [[Putting the Application in Maintenance Mode]]
-* [[Bringing the Application Out of Maintenance Mode]]
+* [[メンテナンスモードのハンドラを登録する]]
+* [[メンテナンスモードを作成したい]]
+* [[アプリケーションのメンテナンスモードを解除したい]]
 {/discussion}

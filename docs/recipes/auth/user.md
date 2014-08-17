@@ -1,5 +1,5 @@
 ---
-Title:    Accessing the Current User
+Title:    ログインしているユーザー情報を取得する
 Topics:   authentication
 Code:     Auth::user()
 Id:       82
@@ -7,33 +7,39 @@ Position: 16
 ---
 
 {problem}
-You want to access the current user.
+現在アクセスしているユーザーの情報を取得したい
 {/problem}
 
 {solution}
-Use the `Auth::user()` method.
+`Auth::user()`メソッドを利用します
 
-{php}
-$user = Auth::user();
-if ($user)
-{
+```php
+$user = \Auth::user();
+if ($user) {
     echo "Hello $user->name";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-What does `Auth::user()` return?
+`Auth::user()`で取得できるものは何でしょうか？
 
-The method returns one of three values.
+このメソッドは下記の3つのうちどれかを返却します
 
-`null` is always returned if there is no current user (aka no user logged in).
+ログインしていないユーザーは必ず `null` が返却されます
 
-The other return value is based on your authentication configuration. If your driver is **eloquent** then the object return is the class specified by the the model setting.
+それ以外の戻り値は、認証ドライバー、設定に基づきます。  
+**eloquent**ドライバーを指定している場合は、  
+利用しているクラスのオブジェクトが返却されます
 
-See [[Changing Your Authentication Driver]] for information about the driver setting.
+[[認証のドライバーを変更する]] にドライバー変更について、  
+[[認証に使うモデルを変更する]] で利用するモデルの設定について記載しています。
 
-See [[Changing Your Authentication Model]] for information about the model setting.
+**database**を利用している場合は、  
+汎用的な`Illuminate\Auth\GenericUser`クラスのオブジェクトが返却されます。  
 
-If your authentication driver is **database** then the object returned is a generic user. Specifically it's the `Illuminate\Auth\GenericUser` class.
+独自のドライバーを利用している場合は、  
+実装したクラスのオブジェクト等が返却されます。  
+
+**Auth カスタムドライバーの実装方法レシピは後日追加します**
 {/discussion}

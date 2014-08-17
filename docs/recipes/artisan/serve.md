@@ -15,10 +15,10 @@ Laravelアプリケーションのテストを素早くやりたい。
 {solution}
 `php artisan serve`コマンドが利用できます。
 
-{bash}
+```bash
 $ php artisan serve
 Laravel development server started on http://localhost:8000
-{/bash}
+```
 
 ブラウザ上で`http://localhost:8000`にアクセスすると、アプリケーションが見れるようになりました。
 
@@ -30,8 +30,8 @@ Laravel development server started on http://localhost:8000
 
 デフォルト以外のポートを使用するには以下のように指定します。
 
-{bash}
+```bash
 $ php artisan serve --port=8080
 Laravel development server started on http://localhost:8080
-{/bash}
+```
 {/discussion}

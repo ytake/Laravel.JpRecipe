@@ -17,16 +17,15 @@ PHPはインターフェイスをインスタンス化することはできま�
 {solution}
 `App::bind()`を使います
 
-{php}
+```php
 // FooInterfaceをFooClassと関連付ける
-App::bind('FooInterface', 'FooClass');
+\App::bind('FooInterface', 'FooClass');
 
 // FooInterfaceを無名関数と関連付ける事もできます
-App::bind('FooInterface', function($app)
-{
+\App::bind('FooInterface', function($app) {
 	return new FooClass;
 });
-{/php}
+```
 上記の様に記述すると、いつでもどこでも`App::make('FooInterface')`で  
 FooClassをインスタンス化する事ができます。
 {/solution}

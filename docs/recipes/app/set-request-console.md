@@ -17,7 +17,7 @@ Position: 28
 どうしてもHTTP関連の、リクエスト処理等を実行したい場合に利用します
 
 ```php
-App::setRequestForConsoleEnvironment();
+\App::setRequestForConsoleEnvironment();
 ```
 {/solution}
 

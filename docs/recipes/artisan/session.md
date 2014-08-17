@@ -13,20 +13,19 @@ Position: 18
 {solution}
 `php artisan session:table`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan session:table
-{/php}
+```
 
 このコマンドはただマイグレーションを作成しているだけなことに注意して下さい。
 まだマイグレーションを実行する必要があります。
 
-{php}
+```bash
 $ php artisan migrate
-{/php}
+```
 {/solution}
 
 {discussion}
-This is only needed if you use database sessions.
 データベースセッションを使う場合のみ、これは必須です。
 
 `database`に`app/config/session.php`でドライバの変更をする場合、セッションを保存するテーブルを作成する必要があります。

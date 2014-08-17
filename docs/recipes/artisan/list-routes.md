@@ -15,14 +15,14 @@ Position: 6
 {solution}
 `php artisan routes`コマンドが利用できます。
 
-{bash}
+```bash
 $ php artisan routes
-{/bash}
+```
 
 このコマンドでコンソール上に見やすいルート一覧が表示されます。
 
 以下は [laravel-recipes](http://laravel-recipes.com) のルート一覧の一部になります。
-{text}
+```
 +---------------------------+-------------------------+----------------+
 | URI                       | Action                  | Before Filters |
 +---------------------------+-------------------------+----------------+
@@ -32,7 +32,7 @@ $ php artisan routes
 | GET topics                | PageController@topics   | cache.get      |
 | GET codes                 | PageController@codes    | cache.get      |
 +---------------------------+-------------------------+----------------+
-{/text}
+```
 {/solution}
 
 {discussion}
@@ -40,16 +40,14 @@ $ php artisan routes
 
 **ho** から始まるルートのみフィルタリングする場合は以下のように行います。
 
-{bash}
+```bash
 $ php artisan routes --name=ho
-{/bash}
+```
 
-Or to filter the routes by path, you can use the `--path=` option.
 また、ルートのパスをフィルタリングする場合は`--path=`オプションが使用できます。
 
-{bash}
+```bash
 $ php artisan routes --path=c
-{/bash}
-
+```
 上記のコマンドは **c** で始まるパスのルートを表示します。
 {/discussion}

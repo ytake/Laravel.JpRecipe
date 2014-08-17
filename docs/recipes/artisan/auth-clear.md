@@ -15,12 +15,11 @@ Position: 20
 {solution}
 `php artisan auth:clear-reminders`コマンドが利用できます。
 
-This will clear out any expired tokens from the `password_reminders` table.
-このコマンドは`password_reminders`テーブルから全ての期限切れトークンを削除します。
+このコマンドは`password_reminders`テーブルから期限切れトークンを全て削除します。
 
-{php}
+```bash
 $ php artisan auth:clear-reminders
-{/php}
+```
 {/solution}
 
 {discussion}

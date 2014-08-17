@@ -17,9 +17,9 @@ Position: 10
 
 このコマンドはメンテナンスモードのフラグをクリアします。
 
-{php}
+```bash
 $ php artisan up
-{/php}
+```
 {/solution}
 
 {discussion}

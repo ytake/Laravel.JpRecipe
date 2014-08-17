@@ -1,5 +1,5 @@
 ---
-Title:    404エラーを登録
+Title:    404エラーを登録する
 Topics:   -
 Code:     App::missing()
 Id:       203

@@ -15,14 +15,14 @@ Position: 15
 {solution}
 `php artisan migrate:reset`コマンドがが利用できます。
 
-{php}
+```bash
 $ php artisan migrate:reset
-{/php}
+```
 
 データに影響を与えていないか見るためには`--pretend`オプションが利用できます。
-{php}
+```bash
 $ php artsian migrate:reset --pretend
-{/php}
+```
 {/solution}
 
 {discussion}

@@ -15,7 +15,7 @@ Position: 16
 
 このメソッドは、bootstrapファイルへのフルパスを返却します。
 ```php
-echo App::getBootstrapFile();
+echo \App::getBootstrapFile();
 ```
 
 次のように出力されます  

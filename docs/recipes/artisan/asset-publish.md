@@ -28,7 +28,6 @@ Laravel向けではないパッケージでは、パスを指定しなければ�
 $ php artisan asset:publish cool-package --path=/package/dir
 {/bash}
 
-For workbench packages, you can simply specify the workbench name.
 ワークベンチのパッケージの場合、ワークベンチ名を指定してください。
 
 {bash}

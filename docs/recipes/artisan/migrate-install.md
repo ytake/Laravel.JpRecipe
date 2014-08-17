@@ -16,9 +16,9 @@ Position: 11
 {solution}
 `php artisan migrate:install`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan migrate:install
-{/php}
+```
 {/solution}
 
 {discussion}
