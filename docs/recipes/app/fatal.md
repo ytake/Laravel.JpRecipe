@@ -17,7 +17,7 @@ Fatalエラー処理を独自に実装したい
 このエクセプションは具体的には`Symfony\Component\Debug\Exception\FatalErrorException`がスローされます
 
 ```php
-App::fatal(function($exception) {
+\App::fatal(function($exception) {
     die('FATAL ERROR: '.$exception->getMessage());
 });
 ```

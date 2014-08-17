@@ -14,7 +14,7 @@ Laravelのリクエスト処理を構築しているクラスを知りたい
 `App::requestClass()`メソッドが利用できます
 
 ```php
-echo "Request Class = ", App::requestClass();
+echo "Request Class = ", \App::requestClass();
 ```
 {/solution}
 

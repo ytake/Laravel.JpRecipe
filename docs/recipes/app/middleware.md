@@ -19,7 +19,7 @@ Position: 12
 まず、ミドルウェアクラス `MyApp\Middleware` として、クラスを登録します。
 
 ```php
-App::middleware('MyApp\Middleware');
+\App::middleware('MyApp\Middleware');
 ```
 
 `MyApp\Middleware`クラスはアプリケーション内に設置してなければいけません。
@@ -29,10 +29,10 @@ App::middleware('MyApp\Middleware');
 
 ```php
 // 引数が1つ
-App::middleware('MyApp\Middleware', [$arg1]);
+\App::middleware('MyApp\Middleware', [$arg1]);
 
 // 引数が2つ以上
-App::middleware('MyApp\Middleware', [$arg1, $arg2]);
+\App::middleware('MyApp\Middleware', [$arg1, $arg2]);
 ```
 {/solution}
 
@@ -42,6 +42,6 @@ App::middleware('MyApp\Middleware', [$arg1, $arg2]);
 
 ミドルウェアに関連するレシピは下記のものです:
 
-* [[Understanding What Middleware Is]]
-* [[Creating a Simple Middleware Class]]
+* [[ミドルウェアについて理解する]]
+* [[簡単でシンプルなミドルウェアクラスを作成する]]
 {/discussion}

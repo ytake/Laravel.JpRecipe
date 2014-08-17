@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Currently Authenticated User
+Title:    認証ユーザーを設定する
 Topics:   -
 Code:     Auth::setUser()
 Id:       230
@@ -7,20 +7,19 @@ Position: 35
 ---
 
 {problem}
-You want to set the user for the current request.
+現在アクセスしているユーザーを認証で利用したい
 {/problem}
 
 {solution}
-Use the `Auth::setUser()` method.
+`Auth::setUser()`メソッドを利用します
 
-{php}
-$user = User::find($user_id);
-Auth::setUser($user);
-{/php}
+```php
+$user = \User::find($user_id);
+\Auth::setUser($user);
+```
 {/solution}
 
 {discussion}
-This method does not log the user in.
+このメソッドを利用してもログイン状態にはなりません
 
-It simply sets the user for the current request without any sort of authentication.
 {/discussion}

@@ -17,23 +17,23 @@ Position: 28
 
 コマンドを実行するとローカルアプリケーションにある`app/storage/logs/laravel.log`の内容が表示されます。
 
-{bash}
+```bash
 $ php artisan tail
 ...
 log contents
 ...
-{/bash}
+```
 
 ログの追跡を止めるには`Ctrl+C`を押します。
 
 `app/config/remote.php`にリモート接続の設定を行うと、リモートマシン上のログファイルを追跡することができます。
 
-{bash}
+```bash
 $ php artisan tail remote-name
 ...
 log contents
 ...
-{/bash}
+```
 
 ログの追跡を止めるには`Ctrl+C`を押します。
 
@@ -42,7 +42,7 @@ log contents
 {discussion}
 非標準のログファイルには`--path`オプションを利用します。
 
-{bash}
+```bash
 $ php artisan tail --path=/full/path/to/log.file
-{/bash}
+```
 {/discussion}

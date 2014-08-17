@@ -15,10 +15,10 @@ Position: 13
 
 ```php
 // 独自のクラスを登録してある場合はそれを指定します
-App::forgetMiddleware('MyApp\Middleware');
+\App::forgetMiddleware('MyApp\Middleware');
 
 // LaravelのFrameGuardクラスを削除します
-App::forgetMiddleware('Illuminate\Http\FrameGuard');
+\App::forgetMiddleware('Illuminate\Http\FrameGuard');
 ```
 {/solution}
 

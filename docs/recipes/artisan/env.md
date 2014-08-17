@@ -15,10 +15,10 @@ Webページが正しく表示されていても、コンソールの環境がWe
 {solution}
 `php artisan env`コマンドが利用できます。
 
-{text}
+```bash
 $ php artisan env
 Current application environment: production
-{/text}
+```
 {/solution}
 
 {discussion}
@@ -28,5 +28,5 @@ Current application environment: production
 大抵の場合、これは開発と本番で違ったデータベース設定やAPIアクセス先を設定するために用いられます。
 現在の環境に細心の注意を払わないと、リクエストが別の環境の設定を元に処理されたり、コンソールリクエストも別の環境のものを使う可能性があります。
 
-使用する環境を決めるPHPコードの記述方法は [[Checking Your Environment]] を参照して下さい。
+使用する環境を決めるPHPコードの記述方法は [[実行している環境を確認]] を参照して下さい。
 {/discussion}

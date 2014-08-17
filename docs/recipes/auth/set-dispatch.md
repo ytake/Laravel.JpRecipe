@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Event Dispatcher for Authentication
+Title:    認証のためのイベントディスパッチャー設定
 Topics:   -
 Code:     Auth::setDispatcher()
 Id:       232
@@ -7,23 +7,27 @@ Position: 37
 ---
 
 {problem}
-You want to use a different event dispatcher for authentication.
+認証で専用のイベントディスパッチャーを使用したい
 {/problem}
 
 {solution}
-Use the `Auth::setDispatcher()` method.
+`Auth::setDispatcher()`メソッドを利用します
 
-{php}
-Auth::setDispatcher($events);
-{/php}
+```php
+\Auth::setDispatcher($events);
+```
 
-The dispatcher must be derived from `Illuminate\Events\Dispatcher`.
+`Illuminate\Events\Dispatcher`を利用して実装しなければなりません
 {/solution}
 
 {discussion}
-This is an advanced topic.
+これは高度なトピックです
 
-Most of the time the standard event dispatcher created by Laravel works just fine. The dispatcher the `Auth` facade uses is the same one the `Event` facade uses.
+ほとんどの場合に、Laravelで用意されている標準的なイベントディスパッチャだけで正常に動作します  
+`Auth`ファサードが使用するディスパッチャは、  
+`Event`ファサードが使用するものと同じものです。
 
-But, if you need to use a dispatcher this method is available. Make sure you call this method before the authentication routines are accessed. Either a service provider or in `app/start/global.php` is a good location.
+独自のディスパッチャを使用する場合は、この方法を利用してみてください。  
+認証ルーチンが実行される前に、このメソッドが実行されるようにします。  
+実装する場合は、サービスプロバイダーまたは `app/start/global.php`を利用しましょう
 {/discussion}

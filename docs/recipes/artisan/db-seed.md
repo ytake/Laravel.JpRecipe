@@ -15,15 +15,15 @@ Position: 17
 {solution}
 `php artisan db:seed`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan db:seed
-{/php}
+```
 
 ルートシーダとは違ったクラスを使用している場合、`--class`オプションが使用できます。
 
-{php}
+```bash
 $ php artisan db:seed --class=MyDatabaseSeeder
-{/php}
+```
 {/solution}
 
 {discussion}

@@ -22,7 +22,7 @@ $ php artisan changes
 最新の変更点リストが表示されます。
 以下のように表示されます。
 
-{text}
+```
 Changes For Laravel 4.1.x
 -------------------------
 -> Added new SSH task runner tools.
@@ -48,7 +48,7 @@ Changes For Laravel 4.1.x
 -> New @append Blade directive for appending content onto a section.
 -> Session IDs are now automatically regenerated on login.
 -> Improve Auth::once to get rid of redundant database call.
-{/text}
+```
 {/solution}
 
 {discussion}
@@ -56,18 +56,18 @@ Changes For Laravel 4.1.x
 
 例えばバージョン4.0の変更点を見たい場合は以下のようにコマンドを実行します。
 
-{bash}
+```bash
 $ php artisan changes 4.0.x
-{/bash}
+```
 
-{text}
+```
 Changes For Laravel 4.0.x
 -------------------------
 -> Added implode method to query builder and Collection class.
 -> Fixed bug that caused Model->push method to fail.
 -> Make session cookie HttpOnly by default.
 -> Added mail.pretend configuration option.
-{/text}
+```
 
 変更ログを表示することはドキュメントの変更点を確認する良いやり方ですが、変更ログに表示されない変更点も数多くあります。
 

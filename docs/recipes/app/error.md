@@ -14,7 +14,7 @@ Position: 22
 `App::error()`を利用して追加します。
 
 ```php
-App::error(function($exception) {
+\App::error(function($exception) {
     die('ERROR: '.$exception->getMessage());
 });
 ```
@@ -25,8 +25,8 @@ App::error(function($exception) {
 例外をタイプヒントで指定する事で、その例外にあわせた処理を実行させる事ができます。
 ```
 // この例は、RuntimeExceptionがスローされた場合にのみ処理されます
-App::error(function(RuntimeException $exception) {
-    return View::make('error', compact('exception'));
+\App::error(function(RuntimeException $exception) {
+    return \View::make('error', compact('exception'));
 });
 ```
 {/solution}

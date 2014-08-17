@@ -15,9 +15,9 @@ Position: 7
 {solution}
 `php artisan clear-compiled`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan clear-compiled
-{/php}
+```
 {/solution}
 
 {discussion}

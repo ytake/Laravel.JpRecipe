@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Request Instance for Authentication
+Title:    認証で利用するリクエストクラスのインスタンスを設定する
 Topics:   -
 Code:     Auth::setRequest()
 Id:       234
@@ -7,23 +7,26 @@ Position: 39
 ---
 
 {problem}
-You want to use a different request instance for authentication.
+認証で利用するリクエストクラスを別のものにしたい
 {/problem}
 
 {solution}
-Use the `Auth::setRequest()` method.
+`Auth::setRequest()`メソッドを利用します
 
-{php}
-Auth::setRequest($request);
-{/php}
+```php
+\Auth::setRequest($request);
+```
 
-The dispatcher must be derived from `\Symfony\Component\HttpFoundation\Request`.
+必ず`\Symfony\Component\HttpFoundation\Request`を利用して実装しなければなりません
 {/solution}
 
 {discussion}
-This is most often used in testing.
+このメソッドは、テストで必要とされると思います
 
-Most of the time the standard request created by Laravel works just fine. The dispatcher the `Auth` facade uses is the same one the `Request` facade uses.
+ほとんどの場合に、Laravelによって作成された標準的な要求だけで正常に動作します。  
+`Auth`ファサードが使用するディスパッチャは`Request`ファサードが使用するものと同じものです。
 
-But, if you need to set a different request this method is available. Make sure you call this method before the authentication routines are accessed. Either a service provider or in `app/start/global.php` is a good location.
+独自のリクエストクラス等を使用する場合は、この方法を利用してみてください。  
+認証ルーチンが実行される前に、このメソッドが実行されるようにします。  
+実装する場合は、サービスプロバイダーまたは `app/start/global.php`を利用しましょう
 {/discussion}

@@ -17,15 +17,15 @@ Position: 9
 
 このコマンドはメンテナンスモードフラグを設定します。
 
-{php}
+```bash
 $ php artisan down
-{/php}
+```
 {/solution}
 
 {discussion}
 メンテナンスモードの操作を忘れないようにしてください。
 
-[[Registering a Maintenance Mode Handler]]レシピを見て下さい。
+[[メンテナンスモードのハンドラを登録する]]レシピを見て下さい。
 
 このコマンドが何をしているかというと、`app/storage/meta/down`に空のファイルを作成しています。
 このファイルがメンテナンスモードのフラグになっています。

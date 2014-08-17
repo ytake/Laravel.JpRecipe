@@ -16,7 +16,7 @@ Position: 23
 これは処理のスタック中に追加して、優先して実行する様にします
 
 ```php
-App::pushError(function($exception) {
+\App::pushError(function($exception) {
     die('ERROR: '.$exception->getMessage());
 });
 ```
@@ -26,5 +26,5 @@ App::pushError(function($exception) {
 これは、`App::error()`とほぼ同等です。
 
 違いは、`App::error()`よりも`App:pushError()`がハンドラーとして利用されます  
-こちらを参照してください[[Registering an Error Handler]].
+こちらを参照してください[[エラーハンドラの登録]].
 {/discussion}

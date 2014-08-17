@@ -18,7 +18,7 @@ IoCコンテナはLaravelの実装の中でも、最もコアな部分であり�
 
 ```php
 $is_evening = (date('G') > 18) ? true : false;
-App::instance('myapp.evening', $is_evening);
+\App::instance('myapp.evening', $is_evening);
 ```
 
 設定した後に`App::make('myapp.evening')`または、  

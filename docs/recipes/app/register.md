@@ -36,11 +36,11 @@ Position: 17
 実装したサービスプロバイダ、またはサービスプロバイダクラスのインスタンスで利用する事ができます。
 
 ```php
-App::register('MyApp\Providers\MyServiceProvider');
+\App::register('MyApp\Providers\MyServiceProvider');
 
 // or
-$provider = new MyApp\Providers\MyServiceProvider;
-App::register($provider);
+$provider = new \MyApp\Providers\MyServiceProvider;
+\App::register($provider);
 ```
 
 この場合は、指定したサービスプロバイダの`register()`が実行され、  

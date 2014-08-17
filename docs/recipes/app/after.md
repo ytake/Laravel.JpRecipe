@@ -13,14 +13,13 @@ Position: 7
 {solution}
 フィルターの"after"をフレームワークに登録します。
 
-{php}
-App::after(function($request, $response)
-{
+```php
+\App::after(function($request, $response) {
     // 実行後にレスポンスを書き出す例
     $content = $response->getContent();
-    File::put(storage_path().'/logs/last_response.txt', $content);
+    \File::put(storage_path().'/logs/last_response.txt', $content);
 });
-{/php}
+```
 {/solution}
 
 {discussion}

@@ -11,11 +11,11 @@ Position: 23
 {/problem}
 
 {solution}
-`php artisan cache:clear'コマンドが利用できます。
+`php artisan cache:clear`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan cache:clear
-{/php}
+```
 {/solution}
 
 {discussion}

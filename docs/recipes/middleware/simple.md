@@ -1,5 +1,5 @@
 ---
-Title:    簡単でシンプルなミドルウェアクラスを作成
+Title:    簡単でシンプルなミドルウェアクラスを作成する
 Topics:   middleware
 Code:     -
 Id:       114

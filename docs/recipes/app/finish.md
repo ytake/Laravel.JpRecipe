@@ -14,7 +14,7 @@ Position: 18
 `App::finish()`メソッドを利用して、コールバック処理を実装することができます
 
 ```php
-App::finish(function($request, $response) {
+\App::finish(function($request, $response) {
 
     // リクエストやレスポンスの内容を使って、
     // 処理内容をログに出力したり、様々な処理を記述できます

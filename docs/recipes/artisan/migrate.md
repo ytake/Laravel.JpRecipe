@@ -13,17 +13,17 @@ Position: 13
 {solution}
 `php artisan migrate`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan migrate
-{/php}
+```
 
 実行したマイグレーションを一覧で見ることができます。
 
 マイグレートを実行した時に何が起こっているか見る場合は、`--pretend`オプションを利用します。
 
-{php}
+```bash
 $ php artisan migrate --pretend
-{/php}
+```
 
 このコマンドはデータに何が起こっているか全て表示します、しかし実際に変更されるわけではありません。
 {/solution}
@@ -33,5 +33,5 @@ $ php artisan migrate --pretend
 
 シードが設定されていればマイグレーションの実行後に`--seed`オプションを利用することでデータベースがシーディングされます。
 
-[[Seeding Your Database]]レシピを参照して下さい。
+[[データベースでのシーディング]]レシピを参照して下さい。
 {/discussion}

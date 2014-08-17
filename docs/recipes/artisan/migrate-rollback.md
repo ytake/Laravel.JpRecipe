@@ -13,23 +13,23 @@ Position: 14
 {solution}
 `php artisan migrate:rollback`コマンドが利用できます。
 
-{php}
+```bash
 $ php artisan migrate:rollback
-{/php}
+```
 
 このコマンドはマイグレーションを戻し、一覧を表示します。
 
 ロールバックが何をしているか見るには、`--pretend`オプションを利用します。
 
-{php}
+```bash
 $ php artisan migrate:rollback --pretend
-{/php}
+```
 
 デフォルト以外のデータベース接続を指定することも出来ます。
 
-{php}
+```bash
 $ php artisan migrate:rollback --pretend --database=other-one
-{/php}
+```
 {/solution}
 
 {discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Validating a User's Credentials
+Title:    資格情報をバリデートする
 Topics:   -
 Code:     Auth::validate()
 Id:       216
@@ -7,27 +7,26 @@ Position: 21
 ---
 
 {problem}
-You want to validate a user's credentials, but you don't want to log the user in.
+ログインさせずに、ログインで使用される資格情報のバリデートをしたい
 {/problem}
 
 {solution}
-Use the `Auth::validate()` method.
+`Auth::validate()`メソッドを利用します
 
-The method takes an array containing the user's credentials.
+資格情報を配列で指定します
 
-{php}
+```php
 $credentials = [
     'username' => 'mylogin',
     'password' => 'mypass',
 ];
-$valid = Auth::validate($credentials);
-if ( ! $valid)
-{
-    throw new Exception('Invalid credentials');
+$valid = \Auth::validate($credentials);
+if(!$valid) {
+    throw new \Exception('Invalid credentials');
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-The validation will fire an `auth.attempt` event with the credentials.
+認証のバリデートは、`auth.attempt`イベントを発生させます
 {/discussion}

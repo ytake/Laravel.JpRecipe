@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Migration for Password Reminders
+Title:    パスワードリマインダーのマイグレーションを作成する
 Topics:   artisan, authentication, password reminders
 Code:     -
 Id:       71
@@ -7,27 +7,31 @@ Position: 19
 ---
 
 {problem}
-You want to create a table to store password reminders.
+パスワードリマインダーを管理するテーブルをつくりたい
 {/problem}
 
 {solution}
-Use the `php artisan auth:reminders` command.
+`php artisan auth:reminders`コマンドを使用します
 
-{php}
+```bash
 $ php artisan auth:reminders
-{/php}
+```
 
-This creates a new migration which will create a `password_reminders` table.
+`password_reminders`テーブルを作成します
 
-After creating the migration, don't forget to run migrations to update your database with the new table.
+マイグレーション作成後、  
+データベースを更新するため、忘れずにマイグレートを実行してください  
+実行は下記コマンドです
 
-{php}
+```bash
 $ php artisan migrate
-{/php}
+```
 {/solution}
 
 {discussion}
-Laravel provides a skeleton for implementing password reminders.
+Laravelはパスワードリマインダーをすぐに実行できる様に、  
+あらかじめ用意しています。
 
-You'll still need to fill in the details for your application. Creating the reminders table is only one of the steps.
+利用するにあたって、アプリケーションで必要なリマインダーを実装する必要がありますが、  
+基本的にはテーブルを作成するだけで簡単に実装ができます。
 {/discussion}

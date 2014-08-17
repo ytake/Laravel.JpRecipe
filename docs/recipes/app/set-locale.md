@@ -15,7 +15,7 @@ Position: 26
 
 ```php
 // 'es' Spanishに変更する
-App::setLocale('es');
+\App::setLocale('es');
 ```
 
 リクエストの処理内で`es`に変更したとして、  

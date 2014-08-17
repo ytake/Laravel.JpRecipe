@@ -20,10 +20,10 @@ Position: 1
 もし、現在の環境が**local**か、**testing**なのかを知りたい場合は、  
 次の様に確認する事ができます  
 ```php
-if (App::isLocal()) {  
+if (\App::isLocal()) {  
   　// 実行環境がlocal
     echo "environment=local\n";
-} elseif (App::runningUnitTests()) {
+} elseif (\App::runningUnitTests()) {
   　// 実行環境がtesting
     echo "environment=testing\n";
 }
@@ -31,10 +31,10 @@ if (App::isLocal()) {
 
 それ以外では、それぞれの環境名を照らし合わせて確認する事ができます
 ```php
-if (App::environment('production', 'staging')) {
+if (\App::environment('production', 'staging')) {
     echo "I'm on production or staging\n";
 } else {
-    echo "environment=", App::environment(), "\n";
+    echo "environment=", \App::environment(), "\n";
 }
 ```
 {/solution}
