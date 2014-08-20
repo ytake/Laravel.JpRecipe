@@ -1,5 +1,5 @@
 ---
-Title:    Managing Your Project With Git
+Title:    Gitを使ってプロジェクトを管理する
 Topics:   Git, version control
 Code:     -
 Id:       31
@@ -7,28 +7,28 @@ Position: 2
 ---
 
 {problem}
-You aren't using a version control system.
-
-You want to track code changes in your Laravel project and aren't sure what to use.
+バージョン管理のシステムを導入していないので、
+プロジェクトのコードの変更履歴等が追えないのでわからない。
 {/problem}
 
 {solution}
-Use [Git](http://git-scm.com/).
+[Git](http://git-scm.com/)を使ってみましょう。
 
-{bash}
-laravel:~$ cd myapp
-laravel:~/myapp$ git init
-{/bash}
+```bash
+$ cd myapp
+$ git init
+```
 
-That's it. Try checking the status.
+準備はこれだけです。  
+状態を確認してみましょう。
 
-{bash}
-laravel:~/myapp$ git status
-{/bash}
+```bash
+$ git status
+```
 
-You should see all the untracked files.
+変更したファイル、管理されていないファイル等が表示されます。
 
-{text}
+```
 # On branch master
 #
 # Initial commit
@@ -48,47 +48,54 @@ You should see all the untracked files.
 #   readme.md
 #   server.php
 #   util/
-nothing added to commit but untracked files present (use "git add" to track)
-{/text}
+コミットされていない、管理されていないなどのファイルが表示されます。("git add"で追加していないファイル)
+```
 
-Notice the file `composer.lock` is not tracked? You should edit `.gitattributes` and removed the line that has `composer.lock` in it. This way you'll be tracking `composer.lock` too.
+`composer.lock`を管理したい場合は、  
+`.gitignore`を編集して該当の行を削除してください。  
+こうすることで`composer.lock`を管理に含める事が出来ます
 
-{tip}
-When you track `composer.lock` with your source code control system it allows you to do a `composer update` on your development machine and then, later, a `composer install` on your production machine. The `composer install` command will make sure all packages are the correct version as specified in the `composer.lock` file. Thus production uses not only the same packages, but the same versions of the packages as your production machine.
-{/tip}
 
-If you haven't configured Git with your name and email, it's easy.
+`composer.lock` を管理下に含めている場合は、  
+`composer install`後に、全てのバージョンが正しく導入されているか確認して下さい。  
+必要に応じて`composer update`で最新のものと入れ替えて下さい。  
 
-{bash}
-laravel:~/myapp$ git config --global user.email "you@example.com"
-laravel:~/myapp$ git config --global user.name "Your Name"
-{/bash}
+まだメールアドレスや、アカウント名などを登録していなければ、登録してみましょう。  
+作業は簡単です。
 
-You can add everything and commit it to your repository with two commands.
+```bash
+$ git config --global user.email "you@example.com"
+$ git config --global user.name "Your Name"
+```
 
-{bash}
-laravel:~/myapp$ git add .
-laravel:~/myapp$ git commit -m "initial checkin"
-{/bash}
+ファイルをリポジトリに追加する場合は、2つのコマンドを実行します
+```bash
+$ git add .
+$ git commit -m "initial checkin"
+```
 
-And a final `status` will show you nothing's changed.
+最後に `status` コマンドで確認すると、  
+何も表示されていないはずです
 
-{bash}
-laravel:~/myapp$ git status
-{/bash}
+```bash
+$ git status
+```
 
-You should see the following.
+以下も参考にしてください
 
-{text}
+```text
 # On branch master
 nothing to commit, working directory clean
-{/text}
+``````
 {/solution}
 
 {discussion}
-Laravel makes using Git easy.
+LaravelもGitjを利用しています
 
-Laravel automatically provides those hidden Git files to manage things correctly. This keeps you from checking in the entire `vendor` directory or all the log files in `app/storage/logs`.
+Laravelはディレクトリ、ファイル構造を正しく保つため、隠しファイルを含んでいます。  
+`app/storage/logs`, `vendor`などは管理しないようにしています
 
-You can follow your normal Git Workflow, update changes locally, push them to your remote repository (Github maybe?), and feel safe that everything is tracked and protected.
+ローカルで変更や更新を行い、gitフロー、githubフロー等に従って、  
+ブランチを作成したり、プルリクエストなどを利用して、  
+ただしくバージョン管理されている事を確認しましょう。
 {/discussion}
