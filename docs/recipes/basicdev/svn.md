@@ -1,5 +1,5 @@
 ---
-Title:    Managing Your Project With Subversion
+Title:    Subversionを使ってプロジェクトを管理する
 Topics:   Subversion, version control
 Code:     -
 Id:       42
@@ -7,77 +7,67 @@ Position: 3
 ---
 
 {problem}
-You aren't using a version control system.
-
-You want to track code changes in your Laravel project and aren't sure what to use.
+バージョン管理のシステムを導入していないので、
+プロジェクトのコードの変更履歴等が追えない。
 {/problem}
 
 {solution}
-Use [Subversion](http://subversion.apache.org/).
+[Subversion](http://subversion.apache.org/)を使ってみましょう。
 
-### Step 1 - Import an empty project
+### Step 1 - 空のプロジェクトをインポート
 
-{bash}
-laravel:~$ cd myapp
-laravel:~/myapp$ svn import --depth=empty . svn://myrepo/projects/myapp \
+```bash
+$ cd myapp
+$ svn import --depth=empty . svn://myrepo/projects/myapp \
 > -m "Initial import"
-{/bash}
+```
 
-### Step 2 - Check out the empty project into existing project
+### Step 2 - 既存のプロジェクトをチェックアウト
 
-{bash}
-laravel:~/myapp$ svn checkout svn://myrepo/projects/myapp .
-{/bash}
+```bash
+$ svn checkout svn://myrepo/projects/myapp .
+```
 
-### Step 3 - Delete unnessesary files
+### Step 3 - 不要ファイルの削除
 
-{bash}
-laravel:~/myapp$ rm .gitattributes
-laravel:~/myapp$ rm .gitignore
-laravel:~/myapp$ rm bootstrap/compiled.php
-laravel:~/myapp$ rm app/storage/*/*
-{/bash}
+```bash
+$ rm .gitattributes
+$ rm .gitignore
+$ rm bootstrap/compiled.php
+$ rm app/storage/*/*
+```
 
-### Step 4 - Ignore directory, add files
+### Step 4 - バージョン管理に含めない無視するディレクトリ、ファイルを追加する
 
-{bash}
-laravel:~/myapp$ svn propset svn:ignore vendor .
-laravel:~/myapp$ svn update
-laravel:~/myapp$ svn add a* b* c* C* p* r* s*
-laravel:~/myapp$ svn propset svn:ignore compiled.php bootstrap/
-laravel:~/myapp$ svn propset svn:ignore \* app/storage/cache/
-laravel:~/myapp$ svn propset svn:ignore \* app/storage/logs/
-laravel:~/myapp$ svn propset svn:ignore \* app/storage/meta/
-laravel:~/myapp$ svn propset svn:ignore \* app/storage/sessions/
-laravel:~/myapp$ svn propset svn:ignore \* app/storage/views/
-{/bash}
+```bash
+$ svn propset svn:ignore vendor .
+$ svn update
+$ svn add a* b* c* C* p* r* s*
+$ svn propset svn:ignore compiled.php bootstrap/
+$ svn propset svn:ignore \* app/storage/cache/
+$ svn propset svn:ignore \* app/storage/logs/
+$ svn propset svn:ignore \* app/storage/meta/
+$ svn propset svn:ignore \* app/storage/sessions/
+$ svn propset svn:ignore \* app/storage/views/
+```
 
-### Step 5 - Check everything in
+### Step 5 - 管理化の全てを更新、コミットする
 
-{bash}
-laravel:~/myapp$ svn update
-laravel:~/myapp$ svn commit -m "Initial import"
-{/bash}
+```bash
+$ svn update
+$ svn commit -m "Initial import"
+```
 {/solution}
 
 {discussion}
-This is just one way to do it.
+紹介した方法は、たくさんあるやり方のうちの一つです
 
-There may be an easier ways for your project. Here's a few alternatives:
+自分のプロジェクトにあった方法はほかにもあるかもしれません。  
+他にもいくつか選択肢があります:
 
-* Create an empty subversion project to work with before creating your Laravel project.
-* Use a graphical interface to manage the project in subversion.
-* Import everything initially.
+* Laravelプロジェクトを作成する前に、空のプロジェクトをSubversionに含める
+* 簡単に利用する為に、GUIクライアントなどを導入する
+* 最初に全てをインポートする
 
-It's up to you.
-
-A couple things to note ...
-
-In Step 3
-
-: We deleted the files that Laravel will build automatically.
-
-In Step 4
-
-: All those `svn propset` commands are to keep subversion from wanting to manage the vendor directory and contents of logs, cache, etc.
+やり方は様々です。
 {/discussion}
