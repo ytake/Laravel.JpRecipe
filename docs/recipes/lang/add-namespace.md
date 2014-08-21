@@ -1,5 +1,5 @@
 ---
-Title:    Adding a New Namespace to the Message Loader
+Title:    メッセージローダーにnamespaceを追加する
 Topics:   localization
 Code:     Lang::addNamespace()
 Id:       258
@@ -7,29 +7,33 @@ Position: 7
 ---
 
 {problem}
-You want to add a new set of namespaced messages to your translator.
+translatorにnamespaceを利用した多言語メッセージファイル等を追加したい
 {/problem}
 
 {solution}
-Use the `Lang::addNamespace()` method.
+`Lang::addNamespace()`メソッドを利用します
 
-{php}
+```php
 $namespace = 'custom';
 $path = app_path().'/storage/custom-messages';
-Lang::addNamespace($namespace, $path);
-{/php}
+\Lang::addNamespace($namespace, $path);
+```
 
-Now, assuming you had an `error.php` file in `app/storage/custom-messages/en` with the key `'test'`, then the following key would work.
+`app/storage/custom-messages/en`ディレクトリに`error.php`ファイルがある場合に、
+`'test'`キーを利用する場合は次のようになります
 
-{php}
-echo Lang::get('custom::error.test');
-{/php}
+```php
+echo \Lang::get('custom::error.test');
+```
 {/solution}
 
 {discussion}
-This method allows packages to have their own language files.
+この方法で、パッケージで独自の言語ファイルを持つ事ができます
 
-Most often a package will have a service provider, which will call an internal `package()` method in the service provider to register all the namespaces the package uses. The language files are just one of those registrations.
+ほとんどの場合、パッケージにはサービスプロバイダがありますが、  
+内部で`package()`メソッドを利用して、  
+パッケージの名前空間を含んだ言語ファイルを一箇所で登録する事ができます。
 
-But if the package has no configuration or views, it may call this method directly. Most likely, if it's calling this method directly it's calling it at a low level using the `$this->app['translator']->addNamespace(...)` syntax.
+ローレベルで、直接このメソッドを利用する場合は、次の様にします。  
+`$this->app['translator']->addNamespace(...)`
 {/discussion}

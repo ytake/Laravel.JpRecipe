@@ -8,7 +8,7 @@ Position: 2
 
 {problem}
 バージョン管理のシステムを導入していないので、
-プロジェクトのコードの変更履歴等が追えないのでわからない。
+プロジェクトのコードの変更履歴等が追えない。
 {/problem}
 
 {solution}
@@ -86,7 +86,7 @@ $ git status
 ```text
 # On branch master
 nothing to commit, working directory clean
-``````
+```
 {/solution}
 
 {discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Stopping Injecting Content into a Section and Appending It
+Title:    描画を停止してセクションを追加する
 Topics:   -
 Code:     @append
 Id:       243
@@ -7,15 +7,14 @@ Position: 15
 ---
 
 {problem}
-You want to stop injecting content into a Blade section.
+Bladeで描画中にコンテンツを追加したい。
 
-And you want the content appended to any previous section of the same name.
 {/problem}
 
 {solution}
-Use the Blade `@append` command.
+Bladeの`@append`を利用します
 
-{html}
+```html
 @section('test')
    one
 @stop
@@ -23,17 +22,17 @@ Use the Blade `@append` command.
    two
 @stop
 @yield('test')
-{/html}
+```
 
-The above Blade template will output the following.
+上記のサンプルは下記の用に出力されます
 
-{html}
+```html
 one
-{/html}
+```
 
-But if you change the second `@stop` to an `@append`.
+最後の`@stop` から`@append`に変更します
 
-{html}
+```html
 @section('test')
    one
 @stop
@@ -41,18 +40,19 @@ But if you change the second `@stop` to an `@append`.
    two
 @append
 @yield('test')
-{/html}
+```
 
-Then the following is output.
+これは次の様に出力されます
 
-{html}
+```html
 one
 two
-{/html}
+```
 {/solution}
 
 {discussion}
-You may want to use the `@parent` command.
+`@parent`も利用することができます
 
-If you want to use the content of the previous section within your section, then see the [[Pulling in the Content of a Parent Section in Blade]] recipe.
+セクション内の前のセクションのコンテンツをその利用する場合は、  
+[[Pulling in the Content of a Parent Section in Blade]]を参照してください。
 {/discussion}
