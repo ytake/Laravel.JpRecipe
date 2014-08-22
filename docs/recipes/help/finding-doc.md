@@ -1,5 +1,5 @@
 ---
-Title:    Finding Documentation
+Title:    Laravelに関連するドキュメント
 Topics:   Carbon, Composer, documentation, help, Laravel API, Monolog, Swift
           Mailer, Symfony
 Code:     -
@@ -8,28 +8,26 @@ Position: 1
 ---
 
 {problem}
-You need help with a class or method.
+Laravelのクラスやメソッドの使い方がわからない
 
-You know that Laravel is constantly evolving and want to find the most recent source of helpful information about a specific class or method.
+Laravelは、Illuminateコンポーネントの他、  
+車輪の再発明を避けて、広く一般的に利用されているコンポーネントも多く利用しています。  
 {/problem}
 
 {solution}
-Visit Laravel Docs.
-
-Your first stop should be the official web site, [Laravel.com](http://laravel.com/docs). This site contains the _Official_ documentation for the latest version.
-
-Another great source is the [Laravel API](http://laravel.com/api) site. Here you can browse through documentation generated from the code itself.
+まずは、Laravelの公式ドキュメントをご覧下さい。  
+[Laravel.com](http://laravel.com/docs)　　
+[Laravel日本語ドキュメント](http://laravel4.kore1server.com/)  
+他にAPIドキュメントも参考にしてみましょう  
+[Laravel API](http://laravel.com/api)
 {/solution}
 
 {discussion}
-Don't forget the packages Laravel uses.
+Laravelが利用しているコンポーネントについて調べる場合は、  
+下記のライブラリを参照してください
 
-The official Laravel sources for the documentation and API presented above are great starting points, but part of the power of Laravel is how it leverages other stable systems into it's framework using [Composer](http://getcomposer.org/).
-
-Here's a list of some of the major components used by Laravel with links to the documentation.
-
-* [Monolog](https://github.com/seldaek/monolog) - Laravel's `Log` facade is built on Monolog.
-* [Carbon](https://github.com/briannesbitt/Carbon) - Laravel uses `Carbon`, an excellent extension to PHP's `DateTime` class.
-* [Swift Mailer](http://swiftmailer.org/docs/introduction.html) - Laravel's `Mail` facade uses Swift Mailer to do the actual grunt work of composing and sending emails.
-* [Symfony](http://symfony.com/doc/current/index.html) - Laravel provide many components built from Symfony components.
+* [Monolog](https://github.com/seldaek/monolog) - `Log`ファサードで利用されています
+* [Carbon](https://github.com/briannesbitt/Carbon) - Date関連などで大変便利な`Carbon`が利用されています
+* [Swift Mailer](http://swiftmailer.org/docs/introduction.html) - `Mail`ファサードで利用されている、シンプル且つ強力なメールライブラリです
+* [Symfony](http://symfony.com/doc/current/index.html) - LaravelのコアはSymfony componentを利用して構成されています
 {/discussion}

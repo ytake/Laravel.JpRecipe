@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Default Locale
+Title:    デフォルトの実行言語を設定
 Topics:   localization
 Code:     Lang::setLocale()
 Id:       254
@@ -7,21 +7,23 @@ Position: 5
 ---
 
 {problem}
-You want to change the default locale.
+デフォルトの言語を設定したい
 {/problem}
 
 {solution}
-Use the `Lang::setLocale()` method.
+`Lang::setLocale()`メソッドを利用します
 
-{php}
-Lang::setLocale('es'); // switch to Spanish
-{/php}
+```php
+\Lang::setLocale('ja'); // 日本語に変更
+```
 {/solution}
 
 {discussion}
-Difference between `App::setLocale()` and `Lang::setLocale()`.
+`App::setLocale()` と `Lang::setLocale()`の違いは何でしょうか？
 
-`Lang::setLocale()` only changes the locale in the currently loaded translation service.
+`Lang::setLocale()`は、現在ロードされているサービスにのみ作用します
 
-`App::setLocale()` changes the currently loaded configuration value and calls `Lang::setLocale()` to update the translation service. Also, `App::setLocale()` fires a `locale.changed` event.
+`App::setLocale()`は、現在ロードされているサービスに作用し、  
+`Lang::setLocale()`をコールしてtranslatorを更新します
+また`locale.changed`イベントを発動させます
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Translation for a Key
+Title:    翻訳で使われているキーを取得する
 Topics:   localization
 Code:     Lang::get()
 Id:       249
@@ -7,61 +7,66 @@ Position: 1
 ---
 
 {problem}
-You want to return a language specific message.
+言語固有のメッセージを返却する様にしたい
 {/problem}
 
 {solution}
-Use the `Lang::get()` method.
+`Lang::get()`メソッドを利用します
 
-When you pass `Lang::get()` a key, it looks up the key in the translation tables for the current locale. If no match is found, the original key is returned.
+`Lang::get()`にキーを指定すると、  
+現在設定されている言語のファイルの中から指定キーを探します。  
+指定されたモノが見つからない場合は、元のキーが返却されます
 
-{html}
-echo Lang::get('message.hello');
-{/html}
+```php
+echo \Lang::get('message.hello');
+```
 
-The above will look in `app/lang/XX/message.php` for a `'hello'` key. _(Note that XX is the current locale setting)_.
+上記のサンプルは、`app/lang/XX/message.php`の`'hello'`キーを探します  
+_(XXは、現在の言語環境です)_  
 
-If your message contains placeholders, you can pass that as a second argument. Let's say `app/lang/en/message.php` contains the following.
+メッセージにプレースホルダが含まれている場合は、  
+第二引数にそれを指定してください。  
+`app/lang/en/message.php`とした場合・・・
 
-{php}
+```php
 <?php
-return array(
+return [
     'hello' => 'Hi there',
     'hello2' => 'Hi there, :person',
-);
-?>
-{/php}
+];
+```
 
-Then the following code would output "Hi there, Chuck".
+"Hi there, Chuck"としたい場合は、次の様にします
 
-{php}
-echo Lang::get('message.hello2', ['person' => 'Chuck']);
-{/php}
+```php
+echo \Lang::get('message.hello2', ['person' => 'Chuck']);
+```
 
-If you want to use a specific locale instead of the current locale, you can pass a third argument.
+特定の言語を指定したい場合は、第三引数に言語を指定します
 
-{php}
-echo Lang::get('message.hello', array(), 'en');
-{/php}
+```php
+echo \Lang::get('message.hello', array(), 'en');
+```
 
-That would always retrieve the English version.
+`en` つまり常に英語で取得する事になります
 {/solution}
 
 {discussion}
-Translation strings are stores in the `app/lang` directory.
+それぞれの言語に対応したファイルを設置する場合に、  
+`app/lang`ディレクトリには次の様に設置しましょう  
 
-{text}
+```
 /app
    /lang
       /en
          pagination.php
          reminders.php
          validation.php
-      /es
+      /ja
          pagination.php
          reminders.php
          validation.php
-{/text}
+```
 
-Add your own files, to create additional "groups" of messages.
+この様にそれぞれの言語に対応したファイルを設置します
 {/discussion}
