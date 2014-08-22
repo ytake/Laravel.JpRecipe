@@ -1,5 +1,5 @@
 ---
-Title:    Listening for Locale Changes
+Title:    ロケール(言語)変更を検知する
 Topics:   -
 Code:     App::setLocale(), Event::listen()
 Id:       271
@@ -7,24 +7,23 @@ Position: 10
 ---
 
 {problem}
-You want to listen for locale changes within your application.
+アプリケーションで、表示言語等の変更を検知したい
 {/problem}
 
 {solution}
-Listen for the `locale.changed` event.
+`locale.changed`イベントを使って検知します
 
-When fired, the event passes the new locale.
+このイベントが発動すると、言語が変更されます
 
-{php}
-Event::listen('locale.changed', function($locale)
-{
+```php
+\Event::listen('locale.changed', function($locale) {
     echo "Locale changed to ", $locale;
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-This event is fired when `App::setLocale()` is called.
+このイベントは、`App::setLocale()`がコールされた時に発動します
 
-See [[Setting the Default Locale]].
+[[Setting the Default Locale]]も参考にしてください
 {/discussion}

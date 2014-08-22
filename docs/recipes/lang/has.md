@@ -1,5 +1,5 @@
 ---
-Title:    Determining if a Translation Exists
+Title:    翻訳を確認
 Topics:   localization
 Code:     Lang::has()
 Id:       251
@@ -7,31 +7,31 @@ Position: 2
 ---
 
 {problem}
-You want to determine if a translation exists for a particular key.
+指定したキーの翻訳が存在するか確認したい
 {/problem}
 
 {solution}
-Use the `Lang::has()` method.
+`Lang::has()`メソッドを利用します
 
-To check if a translation exists for the current locale pass a single argument to the method. The argument is the _key_ you're checking.
+翻訳が存在する場合、  
+現在の言語で指定したキーが存在するかどうか返却します  
+引数には確認したい翻訳のキーを指定してください  
 
-{php}
-if (Lang::has('message.welcome'))
-{
+```php
+if (\Lang::has('message.welcome')) {
     echo "The welcome message translation exists for the current locale";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-You can specify the locale to check with the second argument.
+特定の言語を指定する場合は、第二引数で指定します
 
-{php}
-if (Lang::has('message.welcome', 'es'))
-{
+```php
+if (Lang::has('message.welcome', 'es')) {
     echo "The welcome message translation exists for Spanish";
 }
-{/php}
+```
 
-If the second argument isn't used then the current locale is used.
+引数が指定されていない場合は、現在実行中の言語が指定されます
 {/discussion}

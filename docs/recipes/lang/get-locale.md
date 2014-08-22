@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Default Locale Being Used
+Title:    デフォルトで利用されている言語環境を取得する
 Topics:   localization
 Code:     App::getLocale(), Lang::getLocale(), Lang::locale(),
           Lang::setLocale()
@@ -8,27 +8,27 @@ Position: 4
 ---
 
 {problem}
-You want to get the currently used default locale.
+現在アプリケーションで使用されているデフォルトの言語環境を取得したい
 {/problem}
 
 {solution}
-Use the `Lang::getLocale()` method.
+`Lang::getLocale()`メソッド、  
+またはエイリアスの`Lang::locale()`を利用します
 
-Or the alias, `Lang::locale()`.
+translatorが利用している現在のデフォルト言語環境を取得します。
 
-This returns the current default locale the translator is using.
-
-{php}
+```php
 echo Lang::getLocale();
-{/php}
+```
 {/solution}
 
 {discussion}
-Differences between `Lang::getLocale()` and `App::getLocale()`.
+`Lang::getLocale()` と `App::getLocale()`の違いは何でしょうか？
 
-The `Lang::getLocale()` method returns the default locale for the currently loaded translator. `App::getLocale()` returns the default locale for the currently loaded configuration.
+`Lang::getLocale()`は、現在translatorで利用されている言語環境を返却します  
+`App::getLocale()`は、コンフィグファイルで指定されている言語環境を取得します
 
-The translator is initialized when the `Lang` facade is first used. This is when it sets its default locale from the currently loaded configuration.
-
-Most of the time these values will be identical. But if you call `Lang::setLocale()` it will change the translator's locale without affecting the loaded configuration value. This is the one case the values could be different.
+ほとんどの場合は、同じ値を返却しますが、  
+`Lang::setLocale()`で任意で変更された場合は異なる値を返却します。  
+ただし、システムに影響は与えず変更されます
 {/discussion}

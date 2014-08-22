@@ -1,5 +1,5 @@
 ---
-Title:    Knowing All the Blade Template Commands
+Title:    Bladeで利用できるメソッド一覧
 Topics:   -
 Code:     -
 Id:       248
@@ -7,44 +7,44 @@ Position: 22
 ---
 
 {problem}
-You want a handy reference of all the Blade template commands.
+Bladeで利用できるメソッド一覧がほしい
 {/problem}
 
 {solution}
-Here's the list
+最初から定義されている、すぐに使えるメソッドは下記の通りです
 
-* `{{ $var }}` - Echo content
-* `{{ $var or 'default' }}` - Echo content with a default value
-* `{{{ $var }}}` - Echo escaped content
-* `{{-- Comment --}}` - A Blade comment
-* `@extends('layout')` - Extends a template with a layout
-* `@if(condition)` - Starts an **if** block
-* `@else` - Starts an **else** block
-* `@elseif(condition)` - Start a **elseif** block
-* `@endif` - Ends a **if** block
-* `@foreach($list as $key => $val)` - Starts a **foreach** block
-* `@endforeach` - Ends a **foreach** block
-* `@for($i = 0; $i < 10; $i++)` - Starts a **for** block
-* `@endfor` - Ends a **for** block
-* `@while(condition)` - Starts a **while** block
-* `@endwhile` - Ends a **while** block
-* `@unless(condition)` - Starts an **unless** block
-* `@endunless` - Ends an **unless** block
-* `@include(file)` - Includes another template
-* `@include(file, ['var' => $val,...])` - Includes a template, passing new variables.
-* `@each('file',$list,'item')` - Renders a template on a collection
-* `@each('file',$list,'item','empty')` - Renders a template on a collection or a different template if collection is empty.
-* `@yield('section')` - Yields content of a section.
-* `@show` - Ends section and yields its content
-* `@lang('message')` - Outputs message from translation table
-* `@choice('message', $count)` - Outputs message with language pluralization
-* `@section('name')` - Starts a section
-* `@stop` - Ends section
-* `@endsection` - Ends section
-* `@append` - Ends section and appends it to existing of section of same name
-* `@overwrite` - Ends section, overwriting previous section of same name
+* `{{ $var }}` - $varをecho
+* `{{ $var or 'default' }}` - デフォルトを設定して、$varをecho
+* `{{{ $var }}}` - エスケープ
+* `{{-- Comment --}}` - Bladeコメント
+* `@extends('layout')` - layoutテンプレートを継承する
+* `@if(condition)` - **if** の始まり
+* `@else` - **else** ブロック
+* `@elseif(condition)` - **elseif** ブロック
+* `@endif` -  **if** の終了
+* `@foreach($list as $key => $val)` - **foreach** の始まり
+* `@endforeach` - **foreach** の終わり
+* `@for($i = 0; $i < 10; $i++)` - **for** の始まり
+* `@endfor` - **for** の終わり
+* `@while(condition)` - **while** の始まり
+* `@endwhile` - **while** の終わり
+* `@unless(condition)` - **unless** の始まり
+* `@endunless` - **unless** の終わり
+* `@include(file)` - 指定したテンプレートをインクルード
+* `@include(file, ['var' => $val,...])` - テンプレートをインクルードする際に変数を渡します
+* `@each('file',$list,'item')` - コレクションをレンダリング
+* `@each('file',$list,'item','empty')` - コレクションを指定し、空の場合は別のテンプレートを割り当ててレンダリング
+* `@yield('section')` - 'section'の内容を生成
+* `@show` - セクションを終了させて、内容を生成
+* `@lang('message')` - 言語環境に沿った文字列を生成
+* `@choice('message', $count)` - 言語に沿った文字列を複数形で出力
+* `@section('name')` - セクションの始まり
+* `@stop` - セクションの終わり
+* `@endsection` - セクションの終わり
+* `@append` - セクションを終了させて、既存のセクションに追加します
+* `@overwrite` - セクションを上書き
 {/solution}
 
 {discussion}
-See also the [Laravel Cheat Sheet](http://cheats.jesse-obrien.ca/)
+[Laravel Cheat Sheet](http://cheats.jesse-obrien.ca/)を見ると良いかもしれません
 {/discussion}

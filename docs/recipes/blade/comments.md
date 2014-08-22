@@ -1,5 +1,5 @@
 ---
-Title:    Using Comments in Blade Templates
+Title:    Bladeテンプレートのコメント
 Topics:   Blade
 Code:     -
 Id:       86
@@ -7,17 +7,17 @@ Position: 6
 ---
 
 {problem}
-You want to comment your Blade code.
+Bladeテンプレートでコメントを記述したい
 
-But you don't want the comments to appear in the resulting HTML code.
+HTMLコメントでは無く、内容を残さずにコメントを記述したい
 {/problem}
 
 {solution}
-Use Blade style comments.
+Bladeのコメントは次の様に利用します
 
-Comments in blade begin with `{{--` and end with `--}}`. They can span multiple lines.
+`{{--`, `--}}`で囲む事でコメントになります
 
-{html}
+```html
 <html>
 {{-- ----------------------------------------------------------------------
   -- Here's a big long comment block
@@ -33,15 +33,16 @@ Comments in blade begin with `{{--` and end with `--}}`. They can span multiple 
     Hey, punk.
   </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-Don't put PHP comments in your Blade comments.
+BladeのコメントにPHPのコメントを利用しないでください
 
-Because Blade actually turns the `{{--` and `--}}` constructs into `/*` and `*/`. This means if you had the following comment, the text **"in your comment */"** would be output.
+Bladeはレンダリング時に`{{--`,`--}}`を`/*`, `*/`に置換える為、  
+PHPコメントを記述すると、**"コメント内容 */"** と表示されてしまいます
 
-{text}
-{{-- Don't put the closing PHP comment */ in your comment --}}
-{/text}
+```php
+{{-- PHPコメントを記述しない様にしましょう */ comment --}}
+```
 {/discussion}

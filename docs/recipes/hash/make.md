@@ -1,5 +1,5 @@
 ---
-Title:    Hashing a Value
+Title:    ハッシュ値
 Topics:   -
 Code:     Hash::make()
 Id:       125
@@ -7,27 +7,27 @@ Position: 1
 ---
 
 {problem}
-You want to create a hash of a string.
+文字列のハッシュを作りたい
 {/problem}
 
 {solution}
-Use the `Hash::make()` method.
+`Hash::make()`メソッドを利用します
 
-{php}
-$hashed_password = Hash::make($plaintext_password);
-{/php}
+```php
+$hashed_password = \Hash::make($plaintext_password);
+```
 {/solution}
 
 {discussion}
-Hashing uses the Blowfish algorithm.
+ハッシュは`Blowfish`アルゴリズムを使用しています
 
-See [The bcrypt Wikipedia article](http://en.wikipedia.org/wiki/Bcrypt).
+[Blowfish](http://ja.wikipedia.org/wiki/Blowfish)  
 
-You can also specify the cost parameter for hashing. This is a base-2 logarithm of the times the hashing routine is iterated.
+ハッシュ値を作成する時に、パラメータを指定する事ができます。  
+これはアルゴリズムのコストを指定します  
+[パスワードのハッシュ 定義済み定数](http://php.net/manual/ja/password.constants.php)
 
-{php}
-$hashed = Hash::make($plaintext, array('rounds' => 10));
-{/php}
-
-This will change the the cost parameter from the default of 8 to 10.
+```php
+$hashed = \Hash::make($plaintext, ['rounds' => 10]);
+```
 {/discussion}

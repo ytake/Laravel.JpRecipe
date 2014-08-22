@@ -106,6 +106,20 @@ class CategoryTableSeeder extends Seeder
             'position' => 1,
         ],
         [
+            'section_id' => 3,
+            'slug' => 'db',
+            'name' => 'DB',
+            'description' => 'DBファサードのレシピ',
+            'position' => 2,
+        ],
+        [
+            'section_id' => 3,
+            'slug' => 'eloquent',
+            'name' => 'Eloquent',
+            'description' => 'Eloquentのレシピ',
+            'position' => 2,
+        ],
+        [
             'section_id' => 2,
             'slug' => 'file',
             'name' => 'File',
@@ -181,6 +195,20 @@ class CategoryTableSeeder extends Seeder
             'name' => 'Testing',
             'description' => 'LaravelのUnit Test関連のレシピ',
             'position' => 15,
+        ],
+        [
+            'section_id' => 2,
+            'slug' => 'router',
+            'name' => 'Route',
+            'description' => 'LaravelのRouter関連のレシピ',
+            'position' => 16,
+        ],
+        [
+            'section_id' => 3,
+            'slug' => 'session',
+            'name' => 'Session',
+            'description' => 'Sessionファサードのレシピ',
+            'position' => 17,
         ],
         [
             'section_id' => 4,
