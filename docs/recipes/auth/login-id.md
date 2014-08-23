@@ -34,5 +34,5 @@ Auth::loginUsingId($user_id, true);
 基本的には`Auth::login()`と同じ動作をします。
 
 このメソッドは、ユーザー検索後に`Auth::login()`を利用してログインさせます。
-詳細は[[Manually Logging a User In]] を参照してください。
+詳細は[[手動でログインする]] を参照してください。
 {/discussion}

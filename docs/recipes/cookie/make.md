@@ -1,5 +1,5 @@
 ---
-Title:    Creating a new Cookie
+Title:    cookieを作成する
 Topics:   cookies
 Code:     Cookie::make()
 Id:       48
@@ -7,36 +7,37 @@ Position: 1
 ---
 
 {problem}
-You want to create a cookie.
+cookieを作りたい
 {/problem}
 
 {solution}
-Use `Cookie::make()`
+`Cookie::make()`を利用します
 
-You can use this method to generate a new cookie. Keep in mind, this does not send a cookie to the user, it simply creates a cookie object.
+新しいクッキーを生成するには、このメソッドを使用することができます。
+これはユーザーにCookieを送信せずに、単にクッキーオブジェクトを作成するという事を覚えておいて下さい
 
-To create a simple cookie, which will expire at the end of the user's session.
+ユーザーのセッションの終了時まで利用可能なシンプルなクッキーを作成します。
 
-{php}
-$cookie = Cookie::make($name, $value);
-{/php}
+```php
+$cookie = \Cookie::make($name, $value);
+```
 
-To create a cookie that won't expire for 60 minutes, add a third parameters.
+有効期限をつける場合は第三引数に指定します。この例は60分間の有効期限となります
 
-{php}
-$cookie = Cookie::make($name, $value, 60);
-{/php}
+```php
+$cookie = \Cookie::make($name, $value, 60);
+```
 
-Of course, you can pass all the normal cookie parameters.
+もちろん通常のクッキーのパラメータを渡すこともできます
 
-{php}
-$cookie = Cookie::make($name, $value, $minutes, $path, $domain,
-                       $secure, $httpOnly);
-{/php}
+```php
+$cookie = \Cookie::make($name, $value, $minutes, $path, $domain, $secure, $httpOnly);
+```
 {/solution}
 
 {discussion}
-What should you do with the cookie?
+cookieをどう利用したらいいですか？
 
-Well, normally, you'd send it the user. Additional recipes coming for this.
+生成後にユーザーに送信しますが、  
+それについてのレシピを後日追加します！
 {/discussion}

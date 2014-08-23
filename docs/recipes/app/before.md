@@ -33,6 +33,6 @@ Position: 6
 サービスプロバイダー等で実装する事も可能です。
 
 アプリケーション処理前に実行されるフィルターについて、理解を深める事ができます。  
-[[Understanding the Request Lifecycle]] **Calls app before filters**  
+[[リクエストのライフサイクルについて理解する]]  
 の実行手順のセクションに詳細が記述されています。  
 {/discussion}

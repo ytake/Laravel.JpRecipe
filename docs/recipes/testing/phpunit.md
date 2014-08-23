@@ -12,7 +12,7 @@ Laravelをインストールすると、デフォルトで`phpunit.xml`が設置
 ここではその内容について触れます。
 
 Laravelはデフォルトの状態でユニットテストを簡単に行う事ができます。  
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
     backupStaticAttributes="false"
@@ -58,15 +58,19 @@ $ composer update
 
 Laravelプロジェクトのディレクトリで、実行します。  
 composerでphpunitを導入した場合は、`./vendor/bin/phpunit`を指定して実行します。
+
 ```bash
 $ ./vendor/bin/phpunit app/tests/ExampleTest.php
 ```
+
 グリーンになりましたか？
 ファイルを指定して実行する場合は上記の様になります。  
 全てテストする場合は、  
+
 ```bash
 $ ./vendor/bin/phpunit
 ```
+
 としてください。
 {/solution}
 

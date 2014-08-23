@@ -96,6 +96,12 @@ class RecipeRepository implements RecipeRepositoryInterface
     public function getRecipeFromTitle($title)
     {
         // TODO: Implement getRecipeFromTitle() method.
+        foreach($this->array as $array) {
+            if($array['title'] == $title) {
+                return (object) $array;
+            }
+        }
+        return [];
     }
 
     /**

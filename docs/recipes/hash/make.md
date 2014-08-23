@@ -1,5 +1,5 @@
 ---
-Title:    ハッシュ値
+Title:    ハッシュ値を生成する
 Topics:   -
 Code:     Hash::make()
 Id:       125

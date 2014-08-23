@@ -50,7 +50,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         if(!is_null($categoryId)) {
             $query->where('cat.category_id', $categoryId);
         }
-        return $query->orderBy('recipe.recipe_id', 'DESC')
+        return $query->orderBy('recipe.position', 'ASC')
             ->remember(240, "recipe:category:{$categoryId}")->get(['recipe.*', 'cat.name']);
     }
 
@@ -106,7 +106,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
      */
     public function getRecipeFromTitle($title)
     {
-        return $this->getConnection('slave')->where('recipe.title', $title)->first();
+        return $this->getConnection('slave')->where('title', $title)->first();
     }
 
     /**

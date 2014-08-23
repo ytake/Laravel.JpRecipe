@@ -14,14 +14,31 @@ $ php artisan migrate
 $ php artisan db:seed
 ```
 
-added recipes
-```bash
-$ php artisan jp-recipe:add
-```
-
-
 Grunt
 ```bash
 $ npm install
 $ grunt
+```
+
+##URI
+###recipes API
+* [レシピ一覧取得]GET: /api/v1/recipe (application/json)  
+* [レシピ取得]GET: /api/v1/recipe/{recipe_id} (application/json)  
+* [レシピ一覧取得]GET: /api/v1/recipe?format=hal (application/hal+json)  
+* [レシピ取得]GET: /api/v1/recipe/{recipe_id}?format=hal (application/hal+json)  
+
+###XML
+* [サイトマップ]GET: /sitemap.xml (application/xml; charset=UTF-8)
+* [Atom Feed]GET: /feed (application/atom+xml)  
+* [RSS Feed]GET: /feed/rss (application/rss+xml; charset=utf-8)
+
+##Artisan
+###レシピスキャン
+```bash
+$ php artisan jp-recipe:add
+```
+
+###アクセスユーザー追加
+```bash
+$ php artisan jp-recipe:add-allow-account [username]
 ```

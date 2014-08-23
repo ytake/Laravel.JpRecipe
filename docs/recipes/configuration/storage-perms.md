@@ -1,5 +1,5 @@
 ---
-Title:    Changing Storage Path Permissions
+Title:    storageディレクトリの実行権限を変更する
 Topics:   Apache, configuration, Nginx, permissions
 Code:     -
 Id:       43
@@ -7,30 +7,33 @@ Position: 8
 ---
 
 {problem}
-You're receiving a Permission denied error.
+Permission deniedエラーが発生している
 
-You believe this is because Laravel is trying to write something to the file system and doesn't have permissions to do so.
+Laravelが何かをファイルに書き出そうとしていて、原因が実行権限によるものだと疑ってみましょう  
+この場合実行環境にもよりますが、アクセスしたときに何も表示されない真っ白な表示か、  
+またはExceptionが投げられます  
 {/problem}
 
 {solution}
-Change the owner or permissions of your storage path.
+storageパスの所有者、または実行権限を変更して下さい
 
-{bash}
+```bash
 $ cd app/storage
 $ sudo chmod 777 *
 $ sudo chmod 666 */*
-{/bash}
+```
 {/solution}
 
 {discussion}
-It's likely a user issue.
+実行ユーザーの問題が多いです
 
-The instructions in the solution above make the storage directories _world writable_. The real issue is usually one thing.
+たいていは、storageディレクトリに実行権限を与えるだけで解決します
 
-**Your console user and webserver user are different**
+**コンソールと、webサーバのユーザーが異なる**
 
-This is normal, but often for development servers it's easier to make your webserver be the same user as your console user. The **Fixing Permissions** section of the two recipes listed below explain how to change this use for Apache and Nginx.
+これは通常の事ですが、  
+コンソールとwebサーバの実行ユーザーが同じかどうかを確認しましょう
 
-* [[Creating an Apache VirtualHost]]
-* [[Creating a Nginx VirtualHost]]
+* [[Apache VirtualHostの作成]]
+* [[Nginx VirtualHostの作成]]
 {/discussion}

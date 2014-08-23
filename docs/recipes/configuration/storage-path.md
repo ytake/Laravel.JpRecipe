@@ -1,5 +1,5 @@
 ---
-Title:    Changing the Storage Path
+Title:    storageディレクトリの変更
 Topics:   configuration
 Code:     -
 Id:       32
@@ -7,38 +7,41 @@ Position: 7
 ---
 
 {problem}
-You need to change the location of Laravel's storage path.
+Laravelのstorageディレクトリを変更したい
 
-The default directories Laravel uses for storing data to the file system does not work for your installation. Permission or other write errors occur.
+storageディレクトリは、テンプレートのキャッシュファイルの書き込みや、セッション等ファイルを利用する場合に、  
+インストールした状態のままの場合、実行権限が無いため書き込みエラーなどが発生します
 {/problem}
 
 {solution}
-Edit `bootstrap/paths.php` and change the storage location.
+`bootstrap/paths.php`を編集してstorageのパスを任意のディレクトリに変更しましょう
 
-{php}
-// Change the line below
+```php
+// この行を変更します
 'storage' => __DIR__.'/../app/storage',
 
-// to what's needed for your install
-'storage' => '/home/chuck/my/storage/path',
-{/php}
+//
+'storage' => '/home/myname/storage/path',
+```
 
-You may also need to create the storage directory and any subdirectories you're using.
+それぞれが利用するディレクトリを忘れずに作成してください
 
-{php}
-$ mkdir /home/chuck/my/storage/path
-$ mkdir /home/chuck/my/storage/path/views
-$ mkdir /home/chuck/my/storage/path/meta
-$ mkdir /home/chuck/my/storage/path/logs
-{/php}
+```bash
+$ mkdir /home/myname/storage/path
+$ mkdir /home/myname/storage/path/views
+$ mkdir /home/myname/storage/path/meta
+$ mkdir /home/myname/storage/path/logs
+```
 
-Also create the `sessions` and `cache` directories if needed.
+`sessions`と`cache`で`file`を利用する場合は、  
+それぞれに対応したディレクトリを作成して下さい
 {/solution}
 
 {discussion}
-You may only need to change the permissions.
+環境によってはパーミッションを変更する必要があります
 
-For most installs the default storage path provided by Laravel works fine. Sometimes you may only need to adjust the permissions. See [[Changing Storage Path Permissions]].
+ほとんどの場合はLaravelが提供するデフォルトのストレージディレクトリで正常に機能します  
+環境によっては実行権限を与える必要があります  
+[[storageディレクトリの実行権限を変更する]].
 
-But, in those rare cases where the storage location doesn't work, Laravel makes it easy to change.
 {/discussion}

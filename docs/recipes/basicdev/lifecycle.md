@@ -1,5 +1,5 @@
 ---
-Title:    Understanding the Request Lifecycle
+Title:    リクエストのライフサイクルについて理解する
 Topics:   -
 Code:     -
 Id:       52
@@ -7,155 +7,186 @@ Position: 4
 ---
 
 {problem}
-Where does your code fit?
+どこに実装すれば良いのかわからない
 
-You're ready to dig in and start writing Laravel code, but so many things are happening behind the scenes you aren't sure the best place to begin.
+Laravelを使ってプロジェクトをスタートする事にしたが、  
+Laravelがどのような構造で、どこで何が行われているか理解を深めてみましょう
 {/problem}
 
 {solution}
-Understand the Request Lifecycle.
+リクエストのライフサイクルについて学んでみましょう
 
-By understanding the Request Lifecycle you'll be able to zero in to exactly where you need to focus for a given task.
+リクエストのライフサイクルを学ぶ事によって、  
+どこで何が行われているかを把握して、実装だけに集中できる様になります。
 
-![Standard Lifecycle](images/lifecycle.jpg)
+![Standard Lifecycle](/images/lifecycle.jpg)
 
-The Standard Lifecycle is:
+もっとも標準的なリクエストのライフサイクルは・・・:
 
-* A HTTP Request is _Routed_ to a _Controller_.
-* The _Controller_ performs specific actions and sends data to a _View_.
-* The _View_ formats the data appropriately, providing the HTTP Response.
+* HTTP リクエストは _ルーター_ から _コントローラー_ へ
+* _コントローラー_ は特定の処理を実行して _View_ にデータが送られます
+* _View_ は、HTTPレスポンス返却し、レンダリングを行います
 
-There are many exceptions and variances to the above flow, but this gives you three basic places to start.
+上記の流れには、例外と分散等がありますが、  
+デフォルトでは三つの機能を利用します。
 
-1. The Routing, in `app/routes.php`.
-2. The Controller, in `app/controllers/` (or if you're using PSR-0, `app/Project/Controllers/`).
-3. The View, in `app/views/`.
+1. `app/routes.php`でルーティング
+2. `app/controllers/` コントローラーを実装 (PSRの規約に準拠する場合は、`app/Project/Controllers/`などになります).
+3. `app/views/` View
 
-Some exceptions to the above are:
+**あくまでデフォルトの場合であり、Laravelは好みによって自由にディレクトリ構造を変更できま、Laravel自体は構造には依存しない作りになっています**
 
-* Routes that return Views or Responses directly, bypassing Controller usage.
-* Filters (in `app/filters.php`) which can occur before or after the route.
-* Error and Exception handling.
-* Responding to Events.
+いくつかの例外は下記の通りです:
+
+* コントローラーを使用せずに、ルーターで直接レスポンスやビューを返却
+* それぞれのルーターの実行前後のタイミングで処理が発生する場合 (`app/filters.php`)
+* エラーやExceptionなどの例外処理
+* イベントによる応答
 {/solution}
 
 {discussion}
-A deeper understanding of the Request Lifecycle exposes several other places you can write code.
+ライフサイクルを理解してコーディングするためにいくつか紹介します
 
-The entire lifecycle of a request can be broken into three parts: Loading, Booting, and Running.
+まず、リクエストのライフサイクルは大きく3つに分ける事が出来ます:  
 
-#### The Loading Steps
+* ロード
+* 起動
+* 実行
 
-![Loading Steps](images/bootstrap1.jpg)
+上記の3つです
 
-There's three main areas where your application can affect the Loading steps in the Request Lifecycle.
+#### ローディング 手順
+
+![Loading Steps](/images/bootstrap1.jpg)
+
+ライフサイクルのローディングに影響を与える部分は3つあります
 
 ##### (1) Workbench
 
-Workbenches allow you to develop and debug packages along side your application. See [[Creating a New Package Workbench]].
+Workbenches はアプリケーションに沿ったパッケージ開発を可能にします  
+[[新しいパッケージのワークベンチを作成したい]]
 
 ##### (2) Environment Detections
 
-Your should modify `bootstrap/start.php` and add your application's environment detections.
+`bootstrap/start.php`を変更して、アプリケーションの実行環境を切り分ける事が出来ます
 
-See [[Environment Specific Configurations]]
-and [[Detecting the Environment with a Closure]].
+[[実行環境の決定]]  
+[[クロージャを利用した実行環境の決定]]
 
 ##### (3) Paths
 
-You can modify `bootstrap/paths.php` to customize your installation. See [[Changing the Storage Path]].
+`bootstrap/paths.php`を編集して、独自のディレクトリ構造にする事が出来ます
+[[storageディレクトリの変更]].
 
-#### The Booting Steps
+#### 起動手順
 
-![Booting Steps](images/bootstrap2.jpg)
+![Booting Steps](/images/bootstrap2.jpg)
 
-There's 10 different areas your application can affect the Booting steps in the Request Lifecycle.
+ライフサイクルのローディングに影響を与える部分は10の領域があります
 
 ##### (1) Configuration
 
-Your application's configuration affects both the Boot process and Running of Laravel. There's an entire section with Recipes in this book on configuration alone.
+アプリケーションの設定は、ブートプロセスとLaravelの実行の両方に影響します。
 
 ##### (2) Service Providers
 
-Any Service Providers you've created or linked into your application are loaded early in the boot process. If your service provider is not deferred, its `register()` method is called at this time. See [[Creating a Simple Service Provider]].
+アプリケーションに登録したり、実装したサービスプロバイダは、ブートプロセスの初期にロードされます。  
+`protected $defer`をデフォルトのまま利用する場合は、  
+それぞれのサービスプロバイダー`register()`がこの時点でコールされます  
+[[シンプルなサービスプロバイダーを作成する]]
 
 ##### (3) Registering the start files
 
-Your three application startup files (#8, #9, and #10 below) are registered to be loaded when the application's "booted" event occurs.
+3つのアプリケーション起動ファイル(#8, #9, #10)の登録されている内容がロードされ、  
+"booted"イベントが発動します  
 
 ##### (4) Handle middleware going down
 
-Since middleware operates like Russian nested dolls, this is the point where the top middleware handles the request and calls the next level of middleware, which calls the next level, all the way down to the bottom (which is the application itself).
-
-See [[Understanding What Middleware Is]].
+上のミドルウェアから下のミドルウェアまで、順次リクエストを処理していきます  
+[[ミドルウェアについて理解する]].
 
 ##### (5) Booting service providers
 
-Now the `boot()` method on any non-deferred service providers is called.
+サービスプロバイダの`boot()`メソッドがコールされます
 
 ##### (6) Booting callbacks
 
-Any callbacks registered with the `App::booting()` method are now called. See [[Registering Booting or Booted Callbacks]].
+`App::booting()`メソッドで登録されたコールバック処理がコールされます  
+[[Booting、Booted Callbacksを登録する]]
 
 ##### (7) Booted callbacks.
 
-Now that the application is "booted", any registered callbacks registered with `App::booted()` are called. This includes the callback to load the three application startup files in step #3 above. See [[Registering Booting or Booted Callbacks]].
+アプリケーションが起動した状態になり、  
+`App::booted()`で登録されているコールバックがコールされます。(#3)  
+[[Booting、Booted Callbacksを登録する]]
 
 ##### (8) Your application start script is called.
 
-This is the `app/start/globals.php` file. This file contains initialization you want your application to always perform before any request is processed. Laravel provides sensible defaults for Logging, Exception trapping, and Maintenance mode handling. You can modify this file and put anything you need to always execute in it, but be sure to keep the inclusion of `app/filters.php`.
+これは、`app/start/globals.php`ファイルです  
+このファイルには、すべてのリクエストが処理される前に、常に実行される初期化処理が含まれています。  
+Laravelはロギング、例外トラップ、およびメンテナンスモード処理のための適切な値を提供します。  
+このファイル以外にも`app/filters.php`で必要な処理を分散させて記述する事も出来ます
 
 ##### (9) app/start/{environment}.php
 
-If you need initialization code to execute only in certain environments, you can place it in this file. See [[Using Environment Specific Start Files]].
+特定の環境でのみ実行するコード等が必要な場合は、任意で配置することができます。  
+[[スタートファイルを利用した実行環境の決定]]
 
 ##### (10) app/routes.php
 
-Your application routes. This is one of the most common files you'll edit when setting up the application.
+アプリケーションのルーター  
+アプリケーションを設定する中で、最も一般的なファイルです  
 
-#### The Running Steps
+#### 実行手順
 
-![Running Steps](images/bootstrap3.jpg)
+![Running Steps](/images/bootstrap3.jpg)
 
-There's ten different areas where your application can affect the Running steps in the Request Lifecycle.
+ライフサイクルの実行に影響を与える部分は10の領域があります
 
 ##### (1) Maintenance Mode
 
-If you have a maintence mode listener registered and the application is in maintenance mode, then your listener is executed. See [[Registering a Maintenance Mode Handler]].
+メンテンスモードリスナーが登録されている場合、アプリケーションがメンテナンスモードの場合にリスナーが実行されるます  
+[[メンテナンスモードのハンドラを登録する]].
 
 ##### (2) App "before" filters
 
-If you have any before filters registered with `App::before()`, they are called. See [[Registering Before Filters On a Controller]].
+`App::before()`で登録されているフィルター処理があればコールされます
+[[Afterフィルターをコントローラーで登録する]]
 
 ##### (3) Route/Controller "before" filters
 
-If you have any before filters at the route or controller level, they are called.
+ルーター、またはコントローラレベルで"before" filtersがある場合は、それらが呼び出されます。
 
 ##### (4) The action
 
-Here's where a controller method or a route callback is called to handle the request.
+ここではコントローラメソッド、またはルーターのコールバックがリクエストを処理するために呼び出されます。
 
 ##### (5) Route/Controller "after" filters
 
-If you have any after filters at the route or controller level, they are called.
+ルーター、またはコントローラレベルで"after" filtersがある場合は、それらが呼び出されます。
+[[Beforeフィルターをコントローラーで登録する]]
 
 ##### (6) App "after" filters.
 
-If you have any after filters registered with `App::after()`, they are called. See [[Registering an After Application Filter]].
+`App::after()`で登録されているフィルター処理があればコールされます
+[[フィルター"After"を実装する]].
 
 ##### (7) Middleware response handling
 
-This is the point where the middleware stack cascades the Response back up the chain. Any piece of middleware is free to modify the Response before returning it.
+ミドルウェアは、処理後に通常のレスポンスを返却する前に、  
+自由に返却するレスポンスを変更することが自由である。
 
 ##### (8) Middleware shutdown
 
-If you've provided any middleware that implements the `TerminableInterface`, then its `shutdown()` method is called.
+`TerminableInterface`を実装した独自のミドルウェアがある場合は、  
+その`shutdown()`メソッドがコールされます
 
 ##### (9) Finish callbacks
 
-If you have any callbacks registered with `App::finish()`, they are called.
+`App::finish()`で登録されたコールバックがあれば、登録されたものがコールされます
 
 ##### (10) Shutdown callbacks
 
-Finally, if you have any callbacks registered with `App::shutdown()`, they are called.
+最後に`App::shutdown()`で登録されたコールバックがあれば、登録されたものがコールされます  
+
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Nginx VirtualHost
+Title:    Nginx VirtualHostの作成
 Topics:   configuration, Nginx
 Code:     -
 Id:       26
@@ -7,22 +7,22 @@ Position: 3
 ---
 
 {problem}
-The default Nginx web page shows for your project.
+現在Nginxにアクセスすると、デフォルトのページが表示されています
 
-You have Nginx installed and have created a Laravel project, but the web page returned by your browser is the default Nginx web page.
+サーバにはすでにNginxがインストールされ、Laravelプロジェクトも作成してある状態です
 {/problem}
 
 {solution}
-Create a Nginx Virtual Host for your project.
+プロジェクトのNginx　Virtual Hostを作成しましょう
 
-{bash}
-laravel:~$ cd /etc/nginx/sites-available
-laravel:/etc/nginx/sites-available$ sudo vi myapp
-{/bash}
+```bash
+$ cd /etc/nginx/sites-available
+$ sudo vi myapp
+```
 
-Have the contents of the file match what's below.
+下記の様な場合、
 
-{text}
+```text
 server {
     listen 80;
     server_name myapp.localhost.com;
@@ -45,43 +45,43 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }
 }
-{/text}
+```
 
-Save the file, then continue below.
+ファイルを保存して、次の様に
 
-{bash}
-laravel:/etc/nginx/sites-available$ cd ../sites-enabled
-laravel:/etc/nginx/sites-enabled$ sudo ln -s /etc/nginx/sites-available/myapp
-laravel:/etc/apache2/sites-enabled$ sudo service nginx restart
-{/bash}
+```bash
+$ cd ../sites-enabled
+$ sudo ln -s /etc/nginx/sites-available/myapp
+$ sudo service nginx restart
+```
 
-#### Fixing Permissions
+#### Permissions修正
 
-If you're running a virtual machine under Vagrant, you may want to change the user and group to avoid permission issues.
+Vagrantで実行している場合は、権限の問題を回避するために、ユーザーとグループを変更する場合があります
 
-To do this:
+```bash
+$ cd /etc/php5/fpm/pool.d
+$ sudo vi www.conf
+```
 
-{bash}
-laravel:~$ cd /etc/php5/fpm/pool.d
-laravel:/etc/php5/fpm/pool.d$ sudo vi www.conf
-{/bash}
+`user` と `group`の行を変更して下さい
 
-Change the `user` and `group` lines to your user and group.
-
-{text}
+```text
 user = vagrant
 group = vagrant
-{/text}
+```
 
-Save the file and restart the PHP FastCGI Process Manager.
+ファイルを保存し、PHPのFastCGI Process Managerを再起動します
 
-{bash}
-laravel:/etc/php5/fpm/pool.d$ sudo service php5-fpm restart
-{/bash}
+```bash
+$ sudo service php5-fpm restart
+```
 {/solution}
 
 {discussion}
-Nginx has many configuration options.
+Nginxのは、多くの設定オプションがあります
 
-The configuration above is a basic configuration which works with Laravel. Nginx provides great power and flexibility with it's configuration. Check out the [Nginx Website](http://wiki.nginx.org/Main) for more information.
+上記の設定はLaravelを動作させる基本的な設定ですが、
+Nginxは、柔軟性と、強力な処理能力を提供します。
+詳細については、[Nginx Website](http://wiki.nginx.org/Main)をご覧ください
 {/discussion}

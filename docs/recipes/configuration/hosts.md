@@ -1,5 +1,5 @@
 ---
-Title:    Editing the Hosts File
+Title:    Hosts ファイルの編集
 Topics:   configuration
 Code:     -
 Id:       24
@@ -7,86 +7,84 @@ Position: 1
 ---
 
 {problem}
-You need fake hostnames.
+開発等でホスト名を利用したい
 
-You need to use different hostnames to test multiple Laravel applications but don't want to set up the hostnames in a DNS server. Instead, you want to use an _internal_ hostname.
+複数のアプリケーションをテストするために、異なるホスト名を使用する必要がありますが、
+DNSサーバーにホスト名を設定する必要はありません
+代わりに、_internal_ ホスト名を使用したい。
 {/problem}
 
 {solution}
-Edit your hosts file.
+hostsファイルを編集します
 
 The following examples illustrate adding `myapp.localhost.com` pointing to IP address `192.168.100.100`.
+次の例では、ホスト名`myapp.localhost.com`で IPアドレス`192.168.100.100`を指します
 
-#### Editing the Hosts file in Linux
+#### Linuxのhostsファイル編集方法
 
-{bash}
-laravel:~$ sudo vi /etc/hosts
-{/bash}
+```bash
+$ sudo vi /etc/hosts
+```
 
-Add the line to the file:
+下記の行を追加します
 
-{text}
+```text
 192.168.100.100   myapp.localhost.com
-{/text}
+```
 
-Save the file then flush the DNS
+保存して、DNSをフラッシュします
 
-{bash}
-laravel:~$ sudo service dns-clean start
-{/bash}
+```bash
+$ sudo service dns-clean start
+```
 
-#### Editing the Hosts file in OS X
+#### OS Xのhostsファイル編集方法
 
-{bash}
+```bash
 $ sudo nano /private/etc/hosts
-{/bash}
+```
 
-Add the line to the file:
+下記の行を追加します
 
-{text}
+```text
 192.168.100.100   myapp.localhost.com
-{/text}
+```
 
-Save the file then flush the DNS
+保存して、DNSをフラッシュします
 
-{bash}
+```bash
 $ dscacheutil -flushcache
-{/bash}
+```
 
-#### Editing the Hosts file in Windows
+#### Windowsのhostsファイル編集方法
 
-Open a command prompt with administrator priveleges.
+管理者としてコマンドプロンプトを開きます。
 
-Then ...
-
-{text}
+```text
 C:\Windows\System32>cd \Windows\System32\drivers\etc
 C:\Windows\System32\drivers\etc>notepad hosts
-{/text}
+```
 
-Add the line to the file:
+下記の行を追加します
 
-{text}
+```text
 192.168.100.100   myapp.localhost.com
-{/text}
+```
 
-Save the file, then from the administrator command prompt, flush the dns.
+保存して、DNSをフラッシュします
 
-{text}
+```text
 C:\Windows\System32\drivers\etc>ipconfig /flushdns
-{/text}
+```
 {/solution}
 
 {discussion}
-There are conventions for naming internal hostnames.
+内部ホスト名に命名規則があります
 
-For example, here are several variations for an application named **MyApp**.
+たとえば、**のMyApp** という名前のアプリケーションの為にいくつかバリエーションがあります
 
 * myapp.local
 * myapp.dev
 * myapp.localhost.com
 
-{warn}
-Keep in mind if you're developing Laravel applications using a Vagrant box, you must edit the hosts file both in the box (the Linux instructions) and in your host operating system. This allows the web server to provide the correct virtual host within the vagrant box and allows you to use your browser on your host operating system to access that virtual host.
-{/warn}
 {/discussion}

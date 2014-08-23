@@ -29,6 +29,7 @@ if (Auth::guest()) {
 `Auth::guest()`と`Auth::check()`は全く逆の利用方法になります
 
 以下は使用例です。
+
 ```php
 public function guest()
 {
@@ -36,7 +37,7 @@ public function guest()
 }
 ```
 
-[[Determining if the Current User is Authenticated]]を参考にしてください。
+[[現在アクセスしているユーザーが認証済みかどうか確認する]]を参考にしてください。
 
 #### 'auth'フィルターでこのメソッドを利用する場合
 

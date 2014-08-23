@@ -28,7 +28,7 @@ Position: 13
 記述する具体的な場所は、サービスプロバイダーの`register()`に記述します。  
 `register()`の後に呼ばれるメソッドなどでは、効果がありません
 
-[[Understanding the Request Lifecycle]]の、"Build stacked HTTP Kernel"の部分が該当します。  
+[[リクエストのライフサイクルについて理解する]]の、"Build stacked HTTP Kernel"の部分が該当します。  
 
 ただし、次のクラスは削除する事ができません:
 

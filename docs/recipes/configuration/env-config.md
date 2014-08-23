@@ -1,5 +1,5 @@
 ---
-Title:    Environment Specific Configurations
+Title:    実行環境の決定
 Topics:   configuration, environment
 Code:     App::detectEnvironment()
 Id:       27
@@ -7,91 +7,93 @@ Position: 4
 ---
 
 {problem}
-You want a different configuration than production.
+本番環境と異なる設定をしたい
 
-Your application needs different settings depending on if it's running in production, staging, or in your development environment.
+開発環境、ステージング環境、本番環境とで異なる設定が必要な場合
 {/problem}
 
 {solution}
-Use environment specific configurations.
+実行環境毎の構成を作る事が出来ます
 
-You'll need to set up your application to detect the environment and then you'll be able to use additional configuration files for each environment.
+実行環境を検出することで、環境ごとに設定ファイルを用意して動作を変更する事が出来ます
 
-#### Step 1 - Update boostrap/start.php
+#### Step 1 - boostrap/start.phpの更新
 
-Find the lines that look something like the following within `bootstrap/start.php`.
+`bootstrap/start.php`で次の行を探して下さい。
 
-{php}
+```php
 $env = $app->detectEnvironment(array(
-	'local' => array('your-machine-name'),
+    'local' => array('homestead'),
 ));
-{/php}
+```
 
-The code above will set the environment to **local** if the hostname of the machine is **'your-machine-name'**.
+実行しているPCのhostnameが'homestead'の場合に**local**環境を利用します
 
-{warn}
-Laravel 4.1 no longer detects the hostname of the web request. That was an insecure method of determining the environment and has been deprecated. Only the machine's name (as returned by `gethostname()`) is used.
-{/warn}
+#### 注意
+Laravel 4.1ではhostnameは使用しない、安全性に欠ける方法を利用していた為非難されました
+現在は実行しているPCのhostnameを取得しています(`gethostname()`)
 
-Change this to match the your machine's hostname.
+利用しているPCの名前に変更してみましょう。  
+コマンドラインでは以下のコマンドで取得できます
 
-{php}
+```bash
+$ hostname
+```
+
+```php
 $env = $app->detectEnvironment(array(
-	'local' => array('mymachine'),
+    'local' => array('mymachine'),
 ));
-{/php}
+```
 
-You can test multiple machines at once.
+一度に複数のhostname等を指定する事が可能です
 
-{php}
-$env = $app->detectEnvironment(array(
-	'local' => array('mymachine1', 'mymachine2'),
-	'staging' => array('staging-server'),
-));
-{/php}
+```php
+$env = $app->detectEnvironment([
+    'local' => ['mymachine1', 'mymachine2'],
+	  'staging' => ['staging-server'],
+]);
+```
 
-#### Step 2 - Create a config folder for your environment
+#### Step 2 - 利用環境に合わせた設定フォルダを作成します
 
-{bash}
+```bash
 $ mkdir app/config/local
-{/bash}
+```
 
-#### Step 3 - Add your own config files
+#### Step 3 - 設定を追加します
 
-Example `app/config/local/app.php` file with debug on and timezone set.
+例えば、`app/config/local/app.php`ファイルに、デバッグと、タイムゾーンの設定を記述します
 
-{bash}
+```bash
 <?php
-return array(
-	'debug' => true,
-	'timezone' => 'America/Los_Angeles',
-);
-?>
-{/bash}
+return [
+    'debug' => true,
+	  'timezone' => 'Asia/Tokyo',
+];
+```
 {/solution}
 
 {discussion}
-How configurations are merged.
+構成はマージされて実行されます
 
-Values from environment specific configuration files are _merged_ into the main configuration files. Thus in the example above (assuming environment is detected as _local_), the following will happen.
+メインの設定ファイルにマージされて実行されます(`app/config/app.php`)  
+上記の例では、下記の様になります
 
-{php}
+```php
 <?php
-// key comes from app/config/app.php.
-// this will output a big long random string
+// keyはapp/config/app.phpから取得します
 echo Config::get('app.key');
 
-// timezone comes from app/config/local/app.php
-// this will output "America/Los_Angeles"
+// タイムゾーンはapp/config/local/app.phpから取得します
+// 'Asia/Tokyo'が出力されます
 echo Config::get('app.timezone');
-?>
-{/php}
+```
 
-The environment specific configuration values will take precedence.
+環境固有の設定値が優先されます
 
-{warn}
-### Do not use the name 'testing'
+#### 注意
+### 'testing'という名称は使用しないで下さい
+`testing`はユニットテストで使用されます
 
-An environment named `testing` is reserved for doing unit tests.
-{/warn}
 {/discussion}

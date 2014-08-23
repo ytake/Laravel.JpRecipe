@@ -1,5 +1,5 @@
 ---
-Title:    Using a PSR-0 Directory Structure
+Title:    PSR-0準拠のディレクトリ構造
 Topics:   configuration, psr-0
 Code:     -
 Id:       46
@@ -7,17 +7,18 @@ Position: 9
 ---
 
 {problem}
-You have too much code in `app/models` and `app/controllers`.
+`app/models` と `app/controllers`にたくさんの実装コードがあります
 
-Your application is growing and there's too many files in the few directories Laravel initially provides.
+開発が進むにつれて、Laravelがデフォルトで提供しているディレクトリ内に多くのファイルが出来上がり、  
+肥大化していきます
 {/problem}
 
 {solution}
-Use a PSR-0 directory structure.
+PSR-0に準拠したディレクトリ構造を利用してみましょう
 
-First edit `composer.json` and update the autoload section.
+最初に`composer.json` を編集して更新しましょう
 
-{javascript}
+```json
 {
     "autoload": {
         "psr-0": {
@@ -31,40 +32,37 @@ First edit `composer.json` and update the autoload section.
         ]
     }
 }
-{/javascript}
+```
 
-Here you should remove any directories you will no longer be using from the `"classmap"` section and add the `"psr-0"` section specifying your application name.
+ここでは、`"classmap"` から使用していないディレクトリを全て削除して、
+`"psr-0"`を利用するディレクトリを追加します
 
-Then regenerate the autoload files.
+autoloadファイルを再生成します
 
-{bash}
-$ composer dump-auto
-{/bash}
+```bash
+$ composer dump-autoload
+```
 
-That's it, now you can use namespaces and build a hierarchy of classes.
+名前空間を使用して、クラスの階層を構築することができます
 {/solution}
 
 {discussion}
-An example class.
+準拠したサンプルのクラスです
 
-Let's say you have a controller for the above app to handle miscellaneous pages. You might have a file in `app/MyApp/Controllers` named `MiscController.php`. This file would look something like.
+"app/"配下の `app/MyApp/Controllers` にコントローラーがあるとしましょう  
+そのコントローラーが`MiscController.php`というファイル名になっています
 
-{php-lines}
-<?php namespace MyApp\Controllers;
+```php
+<?php
+namespace MyApp\Controllers;
 
-class MiscController extends \Controller {
-    // methods go here
+class MiscController extends \Controller
+{
+    // 実装コード
 }
-?>
-{/php}
 
-Line 1
+```
 
-: Here you're establishing the namespace.
-
-Line 3
-
-: And you're naming the class `MiscController`. You'll be able to access this class anywhere in your application using the full `MyApp\Commands\MiscController` namespace.
-
-The nice thing about PSR-0 is the question "Where do I put my code?" becomes "How do I want to organize my classes?"
+PSR-0を利用する事で、  
+"どこにコードを実装したら良いですか？"から"どうやって構造化するべきですか？"と考え方に変化をもたらします
 {/discussion}
