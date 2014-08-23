@@ -22,6 +22,7 @@ $ php artisan routes
 このコマンドでコンソール上に見やすいルート一覧が表示されます。
 
 以下は [laravel-recipes](http://laravel-recipes.com) のルート一覧の一部になります。
+
 ```
 +---------------------------+-------------------------+----------------+
 | URI                       | Action                  | Before Filters |

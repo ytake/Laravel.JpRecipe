@@ -27,6 +27,6 @@ echo \App::getBootstrapFile();
 {discussion}
 これはローレベルのメソッドです。
 
-このbootstrapが読み込まれるタイミングは [[Understanding the Request Lifecycle]] に記載されています。  
+このbootstrapが読み込まれるタイミングは [[リクエストのライフサイクルについて理解する]] に記載されています。  
 **The Booting Steps**にある図の"Starts Application"の後の"laravel/start.php"で読み込まれます。
 {/discussion}

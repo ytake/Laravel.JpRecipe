@@ -1,5 +1,5 @@
 ---
-Title:    Retrieving a Cookie from the Request
+Title:    リクエストからクッキーを取得する
 Topics:   cookies
 Code:     Cookie::get(), Request::cookie()
 Id:       49
@@ -7,26 +7,27 @@ Position: 2
 ---
 
 {problem}
-You want to check a cookie value sent to your application.
+アプリケーションに送信されたクッキーの値を確認したい。
 
-You know you could use the PHP `$_COOKIE` superglobal, but want to do it the Laravel way.
+PHPでは、スーパーグローバルの`$_COOKIE`を利用して取得しますが、  
+Laravel流に利用してみましょう
 {/problem}
 
 {solution}
-Use `Cookie::get()`.
+`Cookie::get()`を使います
 
-{php}
-// $val will be null if cookie not present
-$val = Cookie::get('COOKIE_NAME');
+```php
+// $val cookieが存在しない場合はnull
+$val = \Cookie::get('COOKIE_NAME');
 
-// Or you can pass a default, if not present
-$name = Cookie::get('NAME', 'Unknown');
+// 存在しない場合に返却する値を設定します
+$name = \Cookie::get('NAME', 'Unknown');
 echo "Hello $name";
-{/php}
+```
 {/solution}
 
 {discussion}
-This is basically the same as `Request::cookie()`.
+これは`Request::cookie()`と同じです
 
-In fact, the `Cookie::get()` method is actually a wrapper over `Request::cookie()`.
+実際には、`Cookie::get()`は`Request::cookie()`のラッパーです
 {/discussion}

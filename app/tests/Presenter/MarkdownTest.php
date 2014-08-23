@@ -12,7 +12,8 @@ class MarkdownTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->markdown = new Markdown(new \Parsedown());
+        \App::bind("App\Repositories\RecipeRepositoryInterface", "App\Tests\StubRepositories\RecipeRepository");
+        $this->markdown = new Markdown(new \Parsedown, \App::make("App\Repositories\RecipeRepositoryInterface"));
     }
 
     public function testInstance()
@@ -46,5 +47,15 @@ echo 'hello';
         $create = $this->markdown->render('##markdown', 'testing');
         $this->assertSame("<h2>markdown</h2>", $create);
         $this->assertSame("<h2>markdown</h2>", \Cache::get('testing'));
+    }
+
+    public function testConvert()
+    {
+        $text = "[[Speeding up Development with Generators]]";
+        $convert = $this->markdown->convertToRef($text);
+        $tmp = "[Speeding up Development with Generators](http://localhost/recipe/1)";
+        $this->assertSame($tmp, $convert);
+        $convert = $this->markdown->convertToRef("");
+        $this->assertSame("", $convert);
     }
 }

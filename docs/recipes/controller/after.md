@@ -1,5 +1,5 @@
 ---
-Title:    Registering After Filters On a Controller
+Title:    Afterフィルターをコントローラーで登録する
 Topics:   filters
 Code:     Controller::afterFilter()
 Id:       45
@@ -7,46 +7,48 @@ Position: 2
 ---
 
 {problem}
-You want a filter to occur after any actions on a specific controller.
+特定のコントローラーの全てのアクションに、アクション実行後にフィルター処理を実行させたい
 
-You thought about adding to `app/filters.php`, but are curious if there's another way to do this.
+`app/filters.php`を使ったフィルター処理追加以外の方法を知りたい
 {/problem}
 
 {solution}
-Use `Controller::afterFilter()`
+`Controller::afterFilter()`を利用します
 
-This is normally done in the constructor of your controller.
+任意のコントローラーのコンストラクタで登録します
 
-{php}
+```php
 class MyController extends \Controller
 {
-	public function __construct()
-	{
-		$this->afterFilter('log');
-	}
+
+    public function __construct()
+	  {
+		    $this->afterFilter('log');
+	  }
 }
-{/php}
+```
 
-You can also implement after filters with a Closure.
+クロージャを使って実装する事も可能です
 
-{php}
+```php
 class MyController extends \Controller
 {
-	public function __construct()
-	{
-		// dump last response
-		$this->afterFilter(function($route, $request, $response)
-		{
-			$content = $response->getContent();
-			File::put(app_storage().'/logs/last_response', $content);
-		}
-	}
+	  public function __construct()
+	  {
+		    // レスポンスのロギング
+		    $this->afterFilter(function($route, $request, $response)
+		    {
+			      $content = $response->getContent();
+			      \File::put(app_storage().'/logs/last_response', $content);
+		    }
+	  }
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-When does this filter get called?
+このフィルターがコールされるのはいつですか？
 
-Controller after filters are called after the the controller method is executed, but before the response is returned to the user. This makes it the ideal place to intercept the response and do some last minute manipulation before the user sees it.
+コントローラーのメソッドが実行された後、レスポンスを返却する前にこのフィルターがコールされます  
+ユーザーにレスポンスを返す直前に何らかの処理が必要な場合に利用すると便利です
 {/discussion}

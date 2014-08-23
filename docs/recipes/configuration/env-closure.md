@@ -1,5 +1,5 @@
 ---
-Title:    Detecting the Environment with a Closure
+Title:    クロージャを利用した実行環境の決定
 Topics:   configuration, environment
 Code:     App::detectEnvironment()
 Id:       28
@@ -7,30 +7,32 @@ Position: 5
 ---
 
 {problem}
-Determining your environment is complicated.
+利用環境を決定する事が難しい
 
-You need more flexibility than simply checking hostnames to determine the environment for your Laravel application.
+Laravelアプリケーションの実行環境を決定するのに、ホスト名を確認するよりも柔軟な方法が必要
 {/problem}
 
 {solution}
-Use a Closure to determine your environment.
+クロージャを利用して実行環境を指定します
 
-Edit `bootstrap/start.php` and use a Closure to do the detecting.
+`bootstrap/start.php`を編集して、クロージャを使ってみましょう
 
-{php}
-$env = $app->detectEnvironment(function()
-{
+```php
+$env = $app->detectEnvironment(function() {
 	return getenv('_MY_ENVIRONMENT');
 });
-{/php}
+```
 {/solution}
 
 {discussion}
-There's multiple ways to detect your environment.
+利用環境を検出する複数の方法があります。
 
-The `$app->detectEnvironment()` method can take either an array _(as illustrated in the [[Environment Specific Configurations]] recipe)_ or a `Closure`.
+`$app->detectEnvironment()`メソッドは、配列で指定する方法 _([[実行環境の決定]])_ の他、
+`Closure`が利用できます
 
-When an array of `'env' => array('hostnames')` is provided, if no match is found then the environment defaults to "production".
+配列を利用する場合は、`'env' => ['hostnames']`の様に利用します。  
+一致する環境が見つからない場合は"production"環境として扱います
 
-But if a `Closure` is provided then it must return something. There is no default.
+`Closure`を利用している場合は、デフォルト値が無い為、  
+必ず何かを返却しなければなりません
 {/discussion}

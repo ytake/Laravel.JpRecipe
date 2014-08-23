@@ -57,7 +57,7 @@ class AddRecipeCommand extends Command
                 $files = "{$path}/{$directory}";
                 if($scan = scandir($files)) {
                     // insert
-                    $this->scanFile($scan, $files, $category);
+                    $this->addRecipes($scan, $files, $category);
                 }
             }
         }
@@ -69,7 +69,7 @@ class AddRecipeCommand extends Command
      * @param \stdClass $category
      * @return void
      */
-    protected function scanFile(array $dir, $files, \stdClass $category)
+    protected function addRecipes(array $dir, $files, \stdClass $category)
     {
 
         foreach ($dir as $value) {
@@ -92,11 +92,22 @@ class AddRecipeCommand extends Command
                         'position' => trim($position)
                     ];
                     try {
-                        // @todo
+                        // new recipes
                         $this->recipe->addRecipe($array);
                         $this->info("added : {$files}/{$value}");
                     } catch(\Illuminate\Database\QueryException $e) {
-                        $this->comment("Duplicate : {$files}/{$value}");
+                        // update recipes
+                        $recipe = $this->recipe->getRecipeFromTitle(trim($title));
+                        $this->recipe->updateRecipe($recipe->recipe_id, [
+                                'problem' => trim($problem),
+                                'category_id' => $category->category_id,
+                                'solution' => trim($this->convertGfm($solution)),
+                                'discussion' => trim($this->convertGfm($discussion)),
+                                'position' => trim($position)
+                            ]
+                        );
+                        $this->comment("Updated : recipe:{$title} : {$files}/{$value}");
+
                     }
                 }
             }
@@ -161,12 +172,10 @@ class AddRecipeCommand extends Command
         $pattern = [
             "/{((?!\/)(php|js|bash|java|css|html|text))}/us",
             "/{(\/.*?)}/us",
-            "/\[\[((.*?))\]\]/us"
         ];
         $replace = [
             "```$1",
             "```",
-            "[$1](" . action('home.recipe') . ")"
         ];
         return preg_replace($pattern, $replace, $string);
     }

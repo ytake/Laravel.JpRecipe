@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Helpers File
+Title:    ヘルパーファイルの作成
 Topics:   configuration
 Code:     -
 Id:       50
@@ -7,36 +7,36 @@ Position: 10
 ---
 
 {problem}
-You have common functions you want available for every request.
-
-But you don't want to dirty up `app\start\global.php` with a bunch of functions.
+色々な処理で利用できる機能をまとめたファイル等を設置したいが、  
+`app\start\global.php`に追記してソースを汚したくない
 {/problem}
 
 {solution}
-Create a `helpers.php` file.
+`helpers.php`としてファイルを作成してみましょう。  
+ファイル名はなんでも構いませんが、ここでは`helpers.php`としています
 
-First create the file `app/helpers.php`.
+まず`app/helpers.php`を作成します
 
-{php}
+```php
 <?php
-// My common functions
+// common functions
 function somethingOrOther()
 {
-	return (mt_rand(1,2) == 1) ? 'something' : 'other';
+    return (mt_rand(1,2) == 1) ? 'something' : 'other';
 }
-?>
-{/php}
 
-Then either load it at the bottom of `app\start\global.php` as follows.
+```
 
-{php}
-// at the bottom of the file
+次に`app\start\global.php` のどこかに`require`を記述します
+
+```php
+// どこかに
 require app_path().'/helpers.php';
-{/php}
+```
 
-Or change your `composer.json` file and dump the autoloader.
+または `composer.json` に下記の様に追記して、`composer dump-autoload`を実行します
 
-{javascript}
+````json
 {
 	"autoload": {
 		"files": [
@@ -44,24 +44,30 @@ Or change your `composer.json` file and dump the autoloader.
 		]
 	}
 }
-{/javascript}
+```
 
-{bash}
+```bash
 $ composer dump-auto
-{/bash}
+```
 {/solution}
 
 {discussion}
-You can have multiple types of helpers.
+用途や種類別に複数のヘルパーファイルを作成しても構いません
 
-The standard Laravel setup has `app/filters.php` and `app/routes.php` but you can create whatever your application needs.
+Laravelは`app/filters.php`, `app/routes.php`を標準で持っています  
+ニーズに合わせて柔軟に対応できます
 
-Here are some suggestions.
+下記の様に持たせる事が可能です
 
-* `app/helpers.php` - For general purpose functions.
-* `app/composers.php` - To initialize all your View composers in one place.
-* `app/listeners.php` - To set up all your event listeners in one place.
-* `app/observers.php` - Or, if you like **observers** better than **listeners** use this filename for event listeners.
+* `app/helpers.php` - 汎用的な関数郡
+* `app/composers.php` - view composerに関連するもの
+* `app/listeners.php` - イベントリスナー
+* `app/observers.php` - 必要であれば **observers** として作成しても良いかもしれません
 
-It's really up to you and the demands of your application.
+実装や、構成は開発者次第で自由に作る事が出来ます
+
+#### ファイルをあまり増やしたくない？
+ヘルパーとして作成しましたが、  
+上記のファイル等はサービスプロバイダーに設置する事も出来ます
+
 {/discussion}

@@ -47,7 +47,9 @@ class FeedController extends Controller
                 $entry->setDateModified(strtotime($recipe->updated_at));
                 $entry->setDateCreated(strtotime($recipe->created_at));
                 $entry->setDescription(\Markdown::render($recipe->problem));
-                $entry->setContent(\Markdown::render($recipe->solution));
+                if($recipe->solution != '') {
+                    $entry->setContent(\Markdown::render($recipe->solution));
+                }
                 $feed->addEntry($entry);
             }
         }
@@ -81,6 +83,6 @@ class FeedController extends Controller
         }
         $dom->formatOutput = true;
         $content = $dom->saveXML();
-        return \Response::make($content, 200, ["Content-Type" => "text/xml; charset=utf-8"]);
+        return \Response::make($content, 200, ["Content-Type" => "application/xml; charset=UTF-8"]);
     }
 }

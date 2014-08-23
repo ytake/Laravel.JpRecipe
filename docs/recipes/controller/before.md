@@ -1,5 +1,5 @@
 ---
-Title:    Registering Before Filters On a Controller
+Title:    Beforeフィルターをコントローラーで登録する
 Topics:   filters
 Code:     Controller::beforeFilter()
 Id:       41
@@ -7,60 +7,62 @@ Position: 1
 ---
 
 {problem}
-You want a filter to occur before any actions on a specific controller.
+特定のコントローラーの全てのアクションに、アクション実行前にフィルター処理を実行させたい
 
-You thought about adding to `app/filters.php`, but are curious if there's another way to do this.
+`app/filters.php`を使ったフィルター処理追加以外の方法を知りたい
 {/problem}
 
 {solution}
-Use `Controller::beforeFilter()`
+`Controller::beforeFilter()`を利用します
 
-This is normally done in the constructor of your controller.
+任意のコントローラーのコンストラクタで登録します
 
-{php}
+```php
 class MyController extends \Controller
 {
-	public function __construct()
-	{
-		$this->beforeFilter('auth');
-	}
+	  public function __construct()
+	  {
+		    $this->beforeFilter('auth');
+  	}
 }
-{/php}
+```
 
-Just like Route filters, you can add additional arguments.
+ルーターのフィルタと同じ様に、引数を追加することができます
 
-{php}
+```php
 class MyController extends \Controller
 {
-	public function __construct()
-	{
-		$this->beforeFilter('auth', ['except' => 'login']);
-		$this->beforeFilter('csrf', ['on' => 'post']);
-	}
+	  public function __construct()
+	  {
+		    $this->beforeFilter('auth', ['except' => 'login']);
+		    $this->beforeFilter('csrf', ['on' => 'post']);
+	  }
 }
-{/php}
+```
 
-Or implement the filter with a Closure.
+クロージャを使って実装する事も可能です
 
-{php}
+```php
 class MyController extends \Controller
 {
-	public function __construct()
-	{
-		$this->beforeFilter(function()
-		{
-			if (date('G') < 6)
-			{
-				return "This website doesn't work before 6am";
-			}
-		}
-	}
+	  public function __construct()
+	  {
+		    $this->beforeFilter(function()
+		    {
+			      if (date('G') < 6)
+			      {
+				        return "This website doesn't work before 6am";
+			      }
+		    }
+	  }
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-When does this filter get called?
+このフィルターがコールされるのはいつですか？
 
-A Controller before filter get's called at the same place in the request lifecycle as a Route before filter does. It happens after the route is determined, but before the actual route is executed. See [[Understanding the Request Lifecycle]].
+コントローラーのメソッドが実行される前にこのフィルターがコールされます  
+実際にはルーター処理が実行される前に実行されます  
+[[リクエストのライフサイクルについて理解する]]
 {/discussion}

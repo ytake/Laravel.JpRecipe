@@ -1,5 +1,5 @@
 ---
-Title:    Creating an Apache VirtualHost
+Title:    Apache VirtualHostの作成
 Topics:   Apache, configuration
 Code:     -
 Id:       25
@@ -7,22 +7,23 @@ Position: 2
 ---
 
 {problem}
-The default Apache web page shows for your project.
+現在Apacheにアクセスすると、デフォルトのページが表示されています
 
-You have Apache installed and have created a Laravel project, but the web page returned by your browser is the default Apache web page.
+サーバにはすでにApacheがインストールされ、Laravelプロジェクトも作成してある状態です
 {/problem}
 
 {solution}
-Create an Apache Virtual Host for your project.
+プロジェクトのVirtual Hostを作成しましょう
 
-{bash}
-laravel:~$ cd /etc/apache2/sites-available
-laravel:/etc/apache2/sites-available$ sudo vi myapp.conf
-{/bash}
+```bash
+$ cd /etc/apache2/sites-available
+$ sudo vi myapp.conf
+```
+**お使いのOSでオペレーションは若干異なります**
 
-Have the contents of the file match what's below.
+`/home/vagrant/projects/myapp`に設置しているとすると・・
 
-{text}
+```apache
 <VirtualHost *:80>
   ServerName myapp.localhost.com
   DocumentRoot "/home/vagrant/projects/myapp/public"
@@ -30,47 +31,45 @@ Have the contents of the file match what's below.
     AllowOverride all
   </Directory>
 </VirtualHost>
-{/text}
+```
 
-Save the file, then continue below.
+ファイルを保存して、次の様に
 
-{bash}
-laravel:/etc/apache2/sites-available$ cd ../sites-enabled
-laravel:/etc/apache2/sites-enabled$ sudo ln -s ../sites-available/myapp.conf
-laravel:/etc/apache2/sites-enabled$ sudo service apache2 restart
-{/bash}
+```bash
+$ cd ../sites-enabled
+$ sudo ln -s ../sites-available/myapp.conf
+$ sudo service apache2 restart
+```
 
-#### Fixing Permissions
+**シンボリックリンクを作成しなくても構いません。お好みのスタイルで作成して下さい**
 
-If you're running a virtual machine under Vagrant, you may want to change the user and group to avoid permission issues.
+#### Permissions修正
 
-To do this:
+Vagrantで実行している場合は、権限の問題を回避するために、ユーザーとグループを変更する場合があります
 
-{bash}
-laravel:~$ cd /etc/apache2
-laravel:/etc/apache2$ sudo vi envvars
-{/bash}
+```bash
+$ cd /etc/apache2
+$ sudo vi envvars
+```
 
-Change the lines below to contain the desired user and group
-
-{text}
+```ini
 export APACHE_RUN_USER=vagrant
 export APACHE_RUN_GROUP=vagrant
-{/text}
+```
 
-Save the file and restart apache.
+ファイルを保存して、再起動します
 
-{bash}
-laravel:/etc/apache2$ sudo service apache2 restart
-{/bash}
+```bash
+$ sudo service apache2 restart
+```
 {/solution}
 
 {discussion}
-This solution assumes several things.
+このソリューションでは、いくつか想定しています
 
-1. Your apache version is the type that places virtual hosts in `/etc/apache/sites-*`
-2. Your Laravel project is in `/home/vagrant/projects/myapp`
-3. You have `myapp.localhost.com` in your hosts file (the host file on your host operating system, where you're browser will run)
+1. お使いのApacheのバージョンが `/etc/apache/sites-*` にVirtual Hostを設置するもの
+2. Laravelのプロジェクトの設置場所が `/home/vagrant/projects/myapp`
+3. ブラウザを通してアクセスするOS環境のhostsファイルに`myapp.localhost.com`を記述してある事
 
-If the assumptions above are correct you should be able to point your browser to `http://myapp.localhost.com` and see your Laravel web application.
+上記の環境の場合は、`http://myapp.localhost.com`にアクセスすると、Laravelプロジェクトにアクセスできる様になります
 {/discussion}

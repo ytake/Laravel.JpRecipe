@@ -23,7 +23,7 @@ Laravelの`Auth`機能をそのまま利用したいが、デフォルトのド�
 
 アプリケーションで、認証関連で利用したいテーブルが、Laravelデフォルトの、
 **users** ではない場合は、環境に合わせて変更する必要があります。
-[[Changing Your Authentication Table]]を参考にして下さい。
+[[認証で利用するテーブルを変更する]]を参考にして下さい。
 {/solution}
 
 {discussion}

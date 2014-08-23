@@ -33,5 +33,5 @@ App::booting(function($app) {
 2. 次に、`booting()`がコールされます
 3. 最後に`booted()`がコールされます
 
-[[Understanding the Request Lifecycle]]をご覧下さい
+[[リクエストのライフサイクルについて理解する]]をご覧下さい
 {/discussion}

@@ -20,6 +20,7 @@ $ php artisan migrate:reset
 ```
 
 データに影響を与えていないか見るためには`--pretend`オプションが利用できます。
+
 ```bash
 $ php artsian migrate:reset --pretend
 ```

@@ -22,7 +22,7 @@ $provider = Auth::getProvider();
 プロバイダーは、認証の設定などのコンフィグに基づいて利用されます。
 
 `app/config/auth.php`で設定したドライバーのプロバイダーになっているはずです。
-[[Changing Your Authentication Driver]]も参考にしてください。
+[[認証のドライバーを変更する]]も参考にしてください。
 
 具体的には、デフォルトで用意されている`database`をドライバーとして利用する場合、  
 `Illuminate\Auth\DatabaseUserProvider`がプロバイダーとなり、  
