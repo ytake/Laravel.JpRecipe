@@ -48,7 +48,7 @@ class ApplicationServiceProvider extends ServiceProvider
 
         // view composer
         $this->app->view->composer('elements.sidebar', 'App\Composers\CategoryComposer');
-        $this->app->view->composer('elements.header', 'App\Composers\CategoryComposer');
+        $this->app->view->composer('home.index', 'App\Composers\FeederComposer');
 
         /**
          * ユーザー独自のフィルター実装

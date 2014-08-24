@@ -1,0 +1,183 @@
+/* to optimize performance load fonts from LINK in HEAD */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
+body {
+  background: none repeat scroll 0% 0% #F5F5F5;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+body {
+    font-family: "Lucida Grande","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+}
+body, html {
+    width: 100%;
+    color: #454545;
+}
+
+.navbar-default {background-color:#ffffff;margin-top:50px;border-width:0;z-index:5;}
+.navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > li:hover > a {
+    border:0 solid #454545;
+    border-bottom-width:2px;
+    font-weight:800;
+    background-color:transparent;
+}
+.navbar-default .dropdown-menu {background-color:#ffffff;}
+.navbar-default .dropdown-menu li > a {padding-left:30px;}
+
+.header {background: none repeat scroll 0% 0%;}
+.header .navbar-collapse {background: none repeat scroll 0% 0%;}
+
+.header {
+    background-color: rgba(244, 114, 109, 0.9);
+    width: 100%;
+    z-index: 2000;
+    color: black !important;
+    right: 0px;
+    left: 0px;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.btn-primary,.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {background-color:#4285f4;}
+.btn-plus {background-color:#ffffff;border-width:1px;border-color:#dddddd;box-shadow:1px 1px 0 #999999;border-radius:3px;color:#666666;text-shadow:0 0 1px #bbbbbb;}
+
+.well,.panel {
+    border: none;
+}
+
+.btn-success,.label-success,.progress-bar-success{background-color:#65b045;}
+.btn-info,.label-info,.progress-bar-info{background-color:#a0c3ff,border-color:#a0c3ff;}
+.btn-danger,.label-danger,.progress-bar-danger{background-color:#dd4b39;}
+.btn-warning,.label-warning,.progress-bar-warning{background-color:#f4b400;color:#444444;}
+
+hr {border-color:#ececec;}
+
+button {
+	outline: 0;
+}
+textarea {
+  resize: none;
+  outline: 0;
+}
+.panel .btn i,.btn span{
+  color:#666666;
+}
+.panel .panel-heading {
+  background-color:#ffffff;
+  font-weight:700;
+  font-size:16px;
+  color:#262626;
+  border-color:#ffffff;
+}
+.panel .panel-heading a {
+  font-weight:400;
+  font-size:11px;
+}
+/*
+.panel .panel-default {
+  border-color:#cccccc;
+}
+*/
+.panel .panel-thumbnail {
+  padding:0;
+}
+.panel .img-circle {
+  width:50px;
+  height:50px;
+}
+.list-group-item:first-child,.list-group-item:last-child {
+	border-radius:0;
+}
+h3,h4,h5 { 
+  border:0 solid #efefef;
+  padding-bottom:10px;
+}
+
+.modal-dialog {
+ width: 450px;
+}
+
+.modal-footer {
+ border-width:0;
+}
+
+.dropdown-menu {
+   background-color:#f4f4f4;
+   border-color:#f0f0f0;
+   border-radius:0;
+   margin-top:-1px;
+}
+/* end theme styles */
+
+
+/* template layout */
+#subnav {
+	position:fixed;
+    width:100%;
+}
+
+@media (max-width: 768px) {
+	#subnav {
+	padding-top: 6px;
+	}
+}
+
+#main {
+	padding-top:120px;
+}
+/* end template layout */
+
+footer {
+    background-color: #252525;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #BDC3C7;
+}
+
+.wet-asphalt {
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #333;
+}
+#bottom {
+    color: #BDC3C7;
+    font-size: 12px;
+}
+
+#bottom a {
+    color:#ffffff;
+    text-decoration:none;
+}
+#bottom a:hover {
+    color:#f4645f;
+    text-decoration:none;
+}
+
+.search {
+    color: #fff;
+    background: url('/images/background/header.jpg') no-repeat scroll 0% 0% #F4726D;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.recipe-body img {
+    display: block;
+    vertical-align: bottom;
+    max-width: 100%;
+    height: auto;
+    width /***/:auto;
+}
+
+a {
+    color:#454545;
+    font-weight: bold;
+    text-decoration:none;
+}
+a:hover {
+    color:#f4645f;
+    text-decoration:none;
+}
+
+.badge-info {
+    background-color: #F4726D;
+}

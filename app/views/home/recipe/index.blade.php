@@ -7,42 +7,32 @@
 <script src="/js/application.js"></script>
 @stop
 @section('content')
-<section class="container">
-    <div class="row">
-        <aside class="col-sm-3 col-sm-push-9">
-            <div class="widget categories">
-                @include('elements.sidebar')
-            </div><!--/.categories-->
-        </aside>
-        <div class="col-sm-9 col-sm-pull-3">
-            <div class="recipe-content">
-                <div class="recipe-item">
-                    <div id="pricing-table" class="row">
-                        <div class="col-md-12 col-xs-12">
-                            <h1><img src="/images/logos/laravel_jp.png" width="45px" height="45px">{{$recipe->title}}</h1>
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <h2>
-                                            <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;悩み事
-                                        </h2>
-                                        {{Markdown::render($recipe->problem)}}
-                                        <h2>
-                                            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;解決方法
-                                        </h2>
-                                        {{Markdown::render($recipe->solution)}}
-                                        <h2>
-                                            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;アドバイス
-                                        </h2>
-                                        {{Markdown::render($recipe->discussion)}}
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.col-md-8-->
-    </div><!--/.row-->
-</section>
+<div class="row">
+    <div class="col-md-8 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading recipe-header">
+                <h2>
+        	        <img src="/images/logos/laravel_jp.png" width="45px" height="45px">{{$recipe->title}}
+        	    </h2>
+        	</div>
+       	    <div class="panel-body recipe-body">
+                <h2>
+                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;悩み事
+                </h2>
+                {{Markdown::render($recipe->problem)}}
+                <h2>
+                    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;解決方法
+                </h2>
+                {{Markdown::render($recipe->solution)}}
+                <h2>
+                    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;アドバイス
+                </h2>
+                {{Markdown::render($recipe->discussion)}}
+        	</div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        @include('elements.sidebar')
+    </div>
+</div>
 @stop
