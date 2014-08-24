@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Presenter\FeedInterface;
 use Illuminate\Routing\Controller;
 use App\Repositories\RecipeRepositoryInterface;
-use App\Repositories\CategoryRepositoryInterface;
 
 /**
  * Class FeedController

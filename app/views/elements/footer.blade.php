@@ -76,20 +76,8 @@
 <footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 Laravel Recipes(JP) &copy; 2014 yuuki takezawa. All Rights Reserved.
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">Faq</a></li>
-                    <li>
-                        <a id="gototop" class="gototop" href="#">
-                            <span class="glyphicon glyphicon-chevron-up"></span>
-                        </a>
-                    </li>
-                    <!--#gototop-->
-                </ul>
             </div>
         </div>
     </div>

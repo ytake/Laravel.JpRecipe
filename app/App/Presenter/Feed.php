@@ -70,4 +70,4 @@ class Feed implements FeedInterface
         $feed = $this->feed->export($this->format);
         return \Response::make($feed, 200, $this->header[$this->format]);
     }
-} 
+}

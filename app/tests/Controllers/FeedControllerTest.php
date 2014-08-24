@@ -58,7 +58,7 @@ class FeedControllerTest extends TestCase
     {
         $response = $this->controller->getSiteMap();
         $this->assertInstanceOf("Illuminate\Http\Response", $response);
-        $this->assertSame('text/xml; charset=utf-8', $response->headers->get('content-type'));
+        $this->assertSame('application/xml; charset=UTF-8', $response->headers->get('content-type'));
         $this->client->request('GET', '/sitemap.xml');
         $this->assertTrue($this->client->getResponse()->isOk());
     }

@@ -10,6 +10,11 @@ class CategoryComposerTest extends TestCase
     /** @var CategoryComposer */
     protected $compose;
 
+    public function tearDown()
+    {
+        m::close();
+    }
+
     public function setUp()
     {
         parent::setUp();
@@ -28,5 +33,12 @@ class CategoryComposerTest extends TestCase
     {
         $reflection = $this->getProtectProperty($this->compose, 'category');
         $this->assertInstanceOf("App\Tests\StubRepositories\CategoryRepository", $reflection->getValue($this->compose));
+    }
+
+    public function testComposer()
+    {
+        $view = m::mock('Illuminate\View\View');
+        $view->shouldReceive('with')->once()->andReturn($view);
+        $this->assertNull($this->compose->compose($view));
     }
 }

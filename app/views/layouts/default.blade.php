@@ -34,20 +34,18 @@
     <link rel="shortcut icon" href="/icon/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="/icon/favicon.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/dist/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/dist/animate.css" rel="stylesheet" type="text/css">
-    <link href="/css/dist/main.css" rel="stylesheet" type="text/css">
-    <link href="/css/dist/flaticon/flaticon.css" rel="stylesheet" type="text/css" >
     <!--[if lt IE 9]>
     <script src="/js/dist/html5shiv.js"></script>
     <script src="/js/dist/respond.min.js"></script>
     <![endif]-->
-    <link href="/css/default.css" rel="stylesheet" type="text/css">
+    <link href="/css/theme.css" rel="stylesheet">
     @yield('styles')
 </head>
 <body>
 @include('elements.header')
+<div class="container" id="main">
 @yield('content')
+</div>
 @include('elements.footer')
 <script src="//code.jquery.com/jquery-1.10.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
