@@ -37,7 +37,7 @@ class FeedControllerTest extends TestCase
         $this->assertInstanceOf('App\Controllers\FeedController', $this->controller);
     }
 
-    public function testIndex()
+    public function testIndexAtom()
     {
         $this->client->request('GET', '/feed/atom');
         $this->assertTrue($this->client->getResponse()->isOk());
@@ -45,7 +45,10 @@ class FeedControllerTest extends TestCase
         $request = $this->controller->getIndex();
         $this->assertInstanceOf("Illuminate\Http\Response", $request);
         $this->assertSame('application/atom+xml', $request->headers->get('content-type'));
+    }
 
+    public function testIndexRss()
+    {
         $this->client->request('GET', '/feed/rss');
         $this->assertTrue($this->client->getResponse()->isOk());
         $this->assertInstanceOf('Illuminate\Http\Response', $this->client->getResponse());
@@ -53,6 +56,7 @@ class FeedControllerTest extends TestCase
         $this->assertInstanceOf("Illuminate\Http\Response", $request);
         $this->assertSame('application/rss+xml; charset=utf-8', $request->headers->get('content-type'));
     }
+
 
     public function testSiteMap()
     {
