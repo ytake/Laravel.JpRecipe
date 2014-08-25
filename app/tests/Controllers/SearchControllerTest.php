@@ -10,6 +10,11 @@ class SearchControllerTest extends TestCase
     /** @var SearchController  */
     protected $controller;
 
+    public function tearDown()
+    {
+        m::close();
+    }
+
     public function setUp()
     {
         parent::setUp();
@@ -27,12 +32,12 @@ class SearchControllerTest extends TestCase
         $this->assertInstanceOf("Illuminate\Http\RedirectResponse", $this->controller->getIndex());
     }
 
-
     public function testRequestSearch()
     {
         $this->client->request('GET', '/search');
         $this->assertTrue($this->client->getResponse()->isRedirect());
     }
+
 
     /**
      * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException

@@ -1,6 +1,7 @@
 <?php
 namespace App\Tests\StubRepositories;
 
+use Mockery as m;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Validator\CustomRule;
 
@@ -22,6 +23,11 @@ class RecipeRepository implements RecipeRepositoryInterface
             "name" => "testing"
         ],
     ];
+
+    public function tearDown()
+    {
+        m::close();
+    }
 
     /**
      * セクション内でランダムにレシピを取得
@@ -144,5 +150,4 @@ class RecipeRepository implements RecipeRepositoryInterface
         return $result;
     }
 
-
-} 
+}

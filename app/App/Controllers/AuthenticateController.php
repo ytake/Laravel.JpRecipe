@@ -56,6 +56,6 @@ class AuthenticateController extends BaseController
     public function getLogout()
     {
         \Auth::logout();
-        return \Redirect::action('index');
+        return \Redirect::action('home.index');
     }
 } 
