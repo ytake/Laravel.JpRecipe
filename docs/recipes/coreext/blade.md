@@ -1,5 +1,5 @@
 ---
-Title:    Extending Blade Templates
+Title:    Bladeテンプレートを拡張する
 Topics:   extension
 Code:     Blade::extend()
 Id:       238
@@ -7,41 +7,45 @@ Position: 5
 ---
 
 {problem}
-You want to extend your Blade templates with new functions.
+Bladeテンプレートを拡張してfunctionなどを追加したい
 {/problem}
 
 {solution}
-Use the `Blade::extend()` method.
+`Blade::extend()`メソッドを利用します
 
-Let's say you want to add a `@break` command in your blade template. You'd implement it with code similar to the following.
+サンプルで、`@break`を追加してみましょう
+例に習って追加してみてください
 
-{php}
-Blade::extend(function($value)
-{
+```php
+\Blade::extend(function($value) {
     return preg_replace('/(\s*)@break(\s*)/', '$1<?php break; ?>$2', $value);
 });
-{/php}
+```
 
-Then in your blade template you could use the break like so.
+テンプレートで`break`を使う事ができる様になります
 
-{html}
+```html
 @foreach ($value_array as $value)
     @if ($value == 'end')
         @break;
     @endif
-    {{ $value }}<br>
+    {{$value}}<br>
 @endforeach
-{/html}
+```
 
-This snippet of code would output a list of values, but stop as soon as a value equals the word `end`.
+'$value'が'end'の場合に停止します
 {/solution}
 
 {discussion}
-Where should you add your Blade template extensions?
+Bladeテンプレートの拡張はどこで実装しますか？
 
-Anywhere before your view executes. Service providers are a great place. You could always add them in `app/start/global.php` or another helper file. See [[Creating a Helpers File]].
+基本的には、ビューが描画される前であればどこでも実装出来ます。
+一番ベストな実装場所はサービスプロバイダーです
+他には`app/start/global.php`、またはヘルパーファイル形式で実装する事もできます [[ヘルパーファイルの作成]]
 
-{tip}
-Be sure and clear your views after implementing a new Blade command. Just delete the files from `app/storage/views`. Blade templates are smart enough to recompile templates when they change, but not when you extend Blade templates. Thus the first time you use the extension you've created it's a good idea to clear the views.
-{/tip}
+### views コンパイルファイルを削除しましょう！
+
+新しいfunction等を追加した場合、
+かならず`app/storage/views`内のファイルを削除しましょう！
+
 {/discussion}

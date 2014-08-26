@@ -1,5 +1,5 @@
 ---
-Title:    Setting a Specific Configuration Value
+Title:    固有のconfig値を設定する
 Topics:   configuration
 Code:     Config::get(), Config::set()
 Id:       39
@@ -7,25 +7,28 @@ Position: 4
 ---
 
 {problem}
-You want to set a configuration option.
+configにオプションを設定したい
 
-But you don't want this value to be stored as part of your permanent configuration.
+この場合、永続的に使える設定値ではなく、
+その時だけ有効な設定値として利用する事ができます
 {/problem}
 
 {solution}
-Use `Config::set()`
+`Config::set()`を利用します
 
-Let's say you want to set the session driver to use the array driver.
+たとえば、今、sessionドライバーを配列のドライバーに変更したいとしましょう
 
-{php}
-Config::set('session.driver', 'array');
-{/php}
+```php
+\Config::set('session.driver', 'array');
+```
 
-Now, for the remainer of the request, any time `Config::get('session.driver')` is called, the value `array` will be returned.
+こうすると、現在のリクエスト内のみ、
+`Config::get('session.driver')`をコールすると、`array`が返却されます
 {/solution}
 
 {discussion}
-The only affects the current request.
+これは、現在のリクエストに影響を与えます
 
-If you want to change a configuration value permanently, so all future requests will retrieve the same value, you must edit the appropriate configuration file.
+永続的に値を変更させたい場合は、
+適切なconfigファイルを作成して、仕様等にあわせて編集して利用してください。
 {/discussion}

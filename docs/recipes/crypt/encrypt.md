@@ -1,5 +1,5 @@
 ---
-Title:    Encrypting a Value
+Title:    値を暗号化する
 Topics:   encryption
 Code:     Config::get(), Crypt::encrypt(), Crypt::setKey()
 Id:       105
@@ -7,25 +7,29 @@ Position: 1
 ---
 
 {problem}
-You want to encrypt a string.
+文字列を暗号化したい
 
-You have private data and want to encrypt it for later decryption.
+パスワード等のプライベートなデータを暗号化してみましょう
 {/problem}
 
 {solution}
-Use `Crypt::encrypt()`.
+`Crypt::encrypt()`を利用します
 
-{php}
-$encrypted = Crypt::encrypt($value);
-{/php}
+```php
+$encrypted = \Crypt::encrypt($value);
+```
 {/solution}
 
 {discussion}
-You must later decrypt the value with the same key used to encrypt it.
+複合化する場合に、暗号化に使用したキーを使う必要が有ります。
 
-Laravel's encryption routines use `Config::get('app.key')` for encryption. This happens internally. Since this value is different for every Laravel application then a value encrypted by the application should only be decrypt with the same application.
+Laravelの暗号化ルーチンで、
+内部で`Config::get('app.key')`をコールして利用しています。
+この値は、必ずアプリケーション毎で異なる値を設定して利用してください。
 
-Or ...
+または、
 
-The application can call `Crypt::setKey()` prior to encrypting. The same key must later be used to decrypt the value.  See [[Setting the Encryption Key]].
+暗号化利用前に`Crypt::setKey()`をコールする必要が有ります。
+これを利用して、暗号化前に使用する値を設定します。
+[[暗号化キーを設定する]] をご覧下さい
 {/discussion}

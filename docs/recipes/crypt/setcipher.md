@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Encryption Cypher
+Title:    暗号化のアルゴリズムを設定する
 Topics:   encryption
 Code:     Crypt::setCipher(), mcrypt_list_algorithms()
 Id:       108
@@ -7,23 +7,21 @@ Position: 4
 ---
 
 {problem}
-You want to change the cipher the encryption component uses.
+暗号化に利用するアルゴリズムを変更したい
 {/problem}
 
 {solution}
-Use `Crypt::setCipher()`.
+`Crypt::setCipher()`を利用します
 
-{php}
-Crypt::setCipher($new_cipher);
-{/php}
+```php
+\Crypt::setCipher($new_cipher);
+```
 {/solution}
 
 {discussion}
-The default cipher method is `rijndael-256`.
+現在、デフォルトで`rijndael-128`が利用されています
 
-You can get a list of available ciphers with a call to `mcrypt_list_algorithms()`.
-
-Here's a partial list:
+`mcrypt_list_algorithms()`で使用可能な暗号化アルゴリズムを取得できます
 
 * cast-128
 * gost
@@ -39,7 +37,11 @@ Here's a partial list:
 * des
 * rijndael-256
 
-This cipher will be used for subsequent `Crypt::encrypt()` and `Crypt::decrypt()` calls.
+これらのアルゴリズムは、`Crypt::encrypt()`, `Crypt::decrypt()`に利用されます
 
-But only in the current request.
+ただし、このメソッドをコールした場合に有効になるのは、
+現在のリクエスト処理の間のみです
+
+永続的に変更する場合は、
+`app/config/app.php`内の'cipher'の値を任意のアルゴリズムに変更してください。
 {/discussion}

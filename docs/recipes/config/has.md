@@ -1,5 +1,5 @@
 ---
-Title:    Determining If a Configuration Value Exists
+Title:    configの値を確認する
 Topics:   configuration
 Code:     Config::get(), Config::has(), microtime()
 Id:       7
@@ -7,29 +7,30 @@ Position: 1
 ---
 
 {problem}
-You want to see if a configuration value exists.
+あるconfigの値が存在するか確認したい
 
-You know you can use a _default_ parameter to the `Config::get()` method, but you want to be able to determine if the configuration key is even present in your application's config.
+`Config::get()`メソッドで _default_ を設定できるのはご存知ですか？
+この方法とは別に指定したconfigキーの値が存在するかどうかだけを取得してみましょう
 {/problem}
 
 {solution}
-Use `Config::has()`
+`Config::has()`を利用します
 
-{php}
-if (Config::has('app.mykey'))
-{
+```php
+if (\Config::has('app.mykey')) {
     echo "Yea! 'mykey' is in config/app.php\n";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-It's interesting how this is implemented.
+`Config::has()`メソッドは、
+内部で`Config::get()`を利用していますが、
+デフォルト値に`microtime()`の値が使用されています。
 
-The `Config::has()` method actually uses the `Config::get()` method with a default value of the current `microtime()`. It's only two lines of code.
 
-{php}
+```php
 $default = microtime(true);
 return $this->get($key, $default) !== $default;
-{/php}
+```
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Retrieving a Specific Configuration Value
+Title:    configの値を取得する
 Topics:   configuration
 Code:     Config::get()
 Id:       9
@@ -7,29 +7,33 @@ Position: 3
 ---
 
 {problem}
-You want to access a configuration option.
+configで設定した値にアクセスしたい
 {/problem}
 
 {solution}
-Use `Config::get()`.
+`Config::get()`を利用します
 
-To retrieve a specific configuration value.
+configで指定した値を取得する事ができます
 
-{php}
-$db_charset = Config::get('database.connections.mysql.charset');
-{/php}
+```php
+$db_charset = \Config::get('database.connections.mysql.charset');
+```
 
-If the value doesn't exist, you can provide a default.
+値が無い場合は、デフォルト値を設定する事ができます
 
-{php}
-$default = Config::get('non.existant.config.key', 'I am default');
-{/php}
+```php
+$default = \Config::get('non.existant.config.key', 'I am default');
+```
 {/solution}
 
 {discussion}
-Laravel caches configuration values within your request.
+Laravelはconfigの値は、リクエスト内でキャッシュして利用されます
 
-The first time you retrieve a value within a configuration group, the entire group's configuration values are loaded and merged with any environment specific overrides (see [[Environment Specific Configurations]]). These values remain within the current request until it terminates.
+最初にconfigの値を取得した場合、
+全体の設定値がロードされ、それぞれの動作環境別のconfigとマージされます
+([[実行環境の決定]]も参考にしてください)
+これらは現在のリクエスト内のみで有効になります
 
-This means the next time you retrieve a configuration value for the group there's no need to load the value from the file system. The requested value  is quickly returned.
+リクエスト内の処理では、
+configにアクセスする度に、ファイルをロードするという事はありません。
 {/discussion}

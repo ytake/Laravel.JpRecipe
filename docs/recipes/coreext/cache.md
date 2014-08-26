@@ -1,5 +1,5 @@
 ---
-Title:    Using Your Own Cache Driver
+Title:    独自のキャッシュドライバーを利用する
 Topics:   cache
 Code:     Cache::extend()
 Id:       262
@@ -7,22 +7,26 @@ Position: 6
 ---
 
 {problem}
-None of the built-in cache drivers fit your needs.
+Laravelで用意されているキャッシュドライバーが、現在の仕様に合っていない等、
+独自のドライバーを作成して利用したい
 {/problem}
 
 {solution}
-Extend Laravel and create your own cache driver.
+Laravelを拡張して独自のキャッシュドライバーを作成します
 
-#### Step 1 - Implement Illuminate\Cache\StoreInterface
+#### Step 1 - Illuminate\Cache\StoreInterfaceを実装する
 
-First you must create a class to handle the cache methods. We'll create a dummy cache driver below which will never cache anything.
+まずキャッシュのメソッドを利用するためのクラスを作成しなければなりません
+サンプルとしてキャッシュしないダミーキャッシュドライバを作成してみましょう
 
-{php}
-<?php namespace MyApp\Extensions;
+```php
+<?php
+namespace MyApp\Extensions;
 
 use Illuminate\Cache\StoreInterface;
 
-class DummyCacheStore implements StoreInterface {
+class DummyCacheStore implements StoreInterface
+{
 
     /**
      * A string that should be prepended to keys.
@@ -137,32 +141,30 @@ class DummyCacheStore implements StoreInterface {
         return $this->prefix;
     }
 }
-?>
-{/php}
+```
 
-#### Step 2 - Extend the Cache component
+#### Step 2 - Cacheコンポーネントを拡張する
 
-In a service provider or in `app/start/global.php` add the following line.
+サービスプロバイダーか、`app/start/global.php`に次の様に追加します
 
-{php}
-Cache::extend('dummy', function($app)
-{
-    $store = new MyApp\Extensions\DummyCacheStore;
-    return new Illuminate\Cache\Repository($store);
+```php
+\Cache::extend('dummy', function($app) {
+    $store = new \MyApp\Extensions\DummyCacheStore;
+    return new \Illuminate\Cache\Repository($store);
 });
-{/php}
+```
 
-#### Step 3 - Change the cache driver.
+#### Step 3 - authドライバーを変更する
 
-Edit `app/config/cache.php` and change the driver.
+`app/config/cache.php`のdriverを変更しましょう
 
-{php}
-    'driver' => 'dummy',
-{/php}
+```php
+'driver' => 'dummy',
+```
 {/solution}
 
 {discussion}
-Even though this example does nothing, it provides all needed components.
+この例は何もしないドライバーですが、独自キャッシュドライバーの基本的な追加方法を踏まえています
 
-You can use this class as the skeleton of your own cache driver.
+独自のキャッシュドライバのスケルトンとして、この例を使用してみましょう
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Creating HTML Macros
+Title:    HTMLマクロを作成する
 Topics:   html
 Code:     HTML::attributes(), HTML::decode(), HTML::email(),
           HTML::entities(), HTML::image(), HTML::link(), HTML::linkAction(),
@@ -11,47 +11,45 @@ Position: 3
 ---
 
 {problem}
-You'd like to extend the `HTML` facade with additional functionality.
+`HTML`ファサードを拡張して、機能を追加したい
 {/problem}
 
 {solution}
-Use the `HTML::macro()` method.
+`HTML::macro()`メソッドを利用します
 
-`HTML::macro()` allows you to extend the `HTML` facade with your own methods.
+`HTML::macro()`は`HTML`ファサードを拡張して、独自のメソッドを追加する事ができます
 
-First you register a macro, then later you can access the macro as you would any of the `HTML` methods.
+最初にマクロを登録しましょう
+その後に`HTML`ファサードを拡張して利用出来る様にします
 
-Let's say you add the following code to your `app/start/global.php` file.
+`app/start/global.php`ファイルに下記の様に追加してみましょう
 
-{php}
-HTML::macro('sumthin', function()
-{
+```php
+\HTML::macro('sumthin', function() {
     return '<sumthin>default</sumthin>';
 });
-{/php}
+```
 
-Then later, in a Blade template, you can access it.
+その後、Bladeテンプレートで以下の様に記述します
 
-{html}
-{{ HTML::sumthin() }}
-{/html}
+```html
+{{HTML::sumthin()}}
+```
 
-This would output the following.
+この様に出力されます
 
-{html}
+```html
 <sumthin>default</sumthin>
-{/html}
+```
 
-#### Add macros that take arguments
+#### マクロに引数を追加しましょう
 
-Let's update the `sumthin` macro to take three arguments. First the implementation.
+`sumthin`マクロで引数を使える様に変更します
 
-{php}
-HTML::macro('sumthin', function($value, $count = 10, $start = 1)
-{
-    $build = array();
-    while ($count > 0)
-    {
+```php
+\HTML::macro('sumthin', function($value, $count = 10, $start = 1) {
+    $build = [];
+    while ($count > 0) {
         $build[] = sprintf('<sumthin index="%s">%s</sumthin>',
           $start, $value);
         $start += 1;
@@ -59,33 +57,35 @@ HTML::macro('sumthin', function($value, $count = 10, $start = 1)
     }
     return join("\n", $build);
 });
-{/php}
+```
 
-Now `HTML::sumthin()` has one required argument and two optional ones. If you don't pass the required argument, Laravel will generate an error.
+`HTML::sumthin()`に必須の引数一つと、二つのオプションを追加しました。
+引数を指定しない場合、Laravelはエラーを返します
 
-Use it in a template.
+テンプレートで以下の様に記述します
 
-{html}
-{{ HTML::sumthin('test', 5) }}
-{/html}
+```html
+{{HTML::sumthin('test', 5)}}
+```
 
-The output would be.
+下記の様に出力されます
 
-{html}
+```html
 <sumthin index="1">test</sumthin>
 <sumthin index="2">test</sumthin>
 <sumthin index="3">test</sumthin>
 <sumthin index="4">test</sumthin>
 <sumthin index="5">test</sumthin>
-{/html}
+```
 {/solution}
 
 {discussion}
-Examine the source code.
+ソースコードを見てみましょう！
 
-If you look at `HtmlBuilder.php` in your `vendor/laravel/src/Illuminate\Html` directory you can see several undocumented public methods of the `HTML` facade that you can use in your macros.
+`vendor/laravel/src/Illuminate\Html`ディレクトリの`HtmlBuilder.php`を見ると、
+リファレンス等に載っていないいくつかのpublicメソッドがあります。
 
-Your macro code doesn't have access to `$this`, but you can call any of the following handy methods:
+マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
 * `HTML::entities()` - See [[Converting a HTML String to Entities]].
 * `HTML::decode()` - See [[Decoding HTML Entities to a String]].
@@ -105,5 +105,5 @@ Your macro code doesn't have access to `$this`, but you can call any of the foll
 * `HTML::attributes()` - See [[Bulding an HTML Attribute String From an Array]].
 * `HTML::obfuscate()` - See [[Obfuscating a String]].
 
-You even can call other macros from your macro.
+マクロから他のマクロをコールする事ができます
 {/discussion}

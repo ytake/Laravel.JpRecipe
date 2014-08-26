@@ -1,5 +1,5 @@
 ---
-Title:    Determining If a Configuration Group Exists
+Title:    configのグループが存在するか確認する
 Topics:   configuration, environment
 Code:     Config::hasGroup()
 Id:       8
@@ -7,26 +7,28 @@ Position: 2
 ---
 
 {problem}
-You want to see if a configuration group exists.
+configのグループが存在するか確認したい
 
-You know Laravel organizes the configuration into groups and these groups are implemented as individual config files. For instance the `app/config/database.php` contains configuration for the _database_ group.
-
-You want to see if the group even exists.
+Laravelはそれぞれの設定をグループ化できるのをご存知ですか？
+それぞれのグループは個別のファイルで分ける事ができます。
+例えば、`app/config/database.php`ファイルは、_database_ グループのconfigファイルとなります
 {/problem}
 
 {solution}
-Use `Config::hasGroup()`.
+`Config::hasGroup()`を利用します
 
-{php}
-if (Config::hasGroup('session'))
-{
+```php
+if (\Config::hasGroup('session')) {
 	echo "I have a config/session.php file!";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This only works for groups existing in the production environment.
+これは、本番環境用の既存のグループを取得しています。
 
-In other words, if your environment is _local_ and you have a `app/config/local/shoes.php` file, but no top level `app/config/shoes.php` then the `Config::hasGroup("shoes")` statement will return `false`.
+現在の環境が _local_ とすれば、
+`app/config/local/shoes.php`を利用しますが、
+トップレベル(本番環境向け)の`app/config/shoes.php` が存在していない場合は、
+`Config::hasGroup("shoes")` で返却される値は`false`となります
 {/discussion}
