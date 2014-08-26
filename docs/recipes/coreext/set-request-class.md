@@ -1,5 +1,5 @@
 ---
-Title:    Changing the Default Request Class
+Title:    デフォルトのリクエストクラスを変更する
 Topics:   -
 Code:     App::requestClass()
 Id:       210
@@ -7,46 +7,50 @@ Position: 4
 ---
 
 {problem}
-You want to use a special Request class for your application.
+アプリケーション独自のリクエストクラスを使いたい
 {/problem}
 
 {solution}
-Use the `Application::requestClass()` early in the request lifecycle.
+ライフサイクルの早期段階で`Application::requestClass()`を利用します
 
-Since one of the very first thing Laravel does when it boots is create the `Application` class, and the first thing the `Application` does is create a new instance of the Request class, you must make changes before this occurs.
+Laravelアプリケーションが起動する際に`Application`クラスが生成され、
+`Application`クラスが最初にリクエストクラスのインスタンスを生成するので、
+生成される前に変更しなければなりません
 
-#### Step 1 - Create your class
+#### Step 1 - クラスを作成する
 
-You must extend the class from `\Illuminate\Http\Request`.
+必ず`\Illuminate\Http\Request`クラスを継承しなければなりません
 
-{php}
-<?php namespace MyApp;
+```php
+<?php
+namespace MyApp;
 
-class Request extends \Illuminate\Http\Request {
+class Request extends \Illuminate\Http\Request
+{
     // add your methods here
 }
-?>
-{/php}
+```
 
-#### Step 2 - Modify `bootstrap/start.php`
+#### Step 2 - `bootstrap/start.php`を変更します
 
-At the very top, before the `$app = new Illuminate\Foundation\Application;` line, add the following code.
+`$app = new Illuminate\Foundation\Application;`よりも上部で次のコードを追加します
 
-{php}
+```php
 use Illuminate\Foundation\Application;
 
 Application::requestClass('MyApp\Request');
-{/php}
+```
 
-That's it. Now when the `Application` gets constructed it will use your class instead of the default `Illuminate\Http\Request` request.
+これだけです！
+`Application`が構築されるときに、`Illuminate\Http\Request`に変わって独自のクラスが利用されます
 {/solution}
 
 {discussion}
-This same method returns the request class.
+`Application::requestClass()`にクラスを指定しない場合は、リクエストクラスを設定せずに
+利用されるリクエストクラス名を返却します
 
-If you don't pass any arguments to `Application::requestClass()` it won't set the request class, but it returns the class name used to create the request.
+[[デフォルトのRequestクラスを取得する]] をご覧下さい
 
-See [[Getting the Default Request Class]].
-
-Because setting the class occurs so early in the request lifecycle, you cannot yet use the `App` facade.
+リクエストライフサイクルの初期で設定されるため、
+この段階では`App`ファサードを利用する事はできません
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Decrypting a Value
+Title:    値を複合化する
 Topics:   encryption
 Code:     Config::get(), Crypt::encrypt(), Crypt::setKey()
 Id:       106
@@ -7,25 +7,32 @@ Position: 2
 ---
 
 {problem}
-You want to decrypt a string.
+文字列を複合化したい
 
-You've encrypted a string and are ready to decrypt and use it.
+Laravelで文字列を暗号化する事ができます
+暗号化したものを今度は複合化してみましょう
 {/problem}
 
 {solution}
-Use `Crypt::decrypt()`.
+`Crypt::decrypt()`を利用します
 
-{php}
-$value = Crypt::decrypt($encrypted);
-{/php}
+```php
+$value = \Crypt::decrypt($encrypted);
+```
 {/solution}
 
 {discussion}
-You must decrypt the value with the same key used to encrypt it.
+複合化する場合は、
+暗号化する為に利用したキーと同じものを利用して
+複合化しなければなりません
 
-Laravel's encryption routines use `Config::get('app.key')` for encryption. This happens internally. Since this value is different for every Laravel application then the application that encrypts a value must also decrypt the value.
+Laravelの暗号化ルーチンで、
+内部で`Config::get('app.key')`をコールして利用しています。
+この値は、必ずアプリケーション毎で異なる値を設定して利用してください。
 
-Or ...
+または、
 
-The application must call `Crypt::setKey()` prior to decrypting to match the key to the value used for encrypting.  See [[Setting the Encryption Key]].
+暗号化利用前に`Crypt::setKey()`をコールする必要が有ります。
+これを利用して、暗号化前に使用する値を設定します。
+[[暗号化キーを設定する]] をご覧下さい
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Understanding Where Laravel Uses Encryption
+Title:    Laravelの暗号化について理解する
 Topics:   cookies, encryption
 Code:     -
 Id:       110
@@ -7,22 +7,22 @@ Position: 6
 ---
 
 {problem}
-You want to understand where and when Laravel uses encryption.
+Laravelの暗号化について理解したい
 {/problem}
 
 {solution}
-There's only three places Laravel uses the Crypt package.
+Laravelは3箇所でCryptパッケージを利用しています
 
-1. Caches. Specifically if you're using the Database Cache driver then values
-   placed in the cache are encrypted prior to saving and decrypted when loaded.
-2. Cookies. Cookie values are always sent to the user encrypted. When the
-   request loads, all cookie values are decrypted.
-3. Queues. Specifically if you're using the iron queue driver then values are
-   stored in the queue encrypted and decrypted once retrieved.
+1. キャッシュ キャッシュドライバーにデータベースをお使いの場合に、
+   保存時に暗号化され、取得するときに複合化されます
+2. cookie cookieの値は全て暗号化されてブラウザに送信されます。
+   ブラウザから送信されたcookieはすべて複合化され利用されます
+3. キュー ironキュードライバーを選択している場合に、
+   全ての値は暗号化、複合化されて利用されます
 {/solution}
 
 {discussion}
-See also [[Understanding the Request Lifecycle]].
+[[リクエストのライフサイクルについて理解する]] も参考にしてください
 
-Keep in mind that cookies are handled as middleware.
+cookieのミドルウェアとして扱われている事に注意してください
 {/discussion}

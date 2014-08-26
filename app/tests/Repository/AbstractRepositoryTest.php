@@ -81,9 +81,10 @@ class AbstractRepositoryTest extends TestCase
 
     public function testConnection()
     {
+        $this->table = 'testing';
+        $builder = m::mock("\Illuminate\Database\Query\Builder");
+        \DB::shouldReceive('connection')->with('master')->once()->andReturn($builder);
+        $builder->shouldReceive('table')->once()->andReturn($builder);
         $this->assertInstanceOf("\Illuminate\Database\Query\Builder", $this->fluent->getConnection('master'));
     }
 }
-
-
-

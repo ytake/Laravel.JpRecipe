@@ -1,5 +1,5 @@
 ---
-Title:    Retrieving All the Configuration Items
+Title:    config全てを取得する
 Topics:   configuration
 Code:     Config::get(), Config::getItems()
 Id:       40
@@ -7,40 +7,42 @@ Position: 5
 ---
 
 {problem}
-You want to see all your configuration items.
+configの全ての項目を表示したい
 
-You suspect something isn't configured correctly and want to get a list of all configuration items.
+正しくない値が返却された場合等に、すべてのconfig値を取得して確認をしたい
 {/problem}
 
 {solution}
-Use `Config::getItems()`
+`Config::getItems()`利用します
 
-This method will return a multi-dimensional array of all **loaded** configuration settings.
+このメソッドは、**ロードされた** すべてのconfigの値を多次元配列で返却します
 
-{php}
-// Dump all loaded configuration items
-var_dump(Config::getItems())
-{/php}
+```php
+// ロードされた全てのconfigを返却
+var_dump(\Config::getItems())
+```
 
-If you want to see the configuration settings for a particular group, use `Config::get('groupname')`.
+特定のグループ(config/配下のファイル名等)のconfigを主取るする場合は、
+`Config::('groupname')`を使用します
 
-{php}
-// Dump all the database settings
-var_dump(Config::get('database'));
-{/php}
+```php
+// databaseグループのconfigを取得
+var_dump(\Config::get('database'));
+```
 {/solution}
 
 {discussion}
-Remember `Config::getItems()` only outputs loaded items.
+`Config::getItems()`はロードされたものだけを出力します
 
-If your request never accessed a queue configuration option, then the entire _queue_ group will be missing from the array.
+例えば、 _queue_ がまだロードされていない場合は、
+`Config::getItems()`では取得出来ません。
 
-To remedy this, you simply need to access a single option in the group.
+この場合は、取得したい項目を直接指定してアクセスします
 
-{php}
-Config::get('queue.driver');
+```php
+\Config::get('queue.driver');
 
-// Now the queue group will also be in the output
-var_dump(Config::getItems());
-{/php}
+// アクセスすると、ロードされますので、次回からは下記で取得されます
+var_dump(\Config::getItems());
+```
 {/discussion}
