@@ -17,15 +17,15 @@
         	</div>
        	    <div class="panel-body recipe-body">
                 <h2>
-                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;悩み事
+                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp;悩み事
                 </h2>
                 {{Markdown::render($recipe->problem)}}
                 <h2>
-                    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;解決方法
+                    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;解決方法
                 </h2>
                 {{Markdown::render($recipe->solution)}}
                 <h2>
-                    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;アドバイス
+                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;アドバイス
                 </h2>
                 {{Markdown::render($recipe->discussion)}}
         	</div>

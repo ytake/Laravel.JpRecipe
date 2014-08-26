@@ -64,11 +64,12 @@ class Markdown implements MarkdownInterface
 
             foreach($matches[0] as $key => $match) {
                 $recipe = $this->recipe->getRecipeFromTitle($matches[1][$key]);
-
-                if (isset($matches[1][$key])) {
-                    $replace = $matches[1][$key];
-                    $ref = "[{$replace}](" . action('home.recipe', [$recipe->recipe_id]) . ")";
-                    $string = str_replace($match, $ref, $string);
+                if ($recipe) {
+                    if (isset($matches[1][$key])) {
+                        $replace = $matches[1][$key];
+                        $ref = "[{$replace}](" . action('home.recipe', [$recipe->recipe_id]) . ")";
+                        $string = str_replace($match, $ref, $string);
+                    }
                 }
             }
         }

@@ -6,16 +6,16 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <h4>Laravel JP</h4>
+                <a href="https://www.facebook.com/groups/laravel.jp/" target="_blank"><img src="/images/facebook.png" width="30px" height="30px"></a>
+                <a href="https://twitter.com/laraveljp" target="_blank"><img src="/images/twitter.png" width="30px" height="30px"></a>
             </div><!--/.col-md-3-->
             <div class="col-md-3 col-sm-6">
                 <h4>Contributors</h4>
-                <div>
-                    <ul class="arrow">
-                        <li>@kurikazu</li>
-                        <li>@blue_goheimochi</li>
-                        <li>@syossan27</li>
-                    </ul>
-                </div>
+                <ul class="arrow">
+                    <li>@kurikazu</li>
+                    <li>@blue_goheimochi</li>
+                    <li>@syossan27</li>
+                </ul>
             </div><!--/.col-md-3-->
             <div class="col-md-3 col-sm-6">
                 <h4>日本語書籍</h4>
@@ -68,6 +68,9 @@
                     <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
                     <small><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Laravel Recipes(JP)</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Yuuki Takezawa</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</small>
                 </a>.
+                <br />
+                <a href="https://www.facebook.com/yuuki.takezawa" target="_blank"><img src="/images/facebook.png" width="30px" height="30px"></a>
+                <a href="https://twitter.com/ex_takezawa" target="_blank"><img src="/images/twitter.png" width="30px" height="30px"></a>
             </div>
             <!--/.col-md-3-->
         </div>

@@ -11,15 +11,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse1">
                 <ul class="nav navbar-nav navbar-right">
-                     <li><a href="/auth/login">Login<i class="glyphicon glyphicon-user"></i></a></li>
+                    <li><a href="/faq">FAQ&nbsp;<i class="glyphicon glyphicon-question-sign"></i></a></li>
+                     <li><a href="/auth/login">Login&nbsp;<i class="glyphicon glyphicon-user"></i></a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-default" id="subnav">
-        <div class="col-md-12">
-            <div class="navbar-header">
-
             </div>
         </div>
     </div>

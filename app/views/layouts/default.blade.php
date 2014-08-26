@@ -9,18 +9,18 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{Request::url()}}">
     <meta property="og:image" content="">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="@yield('description', Config::get('recipe.description'))">
     <meta name="twitter:card" value="summary"/>
     <meta name="twitter:site" value=""/>
     <meta name="twitter:creator" value=""/>
     <meta name="twitter:url" value="{{Request::url()}}"/>
     <meta name="twitter:title" value="@yield('title', Config::get('recipe.title'))"/>
-    <meta name="twitter:description" value=""/>
+    <meta name="twitter:description" value="@yield('description', Config::get('recipe.description'))"/>
     <meta name="twitter:image" value="" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yuuki Takezawa and LaravelJp contributors">
-    <meta name="description" content="PHPフレームワーク Laravelの実装事例等を詳細に記述した情報を掲載したレシピサイトです。">
-    <meta name="keywords" content="Laravel, framework, php, ララベル, フレームワーク, 日本語, チュートリアル, サンプル" />
+    <meta name="description" content="@yield('description', Config::get('recipe.description'))">
+    <meta name="keywords" content="@yield('keywords', Config::get('recipe.keywords'))" />
     <title>@yield('title', Config::get('recipe.title'))</title>
     <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
     <link rel="dns-prefetch" href="//code.jquery.com">
@@ -28,9 +28,6 @@
     <link rel="dns-prefetch" href="//connect.facebook.net">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//disqus.com">
-    <link rel="alternate" type="application/rss+xml" title="レシピのRSS" href="" />
-    <link rel="alternate" type="application/rss+xml" title="レシピのAtomFeed" href="" />
-    <link rel="alternate" type="application/rss+xml" title="XML Sitemaps" href="" />
     <link rel="shortcut icon" href="/icon/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="/icon/favicon.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">

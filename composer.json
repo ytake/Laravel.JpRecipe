@@ -17,7 +17,7 @@
         "guzzlehttp/guzzle": "4.1.*",
         "nocarrier/hal": "0.9.*",
         "zendframework/zend-feed": "2.*",
-	    "zendframework/zend-servicemanager": "2.*",
+        "zendframework/zend-servicemanager": "2.*",
         "zendframework/zend-http": "2.*",
         "erusev/parsedown": "1.*"
     },
@@ -39,7 +39,10 @@
         "psr-4": {
             "App\\": "app/App",
             "App\\Tests\\": "app/tests"
-        }
+        },
+        "files": [
+            "app/common.php"
+        ]
     },
     "scripts": {
         "post-install-cmd": [

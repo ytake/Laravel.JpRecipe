@@ -9,6 +9,11 @@
 \Route::when('webmaster/recipe*', 'post.once', ['post']);
 \Route::when('webmaster/category*', 'post.once', ['post']);
 
+\Route::get('faq', function() {
+    $title = \Config::get('recipe.title') . "FAQ";
+    \View::inject('title', $title);
+    return \View::make('home.faq.index');
+});
 \Route::group(['namespace' => 'App\Controllers'], function () {
 
     // for API
@@ -54,7 +59,8 @@
     \Route::controller('/', 'HomeController', [
             'getIndex' => 'home.index',
             'getRecipe' => 'home.recipe',
-            'getCategory' => 'home.category'
+            'getCategory' => 'home.category',
+            'getSection' => 'home.section'
         ]
     );
 });
