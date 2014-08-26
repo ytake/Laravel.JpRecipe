@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-use App\Repositories\AnalyticsRepositoryInterface;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\AnalyticsRepositoryInterface;
 
 /**
  * Class HomeController
@@ -54,7 +54,7 @@ class HomeController extends BaseController
             $section->recipes = $this->recipe->getRecipeFromSectionByRand($section->section_id);
         }
         $data = [
-            'latest' => $this->recipe->getLatestRecipe(5),
+            'latest' => $this->recipe->getLatestRecipe(7),
             'sections' => $sections,
             'popular' => $this->getContentsRanking()
         ];
@@ -93,12 +93,27 @@ class HomeController extends BaseController
     }
 
     /**
+     * @param $one
+     */
+    public function getSection($one)
+    {
+        $section = $this->section->getSection($one);
+        $data = [
+            'section' => $section,
+            'list' => $this->category->getCategoryFromSection($one)
+        ];
+        // title設定
+        $this->title($section->name);
+        $this->view('home.section.index', $data);
+    }
+
+    /**
      * @access private
      * @return mixed
      */
     private function getContentsRanking()
     {
-        $result = $this->analytics->getSortedCount();
+        $result = $this->analytics->getSortedCount(0, 6);
         if($result) {
             foreach ($result as $row) {
                 $recipe = $this->recipe->getRecipe($row->recipe_id);

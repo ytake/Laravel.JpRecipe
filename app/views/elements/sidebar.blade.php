@@ -16,6 +16,13 @@
         </ul>
     </div>
 </div>
+<div class="panel panel-default panel-feed">
+    <div class="panel-body">
+        <a href="/feed/atom" alt="Laravel recipes(JP) Atom feed" title="Laravel recipes(JP) Atom feed" target="_blank"><img src="/images/rss-64.png"></a>
+        <a href="/feed/rss" alt="Laravel recipes(JP) RSS feed" title="Laravel recipes(JP) RSS feed" target="_blank"><img src="/images/rss-64-black.png"></a>
+        <a href="https://github.com/ytake/Laravel.JpRecipe" alt="Laravel.JpRecipe" title="Laravel.JpRecipe" target="_blank"><img src="/images/github-64.png"></a>
+    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h4>Category</h4></div>
     <div class="panel-body">

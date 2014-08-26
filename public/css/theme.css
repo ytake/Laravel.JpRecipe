@@ -8,6 +8,15 @@ body {
 }
 
 body {
+    background-image: url(/images/logos/laravel-slant.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -moz-background-size:contain;
+    background-size: 20%;
+}
+
+body {
     font-family: "Lucida Grande","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
 }
 body, html {
@@ -29,7 +38,7 @@ body, html {
 .header .navbar-collapse {background: none repeat scroll 0% 0%;}
 
 .header {
-    background-color: rgba(244, 114, 109, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     width: 100%;
     z-index: 2000;
     color: black !important;
@@ -123,7 +132,7 @@ h3,h4,h5 {
 }
 
 #main {
-	padding-top:120px;
+	padding-top:70px;
 }
 /* end template layout */
 
@@ -169,15 +178,40 @@ footer {
 }
 
 a {
-    color:#454545;
-    font-weight: bold;
+    color:#F4645F;
     text-decoration:none;
 }
 a:hover {
-    color:#f4645f;
+    color:#454545;
     text-decoration:none;
 }
 
-.badge-info {
-    background-color: #F4726D;
+a {
+    font-weight: inherit;
+    font-size: inherit;
+    text-decoration: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    transition: all 250ms linear 0s;
+    transition-property: all;
+    transition-duration: 250ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+small {
+    font-size: 80%;
+}
+.font-medium {
+    font-size: 90%;
+    margin: 3px 0px 1px;
+}
+
+.language-text {
+    color: #fff0ff;
+}
+
+.panel-feed {
+    background-color: #ff821f;
+    color:#262626;
 }
