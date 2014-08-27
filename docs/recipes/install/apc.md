@@ -1,5 +1,5 @@
 ---
-Title:    Installing APC
+Title:    APCをインストールする
 Topics:   apc, cache, installation
 Code:     -
 Id:       91
@@ -7,26 +7,37 @@ Position: 10
 ---
 
 {problem}
-You want to speed up your application using a cache.
+キャッシュを使って、アプリケーションを高速化させたい
 {/problem}
 
 {solution}
-Install APC (Alternative PHP Cache)
+APC (Alternative PHP Cache)をインストールします
 
-It's easy to install with just two lines from your console.
+コンソールでたった1行のコマンドでインストール出来ます
 
-{bash}
+パッケージでインストール(ubuntuなど)
+
+```bash
 $ sudo apt-get install -y php-apc
-$ sudo service apache2 restart
-{/bash}
+```
 
-The first line installs the package, the second restarts apache.
+またはpeclでインストールします
+
+```
+$ sudo pecl install apcu-beta
+```
+
+どちらも簡単にインストール出来ます
+インストール後に `extension=apc.so` が有効になっているか確認しましょう
 {/solution}
 
 {discussion}
-APC can help your application in two ways.
+LaravelアプリケーションでAPCを活用する方法が二つあります
 
-First of all, is APC's opcode cache. This speeds up the execution of your program by caching the results of PHP's byte-code compiler.
+一つは、APCのオペコードキャッシュがあります
+これはPHPのバイトコードコンパイラの結果をキャッシュすることにより、プログラムの実行を高速化します
+つまり単純にアプリケーションの処理速度が向上します
 
-Secondly, you can use APC as a cache within your application. See [[Setting up the APC Cache Driver]] for instructions on using APC as the cache driver.
+もう一つは、アプリケーション内キャッシュドライバーにAPCを使用することができます。
+[[Setting up the APC Cache Driver]] に、APCキャッシュドライバの使用方法が記述されています
 {/discussion}

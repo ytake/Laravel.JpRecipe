@@ -1,5 +1,5 @@
 ---
-Title:    Installing Nginx
+Title:    Nginxをインストールする
 Topics:   installation, Nginx
 Code:     -
 Id:       21
@@ -7,28 +7,27 @@ Position: 7
 ---
 
 {problem}
-You have no web server installed.
-
-You'd like to install a web server for your Laravel application to use.
+まだWebサーバがインストールされていないので
+Laravelアプリケーションを利用するWebサーバをインストールしたい
 {/problem}
 
 {solution}
-Install Nginx.
+Nginxをインストールします
 
-Here are the instructions for Ubuntu 13.04.
+*このインストール方法はUbuntu 13.04のものです*
 
-{bash}
-laravel:~$ sudo apt-get install -y php5-fpm nginx
-laravel:~$ sudo service nginx start
-{/bash}
+```bash
+$ sudo apt-get install -y php5-fpm nginx
+$ sudo service nginx start
+```
 {/solution}
 
 {discussion}
-Nginx is pronounced "engine-x".
+Nginxの読み方は、"エンジン-エックス"です
 
-Nginx is rapidly becoming the favorite web server for techies everywhere.
+Nginxは技術者に好まれるwebサーバで急速に広まっています
 
-It's fast, easy to configure, and doesn't use as much memory as Apache.
+Nginxは高速で、設定も簡単で、Apacheのようにメモリを多く使いません
 
-See also [[Creating a Nginx VirtualHost]]
+[[Nginx VirtualHostの作成]] も参考にしてください
 {/discussion}

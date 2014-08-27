@@ -1,5 +1,5 @@
 ---
-Title:    Installing MySQL
+Title:    MySQLをインストールする
 Topics:   installation, MySQL
 Code:     -
 Id:       19
@@ -7,54 +7,40 @@ Position: 5
 ---
 
 {problem}
-You need a database server for your Laravel application.
+Laravelアプリケーションでデータベースを利用したい
 
-But you don't have a database server installed on your machine.
+お使いの環境にインストールされていない場合は、インストールしてみましょう
 {/problem}
 
 {solution}
-Install MySQL.
+MySQLをインストールします
 
-Here are the instructions for Ubuntu 13.04.
+*このインストール方法はUbuntu 13.04のものです*
 
-{bash-lines}
-laravel:~$ sudo debconf-set-selections <<< \
+```bash
+$ sudo debconf-set-selections <<< \
 > 'mysql-server mysql-server/root_password password root'
-laravel:~$ sudo debconf-set-selections <<< \
+$ sudo debconf-set-selections <<< \
 > 'mysql-server mysql-server/root_password_again password root'
-laravel:~$ sudo apt-get install -y php5-mysql mysql-server
-laravel:~$ cat << EOF | sudo tee -a /etc/mysql/conf.d/default_engine.cnf
+$ sudo apt-get install -y php5-mysql mysql-server
+$ cat << EOF | sudo tee -a /etc/mysql/conf.d/default_engine.cnf
 > [mysqld]
-> default-storage-engine = MyISAM
+> default-storage-engine = InnoDB
 EOF
-laravel:~$ sudo service mysql restart
-{/bash}
+$ sudo service mysql restart
+```
 
-This configures MySQL with the `root` user having a password of `root`. The default storage engine is set to `MyISAM`.
+これは`root`ユーザーにパスワード`root`が設定されています。
+デフォルトのストレージエンジンは`InnoDB`に設定しました
+
+仕様や用途でストレージエンジンを使い分けてください
+[ストレージエンジンの選択](http://dev.mysql.com/doc/refman/5.1/ja/storage-engine-choosing.html)
 {/solution}
 
 {discussion}
-MySQL is the worlds most popular open source database.
+MySQLは世界で最も普及しているオープンソースのデータベースです
 
-Here's a breakdown of the steps above:
+#### こちらも参照してください
 
-Lines 1 - 4
-
-: The first four lines of the above instructions issue two Ubuntu specific commands to skip the prompt for the root password when MySQL is installed.
-
-Line 5
-
-: This line installs MySQL and the PHP drivers
-
-Lines 6 - 9
-
-: This creates a new configuration file for MySQL to set the default storage engine to MyISAM. Otherwise, the default is to use InnoDB. If you prefer InnoDB then skip this step.
-
-Line 10
-
-: Restart MySQL to take the configuration change into account.
-
-#### See Also
-
-The [[Setting up the MySQL Database Driver]] recipe.
+[[MySQLドライバーの設定方法]]
 {/discussion}

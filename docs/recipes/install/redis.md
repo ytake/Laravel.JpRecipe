@@ -1,5 +1,5 @@
 ---
-Title:    Redisインストール
+Title:    Redisをインストールする
 Topics:   installation, redis
 Code:     -
 Id:       95

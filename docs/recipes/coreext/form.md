@@ -1,5 +1,5 @@
 ---
-Title:    Creating Form Macros
+Title:    Formマクロを作成する
 Topics:   form
 Code:     Form::button(), Form::checkbox(), Form::close(), Form::email(),
           Form::file(), Form::getIdAttribute(), Form::getSelectOption(),
@@ -15,47 +15,45 @@ Position: 2
 ---
 
 {problem}
-You'd like to extend the `Form` facade with additional functionality.
+`Form`ファサードを拡張して、機能を追加したい
 {/problem}
 
 {solution}
-Use the `Form::macro()` method.
+`Form::macro()`メソッドを利用します
 
-`Form::macro()` allows you to extend the `Form` facade with your own methods.
+`Form::macro()`は`Form`ファサードを拡張して、独自のメソッドを追加する事ができます
 
-First you register a macro, then later you can access the macro as you would any of the `Form` methods.
+最初にマクロを登録しましょう
+その後に`Form`ファサードを拡張して利用出来る様にします
 
-Let's say you add the following code to your `app/start/global.php` file.
+`app/start/global.php`ファイルに下記の様に追加してみましょう
 
-{php}
-Form::macro('sumthin', function()
-{
+```php
+\Form::macro('sumthin', function() {
     return '<input type="sumthin" value="default">';
 });
-{/php}
+```
 
-Then later, in a Blade template, you can access it.
+その後、Bladeテンプレートで以下の様に記述してアクセスします
 
-{html}
-{{ Form::sumthin() }}
-{/html}
+```html
+{{Form::sumthin()}}
+```
 
-This would output the following.
+この様に出力されます
 
-{html}
+```html
 <input type="sumthin" value="default">
-{/html}
+```
 
-#### Add macros that take arguments
+#### マクロに引数を追加しましょう
 
-Let's update the `sumthin` macro to take three arguments. First the implementation.
+`sumthin`マクロで引数を使える様に変更します
 
-{php}
-Form::macro('sumthin', function($value, $count = 10, $start = 1)
-{
-    $build = array();
-    while ($count > 0)
-    {
+```php
+\Form::macro('sumthin', function($value, $count = 10, $start = 1) {
+    $build = [];
+    while ($count > 0) {
         $build[] = sprintf('<input type="sumthun" value="%s" index="%s">',
           $value, $start);
         $start += 1;
@@ -63,15 +61,16 @@ Form::macro('sumthin', function($value, $count = 10, $start = 1)
     }
     return join("\n", $build);
 });
-{/php}
+```
 
-Now `Form::sumthin()` has one required argument and two optional ones. If you don't pass the required argument, Laravel will generate an error.
+`Form::sumthin()`に必須の引数一つと、二つのオプションを追加しました。
+引数を指定しない場合、Laravelはエラーを返します
 
-Use it in a template.
+テンプレートで以下の様に記述します
 
-{html}
-{{ Form::sumthin('test', 5) }}
-{/html}
+```html
+{{Form::sumthin('test', 5)}}
+```
 
 The output would be.
 
@@ -85,11 +84,12 @@ The output would be.
 {/solution}
 
 {discussion}
-Examine the source code.
+ソースコードを見てみましょう！
 
-If you look at `FormBuilder.php` in your `vendor/laravel/src/Illuminate\Html` directory you can see several undocumented public methods of the `Form` facade that you can use in your macros.
+`vendor/laravel/src/Illuminate\Html`ディレクトリの`FormBuilder.php`を見ると、
+リファレンス等に載っていないいくつかのpublicメソッドがあります。
 
-Your macro code doesn't have access to `$this`, but you can call any of the following handy methods:
+マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
 * `Form::token()` - See [[Generating a Hidden Field With the CSRF Token]].
 * `Form::getIdAttribute()` - See [[Getting the ID Attribute For a Field Name]].
@@ -99,7 +99,7 @@ Your macro code doesn't have access to `$this`, but you can call any of the foll
 * `Form::getSelectOption()` - See [[Getting the Select Option for a Value]].
 * `Form::setSessionStore()` - See [[Setting the Session Store Implementation]].
 
-Or you can call the standard methods:
+または標準的なメソッドをコールする事もできます:
 
 * `Form::open()` - See [[Opening a New HTML Form]].
 * `Form::model()` - See [[Creating a New Model Based Form]].
@@ -125,5 +125,5 @@ Or you can call the standard methods:
 * `Form::button()` - See [[Creating a Button Element]].
 * `Form::getSessionStore()` - See [[Getting the Session Store]].
 
-You even can call other macros from your macro.
+マクロから他のマクロをコールする事ができます
 {/discussion}

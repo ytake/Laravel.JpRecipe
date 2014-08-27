@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the APC Cache Driver
+Title:    キャッシュドライバーにAPCを利用する
 Topics:   apc, cache, configuration
 Code:     -
 Id:       92
@@ -7,27 +7,31 @@ Position: 3
 ---
 
 {problem}
-You want to speed up Laravel's cache.
+Laravelのキャッシュを高速化させたい
 
-You know by default Laravel uses the file cache driver. You want to use a speedier cache.
+Laravelのキャッシュドライバーはデフォルトではファイルが選択されています
+これを変更して処理速度を向上させてみましょう
 {/problem}
 
 {solution}
-Use the APC cache driver.
+APCキャッシュドライバーを利用します
 
-Edit `app/config/cache.php` and change the driver to `'apc'`.
+`app/config/cache.php`ファイルのdriverを`'apc'`に変更します
 
-{php}
-    'driver' => 'apc',
-{/php}
+```php
+'driver' => 'apc',
+```
 
-That's it.
+これだけです
 {/solution}
 
 {discussion}
-Make sure APC is installed first.
+APCがインストールされているか確認しましょう
 
-See the [[Installing APC]] recipe for details.
+インストール方法は [[APCをインストールする]] レシピにあります
 
-You can use the `apc.php` script that comes with APC to monitor your cache. Usually, this file is placed in the `/usr/share/doc/php5-apcu` directory. Copy the file to your public folder, then bring up `http://yourapp/apc.php` to view the cache statistics.
+`apc.php`を使ってAPCのキャッシュを監視する事ができます
+通常このファイルは`/usr/share/doc/php5-apcu`等のディレクトリにあります
+キャッシュ統計を表示するにはwebアクセス可能なpublicなディレクトリに設置して、
+`http://yourapp/apc.php`にアクセスして確認します
 {/discussion}
