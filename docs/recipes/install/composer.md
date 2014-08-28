@@ -1,5 +1,5 @@
 ---
-Title:    Installing Composer
+Title:    Composerをインストールする
 Topics:   Composer, installation
 Code:     -
 Id:       18
@@ -7,36 +7,40 @@ Position: 4
 ---
 
 {problem}
-You want to install Composer.
+Composerをインストールしたい
 
-You know Laravel uses Composer extensively for it's package management, but do not have Composer installed on your machine.
+Laravelの依存ライブラリなどのパッケージ管理にComposerが利用されています
+お使いの環境にインストールされていない場合は、インストールしてみましょう
 {/problem}
 
 {solution}
-Install it with two simple commands.
+インストールはとても簡単です
 
-{bash}
-laravel:~$ curl -sS https://getcomposer.org/installer | php
-laravel:~$ sudo mv composer.phar /usr/local/bin/composer
-{/bash}
+```bash
+$ curl -sS https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer
+```
 
-Verify it's installed by checking the version.
+インストール後にバージョンを確認してみましょう
 
-{bash}
-laravel:~$ composer --version
-{/bash}
+```bash
+$ composer --version
+```
 
-You should see something like:
+大体は次の様に出力されます
 
-{text}
+```text
 Composer version d3ff302194a905be90136fd5a29436a42714e377
-{/text}
+```
 {/solution}
 
 {discussion}
-Composer is a dependency manager for PHP.
+ComposerはPHPのための依存解決ツールです
 
-Composer allows you to declare libraries your PHP project requires and automatically installs and maintains these libraries for you.
+ComposerはPHPのプロジェクトで必要なライブラリを自動でインストールし、
+プロジェクトに必要なものを自動で構成します
 
-The above instructions are for Linux, specifically Ubuntu 13.04. If you're running a different operating system, visit [getcomposer.org](http://getcomposer.org/doc/00-intro.md) and follow the instructions for your operating system.
+紹介した導入方法は、主にubuntuなどのLinuxを対象としています。
+それ以外のOSの場合のインストール方法は(windowsなど)
+[getcomposer.org](http://getcomposer.org/doc/00-intro.md) に記述されている方法に沿って導入してください
 {/discussion}

@@ -52,7 +52,7 @@ $ cd /etc/apache2
 $ sudo vi envvars
 ```
 
-```ini
+```text
 export APACHE_RUN_USER=vagrant
 export APACHE_RUN_GROUP=vagrant
 ```

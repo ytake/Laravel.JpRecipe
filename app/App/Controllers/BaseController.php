@@ -56,8 +56,10 @@ class BaseController extends Controller
     protected function setHiddenVars(array $array)
     {
         $attributes = [];
-        foreach($array as $key => $value) {
-            $attributes[] = \Form::hidden($key, $value);
+        if(count($array)) {
+            foreach ($array as $key => $value) {
+                $attributes[] = \Form::hidden($key, $value);
+            }
         }
         return implode("\n", $attributes);
     }

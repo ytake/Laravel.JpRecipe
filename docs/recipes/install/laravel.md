@@ -21,7 +21,8 @@ webサーバやPHPのインストール、mcryptの導入が済んでいる必�
 {discussion}
 Laravel次の様な方法ではインストールしないでください
 
-[CodeIgniter](http://ellislab.com/codeigniter)や[Zend Framework](http://framework.zend.com/)のように、  
+[CodeIgniter](http://ellislab.com/codeigniter)や
+[Zend Framework](http://framework.zend.com/)のように、  
 ダウンロードして、解凍して設置するのはお勧めしません。
 
 その代わりに、composerを利用してLaravelのプロジェクトを作成します。  
@@ -29,5 +30,5 @@ composerを利用することで、任意のLaravelのバージョンでプロ�
 Laravelが依存しているパッケージなどを自動的に導入して、プロジェクトを構築します。  
 
 簡単な一行のコマンドで作成が行われます。
-[[Creating a Laravel Project]]でLaraveのプロジェクトの作成方法が記述されています
+[[Laravelプロジェクトの作成方法]] でLaraveのプロジェクトの作成方法が記述されています
 {/discussion}

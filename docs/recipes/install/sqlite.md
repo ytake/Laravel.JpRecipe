@@ -1,5 +1,5 @@
 ---
-Title:    Installing SQLite
+Title:    SQLiteをインストールする
 Topics:   installation, SQLite
 Code:     -
 Id:       119
@@ -7,27 +7,29 @@ Position: 14
 ---
 
 {problem}
-You'd like to use SQLite, but PHP isn't configured for it.
+PHPでSQLiteを利用できる様にしたい
 {/problem}
 
 {solution}
-Install the PHP Driver for SQLite.
+PHPのSQLiteドライバーをインストールします
 
-{bash}
+```bash
 $ sudo apt-get install -y php5-sqlite
-{/bash}
+```
 
-Then restart apache.
+webサーバをリスタートしてください
 
-{bash}
-$ sudo service apache2 restart
-{/bash}
+```bash
+$ sudo service (apache2|nginx) restart
+```
 {/solution}
 
 {discussion}
-SQLite requires no server.
+SQLiteはサーバを必要としません
 
-It is a self-contained SQL database engine. Most often SQLite is used for testing, but it can be useful for small applications.
+SQLiteはスタンドアローンのデータベースエンジンです
+webアプリケーションではtestなどによく利用されていますが、
+小さいアプリケーションで利用するのもおすすめです
 
-See also [[Setting up the SQLite Database Driver]].
+こちらも参考にしてください [[SQLiteドライバーの設定方法]]
 {/discussion}

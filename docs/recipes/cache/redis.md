@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the Redis Cache Driver
+Title:    キャッシュドライバーにRedisを利用する
 Topics:   cache, configuration, redis
 Code:     -
 Id:       96
@@ -7,36 +7,41 @@ Position: 5
 ---
 
 {problem}
-You want to speed up Laravel's cache.
+Laravelのキャッシュを高速化させたい
 
-You know by default Laravel uses the file cache driver. You want to use a speedier cache.
+Laravelのキャッシュドライバーはデフォルトではファイルが選択されています
+これを変更して処理速度を向上させてみましょう
 {/problem}
 
 {solution}
-Use the Redis cache driver.
+Redisキャッシュドライバーを利用します
 
-Edit `app/config/cache.php` and change the driver to `'redis'`.
+`app/config/cache.php`ファイルのdriverを`'redis'`に変更します
 
-{php}
-    'driver' => 'redis',
-{/php}
+```php
+'driver' => 'redis',
+```
 
-If you have multiple redis servers, or they're running on something other than the local machine, you'll have to edit the **redis** section of `app/config/database.php` also.
+複数のredisサーバがあったり、
+ローカル以外のredisを利用している場合は、
+同様に`app/config/database.php`ファイルの **redis** の内容も変更してください
 
-{php}
-    'redis' => array(
-        'cluster' => false,
-        'default' => array(
-            'host'     => '127.0.0.1',
-            'port'     => 6379,
-            'database' => 0,
-        ),
-    ),
-{/php}
+```php
+'redis' => [
+    'cluster' => false,
+    'default' => [
+        'host'     => '127.0.0.1',
+        'port'     => 6379,
+        'database' => 0,
+    ],
+],
+```
 {/solution}
 
 {discussion}
-Redis is a free, advanced key-value store.
+Redisは無料で使える高度なKVSです
 
-To use the cache driver make sure Redis is installed first. See the [[Installing Redis]] recipe for details.
+Redisがインストールされているか確認しましょう
+
+インストール方法は [[Redisをインストールする]] レシピにあります
 {/discussion}

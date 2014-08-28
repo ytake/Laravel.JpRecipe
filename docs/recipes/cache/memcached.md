@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the Memcached Cache Driver
+Title:    キャッシュドライバーにmemcachedを利用する
 Topics:   cache, configuration, memcached
 Code:     -
 Id:       94
@@ -7,31 +7,40 @@ Position: 4
 ---
 
 {problem}
-You want to speed up Laravel's cache.
+Laravelのキャッシュを高速化させたい
 
-You know by default Laravel uses the file cache driver. You want to use a speedier cache.
+Laravelのキャッシュドライバーはデフォルトではファイルが選択されています
+これを変更して処理速度を向上させてみましょう
 {/problem}
 
 {solution}
-Use the Memcached cache driver.
+Memcachedキャッシュドライバーを利用します
 
-Edit `app/config/cache.php` and change the driver to `'memcached'`.
+`app/config/cache.php`ファイルのdriverを`'memcached'`に変更します
 
-{php}
-    'driver' => 'memcached',
-{/php}
+```php
+'driver' => 'memcached',
+```
 
-If you have multiple memcached servers, or they're running on something other than the local machine, you'll have to edit the **memcached** section of `app/config/cache.php` also.
+複数のmemcachedサーバがあったり、
+ローカル以外のmemcachedを利用している場合は、
+同様に`app/config/cache.php`ファイルの **memcached** の内容も変更してください
 
-{php}
-    'memcached' => array(
-        array('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
-    ),
-{/php}
+```php
+'memcached' => [
+    [
+        'host' => '127.0.0.1',
+        'port' => 11211,
+        'weight' => 100
+    ],
+],
+```
 {/solution}
 
 {discussion}
-Memcached is a free, high-performance, distributed memory object caching system.
+Memcachedは、
+無料で高性能な分散システムを構築出来ます
+Memcachedがインストールされているか確認しましょう
 
-To use the cache driver make sure Memcached is installed first. See the [[Installing Memcached]] recipe for details.
+インストール方法は [[Memcachedをインストールする]] レシピにあります
 {/discussion}

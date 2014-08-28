@@ -1,5 +1,5 @@
 ---
-Title:    Memcachedインストール方法
+Title:    Memcachedをインストールする
 Topics:   cache, installation, memcached
 Code:     -
 Id:       93
@@ -14,10 +14,12 @@ Position: 11
 memcachedをインストールしましょう
 
 **ubuntu**
+
 ```bash
 $ sudo apt-get install -y memcached php5-memcached
 $ sudo service apache2 restart
 ```
+
 最初のコマンドでmemcachedパッケージをインストールして、  
 忘れずにapache / Nginxを再起動します
 {/solution}
