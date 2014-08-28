@@ -1,8 +1,8 @@
 <?php
 namespace App\Commands;
 
-use App\Repositories\RecipeRepositoryInterface;
 use Illuminate\Console\Command;
+use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
 
 /**
@@ -73,7 +73,6 @@ class AddRecipeCommand extends Command
     {
 
         foreach ($dir as $value) {
-
             if ($value != "." &&  $value != "..") {
                 $file = \File::get("{$files}/{$value}");
                 $problem = $this->getParseContents('problem', $file);
