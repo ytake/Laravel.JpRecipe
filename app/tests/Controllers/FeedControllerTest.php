@@ -57,6 +57,11 @@ class FeedControllerTest extends TestCase
         $this->assertSame('application/rss+xml; charset=utf-8', $request->headers->get('content-type'));
     }
 
+    public function testNotAllowFormat()
+    {
+        $this->client->request('GET', '/feed/rdf');
+        $this->assertTrue($this->client->getResponse()->isNotFound());
+    }
 
     public function testSiteMap()
     {

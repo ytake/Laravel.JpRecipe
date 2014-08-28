@@ -1,5 +1,5 @@
 ---
-Title:    Generating a Hidden Field With the CSRF Token
+Title:    CSRFトークンを生成する
 Topics:   forms
 Code:     Form::model(), Form::open(), Form::token()
 Id:       153
@@ -7,25 +7,27 @@ Position: 4
 ---
 
 {problem}
-You want to output the CSRF token yourself.
+CSRF(クロスサイトリクエストフォージェリ)トークンを生成して利用したい
 
-You know Laravel does this automatically with `Form::open()` or `Form::model()` but you want to do it yourself.
+Laravelは、`Form::open()` または `Form::model()`を利用すると
+自動でCSRFトークンを生成して、hiddenのフィールドを作成しますが、
+それを用いずに任意で生成してみましょう
 {/problem}
 
 {solution}
-Use the `Form::token()` method.
+`Form::token()`メソッドを利用します
 
-{html}
-{{ Form::token() }}
-{/html}
+```html
+{{Form::token()}}
+```
 
-This will output something like.
+これは次の様に出力されます
 
-{html}
+```html
 <input name="_token" type="hidden" value="somelongvalue">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+とくにありません
 {/discussion}

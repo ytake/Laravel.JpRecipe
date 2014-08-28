@@ -1,5 +1,5 @@
 ---
-Title:    Installing Vagrant
+Title:    Vagrantをインストールする
 Topics:   installation, Vagrant, VirtualBox
 Code:     -
 Id:       16
@@ -7,53 +7,81 @@ Position: 2
 ---
 
 {problem}
-You want to develop in an environment similar to production.
+本番に近い環境で開発をしたい
 
-You know sometimes errors occur in production that don't occur on your development box. You want your development environment to match your production environment as closely as possible. This way you'll minimize errors caused by differences between the two.
+開発環境と本番環境でよくある問題として、
+開発環境でエラーが無く、本番環境でエラーが発生するなどのケースが挙げられます
+Vagrantを使用する事で、２つの環境の差分を出来る限り無くして環境差分によるエラーなどを
+未然に防いだり、または複数人で開発する場合の環境の統一など
+様々な問題を解決してくれます
 {/problem}
 
 {solution}
-Install [Vagrant](http://www.vagrantup.com/) to configure and manage your work environment.
+[Vagrant](http://www.vagrantup.com/) をインストールして、
+開発環境などを管理しましょう
 
-{warn}
-#### Vagrant Requires a Virtual Machine Provider
 
-If you don't have VirtualBox or VMWare set up on your machine, you'll need to install that before continuing. See [[Installing VirtualBox]]
-{/warn}
+#### Vagrantは仮想化ソフトウェアが必要です
 
-#### Step 1 - Visit Vagrant's web page
+VirtualBox、またはVMWareがインストールされていない場合は、
+Vagrantの前にそれらをインストールして下さい
+[[VirtualBoxをインストールする]] を参考にして下さい
 
-Point your web browser to the [Vagrant](http://www.vagrantup.com/) page.
+#### Step 1 - Vagrantのwebサイト
 
-![Vagrant Home Page](images/vagrant.jpg)
+Vagrantのwebページ [Vagrant](http://www.vagrantup.com/) にアクセスしてください
 
-#### Step 2 - Download and install the binary
+![Vagrant Home Page](/images/vagrant.jpg)
 
-From the Vagrant home page, click on the *Downloads* link. Then click on the latest version. _(At the time of this writing, the latest version is v1.3.5)_
+#### Step 2 - ダウンロードとインストール
 
-On the next screen, find the package for your operating system. Download it and install it as you would install any package on your computer. Vagrant provides native installers for Windows, Mac OS X, and Linux.
+Vagrantのトップページの *Downloads* から *Latast* をクリックします
+_(2014/08/28現在の最新版は v1.6.3です)_
 
-#### Step 3 - Verify it's installed
+利用しているOSにあったパッケージを選択してダウンロードします
+ダウンロード後はそのままインストールします
+Vagrantは、Windows、Mac OSX、Linux用のインストーラーを提供しています
 
-From a terminal window (or DOS Command Prompt) type `vagrant -v` to see if the program is found.
+#### Step 3 - 動作確認
 
-{bash}
+コンソール(windowsの場合は DOS Command Prompt)で、
+`vagrant -v`コマンドを実行して動作確認をします
+
+```bash
 $ vagrant -v
-{/bash}
+```
 
-You should see the version. Something like.
+インストールしたバージョンが表示されます
 
-{text}
-Vagrant 1.3.5
-{/text}
+```bash
+Vagrant 1.6.3
+```
 {/solution}
 
 {discussion}
-This solution only installs the Vagrant program.
+このレシピでベイグラントのプログラムがインストールされます
 
-You will still need to configure and provision a box to use. See [[Creating a Vagrant Box]].
+現在はLaravelの公式の`box`である
+`Laravel Homestead`を利用してLaravelで利用できる様々なツール等が
+簡単に素早く入手でき、開発環境もすぐに設定できます
 
-Vagrant uses VirtualBox (or VMWare) to provide easy-to-configure virtual machines. This let's you set up a reproducible and portable environment simply by specifying a few configuration options.
+[homestead 日本語](http://laravel4.kore1server.com/docs/42/homestead)
+[homestead 英語](http://laravel.com/docs/homestead)
 
-The greatest benefit to developers is the ability to minimize differences between working and production environments. Also, you can have identical work environments configured on multiple machines.
+含まれるものは、下記の通りです
+
+`Ubuntu 14.04`
+`PHP 5.5`
+`Nginx`
+`MySQL`
+`Postgres`
+`Node.js (With Bower, Grunt, and Gulp)`
+`Redis`
+`Memcached`
+`Beanstalkd`
+`Laravel Envoy`
+`Fabric + HipChat Extension`
+
+Vagrantの最大の利点は、作業環境と運用環境の違いを最小限に抑えることができることです
+また、どの環境で動かして同一の環境を持つことができます
 {/discussion}

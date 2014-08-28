@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the XCache Cache Driver
+Title:    キャッシュドライバーにXCacheを利用する
 Topics:   cache, configuration, XCache
 Code:     -
 Id:       100
@@ -7,25 +7,28 @@ Position: 8
 ---
 
 {problem}
-You want to speed up Laravel's cache.
+Laravelのキャッシュを高速化させたい
 
-You know by default Laravel uses the file cache driver. You want to use a speedier cache.
+Laravelのキャッシュドライバーはデフォルトではファイルが選択されています
+これを変更して処理速度を向上させてみましょう
 {/problem}
 
 {solution}
-Use the XCache cache driver.
+XCacheキャッシュドライバーを利用します
 
-Edit `app/config/cache.php` and change the driver to `'xcache'`.
+`app/config/cache.php`ファイルのdriverを`'xcache'`に変更します
 
-{php}
-    'driver' => 'xcache',
-{/php}
+```php
+'driver' => 'xcache',
+```
 {/solution}
 
 {discussion}
-To use the cache driver make sure XCache is installed and set up first. See the [[Installing XCache]] recipe for details.
+'xcache'ドライバーを利用する前に、
+'xcache'がインストールされているかを確認して下さい
+詳細は [[XCacheをインストールする]] レシピにあります
 
-{warn}
-You must change the `xcache.var_size` setting as described in the [[Installing XCache]] recipe for XCache to work with Laravel.
-{/warn}
+Laravelで利用するには、
+[[XCacheをインストールする]] レシピにもある通り、
+`xcache.var_size`の設定を変更して下さい
 {/discussion}

@@ -110,7 +110,13 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategory($id)
     {
-        // TODO: Implement getCategory() method.
+        $result = false;
+        foreach($this->categories as $category) {
+            if($category['category_id'] == $id) {
+                $result = (object) $category;
+            }
+        }
+        return $result;
     }
 
     /**

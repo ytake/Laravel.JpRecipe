@@ -67,7 +67,13 @@ class Feed implements FeedInterface
      */
     public function render()
     {
-        $feed = $this->feed->export($this->format);
-        return \Response::make($feed, 200, $this->header[$this->format]);
+        try {
+            $feed = $this->feed->export($this->format);
+            return \Response::make($feed, 200, $this->header[$this->format]);
+        } catch(\Zend\Feed\Writer\Exception\InvalidArgumentException $w) {
+
+            return \Response::make([], 404);
+        }
+
     }
 }

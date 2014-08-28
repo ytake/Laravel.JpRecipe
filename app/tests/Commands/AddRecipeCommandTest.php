@@ -4,6 +4,7 @@ namespace App\Tests\Commands;
 use Mockery as m;
 use App\Tests\TestCase;
 use App\Commands\AddRecipeCommand;
+use Symfony\Component\Console\Output\NullOutput;
 use App\Tests\StubRepositories\RecipeRepository;
 use App\Tests\StubRepositories\CategoryRepository;
 
@@ -11,6 +12,8 @@ class AddRecipeCommandTest extends TestCase
 {
     /** @var AddRecipeCommand  */
     protected $command;
+    /** @var  CategoryRepository */
+    protected $category;
 
     public function tearDown()
     {
@@ -20,7 +23,8 @@ class AddRecipeCommandTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->command = new AddRecipeCommand(new CategoryRepository, new RecipeRepository);
+        $this->category = new CategoryRepository;
+        $this->command = new AddRecipeCommand($this->category, new RecipeRepository);
 
     }
 
@@ -61,7 +65,6 @@ phpunit
 
     public function testConvertGfm()
     {
-        $filePath = \File::get(__DIR__ . "/../docs/test.md");
         $reflectionMethod = $this->getProtectMethod($this->command, 'convertGfm');
         $text = '{php}
 function()
@@ -85,5 +88,21 @@ console.log(\"aaaa\");
 ";
         $result = $reflectionMethod->invokeArgs($this->command, ["string" => $text]);
         $this->assertSame($convert, $result);
+    }
+
+    public function testAddRecipes()
+    {
+        $reflectionProperty = $this->getProtectProperty($this->command, 'output');
+        $reflectionProperty->setValue($this->command, new NullOutput());
+        $dir = scandir(app_path() . "/tests/docs");
+        $reflectionMethod = $this->getProtectMethod($this->command, 'addRecipes');
+        $reflectionMethod->invokeArgs($this->command, [$dir, app_path() . "/tests/docs", $this->category->getCategory(1)]);
+        $this->assertInstanceOf("Symfony\Component\Console\Output\NullOutput", $this->command->getOutput());
+    }
+
+    public function testAddRecipeCommand()
+    {
+        $this->command->run(new \Symfony\Component\Console\Input\ArrayInput([]), new \Symfony\Component\Console\Output\NullOutput);
+        $this->assertInstanceOf("Symfony\Component\Console\Output\NullOutput", $this->command->getOutput());
     }
 }

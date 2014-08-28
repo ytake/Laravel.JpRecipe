@@ -1,5 +1,5 @@
 ---
-Title:    Installing XCache
+Title:    XCacheをインストールする
 Topics:   cache, installation, XCache
 Code:     Cache
 Id:       99
@@ -7,41 +7,54 @@ Position: 13
 ---
 
 {problem}
-You want to speed up your application using a cache.
+キャッシュを使って、アプリケーションを高速化させたい
 {/problem}
 
 {solution}
-Install XCache
+XCacheをインストールします
 
-#### Step 1 - Install XCache
+#### Step 1 - XCacheのインストール
 
-{bash}
+```bash
 $ sudo apt-get install php5-xcache
-{/bash}
+```
 
-#### Step 2 - Edit xcache.ini
+#### Step 2 - xcache.iniを編集
 
-To use the variable cache you need to edit the `xcache.var_size` setting in the ini file. Usually, this file is located in `/etc/php5/mods-available`
+キャッシュを使用するには、iniファイル内の`xcache.var_size`設定を編集する必要があります
+通常このファイルは `/etc/php5/mods-available` にあります
 
-{text}
+```text
 # Find the line
 xcache.var_size = 0M
 
 # Change it to
 xcache.var_size = 100M
-{/text}
+```
 
-#### Step 3 - Restart apache
+#### Step 3 - webサーバの再起動
 
-{bash}
+apacheの場合は、
+
+```bash
 $ sudo service apache2 restart
-{/bash}
+```
+
+nginxの場合は
+
+```bash
+$ sudo service php5-fpm restart
+$ sudo service nginx restart
+```
+
+などとして、お使いの環境に合わせて再起動して下さい
 {/solution}
 
 {discussion}
-XCache is a fast, stable PHP opcode cacher.
+XCacheとは、高速で安定したPHPのオペコードキャッシュプログラムです
 
-It also provides standard get/set/inc/dec cache operations which Laravel can use to drive its `Cache` component.
+Laravelの`Cache`コンポーネントでは、
+標準的なget/set/inc/dec をサポートしています
 
-See [[Setting up the XCache Cache Driver]] for instructions.
+手順については [[キャッシュドライバーにXCacheを利用する]] をご覧ください
 {/discussion}
