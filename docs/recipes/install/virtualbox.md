@@ -18,9 +18,9 @@ VirtualBoxをインストールします
 
 #### Step 1 - VirtualBoxのwebサイト
 
-VirtualBoxのwebページで [downloads](https://www.virtualbox.org/wiki/Downloads) にアクセスしてください
+VirtualBoxのwebページ [downloads](https://www.virtualbox.org/wiki/Downloads) にアクセスしてください
 
-![VirtualBox Download Page](images/virtualbox.jpg)
+![VirtualBox Download Page](/images/virtualbox.jpg)
 
 #### Step 2 - ダウンロードとインストール
 

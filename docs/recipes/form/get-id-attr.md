@@ -1,5 +1,5 @@
 ---
-Title:    Getting the ID Attribute For a Field Name
+Title:    フィールド名のID属性を取得する
 Topics:   forms
 Code:     Form::getIdAttribute(), Form::macro()
 Id:       174
@@ -7,25 +7,22 @@ Position: 23
 ---
 
 {problem}
-You want to determine what the ID attribute is for a field name.
+フィールド名のID属性を確認したい
 {/problem}
 
 {solution}
-Use the `Form::getIdAttribute()` method.
+`Form::getIdAttribute()`メソッドを利用します
 
-{php}
-$id = Form::getIdAttribute('fieldname', $attributes);
-{/php}
+```php
+$id = \Form::getIdAttribute('fieldname', $attributes);
+```
 
-This will return the ID or `null` if there is no ID for the field.
+フィールドにIDがあればIDを返却し、
+フィールドにIDが無い場合は、`null`を返却します
 {/solution}
 
 {discussion}
-This is often used in form macros.
+これはしばしばマクロに使用されるケースがあります
 
-It's common to need to know the ID within a macro. If there's an explicit `'id'` key in your `$attributes` array it's easy, but Laravel can automatically generate ids based on labels within the form.
-
-The method also checks if there's any forms for the field name, returning the ID appropriately if that's the case.
-
-See the [[Creating Form Macros]] recipe information about form macros.
+フォームマクロについては、 [[Formマクロを作成する]] レシピを参考にしてください
 {/discussion}

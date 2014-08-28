@@ -7,7 +7,7 @@ Position: 12
 ---
 
 {problem}
-cacheやsessionでより早い速度が必要
+cacheやsessionを高速化させたい
 {/problem}
 
 {solution}
@@ -21,5 +21,5 @@ $ sudo apt-get install -y redis-server
 {discussion}
 redisをcache等で利用するには設定をする必要があります
 
-指定方法は[[Setting up the Redis Cache Driver]]をご覧ください
+指定方法は[[キャッシュドライバーにRedisを利用する]]をご覧ください
 {/discussion}

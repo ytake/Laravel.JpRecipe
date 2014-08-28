@@ -91,8 +91,8 @@ The output would be.
 
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
-* `Form::token()` - See [[Generating a Hidden Field With the CSRF Token]].
-* `Form::getIdAttribute()` - See [[Getting the ID Attribute For a Field Name]].
+* `Form::token()` - See [[CSRFトークンを生成する]].
+* `Form::getIdAttribute()` - See [[フィールド名のID属性を取得する]].
 * `Form::getValueAttribute()` - See [[Getting the Value Attribute a Field Should Use]].
 * `Form::old()` - See [[Getting a Value From the Session's Old Input]].
 * `Form::oldInputIsEmpty()` - See [[Determining if the Old Input is Empty]].
