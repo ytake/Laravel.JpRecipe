@@ -28,7 +28,8 @@ $ sudo pecl install apcu-beta
 ```
 
 どちらも簡単にインストール出来ます
-インストール後に `extension=apc.so` が有効になっているか確認しましょう
+インストール後に `extension=apc.so`と追記して、
+有効になっているか確認しましょう
 {/solution}
 
 {discussion}
@@ -39,5 +40,11 @@ LaravelアプリケーションでAPCを活用する方法が二つあります
 つまり単純にアプリケーションの処理速度が向上します
 
 もう一つは、アプリケーション内キャッシュドライバーにAPCを使用することができます。
-[[Setting up the APC Cache Driver]] に、APCキャッシュドライバの使用方法が記述されています
+[[キャッシュドライバーにAPCを利用する]] に、APCキャッシュドライバの使用方法が記述されています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

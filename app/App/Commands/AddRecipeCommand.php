@@ -79,6 +79,7 @@ class AddRecipeCommand extends Command
                 $problem = $this->getParseContents('problem', $file);
                 $solution = $this->getParseContents('solution', $file);
                 $discussion = $this->getParseContents('discussion', $file);
+                $credit = $this->getParseContents('credit', $file);
                 $title = $this->getParseHeader('title', $file);
                 $position = $this->getParseHeader('position', $file);
 
@@ -88,6 +89,7 @@ class AddRecipeCommand extends Command
                         'category_id' => $category->category_id,
                         'solution' => trim($this->convertGfm($solution)),
                         'discussion' => trim($this->convertGfm($discussion)),
+                        'credit' => trim($this->convertGfm($credit)),
                         'title' => trim($title),
                         'position' => trim($position)
                     ];
@@ -107,7 +109,6 @@ class AddRecipeCommand extends Command
                             ]
                         );
                         $this->comment("Updated : recipe:{$title} : {$files}/{$value}");
-
                     }
                 }
             }

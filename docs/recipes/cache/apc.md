@@ -35,3 +35,9 @@ APCがインストールされているか確認しましょう
 キャッシュ統計を表示するにはwebアクセス可能なpublicなディレクトリに設置して、
 `http://yourapp/apc.php`にアクセスして確認します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

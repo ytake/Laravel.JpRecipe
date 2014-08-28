@@ -1,5 +1,5 @@
 ---
-Title:    Installing VirtualBox
+Title:    VirtualBoxをインストールする
 Topics:   installation, VirtualBox
 Code:     -
 Id:       15
@@ -7,41 +7,51 @@ Position: 1
 ---
 
 {problem}
-You need a virtual machine provider.
+仮想仮想が必要です
 
-You want to use Vagrant to set up your development environment, but don't have a virtual machine provider set up.
+Vagrantを使うには、仮想環境が必要です
+Vagrant導入前にVirtualBoxをインストールしてみましょう
 {/problem}
 
 {solution}
-Install VirtualBox.
+VirtualBoxをインストールします
 
-#### Step 1 - Visit VirtualBox's web page
+#### Step 1 - VirtualBoxのwebサイト
 
-Point your web browser to the VirtualBox [downloads](https://www.virtualbox.org/wiki/Downloads) page.
+VirtualBoxのwebページで [downloads](https://www.virtualbox.org/wiki/Downloads) にアクセスしてください
 
 ![VirtualBox Download Page](images/virtualbox.jpg)
 
-#### Step 2 - Download and install the binary
+#### Step 2 - ダウンロードとインストール
 
-Find the latest version for your Operating System, download it and then install it as you would install any package on your computer. VirtualBox provides native installers for Windows, Mac OS X, and Linux.
+利用しているOSにあったパッケージを探してダウンロードします
+ダウンロード後はそのままインストールします
+VirtualBoxは、Windows、Mac OSX、Linux用のインストーラーを提供しています
 
-#### Step 3 - Verify it's installed
+#### Step 3 - 動作確認
 
-From a terminal window type `virtualbox` to see if it starts.
+コンソールで、`virtualbox`コマンドを実行して動作確認をします
 
-{bash}
+```bash
 $ virtualbox
-{/bash}
+```
 
-_(On Windows, look for **Oracle VM VirtualBox** on your start screen.)_
+_(Windowsの場合は、**Oracle VM VirtualBox** から起動出来ます)_
 {/solution}
 
 {discussion}
-What is VirtualBox?
+VirtualBoxって何ですか？
 
-VirtualBox is a cross-platform virtualization application. This means it extends the capabilities of your computer so that it can run multiple operating systems (inside multiple virtual machines) at the same time.
+VirtualBoxは、クロスプラットフォームの仮想化アプリケーションです
+同時に（複数の仮想マシン内）複数のオペレーティングシステムを実行できるアプリケーションです
 
-Using VirtualBox is a great way to test new versions of operating systems before upgrading your main machine.
+VirtualBoxを使用して、OSの新バージョンをテストしたり、
+特定のOSのみでしか動作しないもののテスト等に最適です
 
-For software developers, VirtualBox allows you to mimic your production platform. No more headaches because some software feature which worked great on your Mac isn't working in production. Simply do your development within the virtual machine.
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}
