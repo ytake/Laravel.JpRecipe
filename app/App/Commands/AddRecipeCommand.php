@@ -2,8 +2,11 @@
 namespace App\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\QueryException;
+use App\Repositories\TagRepositoryInterface;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\RecipeTagRepositoryInterface;
 
 /**
  * Class AddRecipeCommand
@@ -31,15 +34,29 @@ class AddRecipeCommand extends Command
     /** @var RecipeRepositoryInterface */
     protected $recipe;
 
+    /** @var TagRepositoryInterface */
+    protected $tag;
+
+    /** @var RecipeTagRepositoryInterface  */
+    protected $recipeTag;
+
     /**
      * @param CategoryRepositoryInterface $category
      * @param RecipeRepositoryInterface $recipe
+     * @param TagRepositoryInterface $tag
+     * @param RecipeTagRepositoryInterface $recipeTag
      */
-    public function __construct(CategoryRepositoryInterface $category, RecipeRepositoryInterface $recipe)
-    {
+    public function __construct(
+        CategoryRepositoryInterface $category,
+        RecipeRepositoryInterface $recipe,
+        TagRepositoryInterface $tag,
+        RecipeTagRepositoryInterface $recipeTag
+    ) {
         parent::__construct();
         $this->category = $category;
         $this->recipe = $recipe;
+        $this->tag = $tag;
+        $this->recipeTag = $recipeTag;
     }
 
     /**
@@ -73,6 +90,7 @@ class AddRecipeCommand extends Command
     {
 
         foreach ($dir as $value) {
+
             if ($value != "." &&  $value != "..") {
                 $file = \File::get("{$files}/{$value}");
                 $problem = $this->getParseContents('problem', $file);
@@ -81,6 +99,7 @@ class AddRecipeCommand extends Command
                 $credit = $this->getParseContents('credit', $file);
                 $title = $this->getParseHeader('title', $file);
                 $position = $this->getParseHeader('position', $file);
+                $topics = $this->getParseHeader('topics', $file);
 
                 if($problem && $solution && $discussion && $title) {
                     $array = [
@@ -94,9 +113,10 @@ class AddRecipeCommand extends Command
                     ];
                     try {
                         // new recipes
-                        $this->recipe->addRecipe($array);
+                        $recipeId = $this->recipe->addRecipe($array);
+                        $this->addTags($recipeId, $topics);
                         $this->info("added : {$files}/{$value}");
-                    } catch(\Illuminate\Database\QueryException $e) {
+                    } catch(QueryException $e) {
                         // update recipes
                         $recipe = $this->recipe->getRecipeFromTitle(trim($title));
                         $this->recipe->updateRecipe($recipe->recipe_id, [
@@ -107,6 +127,8 @@ class AddRecipeCommand extends Command
                                 'position' => trim($position)
                             ]
                         );
+                        $this->recipeTag->deleteRecipeTags($recipe->recipe_id);
+                        $this->addTags($recipe->recipe_id, $topics);
                         $this->comment("Updated : recipe:{$title} : {$files}/{$value}");
                     }
                 }
@@ -155,6 +177,11 @@ class AddRecipeCommand extends Command
                                 return trim(str_replace('Position:', '', $row));
                             }
                             break;
+                        case 'topics':
+                            if(strpos($row, 'Topics:') === 0) {
+                                return trim(str_replace('Topics:', '', $row));
+                            }
+                            break;
                     }
                 }
             }
@@ -178,5 +205,29 @@ class AddRecipeCommand extends Command
             "```",
         ];
         return preg_replace($pattern, $replace, $string);
+    }
+
+    /**
+     * @param $recipeId
+     * @param string $string
+     */
+    protected function addTags($recipeId, $string = '-')
+    {
+        if($string != '-' && $string != '') {
+            $tags = explode(',', $string);
+            foreach($tags as $tag) {
+                try {
+                    $tagId = $this->tag->addTag(['tag_name' => trim($tag)]);
+                } catch(QueryException $e) {
+                    $tag = $this->tag->getTagFromName(trim($tag));
+                    $tagId = $tag->tag_id;
+                }
+                try {
+                    $this->recipeTag->addRecipeTag(['tag_id' => $tagId, 'recipe_id' => $recipeId]);
+                } catch(QueryException $e) {
+                    // no process
+                }
+            }
+        }
     }
 }

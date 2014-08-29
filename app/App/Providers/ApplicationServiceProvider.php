@@ -40,10 +40,12 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->bind("App\Presenter\FeedInterface", "App\Presenter\Feed");
 
         $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
+        $this->app->bind("App\Repositories\TagRepositoryInterface", "App\Repositories\Fluent\TagRepository");
         $this->app->bind("App\Repositories\UserRepositoryInterface", "App\Repositories\Fluent\UserRepository");
         $this->app->bind("App\Repositories\RecipeRepositoryInterface", "App\Repositories\Fluent\RecipeRepository");
         $this->app->bind("App\Repositories\SectionRepositoryInterface", "App\Repositories\Fluent\SectionRepository");
         $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
+        $this->app->bind("App\Repositories\RecipeTagRepositoryInterface", "App\Repositories\Fluent\RecipeTagRepository");
         $this->app->bind("App\Repositories\AnalyticsRepositoryInterface", "App\Repositories\Fluent\AnalyticsRepository");
 
         // view composer
@@ -88,7 +90,9 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app['jp-recipe.add'] = $this->app->share(function($app) {
                 return new AddRecipeCommand(
                     $app->make("App\Repositories\CategoryRepositoryInterface"),
-                    $app->make("App\Repositories\RecipeRepositoryInterface")
+                    $app->make("App\Repositories\RecipeRepositoryInterface"),
+                    $app->make("App\Repositories\TagRepositoryInterface"),
+                    $app->make("App\Repositories\RecipeTagRepositoryInterface")
                 );
             });
         $this->commands('jp-recipe.add');

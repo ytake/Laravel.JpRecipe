@@ -5,6 +5,7 @@ use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\AnalyticsRepositoryInterface;
+use App\Repositories\RecipeTagRepositoryInterface;
 
 /**
  * Class HomeController
@@ -26,22 +27,28 @@ class HomeController extends BaseController
     /** @var AnalyticsRepositoryInterface  */
     protected $analytics;
 
+    /** @var RecipeTagRepositoryInterface  */
+    protected $tag;
+
     /**
      * @param SectionRepositoryInterface $section
      * @param CategoryRepositoryInterface $category
      * @param RecipeRepositoryInterface $recipe
      * @param AnalyticsRepositoryInterface $analytics
+     * @param RecipeTagRepositoryInterface $tag
      */
     public function __construct(
         SectionRepositoryInterface $section,
         CategoryRepositoryInterface $category,
         RecipeRepositoryInterface $recipe,
-        AnalyticsRepositoryInterface $analytics
+        AnalyticsRepositoryInterface $analytics,
+        RecipeTagRepositoryInterface $tag
     ) {
         $this->section = $section;
         $this->category = $category;
         $this->recipe = $recipe;
         $this->analytics = $analytics;
+        $this->tag = $tag;
     }
 
     /**
@@ -74,6 +81,8 @@ class HomeController extends BaseController
         $recipe->category = $this->category->getCategory($recipe->category_id);
         $data = [
             'recipe' => $recipe,
+            'tags' => $this->tag->getRecipeTags($recipe->recipe_id),
+            'info' => $this->recipe->getPrevNextRecipes($one)
         ];
         // title設定
         $this->title($recipe->title);

@@ -27,7 +27,7 @@
         @for($i = 1; $i <= count($sections); $i++)
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{HTML::linkAction('home.section', "View all", ['one' => $sections[$i - 1]->section_id], ['class' => 'pull-right label label-info', 'alt' => $sections[$i - 1]->description, 'title' => $sections[$i - 1]->description])}}
+                {{HTML::linkAction('home.section', "View all", ['one' => $sections[$i - 1]->section_id], ['class' => 'pull-right label label-info', 'title' => $sections[$i - 1]->description])}}
                 <span class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;{{$sections[$i - 1]->name}}
             </div>
             <div class="panel-body">
@@ -41,7 +41,7 @@
                                 <dt>
                                     <p class="font-medium">
                                         <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
-                                        {{HTML::linkAction('home.recipe', $recipe->title, ['one' => $recipe->recipe_id], ['alt' => $recipe->title, 'title' => $recipe->title])}}
+                                        {{HTML::linkAction('home.recipe', $recipe->title, ['one' => $recipe->recipe_id], ['title' => $recipe->title])}}
                                     </p>
                                 </dt>
                             @endforeach
@@ -67,7 +67,7 @@
                                 <dt>
                                     <p class="font-medium">
                                         <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
-                                        {{HTML::linkAction('home.recipe', $late->title, ['one' => $late->recipe_id], ['alt' => $late->title, 'title' => $late->title])}}
+                                        {{HTML::linkAction('home.recipe', $late->title, ['one' => $late->recipe_id], ['title' => $late->title])}}
                                     </p>
                                 </dt>
                                 <dd>
@@ -96,7 +96,7 @@
                                 <dt>
                                     <p class="font-medium">
                                         <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
-                                        {{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['alt' => $row->title, 'title' => $row->title])}}
+                                        {{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['title' => $row->title])}}
                                     </p>
                                 </dt>
                                 <dd>

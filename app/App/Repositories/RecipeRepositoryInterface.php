@@ -74,4 +74,10 @@ interface RecipeRepositoryInterface
      * @return mixed
      */
     public function getRecipesFromText(array $text, $current = 1, $limit = 25);
+
+    /**
+     * @param $recipeId
+     * @return \stdClass
+     */
+    public function getPrevNextRecipes($recipeId);
 }

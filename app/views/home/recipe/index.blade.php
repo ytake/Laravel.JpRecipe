@@ -16,6 +16,9 @@
         	    </h2>
         	</div>
        	    <div class="panel-body recipe-body">
+                @foreach($tags as $tag)
+                <span class="pull-right label label-laravel" title="{{$tag->tag_name}}-タグ">{{$tag->tag_name}}</span>
+                @endforeach
                 <h2>
                     <span class="glyphicon glyphicon-question-sign"></span>&nbsp;悩み事
                 </h2>
@@ -28,6 +31,23 @@
                     <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;アドバイス
                 </h2>
                 {{Markdown::render($recipe->discussion)}}
+        	</div>
+        	<hr />
+        	<div class="panel-body recipe-body">
+        	@if(isset($info->prev))
+        	<div style="float:left;">
+        	<a href="{{route('home.recipe', ['one' => $info->prev->recipe_id])}}" title="{{$info->prev->title}}" class="btn btn-danger">
+        	    <<&nbsp;前のレシピ
+        	</a>
+        	</div>
+            @endif
+        	@if(isset($info->next))
+        	<div style="float:right;">
+        	<a href="{{route('home.recipe', ['one' => $info->next->recipe_id])}}" title="{{$info->next->title}}" class="btn btn-danger">
+        	    次のレシピ&nbsp;>>
+        	</a>
+        	</div>
+           	@endif
         	</div>
         </div>
     </div>

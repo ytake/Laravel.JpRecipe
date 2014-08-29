@@ -25,8 +25,8 @@ class Recipes extends Migration
             $table->integer('category_id')->unsigned();
             $table->text('problem');
             $table->text('solution');
-            $table->text('discussion');
-            $table->text('credit');
+            $table->text('discussion')->nullable();
+            $table->text('credit')->nullable();
             $table->integer('position')->default(1);
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

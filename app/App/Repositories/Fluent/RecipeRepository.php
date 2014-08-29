@@ -196,4 +196,20 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         }
         return $result;
     }
+
+    /**
+     * @param $recipeId
+     * @return \stdClass
+     */
+    public function getPrevNextRecipes($recipeId)
+    {
+        $object = new \stdClass();
+        $object->next = $this->getConnection('slave')
+            ->where('recipe_id', '>', $recipeId)
+            ->orderBy('recipe_id', 'ASC')->take(1)->first(['recipe_id', 'title']);
+        $object->prev = $this->getConnection('slave')
+            ->where('recipe_id', '<', $recipeId)
+            ->orderBy('recipe_id', 'DESC')->take(1)->first(['recipe_id', 'title']);
+        return $object;
+    }
 }
