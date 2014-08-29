@@ -4,9 +4,11 @@ namespace App\Tests\Commands;
 use Mockery as m;
 use App\Tests\TestCase;
 use App\Commands\AddRecipeCommand;
+use App\Tests\StubRepositories\TagRepository;
 use Symfony\Component\Console\Output\NullOutput;
 use App\Tests\StubRepositories\RecipeRepository;
 use App\Tests\StubRepositories\CategoryRepository;
+use App\Tests\StubRepositories\RecipeTagRepository;
 
 class AddRecipeCommandTest extends TestCase
 {
@@ -24,7 +26,12 @@ class AddRecipeCommandTest extends TestCase
     {
         parent::setUp();
         $this->category = new CategoryRepository;
-        $this->command = new AddRecipeCommand($this->category, new RecipeRepository);
+        $this->command = new AddRecipeCommand(
+            $this->category,
+            new RecipeRepository,
+            new TagRepository,
+            new RecipeTagRepository
+        );
 
     }
 

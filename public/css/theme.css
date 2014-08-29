@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    font-family: "Lucida Grande","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+    font-family: "Open Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
 }
 body, html {
     width: 100%;
@@ -212,6 +212,11 @@ small {
 }
 
 .panel-feed {
-    background-color: #ff821f;
+    background-color: #ff9653;
     color:#262626;
+}
+
+.label-laravel {
+    background-color: #F4645F;
+    margin-left: 5px;
 }

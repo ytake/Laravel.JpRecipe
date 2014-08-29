@@ -150,4 +150,14 @@ class RecipeRepository implements RecipeRepositoryInterface
         return $result;
     }
 
+    /**
+     * @param $recipeId
+     * @return \stdClass
+     */
+    public function getPrevNextRecipes($recipeId)
+    {
+        // TODO: Implement getPrevNextRecipes() method.
+    }
+
+
 }

@@ -9,18 +9,17 @@
                         レシピの要望等がありましたら、お気軽にご連絡ください。<br />
                         またこのサイトはオープンソースで公開されています。<br />
                         Laravelの学習等にお役立てください<br />
-                        <a class="btn btn-info center-block" href="https://github.com/ytake/Laravel.JpRecipe" alt="Laravel.JpRecipe">Laravel.JpRecipe</a>
+                        <a class="label label-info" href="https://github.com/ytake/Laravel.JpRecipe" alt="Laravel.JpRecipe">Laravel.JpRecipe</a>
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading">レシピを探す</div>
+                <div class="panel-heading">feed</div>
                 <div class="panel-body">
-                    LaravelのFacadeに沿って、レシピを探す事ができます。<br />
-                    希望のレシピが無い、レシピを持っているよ！という方はお気軽にご連絡、<br />
-                    またはレシピをGitHub等を通じて送って下さい。<br />
+                    <a href="/feed/atom" alt="Laravel recipes(JP) Atom feed" title="Laravel recipes(JP) Atom feed" target="_blank"><img src="/images/rss-64.png"></a>
+                    <a href="/feed/rss" alt="Laravel recipes(JP) RSS feed" title="Laravel recipes(JP) RSS feed" target="_blank"><img src="/images/rss-64-black.png"></a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 ---
-Title:    データベースマイグレーションをロールバックしたい
+Title:    データベースマイグレーションをリセットしたい
 Topics:   artisan, migrations
 Code:     -
 Id:       67
