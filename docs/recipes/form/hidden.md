@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Hidden Input Field
+Title:    hiddenフィールドを作成する
 Topics:   forms
 Code:     Form::hidden(), Form::input(), Form::model()
 Id:       157
@@ -7,43 +7,44 @@ Position: 7
 ---
 
 {problem}
-You want to create a hidden input field for your form.
+hidden入力フィールドを作成したい
 
-You know you could use the `<input type="hidden"...>` format but you want to do it the Laravel way.
+`<input type="hidden"...>`を利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::hidden()` method.
+`Form::hidden()`メソッドを利用します
 
-Usually, this is used in Blade templates.
+通常はBladeテンプレートで利用します
 
-Just pass the name and value to the method.
+フィールド名と値をそれぞれ指定します
 
-{html}
-{{ Form::hidden('invisible', 'secret') }}
-{/html}
+```html
+{{Form::hidden('invisible', 'secret')}}
+```
 
-This creates a very simple element which looks like the following.
+以下の様にシンプルなエレメントが作成されます
 
-{html}
+```html
 <input name="invisible" type="hidden" value="secret">
-{/html}
+```
 
-To add other attributes, pass a third argument to the method. This third argument must be an array.
+属性を追加する場合は、第三引数に配列を利用します
 
-{html}
-{{ Form::hidden('invisible', 'secret', array('id' => 'invisible_id')) }}
-{/html}
+```html
+{{Form::hidden('invisible', 'secret', ['id' => 'invisible_id'])}}
+```
 
-Now the input has an id attribute.
+フィールドに`id`が追加されます
 
-{html}
+```html
 <input id="invisible_id" name="invisible" type="hidden" value="secret">
-{/html}
+```
 {/solution}
 
 {discussion}
-This method uses the `Form::input()` method, passing `"hidden"` as the type.
+このメソッドは`Form::input()`に`"hidden"`タイプを指定して利用しています
 
-**NOTE** If you've bound the form to a model using `Form::model()` and the model has the same named attribute, then the value will come from the model. See [[Creating a New Model Based Form]] for details.
+**NOTE:** フォームモデルを利用している場合は、値利用の優先度が異なります
+詳しくは[[モデルをベースにしたフォームを作成する]] をご覧ください
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Using @foreach Control Structures in Blade
+Title:    Bladeで @foreach を使用する
 Topics:   Blade
 Code:     @endforeach, @foreach
 Id:       88
@@ -7,13 +7,13 @@ Position: 8
 ---
 
 {problem}
-You want to loop through an array in your Blade template.
+Bladeテンプレートで配列のループを使用したい
 {/problem}
 
 {solution}
-Use the `@foreach` control structure.
+`@foreach` 構文を利用します
 
-{html}
+```html
 <html>
 <body>
   <p>A list of items.</p>
@@ -24,11 +24,11 @@ Use the `@foreach` control structure.
   </ul>
 </body>
 </html>
-{/html}
+```
 
-Just like PHP, you can loop with the key.
+PHPのforeachの様にループでキーを使用する事が出来ます
 
-{html}
+```html
 <html>
 <body>
   <p>A dictionary.</p>
@@ -40,11 +40,12 @@ Just like PHP, you can loop with the key.
   </dl>
 </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-Beware undefined variables.
+未定義の変数に注意して下さい
 
-Just like PHP, if either `$items` (in the first example) or `$dict` (in the second example) are not defined, a warning message will be output.
+サンプルの様に利用する場合に、`$items`や`$dict`が未定義の場合は
+PHPと同様に警告メッセージが出力されます
 {/discussion}

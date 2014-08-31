@@ -1,5 +1,5 @@
 ---
-Title:    翻訳で使われているキーを取得する
+Title:    キーに対応する多言語翻訳文字列を取得する
 Topics:   localization
 Code:     Lang::get()
 Id:       249

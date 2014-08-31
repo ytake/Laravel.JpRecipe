@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Password Input Field
+Title:    パスワードフィールドを作成する
 Topics:   forms
 Code:     Form::input(), Form::password()
 Id:       156
@@ -7,41 +7,41 @@ Position: 6
 ---
 
 {problem}
-You want to create a password input field for your form.
+パスワードフィールドを作成したい
 
-You know you could use the `<input type="password"...>` format but you want to use the `Form` facade.
+`<input type="password"...>`を利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::password()` method.
+`Form::password()`メソッドを利用します
 
-Usually, this is used in Blade templates.
+通常はBladeテンプレートで利用します
 
-The simplest way to use this method is to only pass the name.
+このメソッドの一番簡単な方法は、フィールド名のみを指定します
 
-{html}
-{{ Form::password('secret') }}
-{/html}
+```html
+{{Form::password('secret')}}
+```
 
-This creates a very simple element which looks like the following.
+以下の様なシンプルなエレメントが作成されます
 
-{html}
+```html
 <input name="secret" type="password" value="">
-{/html}
+```
 
-To add other attributes, pass a second argument to the method. This second argument must be an array.
+属性を追加する場合は、第二引数に配列を利用しなければなりません
 
-{html}
-{{ Form::password('secret', array('class' => 'field')) }}
-{/html}
+```html
+{{Form::password('secret', ['class' => 'field'])}}
+```
 
-Now the password field has a class attribute.
+パスワードフィールドに`class`が追加されます
 
-{html}
+```html
 <input class="field" name="secret" type="password" value="">
-{/html}
+```
 {/solution}
 
 {discussion}
-This method uses the `Form::input()` method, passing `"password"` as the type.
+このメソッドは`Form::input()`メソッドを利用し、typeに`"password"`を指定しています
 {/discussion}

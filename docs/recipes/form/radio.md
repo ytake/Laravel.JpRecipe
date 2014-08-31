@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Radio Button Input Field
+Title:    ラジオボタンを作成する
 Topics:   forms
 Code:     Form::radio()
 Id:       168
@@ -7,69 +7,72 @@ Position: 18
 ---
 
 {problem}
-You want to create a radio button field for your Blade template.
+Bladeテンプレートでラジオボタンを作成したい
 {/problem}
 
 {solution}
-Use the `Form::radio()` method.
+`Form::radio()`メソッドを利用します
 
-You're only required to use the first argument, name.
+第一引数でフィールド名を必ず指定しなければなりません
 
-{html}
-{{ Form::radio('single') }}
-{/html}
+```html
+{{Form::radio('single')}}
+```
 
-This produces the following HTML.
+これは下記の様に出力されます
 
-{html}
+```html
 <input name="single" type="radio" value="single">
-{/html}
+```
 
-But, radio buttons make the most sense when you have several with the same name, but different values. Specify the value with the second argument.
+ラジオボタンはいくつか同じフィールド名を利用しますので、
+フィールド名に同じものを指定し、valueを第二引数で指定します
 
-{html}
-{{ Form::radio('sex', 'male') }}<br>
-{{ Form::radio('sex', 'female') }}
-{/html}
+```html
+{{Form::radio('sex', '男性')}}<br />
+{{Form::radio('sex', '女性')}}
+```
 
-Now the value will either be 'male' or 'female'.
+男性か女性を選択するラジオボタンが作成されます
 
-{html}
-<input name="sex" type="radio" value="male"><br>
-<input name="sex" type="radio" value="female">
-{/html}
+```html
+<input name="sex" type="radio" value="男性"><br />
+<input name="sex" type="radio" value="女性">
+```
 
-If you want to default the value as checked, pass `true` as the third argument.
+デフォルトでチェックされた状態にする場合は、第三引数に`true`を指定します
 
-{html}
-{{ Form::radio('sex', 'male') }}<br>
-{{ Form::radio('sex', 'female', true) }}
-{/html}
+```html
+{{Form::radio('sex', '男性')}}<br>
+{{Form::radio('sex', '女性', true)}}
+```
 
-This adds the `checked` attribute to second radio button.
+2つ目のラジオボタンに`checked`属性を追加します
 
-{html}
-<input name="sex" type="radio" value="male"><br>
-<input checked="checked" name="sex" type="radio" value="female">
-{/html}
+```html
+<input name="sex" type="radio" value="男性"><br>
+<input checked="checked" name="sex" type="radio" value="女性">
+```
 
-Finally, you can add additional attributes to the input field with the fourth argument.
+最後に、属性を追加するには第四引数に配列を利用します
 
-{html}
-{{ Form::radio('example', 1, true, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::radio('example', 1, true, ['class' => 'field'])}}
+```
 
-Now the field has the class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="field" checked="checked" name="example" type="radio" value="1">
-{/html}
+```
 {/solution}
 
 {discussion}
-The appropriate radio button will automatically get checked based on any flash data.
+自動的にフォームのセッションデータに基づいて、利用可能なデータがあれば該当するボタンをチェックされた状態にします
 
-If you redisplay the form because of errors, your radio button fields will retain what the user had previously.
+バリデートエラーなどでフォームを再表示する場合には、
+ラジオボタンフィールドにはユーザーが以前に選択した値が保持されて利用されます
 
-Also, if you've bound a model to the form, it will pull the value from the model's data. See [[Creating a New Model Based Form]].
+フォームにモデルをバインドして作成している場合は、モデルのデータから値を利用します
+[[モデルをベースにしたフォームを作成する]] も参照して下さい
 {/discussion}

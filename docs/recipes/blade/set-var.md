@@ -1,5 +1,5 @@
 ---
-Title:    Assigning a Variable in a Blade Template
+Title:    Bladeテンプレートで変数を代入する
 Topics:   -
 Code:     -
 Id:       256
@@ -7,45 +7,48 @@ Position: 23
 ---
 
 {problem}
-You want to assign a variable in a Blade template.
+Bladeテンプレートで変数に代入したい
 {/problem}
 
 {solution}
-Blade does not provide a command to do this.
+代入の為の構文は特に用意されていません
 
-The idea is to cleanly separate logic from presentation. But in the case where it's more expedient to assign a variable in a template, here's a couple tricks.
+ビューはロジックから分離されるべきものです
+ただし、テンプレート内で変数を代入した方が簡単な場合もありますので、
+ここではトリックとして紹介します
 
-You can always use the PHP tags.
+BladeテンプレートではいつでもPHPタグを利用する事が出来ます
 
-{html}
+```html
 <?php $var = 'test'; ?>
-{{ $var }}
-{/html}
+{{$var}}
+```
 
-Or, you can use a Blade comment with a special syntax.
+またはBladeのコメントを使うこともできます
 
-{html}
+```html
 {{--*/ $var = 'test' /*--}}
-{{ $var }}
-{/html}
+{{$var}}
+```
 
-This second method works because Blade comments get translated in the format below.
+Bladeのコメントは以下の形式を利用しているため、
+上記のコメントを使った代入方法で動作させる事が出来ます
 
-{php}
+```php
 <?php /*COMMENT*/ ?>
-{/php}
+```
 
-Thus, the above variable assignment gets translated to the following PHP code.
+したがって、上記の変数の代入は次のPHPコードに変換されます
 
-{php}
+```php
 <?php /**/ $var = 'test' /**/ ?>
-{/php}
+```
 
-See [[Using Comments in Blade Templates]].
+[[Bladeテンプレートのコメント]]
 {/solution}
 
 {discussion}
-You also extend Blade adding a new command, such as `@setvar`.
+Bladeを買う徴して、`@setvar`の様な、新しい構文として追加することができます
 
-See the [[Extending Blade Templates]] recipe.
+[[Bladeテンプレートを拡張する]]
 {/discussion}

@@ -22,7 +22,7 @@ $id = \Form::getIdAttribute('fieldname', $attributes);
 {/solution}
 
 {discussion}
-これはしばしばマクロに使用されるケースがあります
+これはマクロに使用されるケースが多いでしょう
 
 フォームマクロについては、 [[Formマクロを作成する]] レシピを参考にしてください
 {/discussion}

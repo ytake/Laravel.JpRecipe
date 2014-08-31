@@ -1,5 +1,5 @@
 ---
-Title:    Retrieving an Item From the Cache
+Title:    キャッシュからアイテムを取得する
 Topics:   cache
 Code:     Cache::get()
 Id:       265
@@ -7,42 +7,45 @@ Position: 14
 ---
 
 {problem}
-You want to retrieve an item from the cache.
+キャッシュからアイテムを取得したい
 {/problem}
 
 {solution}
-Use the `Cache::get()` method.
+`Cache::get()`メソッドを利用します
 
-{php}
-$value = Cache::get($key);
-if ($value === null)
-{
+```php　
+$value = \Cache::get($key);
+if ($value === null) {
     echo "Value wasn't cached.";
 }
-{/php}
+```
 
-If the value isn't found (or has expired), then `Cache::get()` returns the default, which is a second argument defaulting to `null`.
+値が見つからない(または有効期限切れ)場合は、`Cache::get()`はデフォルトを返却します
+デフォルトが第二引数で指定されていない場合は`null`が返却されます
 
-{php}
-$value = Cache::get($key, 'default-value');
-echo $value;  // either retrieved value or 'default-value'
-{/php}
+```php
+$value = \Cache::get($key, 'default-value');
+// 値が無い場合はデフォルトの'default-value'が返却されます
+echo $value;
+```
 {/solution}
 
 {discussion}
-Use caution when storing `null` values.
+`null`も保存される事に注意して下さい
 
-Since the default value to `Cache::get()` is `null`, unless you pass a different second argument there's not way to tell if the `null` return represents the cached value or the default.
+`Cache::get()`のデフォルト値は`null`のため、
+第二引数で指定しない限り`null`が返却されます
 
-In other words, the following code is true.
+次のコードの場合、常に`true`となります
 
-{php}
-Cache::put('test1', null, 60);    // store null as test1
-Cache::forget('test2');           // delete test2 if it exists
+```php
+// nullがtest1キーで保存
+\Cache::put('test1', null, 60);
+// test2が存在していれば削除
+\Cache::forget('test2');
 
-if (Cache::get('test1') == Cache::get('test2'))
-{
-    echo "This always prints";
+if (Cache::get('test1') == Cache::get('test2')) {
+    echo "いつも表示されます";
 }
-{/php}
+```
 {/discussion}

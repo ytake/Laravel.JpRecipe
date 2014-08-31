@@ -1,5 +1,5 @@
 ---
-Title:    Displaying a Variable in a Blade Template
+Title:    Bladeテンプレートで変数を表示する
 Topics:   Blade
 Code:     -
 Id:       36
@@ -7,71 +7,74 @@ Position: 3
 ---
 
 {problem}
-You want to echo the contents of a variable on a web page.
+webページで変数を表示したい
 
-Instead of using `<?php echo $variable; ?>`, you're using Blade templates and want to know the Blade way of doing it.
+`<?php echo $variable; ?>`の代わりに、Bladeテンプレートで用意されているメソッドを利用してみましょう
 {/problem}
 
 {solution}
-Use the curly brace syntax to display the variable.
+変数を表示するには、"{", "}"括弧文を使用します
 
-#### Simple Syntax
+#### シンプルな構文
 
-Two curly braces use the *Echo* syntax in a Blade template.
+Bladeテンプレートで中括弧2つで *echo* を意味します
 
 Example:
 
-{html}
+```html
 <html>
   <body>
     Hello {{ $name }}
   </body>
 </html>
-{/html}
+```
 
-If `$name = 'Chuck'` the above will output **Hello Chuck** in the body area.
+`$name = 'Chuck'` の場合、 **Hello Chuck** と出力されます
 
-#### Syntax for Escaping
+#### エスケープ
 
-If you want to escape a value when outputting it, use triple braces instead of double braces.
+出力する値をエスケープしたい場合に、
+中括弧2つの代わりに中括弧3つを利用します
 
-{html}
+```html
 <html>
   <body>
     Hello {{{ $name }}}
   </body>
 </html>
-{/html}
+```
 
-This will run the output through `htmlentities()` before outputting it on the web page.
+webページに表示される前に`htmlentities()`を介します
 
-#### Syntax for Defaulting a Variable
+#### 変数のデフォルト値
 
-If the variable doesn't exist, you can use the following technique.
+変数が存在しない場合、以下の手法が利用できます
 
-{html}
+```html
 <html>
   <body>
     Hello {{{ $name or 'No name' }}}
   </body>
 </html>
-{/html}
+```
 
-In this last example if the variable `$name` isn't set then **No name** will be output.
+この例では、
+変数`$name`が設定されていない場合に、代わりに **No name** が出力されます
 
-#### Syntax for Display the curly braces.
+#### 中括弧を表示
 
-What if you want to display the curly braces around text? Just add the `@` symbol before the curly braces.
+中括弧を表示したい場合にどうすれば良いでしょうか？
+中括弧の前に`@`を追記します
 
-{html}
+```html
 <html>
   <body>
     @{{ This is displayed WITH the braces on each side }}
   </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-This is pretty basic. No need to discuss.
+これは基本的なものです
 {/discussion}

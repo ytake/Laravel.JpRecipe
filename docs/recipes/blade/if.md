@@ -1,5 +1,5 @@
 ---
-Title:    Using @if Control Structures in Blade
+Title:    Bladeで @if を使用する
 Topics:   Blade
 Code:     @else, @elseif, @endif, @if
 Id:       84
@@ -7,24 +7,23 @@ Position: 4
 ---
 
 {problem}
-You need conditional logic in a Blade template.
+Bladeテンプレートで条件付きロジックを利用したい
 {/problem}
 
 {solution}
-Use the `@if` control structure.
+`@if` を利用します
 
-{html}
+```html
 @if ($age < 6)
-    Get outta here kid.
-@elseif ($age < 21)
-    You can't buy booze in the United States.
-    Ha ha.
+    子供は飲めません
+@elseif ($age < 18)
+    お酒は20歳以上から
 @else
-    Buy me a drink?
+    どこでお酒が買えますか？
 @endif
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Reset Input Field
+Title:    リセットボタンを作成する
 Topics:   forms
 Code:     Form::reset()
 Id:       169
@@ -7,37 +7,37 @@ Position: 19
 ---
 
 {problem}
-You want to create a reset button in your Blade template.
+Bladeテンプレートでリセットボタンを作成したい
 {/problem}
 
 {solution}
-Use the `Form::reset()` method.
+`Form::reset()`メソッドを利用します
 
-You only need to supply the value as the first argument.
+第一引数でvalueを指定してください
 
-{html}
+```html
 {{ Form::reset('Clear form') }}
-{/html}
+```
 
-The HTML produced is.
+これは下記の様に出力されます
 
-{html}
+```html
 <input type="reset" value="Clear form">
-{/html}
+```
 
-If you want to add additional attributes, add a second argument with an array of attributes.
+属性を追加する場合は、第二引数に配列を利用しなければなりません
 
-{html}
-{{ Form::reset('Clear form', ['class' => 'form-button']) }}
-{/html}
+```html
+{{Form::reset('Clear form', ['class' => 'form-button'])}}
+```
 
-Now the output has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="form-button" type="reset" value="Clear form">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}

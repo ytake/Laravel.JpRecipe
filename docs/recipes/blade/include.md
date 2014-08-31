@@ -1,5 +1,5 @@
 ---
-Title:    Including a Blade Template within another Template
+Title:    Bladeテンプレートで他のテンプレートをインクルードする
 Topics:   Blade
 Code:     @include
 Id:       90
@@ -7,15 +7,15 @@ Position: 10
 ---
 
 {problem}
-You want to include one Blade template within another.
+Bladeテンプレートで他のテンプレートをインクルードしたい
 
-You combined some common HTML code into a single template and want to pull in the template within another template.
+いくつかのテンプレート組み合わせて出力してみましょう
 {/problem}
 
 {solution}
-Use the `@include` statement.
+`@include`構文を利用します
 
-{html}
+```html
 <html>
 <body>
     @include('common-header')
@@ -23,45 +23,49 @@ Use the `@include` statement.
     <p>bla, bla, bla</p>
 </body>
 </html>
-{/html}
+```
 
-When the above view is created it will look for `views/common-header.php` or `views/common-header.blade.php` and replace `@include('common-header')` with the contents of the file.
+上記のビューが生成される際に、
+`views/common-header.php` または `views/common-header.blade.php`を探して
+`@include('common-header')`が指定したファイルの内容に置き換えられます
 
-#### You can also specify variables
+#### 変数を指定する事も出来ます
 
-By default, any included templates inherit any variables the including template had available, but you can specify new ones.
+デフォルトでは全ての変数を継承して利用されますが、
+新たに変数を付け加える事が出来ます
 
-Let's say you have `views/partials/item-display.blade.php` that looks like:
-{html}
+例えば、下記の様な`views/partials/item-display.blade.php`というビューがあったとしましょう:
+
+```html
 <div>
     Name: {{ $item->name }}<br>
     Description: {{{ $item->description }}}
 </div>
-{/html}
+```
 
-Then you could have a template include this _"partial"_, passing the `$item` variable.
+この _"partial"_ テンプレートをインクルードする時に変数を指定します
 
-{html}
+```html
 <html>
 <body>
   <h1>All the items:</h1>
   @foreach ($items as $foo)
-    @include('partials.item-display', array('item' => $foo))
+    @include('partials.item-display', ['item' => $foo])
   @endforeach
 </body>
-{/html}
+```
 {/solution}
 
 {discussion}
-The `@include()` line must not span multiple lines.
+`@include()`は複数行にまたがらない様にして下さい
 
-Code like below will not operate correctly.
+下記の様なコードは正常に動作しません
 
-{php}
-@include('my-partial-name', array(
+```html
+@include('my-partial-name', [
     'value1' => 'abc',
     'value2' => $some_var,
     'value3' => date('Y-m-d'),
-))
-{/php}
+])
+```
 {/discussion}

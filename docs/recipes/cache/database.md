@@ -1,5 +1,5 @@
 ---
-Title:    Setting Up the Database Cache Driver
+Title:    キャッシュドライバーにデータベースを利用する
 Topics:   configuration
 Code:     Cache::decrement(), Cache::increment(), Schema::create()
 Id:       38
@@ -7,65 +7,68 @@ Position: 2
 ---
 
 {problem}
-You want to use a cache across multiple machines.
+複数のサーバ間などでキャッシュを共有して使えるようにしたい
 
-You want to use a cache, but your web application runs on a couple different servers. The File cache driver won't work because anything cached is cached only for a single machine. _(And you don't want to use a file cache on a network share across multiple machines.)_
+複数のサーバでキャッシュを利用する場合に、ファイルキャッシュでは他のサーバから利用する事は出来ません
+データベースを介して複数のサーバ間でキャッシュを共有してみましょう
 {/problem}
 
 {solution}
-Use the Database cache driver.
+データベースキャッシュドライバーを利用します
 
-First, edit `app/config/cache.php` and change the driver.
+まず `app/config/cache.php` のドライバーを変更します
 
-{php}
+```php
 'driver' => 'database',
-{/php}
+```
 
-Next, you must create a database table.
+次に、キャッシュを保存するテーブルをデータベースに作成します
 
-{text}
+```text
 $ mysql -u username -p
 mysql> use mydatabase
 mysql> create table cache (`key` varchar(255) not null, value text not null)
     -> expiration int not null, unique key (`key`));
 mysql> exit
-{/text}
+```
 {/solution}
 
 {discussion}
-This recipe assumes your database is installed and configured.
+このレシピでは、すでにデータベースがインストール済みで、設定が済んでいるものと仮定しています
 
-If not see [[Installing MySQL]] and
-[[Setting up the MySQL Database Driver]].
+導入が済んでいない場合は [[MySQLをインストールする]] 、[[MySQLドライバーの設定方法]] をご覧ください
 
-You can also change the connection name and table used for caching. Laravel ships with the following configured in `app/config/cache.php`.
+キャッシュに利用する接続先とテーブルを変更することができます
+`app/config/cache.php`で設定を変更します
 
-{php}
+```php
 'connection' => null,
 'table' => 'cache',
-{/php}
+```
 
-If you had another database connection configured in `app/config/database.php` named 'mydb' and a cache table set up in the database named 'mycache', then you'd configure `app/config/cache.php` as follows.
+`app/config/database.php`で接続先が'mydb'、
+キャッシュのテーブルが'mycache'の場合は、
+`app/config/cache.php`で次の様に指定します
 
-{php}
+```php
 'connection' => 'mydb',
 'table' => 'mycache',
-{/php}
+```
 
-#### Using Schema builder to build the cache table
+#### スキーマビルダーを使用してキャッシュテーブルを構築
 
-If you want to set up the cache table using Laravel's Schema builder, here's the code.
+Laravelのスキーマビルダーを利用して構築する場合は、次の様なコードになります
 
-{php}
+```php
 Schema::create('cache', function($table)
 {
-	$table->string('key')->unique();
-	$table->text('value');
-	$table->integer('expiration');
+	  $table->string('key')->unique();
+  	$table->text('value');
+  	$table->integer('expiration');
 });
-{/php}
+```
 
-#### Database driver limitations
+#### データベースドライバの制限
 
-Like the File Cache driver, the database driver doesn't support Cache Sections, or the `Cache::increment()` or `Cache::decrement()` methods.
+ファイルキャッシュドライバーと同様に`Cache::increment()`、`Cache::decrement()`は利用できません
 {/discussion}

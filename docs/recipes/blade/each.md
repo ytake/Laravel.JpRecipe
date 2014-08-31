@@ -1,60 +1,61 @@
 ---
-Title:    Rendering a View For Items in a Collection
+Title:    コレクション内の項目をレンダリングする
 Topics:   -
-Code:     @each
+Code:     @foreach
 Id:       239
 Position: 11
 ---
 
 {problem}
-You want to render a view for items in a collection in your blade template.
+Bladeテンプレートでコレクション内の項目をレンダリングしたい
 {/problem}
 
 {solution}
-Use the Blade `@each` command.
+Bladeの`@each`を利用します
 
-You pass the command at least three arguments:
+少なくとも3つの引数を指定する必要があります:
 
-1. The name of the view to render.
-2. The collection
-3. What to call each item.
+1. レンダリングするビューファイル名
+2. コレクション(配列等)
+3. 利用する項目名
 
-For example if you had the following in your Blade template.
+例えば、Bladeテンプレートで以下の様なコードがある場合
 
-{html}
+```html
 Items:
 @each('items.single', $items, 'item')
-{/html}
+```
 
-This is roughly equivelant of the following:
+これは次の意味を持ちます:
 
-{html}
+```html
 Items:
 @foreach ($items as $item)
     @include('items.single', ['item' => $item])
 @endforeach
-{/html}
+```
 {/solution}
 
 {discussion}
-You can also pass a fourth option. This is what to display if the collection is empty.
+第四引数にコレクションが空の場合に表示するものを指定する事が出来ます
 
-{html}
+```html
 Items:
 @each('items.single', $items, 'item', 'items.empty')
-{/html}
+```
 
-If `$items` is empty then the view `items.empty` view would be rendered. If you preface this fourth argument with `raw|` then it's not rendered as a view, but as raw text.
+`$items`が空の場合に`items.empty`ビューがレンダリングされます。
+第四引数にビューではなく、文字列を指定する事も可能です
 
-{html}
+```html
 Items:
 @each('items.single', $items, 'item', 'raw|There are no items')
-{/html}
+```
 
-If `$items` is empty, the following HTML would be output.
+`$items`が空の場合に次の様なHTMLが出力されます
 
-{html}
+```html
 Items:
 There are no items
-{/html}
+```
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Select Box Field
+Title:    セレクトボックスを作成する
 Topics:   forms
 Code:     Form::select()
 Id:       163
@@ -7,100 +7,99 @@ Position: 13
 ---
 
 {problem}
-You want to create a select box in a form template.
+Bladeテンプレートでセレクトボックスを作成したい
 
-Instead of using the `<select>` tag you want to do it the Laravel way.
+`<select>`を利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::select()` method.
+`Form::select()`メソッドを利用します
 
-You can use a simple array.
+フィールド名を指定し、選択肢を配列で指定します
 
-{html}
-{{ Form::select('age', ['Under 18', '19 to 30', 'Over 30']) }}
-{/html}
+```html
+{{Form::select('age', ['Under 18', '19 to 30', 'Over 30'])}}
+```
 
-This uses the numeric index of the array for option values.
+この場合、valueは配列の _インデックス_ が利用されます
 
-{html}
+```html
 <select name="age">
   <option value="0">Under 18</option>
   <option value="1">19 to 30</option>
   <option value="2">Over 30</option>
 </select>
-{/html}
+```
 
-Or you can use associative arrays.
+または連想配列を利用します
 
-{html}
-{{ Form::select('age', [
+```html
+{{Form::select('age', [
    'young' => 'Under 18',
    'adult' => '19 to 30',
    'adult2' => 'Over 30']
-) }}
-{/html}
+)}}
+```
 
-This will use the keys for the option values.
+この場合、valueには連想配列のkeyが利用されます
 
-{html}
+```html
 <select name="age">
   <option value="young">Under 18</option>
   <option value="adult">19 to 30</option>
   <option value="adult2">Over 30</option>
 </select>
-{/html}
+```
 
-Set the default option by passing a third argument.
+デフォルト値を利用する場合は第三引数に値を指定します
 
-{html}
-{{ Form::select('number', [0, 1, 2], 2) }}
-{/html}
+```html
+{{Form::select('number', [0, 1, 2], 2)}}
+```
 
-This produces the following.
+次の様に出力されます
 
-{html}
+```html
 <select name="number">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2" selected="selected">2</option>
 </select>
-{/html}
+```
 
-Add additional attributes with a fourth argument.
+属性を追加する場合は、第四引数に配列を利用します
 
-{html}
-{{ Form::select('number', [1, 2, 3], null, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::select('number', [1, 2, 3], null, ['class' => 'field'])}}
+```
 
-Now the select field has the class attribute set.
+フィールドに`class`が追加されます
 
-{html}
+```html
 <select class="field" name="number">
   <option value="0">1</option>
   <option value="1">2</option>
   <option value="2">3</option>
 </select>
-{/html}
+```
 
-_(Note: I added spaces and linefeeds in the example HTML output above for clarity.)_
 {/solution}
 
 {discussion}
-You can also create select groups.
+セレクトボックスの選択肢をグループ化する事も可能です
 
-When the options argument contains an array with sub-arrays, then option groups are created.
+選択肢を更に連想配列等で分割することで、グループが作成されます
 
-{html}
-{{ Form::select('feeling', array(
-  'Happy' => array('Joyous', 'Glad', 'Ecstatic'),
-  'Sad' => array('Bereaved', 'Pensive', 'Down'),
-))}}
-{/html}
+```html
+{{Form::select('feeling', [
+  'Happy' => ['Joyous', 'Glad', 'Ecstatic'],
+  'Sad' => ['Bereaved', 'Pensive', 'Down'],
+])}}
+```
 
-This produces the following HTML.
+次の様なHTMLが出力されます
 
-{html}
+```html
 <select name="feeling">
   <optgroup label="Happy">
     <option value="0">Joyous</option>
@@ -113,5 +112,5 @@ This produces the following HTML.
     <option value="2">Down</option>
   </optgroup>
 </select>
-{/html}
+```
 {/discussion}

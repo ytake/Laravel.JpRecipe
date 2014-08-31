@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Select Range Field
+Title:    選択肢の範囲を指定してセレクトボックスを作成する
 Topics:   form
 Code:     Form::selectRange
 Id:       164
@@ -7,21 +7,21 @@ Position: 14
 ---
 
 {problem}
-You want a select box with a range of values.
+選択肢の範囲を指定してセレクトボックスを作成したい
 {/problem}
 
 {solution}
-Use the `Form::selectRange()` method.
+`Form::selectRange()`メソッドを利用します
 
-Just specify the start and end of the numeric range.
+選択肢の範囲として、始まりの値から終わりの値までを整数で指定します
 
-{html}
-{{ Form::selectRange('number', 10, 15) }}
-{/html}
+```html
+{{Form::selectRange('number', 10, 15)}}
+```
 
-This produces options 10, 11, 12, 13, 14, and 15.
+10から15までの選択肢を含んだセレクトボックスが作成されます
 
-{html}
+```html
 <select name="number">
   <option value="10">10</option>
   <option value="11">11</option>
@@ -30,17 +30,18 @@ This produces options 10, 11, 12, 13, 14, and 15.
   <option value="14">14</option>
   <option value="15">15</option>
 </select>
-{/html}
+```
 
-Add a fourth option for the default value and a fifth option for any additional attributes for the select field.
+デフォルト値を指定する場合は第四引数に、
+属性を追加する場合は、第五引数に配列を利用します
 
-{html}
-{{ Form::selectRange('number', 10, 15, 13, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::selectRange('number', 10, 15, 13, ['class' => 'field'])}}
+```
 
-Now #13 is selected and the select field has a class attribute.
+#13 が選択された状態になり、フィールドに`class`が追加されます
 
-{html}
+```html
 <select class="field" name="number">
   <option value="10">10</option>
   <option value="11">11</option>
@@ -49,11 +50,11 @@ Now #13 is selected and the select field has a class attribute.
   <option value="14">14</option>
   <option value="15">15</option>
 </select>
-{/html}
+```
 {/solution}
 
 {discussion}
-This calls `Form::select()` internally.
+内部で`Form::select()`をコールしています
 
-See [[Creating a Select Box Field]] for more details.
+詳細については [[セレクトボックスを作成する]] をご覧ください
 {/discussion}

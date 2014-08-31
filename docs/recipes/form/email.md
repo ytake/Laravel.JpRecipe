@@ -1,5 +1,5 @@
 ---
-Title:    Creating an Email Input Field
+Title:    メールアドレス入力フィールドを作成する
 Topics:   forms
 Code:     Form::email(), Form::input(), Form::model()
 Id:       158
@@ -7,60 +7,61 @@ Position: 8
 ---
 
 {problem}
-You want to create an email input field for your form.
+メールアドレス入力フィールドを作成したい
 
-You know you could use the `<input type="email"...>` format but you want to do it the Laravel way.
+`<input type="email"...>`を利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::email()` method.
+`Form::email()`メソッドを利用します
 
-Usually, this is used in Blade templates.
+通常はBladeテンプレートで利用します
 
-The simplest form of this method is to only pass the name.
+このメソッドの一番簡単な方法は、フィールド名のみを指定します
 
-{html}
-{{ Form::email('email_address') }}
-{/html}
+```html
+{{Form::email('email_address')}}
+```
 
-This creates a very simple element which looks like the following.
+以下の様にシンプルなエレメントが作成されます
 
-{html}
+```html
 <input name="email_address" type="email">
-{/html}
+```
 
-You can also pass an additional _value_ option.
+_value_ を指定したい場合は第二引数で指定します
 
-{html}
-{{ Form::text('email_address', 'noreply@gmail.com') }}
-{/html}
+```html
+{{Form::text('email_address', 'noreply@gmail.com')}}
+```
 
-Producing the following.
+次の様に出力されます
 
-{html}
+```html
 <input name="email_address" type="email" value="noreply@gmail.com">
-{/html}
+```
 
-To add other attributes, pass a third argument to the method. This third argument must be an array.
+属性を追加する場合は、第三引数に配列を利用します
 
-{html}
-{{ Form::email('email_address', 'noreply@gmail.com', ['class' => 'field']) }}
-{/html}
+```html
+{{Form::email('email_address', 'noreply@gmail.com', ['class' => 'field'])}}
+```
 
-Now the input has a class attribute.
+フィールドに`class`が追加されます
 
-{html}
-<input class="field" name="email_address" type="email" \
-  value="noreply@gmail.com">
-{/html}
+```html
+<input class="field" name="email_address" type="email"
+    value="noreply@gmail.com">
+```
 
-_(The backslash is used above to format output for small screens.)_
 {/solution}
 
 {discussion}
-This method uses the `Form::input()` method, passing `"email"` as the type.
+このメソッドは`Form::input()`に`"email"`タイプを指定して利用しています
 
-Also, please note that the value will first come from Flash Session Input, only secondly will the value argument be used. This means if your previous request was this form it will automatically display the value the user last entered.
+以前のリクエストがこのフォームから送信された場合に、
+セッションから値を取得し、自動的にユーザーが最後に入力した値が利用されます
 
-**NOTE:** If you've bound the form to a model using `Form::model()`, then the order of precedence for determining which value to display is different. See [[Creating a New Model Based Form]] for details.
+**NOTE:** フォームモデルを利用している場合は、値利用の優先度が異なります
+詳しくは[[モデルをベースにしたフォームを作成する]] をご覧ください
 {/discussion}

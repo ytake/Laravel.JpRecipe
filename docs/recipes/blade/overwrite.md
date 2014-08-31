@@ -1,5 +1,5 @@
 ---
-Title:    Stopping Injecting Content into a Section and Overwriting
+Title:    コンテンツの挿入を停止してセクションを上書きする
 Topics:   -
 Code:     @overwrite
 Id:       244
@@ -7,15 +7,15 @@ Position: 16
 ---
 
 {problem}
-You want to stop injecting content into a Blade section.
+Bladeセクションでコンテンツの挿入を停止させたい
 
-And you want the content overwrite to any previous section of the same name.
+コンテンツの挿入を行わずに、同じ名前の前のセクションを上書きしてみましょう
 {/problem}
 
 {solution}
-Use the Blade `@overwrite` command.
+Bladeの`@overwrite`構文を利用します
 
-{html}
+```html
 @section('test')
    one
 @stop
@@ -23,17 +23,17 @@ Use the Blade `@overwrite` command.
    two
 @stop
 @yield('test')
-{/html}
+```
 
-The above Blade template will output the following.
+上記の記述は次の様に出力されます
 
-{html}
+```html
 one
-{/html}
+```
 
-But if you change the second `@stop` to an `@overwrite`.
+二つ目の `@stop` から `@overwrite` へ変更します
 
-{html}
+```html
 @section('test')
    one
 @stop
@@ -41,21 +41,21 @@ But if you change the second `@stop` to an `@overwrite`.
    two
 @overwrite
 @yield('test')
-{/html}
+```
 
-Then the following is output.
+次の様に出力されます
 
-{html}
+```html
 two
-{/html}
+```
 {/solution}
 
 {discussion}
-The `@overwrite` command is one of the four ways to end a section.
+`@overwrite`は4種類のセクション終了方法のうちの1つです
 
-The other three commands are:
+他の3つの方法は:
 
-1. `@stop` - [[Stopping Injecting Content Into a Section]].
-2. `@show` - [[Yielding the Current Section in a Blade Template]].
-3. `@append` - [[Stopping Injecting Content into a Section and Appending It]].
+1. `@stop` - [[セクションへの挿入を終了する]].
+2. `@show` - [[Bladeテンプレートで現在のセクションを取得する]].
+3. `@append` - [[レンダリングを停止してセクションを追加する]].
 {/discussion}

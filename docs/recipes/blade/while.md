@@ -1,5 +1,5 @@
 ---
-Title:    Using @while Control structures in Blade
+Title:    Blade Bladeで @while を使用する
 Topics:   Blade
 Code:     @endwhile, @while
 Id:       89
@@ -7,13 +7,13 @@ Position: 9
 ---
 
 {problem}
-You want to loop in your Blade template until a condition is met.
+Bladeテンプレートでループ処理を行いたい
 {/problem}
 
 {solution}
-Use the `@while` control structure.
+`@while` を利用します
 
-{html}
+```html
 <html>
 <body>
   <p>An array of strings.</p>
@@ -24,9 +24,9 @@ Use the `@while` control structure.
   </ul>
 </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-todo
+特にありません
 {/discussion}

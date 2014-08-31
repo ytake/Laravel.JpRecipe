@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Escaped Content Tags Blade Uses
+Title:    Bladeが使用するエスケープタグを変更する
 Topics:   -
 Code:     Blade::setEscapedContentTags()
 Id:       247
@@ -7,31 +7,33 @@ Position: 19
 ---
 
 {problem}
-You want to use different escaped content tags in your Blade template.
+Bladeのエスケープタグにデフォルトとは異なるものを利用したい
 
-You know that blade uses `{{{` and `}}}` to specify content to be escaped and output, but you want to use something different.
+Bladeは`{{{` と `}}}` を利用して内容を表示しますが、
+他のタグに変更してみましょう
 {/problem}
 
 {solution}
-Use the `Blade::setEscapedContentTags()` method.
+`Blade::setEscapedContentTags()`メソッドを利用します
 
-Let's say you want to use `[{{` and `}}]` for your tags. First call the method.
+例えば、タグに`[{{` と `}}]`を利用するとしましょう
+まずはメソッドをコールします
 
-{php}
-Blade::setContentTags('[{{', '}}]');
-{/php}
+```php
+\Blade::setContentTags('[{{', '}}]');
+```
 
-Then your template can contain code like.
+テンプレートで利用する場合は下記の様になります
 
-{html}
+```html
 The value of $variable is [{{ $variable }}].
-{/html}
+```
 
-`$variable` will pass through `HTML::entities()` before being output.
+`$variable`は、`HTML::entities()`を介して出力されます
 {/solution}
 
 {discussion}
-This actually calls `Blade::setContentTags()`.
+実際には`Blade::setContentTags()`が利用されています
 
-It passes the third argument as `true`. See [[Setting the Content Tags Blade Uses]].
+第三引数に`true`を指定して利用しています [[Bladeが使用するタグを変更する]]
 {/discussion}

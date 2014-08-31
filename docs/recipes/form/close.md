@@ -1,5 +1,5 @@
 ---
-Title:    Closing the Current Form
+Title:    フォームを閉じる
 Topics:   forms
 Code:     Form::close()
 Id:       152
@@ -7,23 +7,25 @@ Position: 3
 ---
 
 {problem}
-You want to close the current form.
+作成したフォームを閉じたい
 
-You know you can simply use a `</form>` but want to do it the Laravel way.
+シンプルに`</form>`タグを使うだけですが、Laravel流のcloseを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::close()` method.
+`Form::close()`メソッドを利用します
 
-This is usually done in a Blade template.
+通常はBladeテンプレートで利用します
 
-{html}
-{{ Form::close() }}
-{/html}
+```html
+{{Form::close()}}
+```
 {/solution}
 
 {discussion}
-This method actually does more than just return a `</form>`.
+実際には`</form>`生成するだけのメソッドではありません
 
-It also resets the `Form` internals (any defined labels and bound model). This is important if your web page has more than one form.
+定義されたラベルやフォームモデルを利用してる場合は、
+内部でそれらをリセットします
+実装しているwebページで複数のフォームを実装している場合に重要なポイントとなります
 {/discussion}

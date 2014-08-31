@@ -1,5 +1,5 @@
 ---
-Title:    Setting Up the File Cache Driver
+Title:    キャッシュドライバーにファイルを利用する
 Topics:   configuration
 Code:     Cache::decrement(), Cache::increment()
 Id:       37
@@ -7,25 +7,29 @@ Position: 1
 ---
 
 {problem}
-You want to use the File driver for the Laravel Cache.
+Laravelのキャッシュにファイルを利用したい
 
-You know other caches are more efficient than using the file system, but you want to get going quickly.
+ファイルキャッシュを利用するよりも他のキャッシュドライバーを用いた方が効率的ですが、
+ファイルキャッシュは簡単に扱えますので利用してみましょう
 {/problem}
 
 {solution}
-It should be pre-configured.
+これは事前に設定されています
 
-Laravel's default configuration uses the file cache driver. You can check the configuration by examining `app/config/cache.php`.  Look for the **driver** setting. It should look like what's below.
+Laravelはデフォルトのキャッシュドライバーにファイルが選択されています
+`app/config/cache.php`を見ると、設定されている内容が確認できます
+なおデフォルトでは下記の様に指定されています
 
-{php}
+```php
 'driver' => 'file',
-{/php}
+```
 
-If the setting is anything other than **file**, you can change it here. Or, if you're using [[Environment Specific Configurations]], you'll want to change this setting in your `app/config/{envname}/cache.php` file.
+**file** 以外のキャッシュドライバーを利用する場合はここを変更して下さい
+または [[実行環境の決定]] を利用している場合は、`app/config/{envname}/cache.php`を変更してください
 {/solution}
 
 {discussion}
-The file cache driver has some limitations.
+ファイルキャッシュには制限があります
 
-Specifically, you cannot use the `Cache::increment()` and `Cache::decrement()` methods. And Cache Sections are not supported.
+具体的には、`Cache::increment()`、`Cache::decrement()`はサポートされていないため利用できません
 {/discussion}

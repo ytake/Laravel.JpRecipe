@@ -1,5 +1,5 @@
 ---
-Title:    Getting a Cache Driver Instance
+Title:    キャッシュドライバーのインスタンスを取得する
 Topics:   cache
 Code:     Cache::driver()
 Id:       261
@@ -7,42 +7,43 @@ Position: 11
 ---
 
 {problem}
-You want to retrieve an instance of a cache driver.
+キャッシュドライバのインスタンスを取得したい
 {/problem}
 
 {solution}
-Use the `Cache::driver()` method.
+`Cache::driver()` メソッドを利用します
 
-Use the method without any arguments to return the default driver.
+デフォルトのドライバを取得する場合は引数を使わずにメソッドを使用します
 
-{php}
-$driver = Cache::driver();
-{/php}
+```php
+$driver = \Cache::driver();
+```
 
-If the default driver hasn't been created, it will be created before being returned.
+デフォルトドライバーが作成されていない場合は、
+作成する前にインスタンスを返却します
 
-You can also pass the name of the driver you wish to retrieve.
+他に、取得したいドライバの名前を指定する事が出来ます
 
-{php}
-$driver = Cache::driver('apc');
-{/php}
+```php
+$driver = \Cache::driver('apc');
+```
 
-This will return the APC cache driver, creating it if needed.
 {/solution}
 
 {discussion}
-There are eight built in cache drivers.
+デフォルトでキャッシュドライバーは8つ用意されています
 
-They are:
+それらは:
 
-* The APC cache driver
-* The array cache driver
-* The database cache driver
-* The file cache driver
-* The Memcached cache driver
-* The Redis cache driver
-* The WinCache cache driver
-* The XCache cache driver
+* APC cache driver
+* array cache driver
+* database cache driver
+* file cache driver
+* Memcached cache driver
+* Redis cache driver
+* WinCache cache driver
+* XCache cache driver
 
-You can also use this method to return a custom driver you've created. See [[Using Your Own Cache Driver]].
+独自に実装したキャッシュドライバーも同様に取得する事が出来ます
+[[独自のキャッシュドライバーを利用する]].
 {/discussion}

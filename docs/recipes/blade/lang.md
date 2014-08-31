@@ -1,5 +1,5 @@
 ---
-Title:    Outputting a Translation in a Blade Template
+Title:    Bladeテンプレートで他言語対応をする
 Topics:   -
 Code:     @lang, Lang::get()
 Id:       250
@@ -7,31 +7,33 @@ Position: 20
 ---
 
 {problem}
-You want to use translations in your Blade template.
+Bladeテンプレートで他言語対応をしたい
 {/problem}
 
 {solution}
-Use the Blade `@lang` command.
+`@lang` 構文を利用します
 
-For example:
+サンプル:
 
-{html}
+```html
 @lang('messages.welcome')
-{/html}
+```
 
-Assuming there's a `welcome` key in the `messages.php` for the current locale, the above would output the translated message.
+現在のロケールの`messages.php`に`welcome`キーがあれば、
+ロケールに合わせたメッセージが出力されます
 
-If there is no translated message then `messages.welcome` would be output.
+現在のロケールに含まれない場合はそのまま`messages.welcome`が出力されます
 
-If your message has a placeholder, you can pass a second parameter with an array of placeholders.
+メッセージにプレースホルダが利用されている場合は、
+第二引数に配列を使って指定します
 
-{html}
+```html
 @lang('messages.welcome', ['name' => $name])
-{/html}
+```
 {/solution}
 
 {discussion}
-This Blade command uses the `Lang::get()` method.
+このBlade構文は`Lang::get()`を利用します
 
-See [[Getting the Translation for a Key]] for details about this method.
+このメソッドの詳細については [[キーに対応する多言語翻訳文字列を取得する]] をご覧ください
 {/discussion}

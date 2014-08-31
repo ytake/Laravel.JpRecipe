@@ -38,7 +38,7 @@
         ],
         "psr-4": {
             "App\\": "app/App",
-            "App\\Tests\\": "app/tests"
+            "App\\Tests\\": "tests"
         },
         "files": [
             "app/common.php"

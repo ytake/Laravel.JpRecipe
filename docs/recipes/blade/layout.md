@@ -1,5 +1,5 @@
 ---
-Title:    Using Blade Layouts to Extend Templates
+Title:    Bladeのレイアウトを使って拡張する
 Topics:   Blade
 Code:     @extend, @section, @show, @yield
 Id:       34
@@ -7,22 +7,24 @@ Position: 1
 ---
 
 {problem}
-You find yourself duplicating common HTML on various pages.
+いくつかのHTML要素を共通化させたい
 
-Every HTML page has common elements for your web site. There are things like a navigation bar, a content area, a header and footer. You're tired of all the wasted time you spend duplicating work.
+すべてのHTMLページはいくつかの共通要素を持っています
+ナビゲーションバー、コンテンツ領域、ヘッダーとフッターと云ったものです
+これらを毎回コピーする事無く、レイアウトを利用してみましょう
 {/problem}
 
 {solution}
-Create and use a Blade layout.
+Bladeレイアウトを作成して利用します
 
-### Step 1 - Create a Layout
+### Step 1 - レイアウトを作成
 
-Create `app/views/layouts/main.blade.php`
+`app/views/layouts/main.blade.php`を作成します
 
-{html-lines}
+```html
 <html>
   <head>
-    {{-- Common Header Stuff Here --}}
+    {{-- 共通のヘッダー要素 --}}
   </head>
   <body>
     <div class="navigation">
@@ -36,29 +38,27 @@ Create `app/views/layouts/main.blade.php`
     </div>
   </body>
 </html>
-{/html}
+```
 
-#### Step 2 - Extend Your View to Use the Layout
+#### Step 2 - レイアウトを利用する準備
 
-{html-lines}
+```html
 @extends('layouts.main')
 
 @section('content')
   <p>
-    Here's your content
+    コンテンツ
   </p>
 @stop
-{/html}
+```
 
-{tip}
-`@extends` must always be the very first thing in a template when used.
-{/tip}
+_`@extends`を利用する場合、テンプレートの最初に記述しなければなりません_
 
-#### Output
+#### 出力
 
-The HTML of the rendered view will appear something like below.
+レンダリングされたビューのHTMLは以下の様になります
 
-{html}
+```html
 <html>
   <head>
   </head>
@@ -69,39 +69,15 @@ The HTML of the rendered view will appear something like below.
     </div>
     <div class="container">
   <p>
-    Here's your content
+    コンテンツ
   </p>
     </div>
   </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-Here's a breakdown of each file in the above examples.
-
-#### The file in Step 1
-
-Line 3
-
-: This is where you'd stick your CSS, meta tags, etc.
-
-Lines 7 - 10
-
-: Here is a section named *navigation* that has some simple links.
-
-Line 13
-
-: Output the section named *content* here.
-
-
-### The file in Step 2
-
-Line 1
-
-: This says to use the layout created in Step 1
-
-Lines 4 - 6
-
-: These lines will be output at the point the @yield exists in the layout file.
+すでに他のフレームワークでTwigやSmartyを利用していれば、
+大体同じ様な動作をさせる事が出来ます。
 {/discussion}

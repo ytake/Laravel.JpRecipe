@@ -1,5 +1,5 @@
 ---
-Title:    Determining if an Item Exists in the Cache
+Title:    キャッシュにアイテムが存在するか確認する
 Topics:   cache
 Code:     Config::has()
 Id:       102
@@ -7,30 +7,28 @@ Position: 10
 ---
 
 {problem}
-You want to see if a cached value exists.
+キャッシュに指定したキーのアイテムが存在するか確認したい
 {/problem}
 
 {solution}
-Use `Cache::has()`
+`Cache::has()`を利用します
 
-{php}
-if (Cache::has('mykey'))
-{
-    echo "Yea! 'mykey' is cached!";
+```php
+if (\Cache::has('mykey')) {
+    echo "'mykey'はキャッシュされてます！";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-Doesn't work with null items.
+アイテムが`null`の場合は動作しません
 
-If you cache a null value, the `Cache::has()` method returns false.
+nullをキャッシュする場合は`Cache::has()`は`false`が返却されます
 
-{php}
-Cache::put('test-null', null, 10);
-if ( ! Cache::has('test-null'))
-{
-    echo "This line will always be output.";
+```php
+\Cache::put('test-null', null, 10);
+if (!Cache::has('test-null')) {
+    echo "null!";
 }
-{/php}
+```
 {/discussion}

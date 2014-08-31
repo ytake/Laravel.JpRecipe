@@ -1,5 +1,5 @@
 ---
-Title:    Opening a New HTML Form
+Title:    HTMLフォームを作成する
 Topics:   forms
 Code:     Form::open()
 Id:       124
@@ -7,127 +7,138 @@ Position: 1
 ---
 
 {problem}
-You want to start a form.
+フォームを作成しましょう
 
-You know you could use the HTML `<form>` tag directly, but want to use Laravel's `Form` facade.
+HTMLの`<form>`タグではなく、Laravelの`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::open()` method.
+`Form::open()`メソッドを利用します
 
-Usually, this is done in a Blade template. There are several ways to use this method.
+通常はBladeテンプレートで利用します
+利用にあたっていくつか方法があります
 
-#### Using defaults
+#### デフォルト値を利用
 
-{html}
-{{ Form::open() }}
-{/html}
+```html
+{{Form::open()}}
+```
 
-The HTML produced is.
+生成されるHTMLは下記の通りです
 
-{html}
+```html
 <form method="POST" action="http://currenturl" accept-charset="UTF-8">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 
-This starts a form, using the POST method, to the current URL and will add an `accept-charset="UTF-8"` to the form. Additionally, a hidden token is added.
+POSTメソッドを使用してフォームを開始し、
+actionに現在のURLを用いて、`accept-charset="UTF-8"`を追加します
+また、CSRF対策にtokenが追加されます
 
-#### To a specific url
+#### URLを指定します
 
-Instead of passing an `action` you should pass a `url` value. This occurs in the only argument `Form::open()` accepts ... an array.
+URLを指定する場合に、`action`ではなく`url`キーを利用して指定します
+なお`Form::open()`で利用可能な引数は配列のみです
 
-{html}
-{{ Form::open(array('url' => 'http://full.url/here')) }}
-{/html}
+```html
+{{Form::open(['url' => 'http://full.url/here'])}}
+```
 
-This produces the following HTML.
+生成されるHTMLは下記の通りです
 
-{html}
+```html
 <form method="POST" action="http://full.url/here" accept-charset="UTF-8">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 
-#### To a route
+#### ルーティングを利用する
 
-Instead of passing the `action` you should pass a `route` value to one of your named routes.
-
-{html}
-{{ Form::open(array('route' => 'named.route')) }}
-{/html}
-
-If the route doesn't exist an error will be produced. Otherwise the form's action attribute becomes the full URL to the route.
+ルーティングを利用した指定をする場合は、
+`action`ではなく`route`キーを利用して、ルーティング名を指定します
 
 {html}
+{{Form::open(['route' => 'named.route'])}}
+{/html}
+
+作成されていないルーティング名を指定した場合は、エラーが返却されます
+それ以外では、ルーティング名から完全のURLlを生成します
+
+```html
 <form method="POST" action="http://full.url/someplace" accept-charset="UTF-8">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 
-#### To a controller action
+#### アクションでコントローラーを指定する
 
-This is where you use `action`.
+`action`で指定します
 
-{html}
-{{ Form::open(array('action' => 'Controller@method')) }}
-{/html}
+```html
+{{Form::open(['action' => 'Controller@method'])}}
+```
 
-If the controller or method doesn't exist an error will be produced. Otherwise the form's action attribute becomes the full URL to the route that will call the specified controller and method.
+コントローラまたはそのメソッドが存在しない場合、エラーが返却されます
+それ以外では、指定されたコントローラとメソッドから完全なURLを生成します
 
-{html}
+```html
 <form method="POST" action="http://full.url/someplace" accept-charset="UTF-8">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 
-#### Specifying different methods
+#### HTTPメソッドを指定する
 
-You can use methods other than POST with your forms. Pass the 'method' you want in the array argument. Valid methods are 'get', 'put', 'patch', 'post', or 'delete'.
+もちろん、HTTPメソッドはPOST以外のものも利用可能です
+配列で'method'キーを利用して指定します
+利用可能なHTTPメソッドは、'get', 'put', 'patch', 'post', そして 'delete'です
 
-{html}
-{{ Form::open(array('method' => 'get')) }}
-{/html}
+```html
+{{Form::open(['method' => 'get'])}}
+```
 
-This will produce the following HTML.
+生成されるHTMLは下記の通りです
 
-{html}
+```html
 <form method="GET" action="http://currenturl" accept-charset="UTF-8">
-{/html}
+```
 
-Notice there's no token? The token is not added for GET methods.
+GETメソッドではtokenが追加されない事に注意して下さい
 
-See the discussion at the bottom of this recipe for how Laravel _"fakes"_ the methods browsers can't handle.
+#### ファイルのアップロードを指定する
 
-#### Specifying file uploads
+'files'キーを使って、`'files' => true`と指定すると、
+フォームはファイルアップロードをサポートします
 
-If you pass a `'files' => true` as one of the array arguments, the form will become suitable for file uploads.
+```html
+{{Form::open(['files' => true])}}
+```
 
-{html}
-{{ Form::open(array('files' => true)) }}
-{/html}
+フォームに`enctype="multipart/form-data"`属性が追加されます
 
-The form now has the `enctype="multipart/form-data"` attribute.
-
-{html}
+```html
 <form method="POST" action="http://currenturl" accept-charset="UTF-8"
   enctype="multipart/form-data">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 {/solution}
 
 {discussion}
-How Laravel _"fakes"_ methods browsers cannot handle.
+ブラウザが処理できないHTTPメソッドを どうやってLaravelは処理をするのでしょうか？
 
-The form methods PUT, PATCH, and DELETE cannot be handled by most browsers. So what Laravel does is make the `method="POST"` and adds a hidden field.
+ほとんどのブラウザはPUT, PATCH, DELETEメソッドは処理できません
+それらが指定された場合、Laravelはhiddenフィールドに`method="POST"`を追加します
 
-{html}
-{{ Form::open(array('method' => 'PUT')) }}
-{/html}
+```html
+{{Form::open(['method' => 'PUT'])}}
+```
 
-This produces the following.
+生成されるHTMLは下記の通りです
 
-{html}
+```html
 <form method="POST" action="http://currenturl" accept-charset="UTF-8">
 <input name="_method" type="hidden" value="PUT">
 <input name="_token" type="hidden" value="somelongrandom string">
-{/html}
+```
 
-The framework is smart enough to translate those hidden fields and change the request type to match what's desired.
+フレームワークは希望通りのHTTPメソッドを指定ながらも、
+hiddenフィールドを利用して、処理をサポートしてくれますので、
+特に意識する必要はありません
 {/discussion}

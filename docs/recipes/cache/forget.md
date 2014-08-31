@@ -1,5 +1,5 @@
 ---
-Title:    Removing an Item from the Cache
+Title:    キャッシュからアイテムを削除する
 Topics:   cache
 Code:     Cache::forget()
 Id:       272
@@ -7,17 +7,17 @@ Position: 20
 ---
 
 {problem}
-You want to remove an item from the cache.
+キャッシュからアイテムを削除したい
 {/problem}
 
 {solution}
-Use the `Cache::forget()` method.
+`Cache::forget()`メソッドを利用します
 
-{php}
-Cache::forget($key);
-{/php}
+```php
+\Cache::forget($key);
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+とくにありません
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Determining if the Old Input is Empty
+Title:    以前の入力値が空かどうかを確認する
 Topics:   forms
 Code:     Form::oldInputIsEmpty()
 Id:       177
@@ -7,20 +7,20 @@ Position: 26
 ---
 
 {problem}
-You want to see if there's any old input (flashed input data the previous time the form was submitted).
+以前の入力値があるかどうかを確認したい
+(前回 フォームに送信したデータを指します)
 {/problem}
 
 {solution}
-Use the `Form::oldInputIsEmpty()` method.
+`Form::oldInputIsEmpty()`メソッドを利用します
 
-{php}
-if ( ! Form::oldInputIsEmpty())
-{
-    // check the old input value for specific fields
+```php
+if (!\Form::oldInputIsEmpty()) {
+    // フィールドを指定してチェックしてみましょう
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-See also [[Getting a Value From the Session's Old Input]].
+[[セッションから前の入力値を取得する]] も参考にして下さい
 {/discussion}

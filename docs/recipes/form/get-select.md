@@ -1,35 +1,36 @@
 ---
-Title:    Getting the Select Option for a Value
-Topics:   forms
+Title:    選択オプションを取得
+Topics:   forms, html
 Code:     Form::getSelectOption()
 Id:       180
 Position: 29
 ---
 
 {problem}
-You want to easily get the `<option>` HTML for an option in a select.
+簡単に選択中の`<option>`HTMLを取得したい
 {/problem}
 
 {solution}
-Use the `Form::getSelectOption()` method.
+`Form::getSelectOption()`メソッドを利用します
 
-You must supply this method three arguments:
+このメソッドは3つの引数が利用できます:
 
-1. `$display` - The display value for the option.
-2. `$value` - The value of the option.
-3. `$selected` - The value of the selected option.
+1. `$display` - オプションの選択肢名
+2. `$value` - オプションの値
+3. `$selected` - 選択したオプションの値
 
-{php}
+```php
 $html = Form::getSelectOption('My Option', 1, 3);
-{/php}
+```
 
-`$html` will equal `<option value="1">My Option</option>` in this example.
+このサンプルの`$html` は `<option value="1">My Option</option>`になります
 
-If the `$value` argument is an array, an option group will be returned.
+`$display` を配列で指定すると、選択肢が`<optgroup></optgroup>`を使用してグループ化されます
 {/solution}
 
 {discussion}
-This is useful in Form macros.
+これはマクロに使用されるケースが多いでしょう
 
-If you have a macro supplying a type of select box, this can be a handy method to call to build up your options.
+セレクトボックスを利用したマクロを実装している場合は、
+オプションを構築する際に、非常に便利なメソッドではないでしょうか？
 {/discussion}

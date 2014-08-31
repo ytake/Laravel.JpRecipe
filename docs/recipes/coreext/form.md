@@ -91,39 +91,39 @@ The output would be.
 
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
-* `Form::token()` - See [[CSRFトークンを生成する]].
-* `Form::getIdAttribute()` - See [[フィールド名のID属性を取得する]].
-* `Form::getValueAttribute()` - See [[Getting the Value Attribute a Field Should Use]].
-* `Form::old()` - See [[Getting a Value From the Session's Old Input]].
-* `Form::oldInputIsEmpty()` - See [[Determining if the Old Input is Empty]].
-* `Form::getSelectOption()` - See [[Getting the Select Option for a Value]].
-* `Form::setSessionStore()` - See [[Setting the Session Store Implementation]].
+* `Form::token()` - [[CSRFトークンを生成する]].
+* `Form::getIdAttribute()` - [[フィールド名のID属性を取得する]].
+* `Form::getValueAttribute()` - [[優先度を付けた入力値の取得]].
+* `Form::old()` - [[セッションから前の入力値を取得する]].
+* `Form::oldInputIsEmpty()` - [[以前の入力値が空かどうかを確認する]].
+* `Form::getSelectOption()` - [[選択オプションを取得]].
+* `Form::setSessionStore()` - [[フォームで利用するセッションを設定する]].
 
 または標準的なメソッドをコールする事もできます:
 
-* `Form::open()` - See [[Opening a New HTML Form]].
-* `Form::model()` - See [[Creating a New Model Based Form]].
-* `Form::close()` - See [[Closing the Current Form]].
-* `Form::label()` - See [[Creating a Form Label Element]].
-* `Form::input()` - See [[Creating a Form Input Field]].
-* `Form::text()` - See [[Creating a Text Input Field]].
-* `Form::password()` - See [[Creating a Password Input Field]].
-* `Form::hidden()` - See [[Creating a Hidden Input Field]].
-* `Form::email()` - See [[Creating an Email Input Field]].
-* `Form::url()` - See [[Creating a URL Input Field]].
-* `Form::file()` - See [[Creating a File Input Field]].
-* `Form::textarea()` - See [[Creating a Textarea Input Field]].
-* `Form::select()` - See [[Creating a Select Box Field]].
-* `Form::selectRange()` - See [[Creating a Select Range Field]].
-* `Form::selectYear()` - See [[Creating a Select Year Field]].
-* `Form::selectMonth()` - See [[Creating a Month Selection Field]].
-* `Form::checkbox()` - See [[Creating a Checkbox Input Field]].
-* `Form::radio()` - See [[Creating a Radio Button Input Field]].
-* `Form::reset()` - See [[Creating a Reset Input Field]].
-* `Form::image()` - See [[Creating an Image Input Element]].
-* `Form::submit()` - See [[Creating a Submit Button]].
-* `Form::button()` - See [[Creating a Button Element]].
-* `Form::getSessionStore()` - See [[Getting the Session Store]].
+* `Form::open()` - [[HTMLフォームを作成する]].
+* `Form::model()` - [[モデルをベースにしたフォームを作成する]].
+* `Form::close()` - [[フォームを閉じる]].
+* `Form::label()` - [[フォームのラベルを作成する]].
+* `Form::input()` - [[入力フィールドを作成する]].
+* `Form::text()` - [[テキスト入力フィールドを作成する]].
+* `Form::password()` - [[パスワードフィールドを作成する]].
+* `Form::hidden()` - [[hiddenフィールドを作成する]].
+* `Form::email()` - [[メールアドレス入力フィールドを作成する]].
+* `Form::url()` - [[URL入力フィールドを作成する]].
+* `Form::file()` - [[ファイルアップロードのフィールドを作成する]].
+* `Form::textarea()` - [[テキストエリアを作成する]].
+* `Form::select()` - [[セレクトボックスを作成する]].
+* `Form::selectRange()` - [[ 選択肢の範囲を指定してセレクトボックスを作成する]].
+* `Form::selectYear()` - [[年を選択するセレクトボックスを作成する]].
+* `Form::selectMonth()` - [[月を選択するセレクトボックスを作成する]].
+* `Form::checkbox()` - [[チェックボックスを作成する]].
+* `Form::radio()` - [[ラジオボタンを作成する]].
+* `Form::reset()` - [[リセットボタンを作成する]].
+* `Form::image()` - [[画像ボタンを作成する]].
+* `Form::submit()` - [[Submitボタンを作成する]].
+* `Form::button()` - [[ボタンを作成する]].
+* `Form::getSessionStore()` - [[フォームで利用するセッションクラスを取得する]].
 
 マクロから他のマクロをコールする事ができます
 {/discussion}

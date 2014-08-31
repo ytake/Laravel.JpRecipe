@@ -1,5 +1,5 @@
 ---
-Title:    Outputting the Content of a Blade Section
+Title:    Bladeのセクションをコンテンツに出力する
 Topics:   Blade
 Code:     @yield
 Id:       35
@@ -7,15 +7,15 @@ Position: 2
 ---
 
 {problem}
-You want to output a section in your Blade template.
+Bladeテンプレートでセクションを出力したい
 {/problem}
 
 {solution}
-Use the Blade `@yield` command.
+`@yield` を利用します
 
-Consider the following Blade template.
+次の様なBladeテンプレートを考えてみます
 
-{html}
+```html
 @section('bottom')
   This is the bottom
 @stop
@@ -24,20 +24,22 @@ Consider the following Blade template.
 @stop
 @yield('top')
 @yield('bottom')
-{/html}
+```
 
-The output would be the follwoing.
+次の様に出力されます
 
-{html}
+```html
 This is the top
 This is the bottom
-{/html}
+```
 
-You can also specify the default value with `@yield`.
 
-Imagine having the simple layout presented below. _(See [[Using Blade Layouts to Extend Templates]].)_
+`@yield`にデフォルト値を指定する事もできます
 
-{html}
+以下の様な単純なレイアウトを考えてみましょう
+_(レイアウトについては [[Bladeのレイアウトを使って拡張する]] を参照して下さい)_
+
+```html
 <html>
   <body>
     <div class="container">
@@ -45,11 +47,12 @@ Imagine having the simple layout presented below. _(See [[Using Blade Layouts to
     </div>
   </body>
 </html>
-{/html}
+```
 
-When a view without a `@section('content')` _extends_ this layout, the output will be similar to what's below.
+ビューに `@section('content')` が無い場合、
+下記の様に出力されます
 
-{html}
+```html
 <html>
   <body>
     <div class="container">
@@ -57,17 +60,20 @@ When a view without a `@section('content')` _extends_ this layout, the output wi
     </div>
   </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-Using default values on @yield is a good way to note when content is missing.
+`@yield`でデフォルトを使用するのは、
+条件や処理によってコンテンツが無い場合等に非常に有用です
 
-What if you had the line below in your layout?
+レイアウトで以下の様にしておくのも良いかもしれません
 
-{html}
+```html
 @yield('content', '<span style="background:red">MISSING CONTENT</span>')
-{/html}
+```
 
-Then whenever the content is not provided it will be very apparent with a big red block saying **MISSING CONTENT**.
+コンテンツが無い場合には、赤いブロックで **MISSING CONTENT** と表示されます
+
+他にも各metaタグや、title, keywords, dexcription等に使用するのもおすすめです
 {/discussion}

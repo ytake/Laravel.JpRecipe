@@ -78,10 +78,14 @@ class AnalyticsRepository implements AnalyticsRepositoryInterface
         $redis = \Redis::connection('default');
         $previous = date("Ymd", strtotime("0day", strtotime(date("Ymd"))));
         $result = $redis->keys(self::SET_PREFIX . "{$previous}*");
-        $redis->pipeline(function($pipe) use ($result){
-            foreach($result as $row) {
-                $pipe->del($row);
-            }
-        });
+        if(count($result)) {
+            $redis->pipeline(
+                function ($pipe) use ($result) {
+                    foreach ($result as $row) {
+                        $pipe->del($row);
+                    }
+                }
+            );
+        }
     }
 }

@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Form Label Element
+Title:    フォームのラベルを作成する
 Topics:   forms
 Code:     Form::label()
 Id:       154
@@ -7,60 +7,73 @@ Position: 5
 ---
 
 {problem}
-You want to create a label on your form.
+フォームのラベルを作成したい
 
-And you want to use Laravel's `Form` facade to do it.
+Laravelの`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::label()` method.
+`Form::label()`メソッドを利用します
 
-Using two arguments (name and value).
+2つの引数を利用します (名前と値)
 
-{html}
-{{ Form::label('name', 'Your Name') }}
-{/html}
+```html
+{{Form::label('name', 'Your Name')}}
+```
 
-This will output the following.
+これは下記の様に出力されます
 
-{html}
+```html
 <label for="name">Your Name</label>
-{/html}
+```
 
-You can also add additional attributes by passing an array as the third argument.
+第三引数に配列を利用すると属性を追加することができます。
 
-{html}
-{{ Form::label('name', 'Your Name', array('class' => 'mylabel')) }}
-{/html}
+```html
+{{Form::label('name', 'Your Name', ['class' => 'mylabel'])}}
+```
 
-Now the output has a class attribute.
+'class'が追加されます
 
-{html}
+```html
 <label for="name" class="mylabel">Your Name</label>
-{/html}
+```
 {/solution}
 
 {discussion}
-You may eliminate the value argument.
+'値'の引数を省略する事も可能です
 
-Laravel's smart enough to build a suitable prompt if the second argument is missing.
+引数が省略されている場合でも適切に出力されます
 
-{html}
-{{ Form::label('first_name') }}
+```html
+{{Form::label('first_name')}}
 
-{{ Form::label('phone_number') }}
-{/html}
+{{Form::label('phone_number')}}
+```
 
-This will output.
+次の様に出力されます
 
-{html}
+```html
 <label for="first_name">First Name</label>
 <label for="phone_number">Phone Number</label>
-{/html}
+```
 
-**Using Form::label() will automatically generate ids**
+**Form::label() を使うと、関連付くエレメントに自動でIDを生成します**
 
-If the form element the label is _for_ does not have an id attribute, one will be created automatically. In other words, if you have a label for _"phone"_ and the field named "phone" does not have an id, it will automatically use _"phone"_ as the id.
+ラベルの _for_ で関連付くエレメントに idが無い場合はに、自動でidを作成します
 
-_This only works if the field is generated using the `Form` facade._
+```html
+{{Form::label('testing')}}
+{{Form::text('testing')}}
+```
+
+上記の様に記述した場合は
+idを指定していない場合は下記の様に出力されます
+
+```html
+<label for="testi">Testi</label>
+<input name="testing" type="text" id="testing">
+```
+
+_これは`Form`ファサードを利用して生成した場合にのみ作用します_
 {/discussion}

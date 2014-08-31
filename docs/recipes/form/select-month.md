@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Month Selection Field
+Title:    月を選択するセレクトボックスを作成する
 Topics:   form
 Code:     Form::selectMonth
 Id:       166
@@ -7,21 +7,21 @@ Position: 16
 ---
 
 {problem}
-You want a select box with the 12 months listed.
+年月日の月を選択するセレクトボックスを作成したい
 {/problem}
 
 {solution}
-Use the `Form::selectMonth()` method.
+`Form::selectMonth()`メソッドを利用します
 
-You can just call it with the field name.
+フィールド名を指定するだけで利用できます
 
-{html}
+```html
 {{ Form::selectMonth('month') }}
-{/html}
+```
 
-This produces twelve options.
+12個の選択肢を含んだセレクトボックスが作成されます
 
-{html}
+```html
 <select name="month">
   <option value="1">January</option>
   <option value="2">February</option>
@@ -36,19 +36,20 @@ This produces twelve options.
   <option value="11">November</option>
   <option value="12">December</option>
 </select>
-{/html}
+```
 {/solution}
 
 {discussion}
-Use a second option to specify the default month. A third option will apply additional attributes to the select field.
+デフォルト値を指定する場合は第二引数に、
+属性を追加する場合は、第三引数に配列を利用します
 
-{html}
-{{ Form::selectMonth('month', 7, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::selectMonth('month', 7, ['class' => 'field'])}}
+```
 
-This produces the list of months with July selected and the select field has a class attributes.
+7月が選択された状態になり、フィールドに`class`が追加されます
 
-{html}
+```html
 <select class="field" name="month">
   <option value="1">January</option>
   <option value="2">February</option>
@@ -63,5 +64,5 @@ This produces the list of months with July selected and the select field has a c
   <option value="11">November</option>
   <option value="12">December</option>
 </select>
-{/html}
+```
 {/discussion}

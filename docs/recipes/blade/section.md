@@ -1,5 +1,5 @@
 ---
-Title:    Starting to Inject Content into a Blade Section
+Title:    Bladeでコンテンツの挿入を開始する
 Topics:   -
 Code:     @section
 Id:       241
@@ -7,45 +7,48 @@ Position: 13
 ---
 
 {problem}
-You want to start section to your Blade template.
+Bladeテンプレートでセクションを開始したい
 {/problem}
 
 {solution}
-Use the `@section` blade command.
+`@section` を利用します
 
-This will start injecting content into the section. This will continue until a `@stop`, `@show`, `@overwrite` or `@append` statement is reached.
+セクションにコンテンツ挿入を開始します
+これは`@stop`, `@show`, `@overwrite` または `@append` が
+記述されている行まで続きます
 
-For example, the following block won't output anything, but will track `I Am Legend` under the `movies` section.
+次のサンプルは特になにもしませんが、moviesセクションに`Transformers`を加えます
 
-{html}
+```html
 @section('movies')
-    I Am Legend
+    Transformers
 @stop
-{/html}
+```
 
-Alternatively, you could use the following syntax to achieve the same thing.
+同じ処理をさせる場合に下記の様に記述する事も出来ます
 
-{html}
-@section('movies', 'I Am Legend')
-{/html}
+```html
+@section('movies', 'Transformers')
+```
 
-_There's no need to end the section with `@stop` when you provide the content with the second argument._
+_第二引数でコンテンツ内容を記述する場合は `@stop` で終了させる必要はありません_
 
-Later, a `@yield('movies')` would output the contents of the `movies` section.
+その後で `@yield('movies')` を記述すると、`movies`セクションがコンテンツとして出力されます
 
-{html}
+```html
 @yield('movies')
-{/html}
+```
 {/solution}
 
 {discussion}
-Sections always begin with `@section`.
+セクションは常に`@section`で開始されます
 
-And, except for the syntax where you provide the content as the second argument, a `@section` must always end one of five ways.
+第二引数でコンテンツを指定する場合を除いて、
+`@section`は下記の5つの方法のうち、いずれかの方法で終了させなければなりません
 
-1. With a `@stop` command. See [[Stopping Injecting Content Into a Section]].
-2. With a `@endsection` command, which is an alias for `@stop`.
-3. With a `@show` command. See [[Yielding the Current Section in a Blade Template]].
-4. With a `@append` command. See [[Stopping Injecting Content into a Section and Appending It]].
-5. With a `@overwrite` command. See [[Stopping Injecting Content into a Section and Overwriting]].
+1. `@stop` [[セクションへの挿入を終了する]].
+2. `@endsection` `@stop`のエイリアスです
+3. `@show` [[Bladeテンプレートで現在のセクションを取得する]].
+4. `@append` [[レンダリングを停止してセクションを追加する]].
+5. `@overwrite` [[コンテンツの挿入を停止してセクションを上書きする]].
 {/discussion}

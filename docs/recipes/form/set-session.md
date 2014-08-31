@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Session Store Implementation
+Title:    フォームで利用するセッションを設定する
 Topics:   forms
 Code:     Form::setSessionStore()
 Id:       179
@@ -7,20 +7,21 @@ Position: 28
 ---
 
 {problem}
-You want to change the form's session store implementation.
+フォームで利用するセッションクラスを変更したい
 {/problem}
 
 {solution}
-Use the `Form::setSessionStore()` method.
+`Form::setSessionStore()`メソッドを利用します
 
-{php}
-$session = new MySessionHandler;
-Form::setSessionStore($session);
-{/php}
+```php
+$session = new \MySessionHandler;
+\Form::setSessionStore($session);
+```
 {/solution}
 
 {discussion}
-This is most useful for testing.
+これはテストで非常に有用です
 
-If you're unit testing a form macro you've created, this method allows you to mock the session store implementation as needed.
+実装したフォームマクロのユニットテストをしている場合に、
+このメソッドを利用して、必要に応じてセッションクラスをモックする事ができます
 {/discussion}

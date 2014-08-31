@@ -1,13 +1,13 @@
 <?php
 namespace App\Providers;
 
-use App\Authenticate\Driver\GitHub;
-use App\Commands\AddAccountCommand;
-use App\Commands\CleanCommand;
 use Parsedown;
+use App\Commands\CleanCommand;
 use App\Commands\AddRecipeCommand;
+use App\Commands\AddAccountCommand;
 use Illuminate\Support\ServiceProvider;
 use App\Authenticate\Driver\GithubUserProvider;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ApplicationServiceProvider
@@ -22,6 +22,7 @@ class ApplicationServiceProvider extends ServiceProvider
     {
         $this->registerAuthenticateDriver();
         $this->registerCommands();
+        $this->registerErrorHandler();
     }
 
     /**
@@ -111,6 +112,21 @@ class ApplicationServiceProvider extends ServiceProvider
                 );
             });
         $this->commands('jp-recipe:add-allow-account');
+    }
+
+    /**
+     * register error handler
+     */
+    protected function registerErrorHandler()
+    {
+        // production only
+        if( $this->app->environment() == 'production') {
+            $this->app->error(
+                function (NotFoundHttpException $exception) {
+                    return $this->app['redirect']->to('/');
+                }
+            );
+        }
     }
 
     /**

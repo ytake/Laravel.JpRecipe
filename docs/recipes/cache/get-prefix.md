@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Cache Prefix Value
+Title:    キャッシュのプレフィックスを取得する
 Topics:   cache
 Code:     Cache::getPrefix(), Config::get()
 Id:       264
@@ -7,39 +7,42 @@ Position: 13
 ---
 
 {problem}
-You want to see what the cache "prefix" is.
+キャッシュのプレフィックスを確認したい
 
-You know the cache prefix is something added to the beginning of every cache key your application uses. You want to check what this value is.
+アプリケーションが使用するキャッシュキーの先頭に何らかのプレフィックスが付属しています
+利用されているプレフィックを確認してみましょう
 {/problem}
 
 {solution}
-Use the `Cache::getPrefix()` method.
+`Cache::getPrefix()`メソッドを利用します
 
-{php}
-$prefix = Cache::getPrefix();
-{/php}
+```php
+$prefix = \Cache::getPrefix();
+```
 
-This will be the same as pulling the value directly from configuration.
+これは設定ファイルから直接取得する場合と同じです
 
-{php}
-$prefix = Config::get('cache.prefix');
-{/php}
+```php
+$prefix = \Config::get('cache.prefix');
+```
 
-You can set this value in `app/config/cache.php` with the `'prefix'` key.
+`app/config/cache.php`の`'prefix'`キーで指定する事が出来ます
 
-{php}
+```php
 'prefix' => 'my-app',
-{/php}
+```
 {/solution}
 
 {discussion}
-Using the prefix allows sharing caches.
+プレフィックスを使用すると、キャッシュを共有することができます
 
-This is especially important with drives such as `Memcached` or `Redis`. You want your cache keys to be unique. Since it's likely other applications could also use these types of caching backends, prefixing your cache keys with an application specific value makes sense.
+`Memcached` や `Redis`を使用している場合は特に重要です
+キャッシュキーを一意にする事が出来ます
+他のアプリケーションから、このプレフィックを利用して値を取得して使用する事が出来ます
 
-{warn}
-Do not confuse `Cache::getPrefix()` with the cache driver's `getPrefix()` method.
-{/warn}
+_`Cache::getPrefix()`とキャッシュドライバーの`getPrefix()`を混同しない様にして下さい_
 
-Although, the two methods are named the same, `Cache::getPrefix()` always returns the configuration value. `Cache::driver()->getPrefix()` always returns the value the driver was constructed with.
+同じ名前のメソッドが2つありますが、
+`Cache::getPrefix()`は常に設定ファイルから値を返却します
+`Cache::driver()->getPrefix()`はドライバーが構築した値を返却します
 {/discussion}
