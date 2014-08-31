@@ -1,5 +1,5 @@
 ---
-Title:    Setting the Content Tags Blade Uses
+Title:    Bladeが使用するタグを変更する
 Topics:   -
 Code:     Blade::setContentTags()
 Id:       246
@@ -7,41 +7,45 @@ Position: 18
 ---
 
 {problem}
+Bladeのタグにデフォルトとは異なるものを利用したい
 You want to use different content tags in your Blade template.
 
-You know that blade uses `{{` and `}}` to specify content to be output, but this conflicts with Mustache or some other library you're using.
+Bladeは`{{` と `}}` を利用して内容を表示しますが、
+同じ`{{` と `}}`を使うMustache, AngularJSなどと衝突することになります
+衝突を避ける様にこれらを変更してみましょう
 {/problem}
 
 {solution}
-Use the `Blade::setContentTags()` method.
+`Blade::setContentTags()`メソッドを利用します
 
-Let's say you want to use `[%` and `%]` for your tags. First call the method.
+例えば、タグに`[%` と `%]`を利用するとしましょう
+まずはメソッドをコールします
 
-{php}
-Blade::setContentTags('[%', '%]');
-{/php}
+```php
+\Blade::setContentTags('[%', '%]');
+```
 
-Then your template can contain code like.
+テンプレートで利用する場合は下記の様になります
 
-{html}
+```html
 The value of $variable is [% $variable %].
-{/html}
+```
 
-You can also pass a second argument as `true` to indicate you're setting the tags to escape content.
+コンテンツのエスケープを行う場合は、第二引数に`true`を指定します
 
-{php}
-Blade::setContentTags('[-%', '%-]', true);
-{/php}
+```php
+\Blade::setContentTags('[-%', '%-]', true);
+```
 
-Then instad of using `{{{` and `}}}` you can use `[-%` and `%-]`.
+`{{{` と `}}}` を設定した `[-%` and `%-]`　が利用できる様になります
 
-{html}
+```html
 The value of $variable is [-% $variable %-].
-{/html}
+```
 {/solution}
 
 {discussion}
-You must call `Blade::setContentTags()` before using a view.
+viewが使われる前に`Blade::setContentTags()`をコールしなければなりません
 
-The two best places to call this are in a service provider or in `app/start/global.php`.
+実装に最適な場所は、サービスプロバイダー、または`app/start/global.php`です
 {/discussion}

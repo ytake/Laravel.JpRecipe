@@ -60,6 +60,7 @@
     return \Response::make("Be right back!", 503);
 });
 
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File

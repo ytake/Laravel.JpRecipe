@@ -36,7 +36,7 @@
                     @foreach($feeder as $feed)
                         <li>
                             <span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;
-                            {{HTML::link($feed->link, $feed->content)}}&nbsp;
+                            {{HTML::link($feed->link, $feed->title, ['title' => $feed->content])}}&nbsp;
                             <small>release:{{date('Y-m-d H:i', strtotime($feed->dateModified->date))}}</small>
                         </li>
                     @endforeach

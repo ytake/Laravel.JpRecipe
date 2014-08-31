@@ -1,5 +1,5 @@
 ---
-Title:    Incrementing the Value of an Item in the Cache
+Title:    キャッシュに保存されているアイテムの値をインクリメントする
 Topics:   cache
 Code:     Config::increment()
 Id:       273
@@ -7,25 +7,26 @@ Position: 21
 ---
 
 {problem}
-You want to increment a value in the cache.
+キャッシュの値をインクリメントしたい
 {/problem}
 
 {solution}
-Use `Cache::increment()`
+`Cache::increment()`を利用します
 
-{php}
-$value = Cache::increment('key');
-{/php}
+```php
+$value = \Cache::increment('key');
+```
 
-The first time this is called `$value` will be 1, the next call it will return 2, and so forth.
+最初にメソッドがコールされた場合に`$value`が1となり、
+その次は2、というようにインクリメントされて返却される様になります
 
-You can also pass a value to increment.
+インクリメントする値を指定することも可能です
 
-{php}
-$value = Cache::increment('key', 50);
-{/php}
+```php
+$value = \Cache::increment('key', 50);
+```
 {/solution}
 
 {discussion}
-Doesn't work with File or Database caches.
+ファイル、データベースでキャッシュを利用している場合は動作しません
 {/discussion}

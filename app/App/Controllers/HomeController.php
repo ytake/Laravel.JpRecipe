@@ -127,9 +127,9 @@ class HomeController extends BaseController
             foreach ($result as $row) {
                 $recipe = $this->recipe->getRecipe($row->recipe_id);
                 $category = $this->category->getCategory($recipe->category_id);
-                $row->category_id = $recipe->category_id;
-                $row->title = $recipe->title;
-                $row->name = $category->name;
+                $row->category_id = isset($recipe->category_id) ? $recipe->category_id : null;
+                $row->title = isset($recipe->title) ? $recipe->title : null;
+                $row->name = isset($category->name) ? $category->name : null;
             }
         }
         return $result;

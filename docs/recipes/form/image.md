@@ -1,5 +1,5 @@
 ---
-Title:    Creating an Image Input Element
+Title:    画像ボタンを作成する
 Topics:   forms
 Code:     Form::image()
 Id:       170
@@ -7,53 +7,53 @@ Position: 20
 ---
 
 {problem}
-You want to create an image input element in your Blade template.
+Bladeテンプレートで画像ボタンを作成したい
 {/problem}
 
 {solution}
-Use the `Form::image()` method.
+`Form::image()`メソッドを利用します
 
-The only required argument, is the first one. It is the url to the image.
+第一引数で画像のurlを必ず指定しなければなりません
 
-{html}
-{{ Form::image('images/submit-button.jpg') }}
-{/html}
+```html
+{{Form::image('images/submit-button.jpg')}}
+```
 
-This will produce the following HTML.
+これは下記の様に出力されます
 
-{html}
+```html
 <input src="http://your.url/images/submit-button.jpg" type="image">
-{/html}
+```
 
-_Note: If you don't provide a complete URL to the image, your application's url will be used._
+_Note: ドメインを含めた完全なURLを指定しない場合は、現在のアプリケーションのURLが補完されて利用します_
 
-You can name the input field with the second argument.
+フィールド名を指定する場合は第二引数で指定します
 
-{html}
-{{ Form::image('images/submit-button.jpg', 'btnSub') }}
-{/html}
+```html
+{{Form::image('images/submit-button.jpg', 'btnSub')}}
+```
 
-Notice the _name_ attribute in the output.
+_name_ 属性を追加して出力されます
 
-{html}
+```html
 <input src="http://your.url/images/submit-button.jpg"
   name="btnSub" type="image">
-{/html}
+```
 
-Additional attributes can be set by passing an array as the third argument.
+属性を追加する場合は、第二引数に配列を利用する事が出来ます
 
-{html}
-{{ Form::image('images/submit-button.jpg', 'btnSub', ['class' => 'btn']) }}
-{/html}
+```html
+{{Form::image('images/submit-button.jpg', 'btnSub', ['class' => 'btn'])}}
+```
 
-Now the input tag has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="btn" src="http://your.url/images/submit-button.jpg"
   name="btnSub" type="image">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}

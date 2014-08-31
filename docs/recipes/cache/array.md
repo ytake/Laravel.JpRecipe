@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the Array Cache Driver
+Title:    キャッシュドライバーに配列を利用する
 Topics:   cache, configuration
 Code:     -
 Id:       97
@@ -7,29 +7,32 @@ Position: 6
 ---
 
 {problem}
-You want to disable caching.
+キャッシュを無効にしたい
 
-You don't want to go through your code and change all the places the cache is used, but you don't want any cached values to be retained between requests.
+キャッシュを利用しているコードなどを変更せずに、
+キャッシュの保存機能を無効にしてみましょう
 {/problem}
 
 {solution}
-Use the Array cache driver.
+Arrayキャッシュドライバーを利用します
 
-Edit `app/config/cache.php` and change the driver to `'array'`.
+`app/config/cache.php`ファイルのdriverを`'array'`に変更します
 
-{php}
-    'driver' => 'array',
-{/php}
+```php
+'driver' => 'array',
+```
 {/solution}
 
 {discussion}
-This is what the testing configuration does.
+これはテスト時に設定されると思います
 
-Laravel provides a `app/config/test/cache.php` file which overrides the default cache setting to use the array driver.
+Laravelは、`app/config/test/cache.php`でテスト時にキャッシュに配列を利用する様に
+設定ファイルが提供されています
 
-The array driver simply stores any cached values in an internal array. The values are not retained between requests.
+配列を利用する場合は、内部の配列にキャッシュされたすべての値を格納します
+この値は他のリクエストやページ等では利用する事は出来ません
 
-{warn}
-Cached values are available within the same request. If you have a `Cache::put('mykey')` at one place in your code and later, in the same request, have `Cache::get('mykey')` the value will be available.
-{/warn}
+_キャッシュされた値は、同じリクエスト内でのみ利用可能です_
+同じクエスト内で、`Cache::put('mykey')`で値を保存した場合に、
+`Cache::get('mykey')`をコールするとその値を取得する事が出来ます
 {/discussion}

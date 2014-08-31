@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Form Input Field
+Title:    入力フィールドを作成する
 Topics:   forms
 Code:     Form::email(), Form::file(), Form::hidden(), Form::input(),
           Form::model(), Form::password(), Form::text(), Form::url()
@@ -8,42 +8,42 @@ Position: 11
 ---
 
 {problem}
-You want to create a form input field.
+入力フィールドを作成したい
 
-Instead of writing HTML directory you want to use Laravel's `Form` facade.
+直接HTMLタグを記述する代わりに、Laravelの`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::input()` method.
+`Form::input()`メソッドを利用します
 
-The method takes 4 arguments.
+このメソッドは4つの引数が利用できます:
 
-1. `$type` - _(required)_ The first argument specifies the type of input. Values such as `"text"`, `"password"`, `"file"`, etc. are accepted.
-2. `$name` - _(required)_ The second argument is name.
-3. `$value` - _(optional)_ The third argument is the value for the input field.
-4. `$options` - _(optional)_ The fourth argument is an array of additional field attributes. The array can be populated with items having keys such as `"id"`, `"size"`, or `"class"`.
+1. `$type` - _(必須)_ 最初の引数は入力タイプを指定します `"text"`, `"password"`, `"file"`などの値です
+2. `$name` - _(必須)_ 第二引数はフィールド名です
+3. `$value` - _(オプション)_ 第三引数は入力フィールドの値を指定します
+4. `$options` - _(オプション)_ 第四引数は、追加したいフィールド属性を配列で指定します `"id"`, `"size"` または `"class"`等を指定します
 
-Usually, this is used in a Blade template.
+通常はBladeテンプレートで利用されます
 
-{html}
-{{ Form::input('text', 'name') }}
-{{ Form::input('email', 'email_address', null, ['class' => 'emailfld']) }}
-{/html}
+```html
+{{Form::input('text', 'name')}}
+{{Form::input('email', 'email_address', null, ['class' => 'emailfld'])}}
+```
 {/solution}
 
 {discussion}
-Use the specific method for the type of field you want.
+希望するフィールドのタイプを指定して作成しますが、
+`Form::input()`を利用する代わりに下記のメソッドも直接利用する事が出来ます
 
-Instead of calling `Form::input()` directly, use one of the following:
-
-* `Form::password()` - [[Creating a Password Input Field]].
-* `Form::text()` - [[Creating a Text Input Field]].
-* `Form::hidden()` - [[Creating a Hidden Input Field]].
-* `Form::email()` - [[Creating an Email Input Field]].
-* `Form::url()` - [[Creating a URL Input Field]].
-* `Form::file()` - [[Creating a File Input Field]].
+* `Form::password()` - [[パスワードフィールドを作成する]].
+* `Form::text()` - [[テキスト入力フィールドを作成する]].
+* `Form::hidden()` - [[hiddenフィールドを作成する]].
+* `Form::email()` - [[メールアドレス入力フィールドを作成する]].
+* `Form::url()` - [[URL入力フィールドを作成する]].
+* `Form::file()` - [[ファイルアップロードのフィールドを作成する]].
 
 ### Model binding
 
-See the [[Creating a New Model Based Form]] recipe for details on how the input value is overridden if you bind a model to the form.
+フォームモデルを利用して入力値をオーバーライドする方法については、
+[[モデルをベースにしたフォームを作成する]] レシピをご覧ください
 {/discussion}

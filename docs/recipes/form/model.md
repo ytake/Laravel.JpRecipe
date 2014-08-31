@@ -1,5 +1,5 @@
 ---
-Title:    Creating a New Model Based Form
+Title:    モデルをベースにしたフォームを作成する
 Topics:   forms
 Code:     Form::checkbox(), Form::input(), Form::model(), Form::open(),
           Form::radio(), Form::select(), Form::textarea()
@@ -8,27 +8,27 @@ Position: 2
 ---
 
 {problem}
-You want the fields in your form to be bound with a model.
+フォームのフィールドをモデルと結びつけたい
 {/problem}
 
 {solution}
-Open your form with `Form::model()`.
+`Form::model()`を利用してフォームを構築します
 
-Usually this is done in a blade template.
+これはBladeテンプレートで行います
 
-{html}
-{{ Form::model($item, array('route' => array('items.update', $item->id))) }}
-{/html}
+```html
+{{Form::model($item, ['route' => ['items.update', $item->id]])}}
+```
 
-**Use this instead of `Form::open()`**
+**`Form::open()`の代わりに利用します**
 
-Now any `Form::input()`, `Form::textarea()` and `Form::select()` will use the model to populate the data.
+`Form::input()`, `Form::textarea()`, `Form::select()`はモデルから取得してデータを取り込みます
 {/solution}
 
 {discussion}
-There's actually an order of precedence for populating your form. The precedence is **FEM**.
+フォームを取り込むための優先順位は以下の順番です **FEM**.
 
-1. **(F)**lash Data from the Session. This is where old input is stored from the previous request. This allows your form to be populated with previously entered data in case of errors.
-2. **(E)**xplicitly passed data. For instance, if you call `Form::input()` and specify the value argument, this will be used next.
-3. **(M)**odel Data. If the model has the same named attribute as the form field, its value will be used.
+1. **セッションから取得されるデータ** 以前のリクエストの値がセッションに保存され、バリデート等のエラー時に以前に入力したデータを利用する事が出来ます
+2. **明示的に指定したデータ** 例えば、`Form::input()`をコールする際に`$value`引数に値を指定した場合に、次にこの値が使用されます
+3. **モデル データ** フォームフィールドと同じ名前の属性を持っている場合に、その値が使用されます
 {/discussion}

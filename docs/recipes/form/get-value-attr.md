@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Value Attribute a Field Should Use
+Title:    優先度を付けた入力値の取得
 Topics:   forms
 Code:     Form::getValueAttribute(), Form::macro(), Form::open()
 Id:       175
@@ -7,35 +7,42 @@ Position: 24
 ---
 
 {problem}
-You need to determine what the value attribute is for a field name.
+通常のフォームでの値取得とフォームモデルを利用した値の取得で、
+優先度をつけて取得する様にしたい
+
+value取得の為に、フィールド名を決定しておく必要があります
 {/problem}
 
 {solution}
-Use the `Form::getValueAttribute()` method.
+`Form::getValueAttribute()`メソッドを利用します
 
-{php}
+```php
 $value = Form::getValueAttribute($fieldname);
-{/php}
+```
 
-This will return the value that should be used for the field or `null` if there's no value.
+値が取得できない場合は`null`が返却され、
+取得可能であれば、その値が返却されます
 
-You can also specify a value that takes precedence over the model value if your form is bound to a model.
+フォームモデルを利用している場合は、
+モデルの値よりも優先して値を指定することができます
 
-{php}
-$value = Form::getValueAttribute($fieldname, $value);
-{/php}
+```php
+$value = \Form::getValueAttribute($fieldname, $value);
+```
 
-If the flash session data contains a value for this field it still takes precedence, but passing the value as the second argument will take precedence over the model data.
+セッションデータにこの値が存在する場合は、優先されて取得され、
+2番目の引数に値を指定すると、モデルのデータよりも優先される様になります
 
-See [[Creating a New Model Based Form]].
+See [[モデルをベースにしたフォームを作成する]].
 {/solution}
 
 {discussion}
-This is often used in form macros.
+これはマクロに使用されるケースが多いでしょう
 
-There's a precedence to assigning values to fields. This precedence is discussed in [[Creating a New Model Based Form]].
+フィールドに値を割り当てることで、優先順を変更する事が出来ます
+この優先順については [[モデルをベースにしたフォームを作成する]] をご覧ください
 
-The `Form::getValueAttribute()` allows you to use the correct value, following the precedence, within your form macro.
+`Form::getValueAttribute()`は、優先順位に従って値を使用することができます
 
-See the [[Creating Form Macros]] recipe information about form macros.
+マクロについては [[Formマクロを作成する]] レシピをご覧ください
 {/discussion}

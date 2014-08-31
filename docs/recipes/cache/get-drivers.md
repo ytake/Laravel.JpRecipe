@@ -1,5 +1,5 @@
 ---
-Title:    Getting All Created Cache Drivers
+Title:    すべてのキャッシュドライバーを取得する
 Topics:   cache
 Code:     Cache::getDrivers()
 Id:       263
@@ -7,19 +7,21 @@ Position: 12
 ---
 
 {problem}
-You want to retrieve a list of created cached drivers.
+生成されたキャッシュドライバのリストを取得する。
+
 {/problem}
 
 {solution}
-Use the `Cache::getDrivers()` method.
+`Cache::getDrivers()`メソッドを利用します
 
-This method returns an array. The array's key is the name of the driver. The value is the instance of the driver.
+このメソッドは配列を返します
+配列のキーはドライバの名前、値はドライバのインスタンスになります
 
-{php}
-$created_drivers = Cache::getDrivers();
-{/php}
+```php
+$createdDrivers = \Cache::getDrivers();
+```
 {/solution}
 
 {discussion}
-If no drivers have been created, an empty array is returned.
+どのドライバーも生成されていない場合は、空の配列が返却されます
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Getting a Value From the Session's Old Input
+Title:    セッションから前の入力値を取得する
 Topics:   forms
 Code:     Form::old()
 Id:       176
@@ -7,29 +7,35 @@ Position: 25
 ---
 
 {problem}
-You're redisplaying a page and want to get a field's value from the previously displayed page.
+ページを再表示した時に、以前入力した値を取得したい
 
-In other words, you want to pull the value from the session's flashed data.
+Laraveはフィールドの値をセッションに保存し、
+ページを再表示した場合等に、以前の入力値を取得する事が出来ます
 {/problem}
 
 {solution}
-Use the `Form::old()` method.
+`Form::old()`メソッドを利用します
 
-{php}
-$value = Form::old('fieldname');
-{/php}
+```php
+$value = \Form::old('fieldname');
+```
 
-If there was no previous value, `null` is returned.
+実行しても、以前の値がセッションに含まれていなければ`null`が返却されます
+
+フォーム送信先のページ等で、値をセッションに含めるなどをすると値を取得できます
+
+```php
+return \Redirect::to('リダイレクト先')->withInput();
+```
 {/solution}
 
 {discussion}
-Usually this is used in Form macros.
+これはマクロに使用されるケースが多いでしょう
 
-And the most common reason you need to redisplay the same form is because there was an input error and you now want to display the form with an error message.
+入力エラーなどの場合において、
+エラーメッセージ表示と、ユーザーの入力した値を再利用してフォームを再描画する場合等に利用されるでしょう
 
-But you want to keep any value that the user entered.
+ただし、再利用は一回だけです
 
-This allows you to fetch that value if there was one.
-
-See also [[Getting the Value Attribute a Field Should Use]].
+[[Getting the Value Attribute a Field Should Use]] も参考にして下さい
 {/discussion}

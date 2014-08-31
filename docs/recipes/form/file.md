@@ -1,5 +1,5 @@
 ---
-Title:    Creating a File Input Field
+Title:    ファイルアップロードのフィールドを作成する
 Topics:   forms
 Code:     Form::file(), Form::input(), Form::model()
 Id:       160
@@ -7,41 +7,41 @@ Position: 10
 ---
 
 {problem}
-You want to create an file input field for file uploads.
+ファイルアップロードのフィールドを作成したい
 
-You know you could use the `<input type="file"...>` format but you want to do it the Laravel way.
+`<input type="file"...>`利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::file()` method.
+`Form::file()`メソッドを利用します
 
-Usually, this is used in Blade templates.
+通常はBladeテンプレートで利用します
 
-The simplest form of this method is to only pass the name.
+このメソッドの一番簡単な方法は、フィールド名のみを指定する方法です
 
-{html}
+```html
 {{ Form::file('thefile') }}
-{/html}
+```
 
-This creates a very simple element which looks like the following.
+以下の様なシンプルなエレメントが作成されます
 
-{html}
+```html
 <input name="thefile" type="file">
-{/html}
+```
 
-To add other attributes, pass a second argument to the method. This second argument must be an array.
+属性を追加する場合は、第二引数に配列を利用しなければなりません
 
-{html}
-{{ Form::file('thefile', ['class' => 'field']) }}
-{/html}
+```html
+{{Form::file('thefile', ['class' => 'field'])}}
+```
 
-Now the input has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="field" name="thefile" type="file">
-{/html}
+```
 {/solution}
 
 {discussion}
-This method wraps the `Form::input()` method, passing `"file"` as the type.
+このメソッドは`Form::input()`メソッドを利用し、typeに`"file"`を指定しています
 {/discussion}

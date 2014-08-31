@@ -1,5 +1,5 @@
 ---
-Title:    Yielding the Current Section in a Blade Template
+Title:    Bladeテンプレートで現在のセクションを取得する
 Topics:   -
 Code:     @show
 Id:       240
@@ -7,32 +7,32 @@ Position: 12
 ---
 
 {problem}
-You want to yield the contents of the section you're currently in.
+現在のセクションの内容を取得したい
 {/problem}
 
 {solution}
-Use the Blade `@show` command.
+`@show` を利用します
 
-This ends the current section and yields it. Yielding means this is the point the content of the section will be output.
+現在のセクションを終了して、その内容を取得し、
+そのセクションの内容がすぐに出力されます
 
-{html}
+```html
 @section('one')
-  Something here
-  But we'll end it, so it won't output
+  ここはstopで停止させているが、まだ出力しません
 @stop
 
 @section('two')
-  Something else
+  出力します
 @show
-{/html}
+```
 
-The HTML output from above would be.
+HTML出力は下記の様になります
 
-{html}
-Something else
-{/html}
+```html
+出力します
+```
 {/solution}
 
 {discussion}
-You can think of `@show` as a `@stop` followed by a `@yield('section')`.
+`@show`は、`@stop`後に`@yield('section')`を実行して出力するのと同じ様なものと考えて下さい
 {/discussion}

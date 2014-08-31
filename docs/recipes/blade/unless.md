@@ -1,5 +1,5 @@
 ---
-Title:    Using the @unless Control Structure in Blade
+Title:    Bladeで @unless を使用する
 Topics:   Blade
 Code:     @endunless, @unless
 Id:       85
@@ -7,23 +7,24 @@ Position: 5
 ---
 
 {problem}
-You need conditional logic in a Blade template.
+Bladeテンプレートで条件付きロジックを利用したい
 
-You want to output html within the template when a condition is false. Yes, you know you can do `@if ( ! condition)`, but are curious if there's a more elegant way.
+条件付きのロジックは`@if(!condition)`を利用する事が出来ますが、
+条件が偽の場合に、よりエレガントな方法を使ってみましょう
 {/problem}
 
 {solution}
-Use the `@unless` control structure.
+`@unless` を利用します
 
-{html}
+```html
 @unless ($age >= 18)
     You can't vote.
 @endunless
-{/html}
+```
 {/solution}
 
 {discussion}
-Pretty simple.
+とてもシンプルです
 
-What Blade does internally is change your `@unless(condition)` into a `if ( ! condition)`.
+Bladeの内部で`@unless(condition)`は、`if(!condition)`に変換して利用しています
 {/discussion}

@@ -11,7 +11,8 @@ Laravelプロジェクトでphpunitを使ってテストを書きたい
 Laravelをインストールすると、デフォルトで`phpunit.xml`が設置されています。  
 ここではその内容について触れます。
 
-Laravelはデフォルトの状態でユニットテストを簡単に行う事ができます。  
+Laravelはデフォルトの状態でユニットテストを簡単に行う事ができます。
+  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"

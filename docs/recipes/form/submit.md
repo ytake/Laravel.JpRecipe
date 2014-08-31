@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Submit Button
+Title:    Submitボタンを作成する
 Topics:   forms
 Code:     Form::submit()
 Id:       171
@@ -7,49 +7,49 @@ Position: 21
 ---
 
 {problem}
-You want to create a submit button in your Blade template.
+Bladeテンプレートでボタンを作成したい
 {/problem}
 
 {solution}
-Use the `Form::submit()` method.
+`Form::submit()`メソッドを利用します
 
-You don't have to pass any arguments.
+引数を指定せずに利用可能です
 
-{html}
-{{ Form::submit() }}
-{/html}
+```html
+{{Form::submit()}}
+```
 
-The resulting HTML will be as follows.
+これは下記の様に出力されます
 
-{html}
+```html
 <input type="submit">
-{/html}
+```
 
-You can specify the value as the first argument.
+valueを指定するには第一引数を利用します
 
-{html}
-{{ Form::submit('Save') }}
-{/html}
+```html
+{{Form::submit('Save')}}
+```
 
-Now the resulting HTML has a value.
+これは下記の様に出力されます
 
-{html}
+```html
 <input type="submit" value="Save">
-{/html}
+```
 
-Use the second argument to add additional attributes.
+属性を追加する場合は、第二引数に配列を利用しなければなりません
 
-{html}
-{{ Form::submit('Save', array('class' => 'btn')) }}
-{/html}
+```html
+{{Form::submit('Save', ['class' => 'btn'])}}
+```
 
-And now resulting the submit button has a class.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="btn" type="submit" value="Save">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    Using @for Control Structures in Blade
+Title:    Bladeで @for を使用する
 Topics:   Blade
 Code:     @endfor, @for
 Id:       87
@@ -7,13 +7,13 @@ Position: 7
 ---
 
 {problem}
-You want to use loops in your Blade template.
+Bladeテンプレートでループを使用したい
 {/problem}
 
 {solution}
-Use the `@for` control structure.
+`@for` 構文を利用します
 
-{html}
+```html
 <html>
 <body>
   <p>I can count to 10.</p>
@@ -22,11 +22,11 @@ Use the `@for` control structure.
   @endfor
 </body>
 </html>
-{/html}
+```
 {/solution}
 
 {discussion}
-It's just like PHP's `for` statement.
+PHPの `for` と同様のものです
 
-But prettier without that ugly `<?php` tag before it.
+`<?php`タグを利用しませんので、綺麗です
 {/discussion}

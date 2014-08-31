@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Text Input Field
+Title:    テキスト入力フィールドを作成する
 Topics:   forms
 Code:     Form::input(), Form::model(), Form::text()
 Id:       155
@@ -7,57 +7,59 @@ Position: 6
 ---
 
 {problem}
-You want to create a text input field for your form.
+テキスト入力フィールドを作成したい
 
-You know you could use the `<input type="text"...>` format but you want to use the `Form` facade.
+`<input type="text"...>`を利用せずに、`Form`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `Form::text()` method.
+`Form::text()`メソッドを利用します
 
-Usually, this is used in Blade templates.
+通常はBladeテンプレートで利用します
 
-The simplest form of this method is to only pass the name.
+このメソッドの一番簡単な方法は、フィールド名のみを指定します
 
-{html}
-{{ Form::text('first_name') }}
-{/html}
+```html
+{{Form::text('first_name')}}
+```
 
-This creates a very simple element which looks like the following.
+以下の様にシンプルなエレメントが作成されます
 
-{html}
+```html
 <input name="first_name" type="text">
-{/html}
+```
 
-You can also pass an additional _value_ option.
+_value_ を指定したい場合は第二引数で指定します
 
-{html}
+```html
 {{ Form::text('first_name', 'Chuck') }}
-{/html}
+```
 
-Producing the following.
+次の様に出力されます
 
-{html}
+```html
 <input name="first_name" type="text" value="Chuck">
-{/html}
+```
 
-To add other attributes, pass a third argument to the method. This third argument must be an array.
+属性を追加する場合は、第三引数に配列を利用します
 
-{html}
-{{ Form::text('first_name', 'Chuck', array('class' => 'field')) }}
-{/html}
+```html
+{{Form::text('first_name', 'Chuck', ['class' => 'field'])}}
+```
 
-Now the input has a class attribute.
+フィールドに`class`が追加されます
 
-{html}
+```html
 <input class="field" name="first_name" type="text" value="Chuck">
-{/html}
+```
 {/solution}
 
 {discussion}
-This method uses the `Form::input()` method, passing `"text"` as the type.
+このメソッドは`Form::input()`に`"text"`タイプを指定して利用しています
 
-Also, please note that the value will first come from Flash Session Input, only secondly will the value argument be used. This means if your previous request was this form it will automatically display the value the user last entered.
+以前のリクエストがこのフォームから送信された場合に、
+セッションから値を取得し、自動的にユーザーが最後に入力した値が利用されます
 
-**NOTE** If you've bound the form to a model using `Form::model()`, then the order of precedence for determining which value to display is different. See [[Creating a New Model Based Form]] for details.
+**NOTE:** フォームモデルを利用している場合は、値利用の優先度が異なります
+詳しくは[[モデルをベースにしたフォームを作成する]] をご覧ください
 {/discussion}

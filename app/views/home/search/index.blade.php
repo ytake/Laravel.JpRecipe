@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading recipe-header">
                 <h3>
-        	        <span class="glyphicon glyphicon-glass"></span>検索キーワード : {{Input::get('words')}}
+        	        <span class="glyphicon glyphicon-glass"></span>検索キーワード : {{e(Input::get('words'))}}
         	    </h3>
         	</div>
        	    <div class="panel-body recipe-body">

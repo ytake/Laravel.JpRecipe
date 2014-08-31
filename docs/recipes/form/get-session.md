@@ -1,5 +1,5 @@
 ---
-Title:    Getting the Session Store
+Title:    フォームで利用するセッションクラスを取得する
 Topics:   forms
 Code:     Form::getSessionStore()
 Id:       178
@@ -7,19 +7,22 @@ Position: 27
 ---
 
 {problem}
-You want to access the session implementation used by the `Form` facade.
+`Form`ファサードが利用するセッションクラスにアクセスしたい
 {/problem}
 
 {solution}
-Use the `Form::getSessionStore()` method.
+`Form::getSessionStore()`メソッドを利用します
 
-{php}
-$session = Form::getSessionStore();
-{/php}
+```php
+$session = \Form::getSessionStore();
+```
 {/solution}
 
 {discussion}
-Generally this is not needed.
+通常、このメソッドはあまり必要とされません
 
-You can access the `Session` facade directly. But if you have a complicated application with different session handlers for different parts of your application, Laravel provides this method.
+セッションは`Session`ファサードを利用して直接アクセスする事が出来ます
+ですが、複雑なアプリケーションを開発している場合や、
+それぞれの機能毎に利用しているセッションクラスが異なる場合等のために
+このメソッドが用意されています
 {/discussion}

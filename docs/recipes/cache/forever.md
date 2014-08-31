@@ -1,5 +1,5 @@
 ---
-Title:    Storing an Item in the Cache Forever
+Title:    キャッシュで永久的にアイテムを保存する
 Topics:   cache
 Code:     Cache::flush(), Cache::forever()
 Id:       269
@@ -7,21 +7,22 @@ Position: 18
 ---
 
 {problem}
-You want to store an item in the cache indefintely.
+キャッシュにアイテムを期限無く保存したい
 {/problem}
 
 {solution}
-Use the `Cache::forever()` method.
+`Cache::forever()`メソッドを利用します
 
-This will permanently store the item.
+これは恒久的にアイテムを格納します
 
-{php}
-Cache::forever($key, $value);
-{/php}
+```php
+\Cache::forever($key, $value);
+```
 {/solution}
 
 {discussion}
-Clearing the cache will remove permanent items.
+キャッシュをクリアすると、永久的なアイテムも削除されます
 
-If you issue `artisan cache:clear` or call `Cache::flush()` then all items, including those stored with `Cache::forever()` will be removed.
+`artisan cache:clear`、または`Cache::flush()`をコールすると
+`Cache::forever()`で保存したアイテムも全て削除されます
 {/discussion}

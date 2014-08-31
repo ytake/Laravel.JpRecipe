@@ -1,5 +1,5 @@
 ---
-Title:    Decrementing the Value of an Item in the Cache
+Title:    キャッシュに保存されているアイテムの値をデクリメントする
 Topics:   cache
 Code:     Config::decrement()
 Id:       274
@@ -7,25 +7,26 @@ Position: 22
 ---
 
 {problem}
-You want to decrement a value in the cache.
+キャッシュの値をデクリメントしたい
 {/problem}
 
 {solution}
-Use `Cache::decrement()`
+`Cache::decrement()`を利用します
 
-{php}
-$value = Cache::decrement('key');
-{/php}
+```php
+$value = \Cache::decrement('key');
+```
 
-If the value of `key` is 10, then the first time this is called `$value` will be 9, the next call it will return 8, and so forth.
+`key`の値が10とした場合に、このメソッドが呼ばれた後 `$value`は9となり、
+その次は8、というようにデクリメントされて返却される様になります
 
-You can also pass a value to decrement.
+デクリメントする値を指定することも可能です
 
-{php}
-$value = Cache::decrement('key', 50);
-{/php}
+```php
+$value = \Cache::decrement('key', 50);
+```
 {/solution}
 
 {discussion}
-Doesn't work with File or Database caches.
+ファイル、データベースでキャッシュを利用している場合は動作しません
 {/discussion}

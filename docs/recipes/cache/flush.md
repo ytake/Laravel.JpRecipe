@@ -1,5 +1,5 @@
 ---
-Title:    Removing All the Items From the Cache
+Title:    キャッシュからすべての項目を削除する
 Topics:   cache
 Code:     Cache::flush()
 Id:       275
@@ -7,21 +7,22 @@ Position: 23
 ---
 
 {problem}
-You want to completely empty your cache.
+キャッシュを完全に消したい
 {/problem}
 
 {solution}
-Use the `Cache::flush()` method.
+`Cache::flush()`メソッドを利用します
 
-{php}
-Cache::flush();
-{/php}
+```php
+\Cache::flush();
+```
 {/solution}
 
 {discussion}
-Cache drivers implementing cache tags allow tag-based flushing.
+キャッシュタグがサポートされているドライバーでは、
+タグ基準で削除する事ができます
 
-{php}
-Cache::tags('widgets')->flush();
-{/php}
+```php
+\Cache::tags('widgets')->flush();
+```
 {/discussion}

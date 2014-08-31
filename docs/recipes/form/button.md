@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Button Element
+Title:    ボタンを作成する
 Topics:   forms
 Code:     Form::button()
 Id:       172
@@ -7,37 +7,37 @@ Position: 22
 ---
 
 {problem}
-You want to create a button element in your Blade template.
+Bladeテンプレートでボタンを作成したい
 {/problem}
 
 {solution}
-Use the `Form::button()` method.
+`Form::button()`メソッドを利用します
 
-Specify the value as the first argument.
+第一引数でvalueを指定してください
 
-{html}
-{{ Form::button('Hit Me') }}
-{/html}
+```html
+{{Form::button('Hit Me')}}
+```
 
-The HTML produced is very simple.
+簡単にHTMLが作成されます
 
-{html}
+```html
 <button type="button">Hit Me</button>
-{/html}
+```
 
-Use the second argument to add additional attributes.
+第二引数は配列を利用して属性を追加します
 
-{html}
-{{ Form::button('Hit Me', array('class' => 'btn')) }}
-{/html}
+```html
+{{Form::button('Hit Me', ['class' => 'btn'])}}
+```
 
-And now resulting the button has a class.
+ボタンに`class`が追加されます
 
-{html}
+```html
 <button class="btn" type="button">Hit Me</button>
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+とくにありません
 {/discussion}

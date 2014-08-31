@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Checkbox Input Field
+Title:    チェックボックスを作成する
 Topics:   forms
 Code:     Form::checkbox()
 Id:       167
@@ -7,65 +7,67 @@ Position: 17
 ---
 
 {problem}
-You want to create a checkbox field for your Blade template.
+Bladeテンプレートでチェックボックスを作成したい
 {/problem}
 
 {solution}
-Use the `Form::checkbox()` method.
+`Form::checkbox()`メソッドを利用します
 
-You're only required to use the first argument, name.
+第一引数でフィールド名を必ず指定しなければなりません
 
-{html}
-{{ Form::checkbox('agree') }}
-{/html}
+```html
+{{Form::checkbox('agree')}}
+```
 
-This produces the following HTML.
+これは下記の様に出力されます
 
-{html}
+```html
 <input name="agree" type="checkbox" value="1">
-{/html}
+```
 
-You can specify the value with a second argument.
+valueを第二引数で指定する事が出来ます
 
-{html}
-{{ Form::checkbox('agree', 'yes') }}
-{/html}
+```html
+{{Form::checkbox('agree', 'yes')}}
+```
 
-Now the value, if checked, will be "yes".
+チェックされた場合に、vakueは"yes"が利用されます
 
-{html}
+```html
 <input name="agree" type="checkbox" value="yes">
-{/html}
+```
 
-If you want to default the value as checked, pass `true` as the third argument.
+デフォルトでチェックされた状態にする場合は、第三引数に`true`を指定します
 
-{html}
-{{ Form::checkbox('agree', 1, true) }}
-{/html}
+```html
+{{Form::checkbox('agree', 1, true)}}
+```
 
-This adds the `checked` attribute.
+`checked`属性を追加します
 
-{html}
+```html
 <input checked="checked" name="agree" type="checkbox" value="1">
-{/html}
+```
 
-Finally, you can add additional attributes to the input field with the fourth argument.
+最後に、属性を追加するには第四引数に配列を利用します
 
-{html}
-{{ Form::checkbox('agree', 1, null, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::checkbox('agree', 1, null, ['class' => 'field'])}}
+```
 
-Now the field has the class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <input class="field" name="agree" type="checkbox" value="1">
-{/html}
+```
 {/solution}
 
 {discussion}
-The checkbox will automatically get checked based on any flash data.
+自動的にフォームのセッションデータに基づいて、利用可能なデータがあれば該当するボタンをチェックされた状態にします
 
-If you redisplay the form because of errors, your checkbox will retain what the user had previously.
+バリデートエラーなどでフォームを再表示する場合には、
+ラジオボタンフィールドにはユーザーが以前に選択した値が保持されて利用されます
 
-Also, if you've bound a model to the form, it will pull the value from the model's data. See [[Creating a New Model Based Form]].
+フォームにモデルをバインドして作成している場合は、モデルのデータから値を利用します
+[[モデルをベースにしたフォームを作成する]] も参照して下さい
 {/discussion}

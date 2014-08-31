@@ -1,5 +1,5 @@
 ---
-Title:    Stopping Injecting Content Into a Section
+Title:    セクションへの挿入を終了する
 Topics:   -
 Code:     @stop
 Id:       242
@@ -7,36 +7,34 @@ Position: 14
 ---
 
 {problem}
-You're finished with a Blade section, but don't want to output it yet.
+出力せずにBladeのセクションへの挿入を終了したい
 {/problem}
 
 {solution}
-Use the Blade `@stop` command to end the section.
+`@stop` 構文を利用してセクションを終了させます
 
-{html}
+```html
 @section('nav')
   <ul>
     <li><a href="#">link 1</a></li>
     <li><a href="#">link 2</a></li>
   </ul>
 @stop
-{/html}
+```
 
-Now your template will have a section named `nav` which you can output later with a `@yield` command.
+セクション名を`nav`として、後から`@yield`を使用して出力する事が出来ます
 {/solution}
 
 {discussion}
-Note that this doesn't append to existing sections.
+これは既存のセクションには追加されません
 
-If you want to append to an existing section, end the section with `@append`.
+既存のセクションに追加したい場合は、`@append`を利用してセクションを終了します
 
-{warn}
-The `@stop` command does not overwrite existing sections.
-{/warn}
+`@stop`は既存のセクションを上書きしません
 
-Imagine you had the following Blade template.
+下記の様なテンプレートがあれば:
 
-{html}
+```html
 @section('test')
    one
 @stop
@@ -44,13 +42,14 @@ Imagine you had the following Blade template.
    two
 @stop
 @yield('test')
-{/html}
+```
 
-What would be output is.
+下記の様に出力されます
 
-{html}
+```html
 one
-{/html}
+```
 
-You can use the `@parent` comment to pull in the contents of the previous section. See the [[Pulling in the Content of a Parent Section in Blade]] recipe.
+`@parent`を利用して、前のセクションの内容を利用する事が出来ます
+[[Bladeで親セクションの内容を利用する]]
 {/discussion}

@@ -1,5 +1,5 @@
 ---
-Title:    描画を停止してセクションを追加する
+Title:    レンダリングを停止してセクションを追加する
 Topics:   -
 Code:     @append
 Id:       243
@@ -7,7 +7,7 @@ Position: 15
 ---
 
 {problem}
-Bladeで描画中にコンテンツを追加したい。
+Bladeで描画中にコンテンツを追加したい
 
 {/problem}
 
@@ -54,5 +54,5 @@ two
 `@parent`も利用することができます
 
 セクション内の前のセクションのコンテンツをその利用する場合は、  
-[[Pulling in the Content of a Parent Section in Blade]]を参照してください。
+[[Bladeで親セクションの内容を利用する]] を参照してください。
 {/discussion}

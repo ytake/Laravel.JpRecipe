@@ -1,5 +1,5 @@
 ---
-Title:    Creating a Select Year Field
+Title:    年を選択するセレクトボックスを作成する
 Topics:   form
 Code:     Form::selectYear
 Id:       165
@@ -7,47 +7,48 @@ Position: 15
 ---
 
 {problem}
-You want a select box with a range of years.
+年を選択するセレクトボックスを作成したい
 {/problem}
 
 {solution}
-Use the `Form::selectYear()` method.
+`Form::selectYear()`メソッドを利用します
 
-Just specify the start and end years.
+選択肢の範囲として、始まりの年から終わりの年までを指定します
 
-{html}
-{{ Form::selectYear('year', 2013, 2015) }}
-{/html}
+```html
+{{Form::selectYear('year', 2013, 2015)}}
+```
 
-This produces three options.
+3つの選択肢を含んだセレクトボックスが作成されます
 
-{html}
+```html
 <select name="year">
   <option value="2013">2013</option>
   <option value="2014">2014</option>
   <option value="2015">2015</option>
 </select>
-{/html}
+```
 
-Add a fourth option for the default value and a fifth option for any additional attributes for the select field.
+デフォルト値を指定する場合は第四引数に、
+属性を追加する場合は、第五引数に配列を利用します
 
-{html}
-{{ Form::selectYear('year', 2013, 2015, 2014, ['class' => 'field']) }}
-{/html}
+```html
+{{Form::selectYear('year', 2013, 2015, 2014, ['class' => 'field'])}}
+```
 
-Now year 2014 is selected and the select field has a class attribute.
+2014年が選択された状態になり、フィールドに`class`が追加されます
 
-{html}
+```html
 <select class="field" name="year">
   <option value="2013">2013</option>
   <option value="2014" selected="selected">2014</option>
   <option value="2015">2015</option>
 </select>
-{/html}
+```
 {/solution}
 
 {discussion}
-This is actually a simple wrapper over the `Form::selectRange()` method.
+実際は、単純に`Form::selectRange()`をラッパーしただけのメソッドです
 
-It operates exactly as `Form::selectRange()` does. The primary purpose for using it is to have your code be slightly easier to understand. Seeing a `Form::selectYear()` makes it readily apparent what you're doing, but a `Form::selectRange()` means you have to think _"Okay, what type of range is being selected?"_
+少しの記述でよく使われるフォームの実装が行える様に`Form::selectRange()`を利用して提供されています
 {/discussion}
