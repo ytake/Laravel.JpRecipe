@@ -1,5 +1,5 @@
 ---
-Title:    Setting up the WinCache Cache Driver
+Title:    キャッシュドライバーにWinCacheを利用する
 Topics:   cache, configuration
 Code:     -
 Id:       98
@@ -7,23 +7,23 @@ Position: 7
 ---
 
 {problem}
-You are running PHP in Windows and want to use the WinCache Driver.
+Windows環境でPHPを動かしているので、WinCacheを使いたい
 {/problem}
 
 {solution}
-Configure caching to use it.
+設定して利用する事が出来ます
 
-Edit `app/config/cache.php` and change the driver to `'wincache'`.
+`app/config/cache.php`ファイルのdriverを`'wincache'`に変更します
 
-{php}
-    'driver' => 'wincache',
-{/php}
+```php
+'driver' => 'wincache',
+```
 {/solution}
 
 {discussion}
-WinCache requires the IIS server using the FastCGI extension.
+WinCacheは、FastCGI拡張機能を使用しているIISサーバーが必要です
 
-Detailed setup instructions are beyond the scope of this book. You can find out more at:
+詳しいセットアップ手順は下記webサイト等を参考にして下さい
 
 * [PHP Documentation Page](http://www.php.net/manual/en/wincache.requirements.php)
 * [WinCache PECL Page](http://pecl.php.net/package/wincache)

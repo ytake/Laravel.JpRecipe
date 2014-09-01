@@ -1,5 +1,5 @@
 ---
-Title:    Storing an Item in the Cache
+Title:    キャッシュにアイテムを追加する
 Topics:   cache
 Code:     Cache::get(), Cache::put()
 Id:       266
@@ -7,33 +7,31 @@ Position: 15
 ---
 
 {problem}
-You want to store a value in the cache.
+キャッシュに値を保存したい
 {/problem}
 
 {solution}
-Use the `Cache::put()` method.
+`Cache::put()`メソッドを利用します
 
-{php}
-Cache::put($key, $value, $minutes);
-{/php}
+```php
+\Cache::put($key, $value, $minutes);
+```
 {/solution}
 
 {discussion}
-Cache storage and retrieval usually follows the pattern below.
+キャッシュの保存と取得は、通常は以下のパターンを用います
 
-{php}
-// 1. Pull the item from cache
-$value = Cache::get($key);
+```php
+// 1. キャッシュから値を取得します
+$value = \Cache::get($key);
 
-// 2. Check if it was not found
-if ($value === null)
-{
-    // 3. Figure the value manually
+// 2. 値を確認します
+if ($value === null) {
+    // 3. 保存したい値
     $value = 'just something easy';
-
-    // 4. Store it for a number of minutes
+    // 4. 有効時間を指定して値を保存します
     $minutes = 30;
-    Cache::put($key, $value, $minutes);
+    \Cache::put($key, $value, $minutes);
 }
-{/php}
+```
 {/discussion}

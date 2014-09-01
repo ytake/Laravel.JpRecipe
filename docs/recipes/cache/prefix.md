@@ -1,5 +1,5 @@
 ---
-Title:    Using a Cache Key Prefix
+Title:    キャッシュキーにプレフィックスを利用する
 Topics:   cache
 Code:     -
 Id:       276
@@ -7,27 +7,27 @@ Position: 24
 ---
 
 {problem}
-You have multiple applications using the same cache and want to differentiate keys between them.
+複数台のサーバのアプリケーションでキャッシュを共有して利用したい
 {/problem}
 
 {solution}
-Set an application specific cache prefix.
+アプリケーション固有のキャッシュキーにするため、プレフィックスを設定します
 
-Edit your `app/config/cache.php` file and change the `prefix` setting.
+`app/config/cache.php` ファイルの `prefix` で設定します
 
-{php}
+```php
 <?php
 // app/config/cache.php
-return array(
+return [
     ...
     'prefix' => 'myprefix',
-);
-?>
-{/php}
+];
+```
 {/solution}
 
 {discussion}
-Every item retrieved or stored in the cache will automatically have this prefix.
+キャッシュを保存する場合や、検索する場合に自動的に指定したプレフィックスが使われます
 
-Note the File and Array cache drivers do not use the prefix. This is because those drivers are already considered application specific.
+ファイル、配列をキャッシュドライバーをお使いの場合は利用できません。
+これらのドライバーはそのアプリケーション固有のキャッシュに利用されるため、プレフィックスは使用されません
 {/discussion}
