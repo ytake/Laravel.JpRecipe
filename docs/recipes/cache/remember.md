@@ -1,5 +1,5 @@
 ---
-Title:    Retrieving an Item from the Cache or Storing a Default
+Title:    キャッシュからアイテムを取得、値が無い場合は値を保存する
 Topics:   cache
 Code:     Cache::put(), Cache::remember()
 Id:       268
@@ -7,27 +7,28 @@ Position: 17
 ---
 
 {problem}
-You want to retrieve an item from the cache.
-
-But, if it doesn't exist you want to store the value in the cache.
+キャッシュからアイテムを取得し、
+アイテムが無い場合は値を保存する様にしたい
 {/problem}
 
 {solution}
-Use the `Cache::remember()` value.
+`Cache::remember()`メソッドを利用します
 
-{php}
-$value = Cache::remember($key, $minutes, function()
-{
-    // fetch value from db or some other logic
+```php
+$value = \Cache::remember($key, $minutes, function() {
+    // DBから値を取得する等のロジックを実装します
     return $value;
 });
-{/php}
+```
 
-If the item exists in the cache, it's returned immediately. But if it doesn't exist then the function is executed and the return value of the function is cached the specified minutes. In the later case this value is also returned.
+指定したキーのアイテムがキャッシュ内に存在する場合は、すぐに返却されます
+値が存在しない場合は、無名関数が実行され、
+関数の戻り値がキャッシュに保存されて、その値が返却されます
 {/solution}
 
 {discussion}
-The `Cache::remember()` method is a nice all-in-one shortcut.
+`Cache::remember()`は複数の処理が組み合わされたオールインワンなメソッドです
 
-It implements a workflow similar to the one described in the discussion of [[Storing an Item in the Cache]]. The function won't be executed unless the value isn't yet in the cache.
+これは [[キャッシュにアイテムを追加する]] であつかったものと同様のワークフローを実装しています
+キャッシュに値が無い場合以外は、無名関数は実行されません。
 {/discussion}

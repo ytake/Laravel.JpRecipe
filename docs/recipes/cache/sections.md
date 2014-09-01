@@ -1,5 +1,5 @@
 ---
-Title:    Organizing Your Cache into Sections
+Title:    キャッシュをタグ付け、またはセクションで整理する
 Topics:   cache
 Code:     Cache::section()
 Id:       101
@@ -7,34 +7,39 @@ Position: 9
 ---
 
 {problem}
-You have many items in your cache and want to organize them.
+kキャッシュにたくさんの値があり、その値を整理したい
 {/problem}
 
 {solution}
-Organize your cache into sections.
+キャッシュをタグ付けしたり、セクションで整理することができます
 
-You can use the `Cache::section()` method to specify categories or _groups_ of cache keys.
+`Cache::section()`, `Cache::tags()`を利用して、
+キャッシュのアイテムを  _グループ化_ する事が出来ます
 
-{php}
-$item = Cache::section('inventory')->get('last-purchased');
-{/php}
+```php
+$item = \Cache::section('inventory')->get('last-purchased');
 
-The nice thing about sections is you can treat the entire section as sort of a "mini-cache" and use all the cache methods on just that section.
+$item = \Cache::tags('inventory')->get('last-purchased');
+```
 
-{php}
-// Store a value
-Cache::section('section')->put('key', 'value', $minutes);
+セクションや、タグは、キャッシュの値をそれぞれのグループとして利用し、
+そのセクションやタグだけに作用する処理を実行したり、またはキャッシュ全体の処理を実行したりと、
+細分化させて利用する事が出来ます
 
-// Retrieve a value
-$value = Cache::section('section')->get('key');
+```php
+// 値を保存します
+\Cache::section('section')->put('key', 'value', $minutes);
 
-// Flush the whole section
-Cache::section('section')->flush();
-{/php}
+// 値を取得
+$value = \Cache::section('section')->get('key');
+
+// セクション内の値を全て削除
+\Cache::section('section')->flush();
+```
 {/solution}
 
 {discussion}
-Sections aren't available for every Cache driver.
+`Cache::section()` は `Cache::tags()`のエイリアスです
 
-Neither the File Cache driver nor the Database Cache driver supports cache sections.
+セクション、タグはファイル、またはデータベースキャッシュドライバーでは利用できません
 {/discussion}
