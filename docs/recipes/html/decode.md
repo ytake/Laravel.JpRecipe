@@ -1,5 +1,5 @@
 ---
-Title:    Decoding HTML Entities to a String
+Title:    HTMLエンティティのデコード
 Topics:   html
 Code:     HTML::decode(), HTML::entities()
 Id:       182
@@ -7,23 +7,24 @@ Position: 2
 ---
 
 {problem}
-You have a string encoded by `HTML::entities()` and want to decode it back to the original string.
+`HTML::entities()`でエンコードされた文字列をデコードしたい
 {/problem}
 
 {solution}
-Use the `HTML::decode()` method.
+`HTML::decode()`メソッドを利用します
 
-This is the opposite of `HTML::entities()`. For example.
+これは`HTML::entities()`の逆です
 
-{php}
-$string HTML::decode('&amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;');
-{/php}
+```php
+$string ＝ \HTML::decode('&amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;');
+```
 
-In this example `$string` will equal "&lt;h1&gt;Hello&lt;/h1&gt;";
+`$string` は "&lt;h1&gt;Hello&lt;/h1&gt;" となります
 {/solution}
 
 {discussion}
-This method wraps the PHP `html_entity_decode()` function.
+このメソッドはPHPの`html_entity_decode()`ラッパー関数です
 
-Specifically it calls `html_entity_decode($value, ENT_QUOTES, 'UTF-8')`. These options compliment the ones passed to `htmlentities()` by the `HTML::entities()` method.
+具体的には`html_entity_decode($value, ENT_QUOTES, 'UTF-8')`をコールしています
+これらのオプションは`HTML::entities()`で`htmlentities()`に指定されたものを補完しています
 {/discussion}

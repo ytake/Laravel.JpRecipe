@@ -1,5 +1,5 @@
 ---
-Title:    Obfuscating an Email Address
+Title:    メールアドレスを難読化
 Topics:   html
 Code:     HTML::email(), HTML::obfuscate()
 Id:       193
@@ -7,27 +7,28 @@ Position: 13
 ---
 
 {problem}
-You want to obfuscate an e-mail address to prevent spam-bots from sniffing it.
+スパムボットなどに収集されるのを防ぐために電子メールアドレスを難読化したい
 {/problem}
 
 {solution}
-Use the `HTML::email()` method.
+`HTML::email()`メソッドを利用します
 
-This method takes one argument, the email address.
+このメソッドで指定するのは、メールアドレスだけです
 
-{php}
-$email = HTML::email('me@local.com');
-{/php}
+```php
+$email = \HTML::email('me@local.com');
+```
 
-Now `$email` will display correctly in browsers, but it will randomly contain characters that make it hard to read.
+`$email`はブラウザでは正しく表示されますが、
+読みづらい文字列が含まれる様になります
 
-{html}
+```html
 Email is <b>&amp;#x6d;e&amp;#x40;l&amp;#111;ca&amp;#x6c;.c&amp;#x6f;m</b>
-{/html}
+```
 {/solution}
 
 {discussion}
-This method uses the `HTML::obfuscate()` method to obfuscate the email address.
+このメソッドは`HTML::obfuscate()`を利用して難読化されています
 
-See [[Obfuscating a String]].
+[[文字列を難読化]] をご覧ください
 {/discussion}
