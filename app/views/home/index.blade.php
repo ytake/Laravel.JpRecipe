@@ -1,5 +1,16 @@
 @extends('layouts.default')
+@section('styles')
+<link href="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.2.2/flexslider-min.css" rel="stylesheet" type="text/css">
+@stop
 @section('scripts')
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.2.2/jquery.flexslider-min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+});
+</script>
 @stop
 @section('content')
 <div class="row">
@@ -21,6 +32,23 @@
     @endif
 </div>
 @include('elements.search')
+<div class="row">
+    <div class="col-md-12 text-center">
+        <div class="panel panel-default">
+            <div class="flexslider">
+                <ul class="slides">
+                @foreach($news_feeder as $feed)
+                    <li>
+                        <span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;
+                        {{HTML::link($feed->link, $feed->title, ['title' => $feed->title])}}&nbsp;
+                        {{$feed->description}}
+                    </li>
+                @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 {{-- contents --}}
 <div class="row">
     <div class="col-md-4 col-sm-6">

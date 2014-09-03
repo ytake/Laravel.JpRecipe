@@ -1,6 +1,7 @@
 <?php
 namespace App\Tests\Composer;
 
+use App\Feed\Reader;
 use Mockery AS m;
 use App\Composers\FeederComposer;
 use App\Tests\TestCase;
@@ -18,7 +19,7 @@ class FeederComposerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->compose = new FeederComposer();
+        $this->compose = new FeederComposer(new Reader);
     }
 
     public function testInstance()

@@ -4,11 +4,11 @@ namespace App\Composers;
 use App\Feed\Reader;
 
 /**
- * Class FeederComposer
+ * Class NewsFeederComposer
  * @package App\Composers
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class FeederComposer
+class NewsFeederComposer
 {
 
     /** @var Reader  */
@@ -28,14 +28,14 @@ class FeederComposer
      */
     public function compose($view)
     {
-        $url = \Config::get('recipe.packages_feed');
-        if(\Cache::has("package_feeder:{$url}")) {
-            $view->with('feeder', \Cache::get("package_feeder:{$url}"));
+        $url = \Config::get('recipe.news_feed');
+        if(\Cache::has("news_feed:{$url}")) {
+            $view->with('news_feeder', \Cache::get("news_feed:{$url}"));
             return;
         }
         $data = $this->reader->read($url);
-        \Cache::put("package_feeder:{$url}", $data, 120);
-        $view->with('feeder', $data);
+        \Cache::put("news_feed:{$url}", $data, 720);
+        $view->with('news_feeder', $data);
     }
 
 } 

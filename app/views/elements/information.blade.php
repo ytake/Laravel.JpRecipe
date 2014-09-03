@@ -16,20 +16,9 @@
         </div>
         <div class="col-md-6 col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading">feed</div>
-                <div class="panel-body">
-                    <a href="/feed/atom" alt="Laravel recipes(JP) Atom feed" title="Laravel recipes(JP) Atom feed" target="_blank"><img src="/images/rss-64.png"></a>
-                    <a href="/feed/rss" alt="Laravel recipes(JP) RSS feed" title="Laravel recipes(JP) RSS feed" target="_blank"><img src="/images/rss-64-black.png"></a>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default text-center">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;Packalyst::Latest Packages
+                    {{HTML::link('http://packalyst.com/', "View all", ['class' => 'pull-right label label-info', 'title' => 'Packalyst :: Packages for Laravel', 'target' => '_blank'])}}
+                    Packages for your Laravel projects
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled">
@@ -44,4 +33,5 @@
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
     </div>
