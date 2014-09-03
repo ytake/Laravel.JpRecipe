@@ -88,7 +88,7 @@ Position: 3
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
 * `HTML::entities()` - See [[Converting a HTML String to Entities]].
-* `HTML::decode()` - See [[Decoding HTML Entities to a String]].
+* `HTML::decode()` - See [[HTMLエンティティのデコード]].
 * `HTML::script()` - See [[Generating a Link to a Javascript File]].
 * `HTML::style()` - See [[Generating a Link to a CSS File]].
 * `HTML::image()` - See [[Generating an HTML Image Element]].
@@ -98,12 +98,12 @@ Position: 3
 * `HTML::linkSecureAsset()` - See [[Generating a Secure HTML Link to an Asset]].
 * `HTML::linkRoute()` - See [[Generating a HTML Link to a Named Route]].
 * `HTML::linkAction()` - See [[Generating a HTML Link to a Controller Action]].
-* `HTML::mailto()` - See [[Generating a HTML Link to an Email Address]].
-* `HTML::email()` - See [[Obfuscating an Email Address]].
+* `HTML::mailto()` - See [[メールアドレスのHTMLリンクを生成する]].
+* `HTML::email()` - See [[メールアドレスを難読化]].
 * `HTML::ol()` - See [[Generating an Ordered List of Items]].
 * `HTML::ul()` - See [[Generating an Unordered List of Items]].
-* `HTML::attributes()` - See [[Bulding an HTML Attribute String From an Array]].
-* `HTML::obfuscate()` - See [[Obfuscating a String]].
+* `HTML::attributes()` - See [[HTMLの属性を配列で作成する]].
+* `HTML::obfuscate()` - See [[文字列を難読化]].
 
 マクロから他のマクロをコールする事ができます
 {/discussion}

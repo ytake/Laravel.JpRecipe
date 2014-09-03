@@ -1,5 +1,5 @@
 ---
-Title:    Bulding an HTML Attribute String From an Array
+Title:    HTMLの属性を配列で作成する
 Topics:   html
 Code:     Form::macro(), HTML::attributes(), HTML::macro()
 Id:       196
@@ -7,28 +7,29 @@ Position: 16
 ---
 
 {problem}
-You have an associative array of attributes for an HTML element and want to convert it to a string.
+HTMLを構成する属性を配列から文字列に変換したい
 {/problem}
 
 {solution}
-Use the `HTML::attributes()` method.
+`HTML::attributes()`メソッドを利用します
 
-{php}
-echo HTML::attributes(array('id' => '123', 'class' => 'myclass'));
-{/php}
+```php
+echo \HTML::attributes(['id' => '123', 'class' => 'myclass']);
+```
 
-The above will build a string where the keys of the array are the attribute names and the values of the array are the attribute values. The output will be.
+配列のキーは属性名、配列の値は属性値となります
+出力は次の様になります
 
-{text}
+```text
 id="123" class="myclass"
-{/text}
+```
 {/solution}
 
 {discussion}
-This is useful in HTML or Form macros.
+これはHTMLまたはFormマクロに使用されるケースが多いでしょう
 
-It's useful whenever you need to build tag attributes in HTML or even XML.
+HTMLあるいはXMLを構築する場合に便利です。
 
-See [[Creating Form Macros]]
-and [[Creating HTML Macros]].
+[[Formマクロを作成する]] と
+[[HTMLマクロを作成する]] をご覧ください
 {/discussion}
