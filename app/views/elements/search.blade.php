@@ -20,11 +20,4 @@
         </section>
     </div>
     @endif
-    <div class="col-md-12 text-center">
-        <div class="panel panel-default">
-            <div class="panel-body recipe-body">
-                Laracon EUが行われました
-            </div>
-        </div>
-    </div>
 </div>

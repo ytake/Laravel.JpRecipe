@@ -12,7 +12,8 @@
             <div class="collapse navbar-collapse" id="navbar-collapse1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/faq">FAQ&nbsp;<i class="glyphicon glyphicon-question-sign"></i></a></li>
-                     <li><a href="/auth/login">Login&nbsp;<i class="glyphicon glyphicon-user"></i></a></li>
+                    <li><a href="/feed/atom" alt="Laravel recipes(JP) Atom feed" title="Laravel recipes(JP) Atom feed" target="_blank">Atom&nbsp;<img src="/images/rss-16-black.png"></a></li>
+                    <li><a href="/feed/rss" alt="Laravel recipes(JP) RSS feed" title="Laravel recipes(JP) RSS feed" target="_blank">RSS&nbsp;<img src="/images/rss-16-black.png"></a></li>
                 </ul>
             </div>
         </div>
