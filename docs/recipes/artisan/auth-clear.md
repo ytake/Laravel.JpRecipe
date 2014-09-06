@@ -1,8 +1,6 @@
 ---
 Title:    期限切れパスワードのリマインダーをクリアする
 Topics:   artisan, authentication, password reminders
-Code:     -
-Id:       72
 Position: 20
 ---
 
@@ -27,3 +25,11 @@ $ php artisan auth:clear-reminders
 
 １日１回、もしくは１週間に１回はcronのジョブでコマンドを実行することになるでしょう。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

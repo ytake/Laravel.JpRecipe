@@ -25,7 +25,7 @@ Bladeテンプレートでボタンを作成したい
 <button type="button">Hit Me</button>
 ```
 
-第二引数は配列を利用して属性を追加します
+第二引数には配列を利用して属性を追加します
 
 ```html
 {{Form::button('Hit Me', ['class' => 'btn'])}}

@@ -1,8 +1,6 @@
 ---
 Title:    リマインダーコントローラの作成
 Topics:   artisan, authentication, password reminders
-Code:     -
-Id:       73
 Position: 21
 ---
 
@@ -137,3 +135,11 @@ Route::resource('password', 'RemindersController', [
 ]);
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

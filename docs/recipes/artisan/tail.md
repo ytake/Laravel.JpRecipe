@@ -1,8 +1,6 @@
 ---
 Title:    リモートサーバのログファイルを追跡したい
 Topics:   artisan
-Code:     -
-Id:       281
 Position: 28
 ---
 
@@ -46,3 +44,11 @@ log contents
 $ php artisan tail --path=/full/path/to/log.file
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

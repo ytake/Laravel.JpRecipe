@@ -1,82 +1,86 @@
 ---
-Title:    Generating a HTML Link
+Title:    HTMLリンクを生成する
 Topics:   html
-Code:     HTML::link()
-Id:       186
 Position: 6
 ---
 
 {problem}
-You want to create a HTML link in your Blade template.
+BladeテンプレートでHTMLリンクを作成したい
 
-You know you can use HTML directly and use the anchor tag (`<a>...</a>`) but you want to use the `HTML` facade.
+`<a>...</a>`タグ利用せずに、`HTML`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `HTML::link()` method.
+`HTML::link()`メソッドを利用します
 
-If you only pass the URL as the first argument it will create a link using the URL as the title.
+第一引数でURLを指定すると、URLをタイトルとして利用してHTMLリンクを生成します
 
-{html}
-{{ HTML::link('http://test.com') }}
-{/html}
+```html
+{{HTML::link('http://test.com')}}
+```
 
-This produces the following HTML.
+次のHTMLが生成されます
 
-{html}
+```html
 <a href="http://test.com">http://test.com</a>
-{/html}
+```
 
-You can add a second argument for the title.
+第二引数でタイトルを追加することが出来ます
 
-{html}
-{{ HTML::link('http://test.com', 'testing')}}
-{/html}
+```html
+{{HTML::link('http://test.com', 'testing')}}
+```
 
-Which will produce the following.
+次の様に生成されます
 
-{html}
+```html
 <a href="http://test.com">testing</a>
-{/html}
+```
 
-The third argument, if used, must be an array. It allows you to assign other attributes to the tag.
+第三引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::link('http://test.com', null, array('id' => 'linkid'))}}
-{/html}
+```html
+{{HTML::link('http://test.com', null, ['id' => 'linkid'])}}
+```
 
-Now the anchor tag also has the id attribute. Notice also that the title is back to the URL because we passed `null` as the second argument.
+`id`属性が追加されましたが、
+第二引数に`null`を指定したため、タイトルはURLに変更されます
 
-{html}
+```html
 <a href="http://test.com" id="linkid">http://test.com</a>
-{/html}
+```
 
-A fourth option can be passed to make the URL secure. Note that this only works when the URL is automatically built (see the discussion below).
+第四引数は、sslのリンクを生成する場合に指定します
+URLが自動的に構築された時にのみ動作しますので注意してください(下記説明を参照)
 
-{html}
-{{ HTML::link('/login', 'log in', array('id' => 'linkid'), true)}}
-{/html}
+```html
+{{HTML::link('/login', 'log in', ['id' => 'linkid'], true)}}
+```
 
-This produces something like what's below.
+以下の様に生成されます
 
-{html}
+```html
 <a href="https://your.url/login" id="linkid">log in</a>
-{/html}
+```
 {/solution}
 
 {discussion}
-The URL portion will be completed as needed.
+必要に応じて、URL部分を補完します
 
-Laravel will automatically build the URL, using your application's URL as the base if an incomplete URL is passed.
+指定したURLが完全なものではない場合に、
+LaravelはアプリケーションのURLを利用して、ドメインを含む完全なURLを生成します
 
-Examples:
+例:
+* "test"を第一引数に指定すると、"http://your.url/test"として生成されます
+* "test.com"を第一引数に指定すると(スキームを指定しなかった場合)、"http://your.url/test.com"が生成されます
+頭に(#)を含む場合:
+* "#test"第一引数に指定すると、"#test"のまま利用されます
 
-* you pass "test" for URL, it expands to "http://your.url/test"
-* you pass "test.com" for URL (forgetting the scheme), it expands to "http://your.url/test.com"
-
-The exception to this are URLs beginning with the pound symbol (#).
-
-* you pass "#test" for URL, it stays "#test"
-
-This allows for in-page links.
+これは、ページ内のリンクを生成する場合に利用します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

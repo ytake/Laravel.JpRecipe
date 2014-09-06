@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションキーの作成
 Topics:   artisan
-Code:     Hash::make()
-Id:       283
 Position: 30
 ---
 
@@ -28,3 +26,11 @@ Laravelアプリケーションを初めて作成した時に、自動で`key:ge
 
 もしコマンドを再び実行して変更する場合は、`\Hash::make()`でセーブされたパスワードはもう有効ではないということに注意して下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

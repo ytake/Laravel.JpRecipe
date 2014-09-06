@@ -1,8 +1,6 @@
 ---
 Title:    メールアドレスのHTMLリンクを生成する
 Topics:   html
-Code:     HTML::mailto(), HTML::obfuscate()
-Id:       192
 Position: 12
 ---
 
@@ -63,3 +61,9 @@ _注意:Laravelが自動的にランダムでアドレスを難読化します_
 
 [[文字列を難読化]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

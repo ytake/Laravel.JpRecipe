@@ -1,8 +1,6 @@
 ---
 Title:    HTMLエンティティのデコード
 Topics:   html
-Code:     HTML::decode(), HTML::entities()
-Id:       182
 Position: 2
 ---
 
@@ -28,3 +26,9 @@ $string ＝ \HTML::decode('&amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;');
 具体的には`html_entity_decode($value, ENT_QUOTES, 'UTF-8')`をコールしています
 これらのオプションは`HTML::entities()`で`htmlentities()`に指定されたものを補完しています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

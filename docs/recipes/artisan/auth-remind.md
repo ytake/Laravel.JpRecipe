@@ -1,8 +1,6 @@
 ---
 Title:    パスワードリマインダーのマイグレーションを作成する
 Topics:   artisan, authentication, password reminders
-Code:     -
-Id:       71
 Position: 19
 ---
 
@@ -35,3 +33,11 @@ Laravelはパスワードリマインダーをすぐに実行できる様に、
 利用するにあたって、アプリケーションで必要なリマインダーを実装する必要がありますが、  
 基本的にはテーブルを作成するだけで簡単に実装ができます。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

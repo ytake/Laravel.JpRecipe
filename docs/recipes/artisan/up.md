@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションのメンテナンスモードを解除したい
 Topics:   artisan
-Code:     -
-Id:       62
 Position: 10
 ---
 
@@ -27,3 +25,11 @@ $ php artisan up
 
 このコマンドは`app/storage/meta/down`というファイルを削除しています。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

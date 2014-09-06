@@ -27,3 +27,11 @@ Laravel向けでないパッケージの場合、パスの指定が必要にな�
 $ php artisan view:publish cool-package --path=/package/view/dir
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

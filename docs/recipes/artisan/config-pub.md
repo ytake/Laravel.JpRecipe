@@ -1,8 +1,6 @@
 ---
 Title:    パッケージ設定をアプリケーション上で公開したい
 Topics:   artisan
-Code:     -
-Id:       277
 Position: 24
 ---
 
@@ -25,8 +23,15 @@ $ php artisan config:publish cool-package
 {discussion}
 Laravel向けでないパッケージではパスを明記する必要性があります。
 
-
 ```bash
 $ php artisan config:publish cool-package --path=/some/config/dir
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

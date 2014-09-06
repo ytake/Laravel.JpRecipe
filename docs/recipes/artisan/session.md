@@ -1,8 +1,6 @@
 ---
 Title:    セッション用のマイグレーションを作成したい
 Topics:   artisan
-Code:     -
-Id:       70
 Position: 18
 ---
 
@@ -31,3 +29,11 @@ $ php artisan migrate
 `database`に`app/config/session.php`でドライバの変更をする場合、セッションを保存するテーブルを作成する必要があります。
 このコマンドはそれを手助けしてくれます。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

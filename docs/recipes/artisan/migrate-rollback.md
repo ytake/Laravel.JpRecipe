@@ -1,8 +1,6 @@
 ---
 Title:    データベースマイグレーションをロールバックしたい
 Topics:   artisan, migrations
-Code:     -
-Id:       66
 Position: 14
 ---
 
@@ -39,3 +37,11 @@ $ php artisan migrate:rollback --pretend --database=other-one
 
 これはデータベースの変更の増加を少なくしようと促しています。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

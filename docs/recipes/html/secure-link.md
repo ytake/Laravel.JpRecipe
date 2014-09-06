@@ -1,63 +1,68 @@
 ---
-Title:    Generating a Secure HTML Link
-Topics:   html
-Code:     HTML::link(), HTML::secureLink()
-Id:       187
+Title:    セキュアなHTMLリンクを生成する
+Topics:   html, ssl
 Position: 7
 ---
 
 {problem}
-You want to generate a secure HTTPS link in your Blade template.
+BladeテンプレートでHTTPSのHTMLリンクを作成したい
 {/problem}
 
 {solution}
-Use the `HTML::secureLink()` method.
+`HTML::secureLink()`メソッドを利用します
 
-This only works correctly when you're _building_ URLs for your application. In other words, if you pass a fully formed URL to the method, it will use the fully formed URL.
+このメソッドは現在のアプリケーションへのリンクにのみ正しく動作します
+メソッドにアプリケーションのパスを指定するとHTTPSで形成されたURLを生成します
 
-You pass _paths_ to this method, not _URLs_.
+_URL_　ではなく、_パス_ を指定します
 
-If you only pass the path as the first argument it will create a link using the full URL as the title.
+第一引数でURLを指定すると、URLをタイトルとして利用してHTMLリンクを生成します
 
-{html}
-{{ HTML::secureLink('x') }}
-{/html}
+```html
+{{HTML::secureLink('x')}}
+```
 
-This produces the following HTML.
+次のHTMLが生成されます
 
-{html}
+```html
 <a href="https://your.url/x">https://your.url/x</a>
-{/html}
+```
 
-You can specify the title as the second argument.
+第二引数でタイトルを追加することが出来ます
 
-{html}
-{{ HTML::secureLink('a/b', 'A-B') }}
-{/html}
+```html
+{{HTML::secureLink('a/b', 'A-B')}}
+```
 
-The resulting HTML is below.
+次の様に生成されます
 
-{html}
+```html
 <a href="https://url.url/a/b">A-B</a>
-{/html}
+```
 
-You can also pass an array of attributes as the third argument.
+第三引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::secureLink('login', 'Sign In', array('class' => 'btn')) }}
-{/html}
+```html
+{{HTML::secureLink('login', 'Sign In', ['class' => 'btn'])}}
+```
 
-Now the anchor tag has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <a href="https://your.url/login" class="btn">Sign In</a>
-{/html}
+```
 {/solution}
 
 {discussion}
-This method is a wrapper for `HTML::link()`.
+このメソッドは `HTML::link()` のラッパーです
 
-But it always passes `true` as the fourth argument to `HTML::link()`.
+`HTML::link()`メソッドの第四引数に `true` を指定して利用しています
 
-See [[Generating a HTML Link]] for details.
+詳細は [[HTMLリンクを生成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    現在の環境を表示したい
 Topics:   artisan, environment
-Code:     -
-Id:       6
 Position: 5
 ---
 
@@ -30,3 +28,11 @@ Current application environment: production
 
 使用する環境を決めるPHPコードの記述方法は [[実行している環境を確認]] を参照して下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

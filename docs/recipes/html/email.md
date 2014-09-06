@@ -1,8 +1,6 @@
 ---
 Title:    メールアドレスを難読化
 Topics:   html
-Code:     HTML::email(), HTML::obfuscate()
-Id:       193
 Position: 13
 ---
 
@@ -32,3 +30,9 @@ Email is <b>&amp;#x6d;e&amp;#x40;l&amp;#111;ca&amp;#x6c;.c&amp;#x6f;m</b>
 
 [[文字列を難読化]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

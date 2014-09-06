@@ -1,8 +1,6 @@
 ---
 Title:    全てのマイグレーションを再実行・リセットしたい
 Topics:   artisan, migrations
-Code:     -
-Id:       68
 Position: 16
 ---
 
@@ -42,3 +40,11 @@ $ php artisan migrate
 マイグレーションをクリアする時や、マイグレーション再び実行する時にはマイグレーションの設定に基づき作成されます。
 `migrate:rollback`実行後には設定に基づき全てのマイグレーションがロールバックされるでしょう。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

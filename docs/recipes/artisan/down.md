@@ -1,8 +1,6 @@
 ---
 Title:    メンテナンスモードを作成したい
 Topics:   artisan
-Code:     -
-Id:       61
 Position: 9
 ---
 
@@ -32,3 +30,11 @@ $ php artisan down
 
 Webファーム内の複数のマシンでアプリケーションが動いている場合、各マシン上で`php artisan down`コマンドの実行が必要になります。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

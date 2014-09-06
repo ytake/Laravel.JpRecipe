@@ -1,27 +1,36 @@
 ---
-Title:    Generating a Secure HTML Link to an Asset
+Title:    セキュアなassetHTMLリンクを生成する
 Topics:   html
-Code:     HTML::linkAsset(), HTML::linkSecureAsset(), HTML::secureLink()
-Id:       189
 Position: 9
 ---
 
 {problem}
-You want to use a HTTPS link to an asset within your Blade template.
+アプリケーションのassetへセキュアなリンクを作成したい
 {/problem}
 
 {solution}
-Use the `HTML::linkSecureAsset()` method.
+`HTML::linkSecureAsset()` メソッドを利用します
 
-This method takes the exact arguments as `HTML::secureLink()` (see [[Generating a Secure HTML Link]]).
+このメソッドは `HTML::secureLink()`と同じ引数を利用します([[セキュアなHTMLリンクを生成する]])
 {/solution}
 
 {discussion}
-There's a small difference between links to web pages and links to assets.
+webページへのリンクと、assetへのリンクには少しだけ違いがあります
 
-Depending on your application's configuration, your web pages may have `index.php` at the start of the path. Assets never do.
+アプリケーションの設定によっては、
+Webページのパスに `index.php` が含まれる可能性がありますが、
+assetには含まれません
 
-When determining the URL for the asset, `HTML::linkSecureAsset()` will strip away any `index.php` if it's there.
+assetのURLを生成する場合に、
+`HTML::linkSecureAsset()`はパスに`index.php`が含まれている場合はindex.phpを取り除きます
 
-This method is a wrapper for `HTML::linkAsset()`, but it always passes `true` as the fourth argument to `HTML::linkAsset()`. See [[Generating a HTML Link to an Asset]] for details.
+このメソッドは `HTML::linkAsset()` のラッパーですが、
+`HTML::linkAsset()` の第四引数に常に`true` を指定しています
+詳細は [[assetHTMLリンクを生成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

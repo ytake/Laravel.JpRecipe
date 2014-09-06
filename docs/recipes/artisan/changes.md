@@ -1,8 +1,6 @@
 ---
 Title:    Laravelの変更ログを表示したい
 Topics:   artisan
-Code:     -
-Id:       4
 Position: 4
 ---
 
@@ -15,14 +13,14 @@ Laravelフレームワークの変更を見たい。
 {solution}
 `php artisan changes`コマンドが利用できます。
 
-{bash}
+```bash
 $ php artisan changes
-{/bash}
+```
 
 最新の変更点リストが表示されます。
 以下のように表示されます。
 
-```
+```text
 Changes For Laravel 4.1.x
 -------------------------
 -> Added new SSH task runner tools.
@@ -60,7 +58,7 @@ Changes For Laravel 4.1.x
 $ php artisan changes 4.0.x
 ```
 
-```
+```text
 Changes For Laravel 4.0.x
 -------------------------
 -> Added implode method to query builder and Collection class.
@@ -73,3 +71,11 @@ Changes For Laravel 4.0.x
 
 [GitHub](https://github.com/laravel/framework/commits/master) にアクセスして、変更点が全て書かれたリビジョンヒストリーを見て下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

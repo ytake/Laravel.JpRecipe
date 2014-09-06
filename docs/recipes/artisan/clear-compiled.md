@@ -1,8 +1,6 @@
 ---
 Title:    コンパイルされたクラスをクリアしたい
 Topics:   artisan
-Code:     -
-Id:       59
 Position: 7
 ---
 
@@ -28,3 +26,11 @@ $ php artisan clear-compiled
 
 [[Optimizing the Framework for Better Performance]]の項目も見て下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    HTMLの属性を配列で作成する
 Topics:   html
-Code:     Form::macro(), HTML::attributes(), HTML::macro()
-Id:       196
 Position: 16
 ---
 
@@ -33,3 +31,9 @@ HTMLあるいはXMLを構築する場合に便利です。
 [[Formマクロを作成する]] と
 [[HTMLマクロを作成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

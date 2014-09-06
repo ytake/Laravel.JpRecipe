@@ -87,21 +87,21 @@ Position: 3
 
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
-* `HTML::entities()` - See [[Converting a HTML String to Entities]].
+* `HTML::entities()` - See [[HTML文字列をエンティティへ変換する]].
 * `HTML::decode()` - See [[HTMLエンティティのデコード]].
-* `HTML::script()` - See [[Generating a Link to a Javascript File]].
-* `HTML::style()` - See [[Generating a Link to a CSS File]].
-* `HTML::image()` - See [[Generating an HTML Image Element]].
-* `HTML::link()` - See [[Generating a HTML Link]].
-* `HTML::secureLink()` - See [[Generating a Secure HTML Link]].
-* `HTML::linkAsset()` - See [[Generating a HTML Link to an Asset]].
-* `HTML::linkSecureAsset()` - See [[Generating a Secure HTML Link to an Asset]].
-* `HTML::linkRoute()` - See [[Generating a HTML Link to a Named Route]].
-* `HTML::linkAction()` - See [[Generating a HTML Link to a Controller Action]].
+* `HTML::script()` - See [[javascriptファイルへのリンクを作成する]].
+* `HTML::style()` - See [[cssファイルへのリンクを作成する]].
+* `HTML::image()` - See [[HTMLイメージタグを生成する]].
+* `HTML::link()` - See [[HTMLリンクを生成する]].
+* `HTML::secureLink()` - See [[セキュアなHTMLリンクを生成する]].
+* `HTML::linkAsset()` - See [[assetHTMLリンクを生成する]].
+* `HTML::linkSecureAsset()` - See [[セキュアなassetHTMLリンクを生成する]].
+* `HTML::linkRoute()` - See [[名前付きルートへのHTMLリンクを生成する]].
+* `HTML::linkAction()` - See [[コントローラのアクションへのHTMLリンクを生成する]].
 * `HTML::mailto()` - See [[メールアドレスのHTMLリンクを生成する]].
 * `HTML::email()` - See [[メールアドレスを難読化]].
-* `HTML::ol()` - See [[Generating an Ordered List of Items]].
-* `HTML::ul()` - See [[Generating an Unordered List of Items]].
+* `HTML::ol()` - See [[順序付きリストを生成する]].
+* `HTML::ul()` - See [[順序なしリストを生成する]].
 * `HTML::attributes()` - See [[HTMLの属性を配列で作成する]].
 * `HTML::obfuscate()` - See [[文字列を難読化]].
 

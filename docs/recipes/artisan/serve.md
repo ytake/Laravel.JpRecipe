@@ -1,8 +1,6 @@
 ---
 Title:    PHPのビルトインサーバを動かしたい
 Topics:   artisan
-Code:     -
-Id:       282
 Position: 29
 ---
 
@@ -35,3 +33,11 @@ $ php artisan serve --port=8080
 Laravel development server started on http://localhost:8080
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

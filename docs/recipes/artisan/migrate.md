@@ -1,8 +1,6 @@
 ---
 Title:    データベースマイグレーションを実行したい
 Topics:   artisan, migrations
-Code:     -
-Id:       65
 Position: 13
 ---
 
@@ -35,3 +33,11 @@ $ php artisan migrate --pretend
 
 [[データベースでのシーディング]]レシピを参照して下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}
