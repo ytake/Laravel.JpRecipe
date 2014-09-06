@@ -1,6 +1,5 @@
 ---
-Name:        Packages by 3rd Parties
-Description: Recipes dealing with Packages Provided by 3rd Parties
-Id:          18
-Position:    4
+Name:        3rdパッケージ関連
+Description: このカテゴリは3rdパッケージ関連のものにお使いください、おすすめパッケージの利用方法、パッケージ作成者自信による利用方法解説等でも構いません
+             (パッケージはテストコードが含まれるものに限ります)
 ---

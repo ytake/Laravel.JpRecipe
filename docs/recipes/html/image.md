@@ -1,59 +1,64 @@
 ---
-Title:    Generating an HTML Image Element
+Title:    HTMLイメージタグを生成する
 Topics:   html
-Code:     HTML::image()
-Id:       185
 Position: 5
 ---
 
 {problem}
-You want to add an image to your Blade template.
+Bladeテンプレートに画像を追加したい
 
-Instead of simply using the `<img...>` HTML tag, you want to use the `HTML` facade.
+`<img...>`タグ利用せずに、`HTML`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `HTML::image()` method.
+`HTML::image()`メソッドを利用します
 
-The only required argument is the path to the image.
+必要な引数は、画像へのパスです
 
-{html}
-{{ HTML::image('img/picture.jpg') }}
-{/html}
+```html
+{{HTML::image('img/picture.jpg')}}
+```
 
-Which produces the following HTML.
+次のHTMLが生成されます
 
-{html}
+```html
 <img src="http://your.url/img/picture.jpg">
-{/html}
+```
 
-If the image path you pass isn't a complete URL, Laravel will use your application's URL to build a complete URL.
+指定したファイルパスがURLではない場合に、
+LaravelはアプリケーションのURLを利用して、ドメインを含む完全なURLでイメージへのパスを生成します
 
-You can add the `alt` attribute with the second argument.
+第二引数で`alt`属性を追加する事が出来ます
 
-{html}
-{{ HTML::image('img/picture.jpg', 'a picture') }}
-{/html}
+```html
+{{HTML::image('img/picture.jpg', 'a picture')}}
+```
 
-Now the HTML will look like the following.
+次のHTMLが生成されます
 
-{html}
+```html
 <img src="http://your.url/img/picture.jpg" alt="a picture">
-{/html}
+```
 
-The third argument, if used, must be an array. It contains additional attributes to add to the img tag.
+第三引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::image('img/picture.jpg', 'a picture', array('class' => 'thumb')) }}
-{/html}
+```html
+{{HTML::image('img/picture.jpg', 'a picture', ['class' => 'thumb'])}}
+```
 
 Now the HTML contains a class attribute.
 
-{html}
+```html
 <img src="http://your.url/img/picture.jpg" class="thumb" alt="a picture">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

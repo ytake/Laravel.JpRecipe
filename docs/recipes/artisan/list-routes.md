@@ -1,8 +1,6 @@
 ---
 Title:    ルートを一覧で見たい
 Topics:   artisan, routes
-Code:     -
-Id:       5
 Position: 6
 ---
 
@@ -23,7 +21,7 @@ $ php artisan routes
 
 以下は [laravel-recipes](http://laravel-recipes.com) のルート一覧の一部になります。
 
-```
+```text
 +---------------------------+-------------------------+----------------+
 | URI                       | Action                  | Before Filters |
 +---------------------------+-------------------------+----------------+
@@ -52,3 +50,11 @@ $ php artisan routes --path=c
 ```
 上記のコマンドは **c** で始まるパスのルートを表示します。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

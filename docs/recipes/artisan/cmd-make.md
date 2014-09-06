@@ -1,8 +1,6 @@
 ---
 Title:    新しくArtisanコマンドを作りたい(Artisan::add)
 Topics:   artisan
-Code:     -
-Id:       284
 Position: 31
 ---
 
@@ -122,3 +120,11 @@ listコマンドを実行すると新しいコマンドが表示されている�
 $ php artisan list
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

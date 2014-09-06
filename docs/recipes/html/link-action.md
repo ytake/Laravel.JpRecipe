@@ -1,69 +1,75 @@
 ---
-Title:    Generating a HTML Link to a Controller Action
+Title:    コントローラのアクションへのHTMLリンクを生成する
 Topics:   html
-Code:     HTML::linkAction()
-Id:       191
 Position: 11
 ---
 
 {problem}
-You want to generate a link to a specific controller action.
+特定のコントローラのアクションへのリンクを生成したい
 {/problem}
 
 {solution}
-Use the `HTML::linkAction()` method.
+`HTML::linkAction()` メソッドを利用します
 
-Note that the controller and action you specify must exist _AND_ there must be a reference to it somewhere in your `app/routes.php` file.
+指定したコントローラや、コントローラーのアクションが存在していなければなりません
+また、それらは`app/routes.php`に記述されてなければなりません
 
-The simplest form is a single argument, the `controller@action`.
+第一引数はシンプルに `コントローラー@アクション` で指定します
 
-{html}
-{{ HTML::linkAction('Home@index') }}
-{/html}
+```html
+{{HTML::linkAction('Home@index')}}
+```
 
-This could produce something like.
+以下の様に生成されます
 
-{html}
+```html
 <a href="http://your.url/index">http://your.url/index</a>
-{/html}
+```
 
-You can specify the title as the second argument.
+第二引数でタイトルを指定することができます
 
-{html}
-{{ HTML::linkAction('Home@index', 'Home') }}
-{/html}
+```html
+{{HTML::linkAction('Home@index', 'Home')}}
+```
 
-Which produces the following.
+次の様に生成されます
 
-{html}
+```html
 <a href="http://your.url/index">Home</a>
-{/html}
+```
 
-If the controller action method takes arguments, you can specify them in the third parameter, as a simple array.
+コントローラのメソッドで引数を利用する場合は、
+三番目のパラメータに配列を利用して指定することができます
 
-{html}
-{{ HTML::linkAction('ItemController@show', 'Show Item #3', array(3)) }}
-{/html}
+```html
+{{HTML::linkAction('ItemController@show', 'Show Item #3', [3])}}
+```
 
-The HTML would look like below (depending on your routes).
+HTMLは以下のようになります(ルーティングによって異なります)
 
-{html}
+```html
 <a href="http://your.url/items/3">Show Item #3</a>
-{/html}
+```
 
-And, if additional attributes are needed use the fourth parameter.
+第四引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::linkAction('Home@index', 'Home', array(), array('class' => 'btn')) }}
-{/html}
+```html
+{{HTML::linkAction('Home@index', 'Home', [], ['class' => 'btn'])}}
+```
 
-Now the anchor has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <a href="http://your.url/index" class="btn">Home</a>
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

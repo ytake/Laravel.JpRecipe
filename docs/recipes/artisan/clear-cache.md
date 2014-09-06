@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションキャッシュをクリアしたい
 Topics:   artisan, cache
-Code:     Cache::flush()
-Id:       104
 Position: 23
 ---
 
@@ -27,3 +25,11 @@ $ php artisan cache:clear
 
 _このコマンドはローカルファイルシステムからファイルを削除するので、アプリケーションが動いている複数のサーバを持っている場合は上記のコマンドをそれぞれのサーバで実行する必要があります。_
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

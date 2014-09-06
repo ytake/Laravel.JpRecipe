@@ -1,49 +1,55 @@
 ---
-Title:    Generating a Link to a Javascript File
+Title:    javascriptファイルへのリンクを作成する
 Topics:   html
-Code:     HTML::script()
-Id:       183
 Position: 3
 ---
 
 {problem}
-You want your Blade template to load an external javascript file.
+Bladeテンプレートでjavascriptファイルを読み込みたい
 
-Instead of using `<script ...>` directly, you want to do this with the `HTML` facade.
+`<script ...>`利用せずに、`HTML`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `HTML::script()` method.
+`HTML::script()`メソッドを利用します
 
-Just pass the path to the javascript file.
+引数にはjavascriptファイルへのパスを指定します
 
-{html}
-{{ HTML::script('js/functions.js') }}
-{/html}
+```html
+{{HTML::script('js/functions.js')}}
+```
 
-This produces the following HTML code.
+次のHTMLが作成されます
 
-{html}
+```html
 <script src="http://your.url/js/functions.js"></script>
-{/html}
+```
 
-If the file path you pass isn't a complete URL, Laravel will use your application's URL to build a complete URL.
+指定したファイルパスがURLではない場合に、
+LaravelはアプリケーションのURLを利用して、ドメインを含む完全なURLでファイルパスを生成します
 
-You can pass additional attributes in an array as the second argument.
+第二引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::script('js/functions.js', array('async' => 'async')) }}
-{/html}
+```html
+{{HTML::script('js/functions.js', ['async' => 'async'])}}
+```
 
-The attributes will be added to the script tag as the result below illustrates.
+上記を例とした場合に、下記の様にスクリプトタグに追加されます
 
-{html}
+```html
 <script async="async" src="http://your.url/js/functions.js"></script>
-{/html}
+```
 {/solution}
 
 {discussion}
-The `type` attribute of `<script>` tags is optional with HTML5.
+HTML5では`<script>`タグの`type`属性はオプションです
 
-But if your web page is still HTML 4.01, you should add the `"type" => "text/javascript"` to the attributes you pass this method.
+現在のアプリケーションがHTML4.01でしたら、
+属性に`"type" => "text/javascript"`を追加する必要があります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

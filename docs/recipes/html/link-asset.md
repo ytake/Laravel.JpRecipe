@@ -1,27 +1,35 @@
 ---
-Title:    Generating a HTML Link to an Asset
+Title:    assetHTMLリンクを生成する
 Topics:   html
-Code:     HTML::link(), HTML::linkAsset()
-Id:       188
 Position: 8
 ---
 
 {problem}
-You want to create a link to one of your application's assets.
+アプリケーションのassetへのリンクを作成したい
 
-You could just use the anchor tag directly, but you're using a Blade template and want to do it the Laravel way.
+一般的には`<a>...</a>`タグを利用しますが、これをLaravel流に利用してみましょう
+_**assetとは、公開ディレクトリ配下に設置しているjs, css, img等を指します**_
 {/problem}
 
 {solution}
-Use the `HTML::linkAsset()` method.
+`HTML::linkAsset()`メソッドを利用します
 
-This method takes the exact arguments as `HTML::link()` (see [[Generating a HTML Link]]).
+このメソッドは `HTML::link()`と同じ引数を利用します([[HTMLリンクを生成する]]).
 {/solution}
 
 {discussion}
-There's a small difference between links to web pages and links to assets.
+webページへのリンクと、assetへのリンクには少しだけ違いがあります
 
-Depending on your application's configuration, your web pages may have `index.php` at the start of the path. Assets never do.
+アプリケーションの設定によっては、
+Webページのパスに `index.php` が含まれる可能性がありますが、
+assetには含まれません
 
-When determining the URL for the asset, `HTML::linkAsset()` will strip away any `index.php` if it's there.
+assetのURLを生成する場合に、
+`HTML::linkAsset()`はパスに`index.php`が含まれている場合はindex.phpを取り除きます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

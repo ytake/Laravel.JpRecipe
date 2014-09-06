@@ -1,8 +1,6 @@
 ---
 Title:    LaravelでREPLを行いたい
 Topics:   artisan
-Code:     -
-Id:       280
 Position: 27
 ---
 
@@ -47,3 +45,11 @@ _Boris_はPHPのための小さく、堅実なREPLです。
 tinkerコマンドが動作しない場合は`php.ini`の`disable_functions`の設定に`pcntl_()`関数が含まれている可能性が非常に高いです。
 `php.ini`のこの行をコメントアウトし、tinkerを使用できるようにする必要があります。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

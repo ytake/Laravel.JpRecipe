@@ -1,8 +1,6 @@
 ---
 Title:    データベースマイグレーションをリセットしたい
 Topics:   artisan, migrations
-Code:     -
-Id:       67
 Position: 15
 ---
 
@@ -33,3 +31,11 @@ $ php artsian migrate:reset --pretend
 
 このコマンドの実行完了後、データベースに残っているのは中身が空の`migrations`テーブルのみになります。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

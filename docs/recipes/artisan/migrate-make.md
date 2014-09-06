@@ -1,8 +1,6 @@
 ---
 Title:    新しいマイグレーションを作成したい
 Topics:   artisan, migrations
-Code:     -
-Id:       64
 Position: 12
 ---
 
@@ -39,3 +37,11 @@ $ php artisan migrate:make --table=users add_name_to_users
 
 マイグレーションを使用することでデータベースの変更履歴を見ることができます。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    マイグレーションリポジトリを作成したい
 Topics:   artisan, migrations
-Code:     -
-Id:       63
 Position: 11
 ---
 
@@ -27,3 +25,11 @@ $ php artisan migrate:install
 Laravelは自動的に必要なマイグレーションリポジトリを作成します。
 ただ、もしデータベースが正しく設定されているかのテストを作成したい場合はこのコマンドを使うことになるでしょう。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

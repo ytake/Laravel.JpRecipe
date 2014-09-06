@@ -1,125 +1,127 @@
 ---
-Title:    Generating an Unordered List of Items
+Title:    順序なしリストを生成する
 Topics:   html
-Code:     HTML::ul()
-Id:       195
 Position: 15
 ---
 
 {problem}
-You want an unordered list of items in your Blade template.
+Bladeテンプレートで順序なしリストが欲しい
 {/problem}
 
 {solution}
-Use the `HTML::ul()` method.
+`HTML::ul()` メソッドを利用します
 
-You simply pass the method a list of items. If you pass an associative array, only the array values are used.
+メソッドにアイテムのリストを渡します
+連想配列を渡した場合、配列の値が利用されます
 
-{html}
-{{ HTML::ul(array('a', 'b', 'c'))}}
-{/html}
+```html
+{{HTML::ul(['a', 'b', 'c'])}}
+```
 
-This produces a simple list.
+単純なリストが生成されます
 
-{html}
+```html
 <ul>
-  <li>a</li>
-  <li>b</li>
-  <li>c</li>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
 </ul>
-{/html}
+```
 
-If any of the elements are arrays, then a sub-list is generated.
+要素が配列の場合は、サブリストが生成されます
 
-{php}
-// PHP code to generate $list
-$list = array(
-  'one',
-  'two',
-  array(
-    'sub-one',
-    'sub-two',
-  ),
-);
-return View::make('thebladeview', array('list' => $list));
-{/php}
+```php
+$list = [
+    'one',
+    'two',
+    [
+        'sub-one',
+        'sub-two',
+    ],
+];
+return \View::make('thebladeview', ['list' => $list]);
+```
 
-If the Blade template has the following:
+Bladeテンプレートに以下のコードがある場合:
 
-{html}
-{{ HTML::ul($list) }}
-{/html}
+```html
+{{HTML::ul($list)}}
+```
 
-Then the following would be output.
+次の様に生成されます
 
-{html}
+```html
 <ul>
-  <li>one</li>
-  <li>two</li>
-  <li>
-    <ul>
-      <li>sub-one</li>
-      <li>sub-two</li>
-    </ul>
-  </li>
+    <li>one</li>
+    <li>two</li>
+    <li>
+        <ul>
+            <li>sub-one</li>
+            <li>sub-two</li>
+        </ul>
+    </li>
 </ul>
-{/html}
+```
 
-If you want the sub-list to have a title, then have the array representing the sub-list have a key.
+サブリストにタイトルを持たせる場合は、
+連想配列の配列キーを利用します
 
-{php}
-// PHP code to generate $list
-$list = array(
-  'one',
-  'two',
-  'three' => array(
-    'sub-one',
-    'sub-two',
-  ),
-);
-return View::make('thebladeview', array('list' => $list));
-{/php}
+```php
+$list = [
+    'one',
+    'two',
+    'three' => [
+        'sub-one',
+        'sub-two',
+    ],
+];
+return \View::make('thebladeview', ['list' => $list]);
+```
 
-If the Blade template has the following:
+Bladeテンプレートに以下のコードがある場合:
 
-{html}
-{{ HTML::ul($list) }}
-{/html}
+```html
+{{HTML::ul($list)}}
+```
 
-Then the following would be output.
+次の様に生成されます
 
-{html}
+```html
 <ul>
-  <li>one</li>
-  <li>two</li>
-  <li>three
-    <ul>
-      <li>sub-one</li>
-      <li>sub-two</li>
-    </ul>
-  </li>
+    <li>one</li>
+    <li>two</li>
+    <li>three
+        <ul>
+            <li>sub-one</li>
+            <li>sub-two</li>
+        </ul>
+    </li>
 </ul>
-{/html}
+```
 
-If you want attributes to apply to the list, use an array as the second argument to `HTML::ul()`.
+リストに属性を追加する場合は、`HTML::ul()`メソッドの第二引数に配列で指定します
 
-{html}
-{{ HTML::ul(array('a', 'b'), array('class' => 'mylist')) }}
-{/html}
+```html
+{{HTML::ul(['a', 'b'], ['class' => 'mylist'])}}
+```
 
-Now the list has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <ul class="mylist">
-  <li>a</li>
-  <li>b</li>
+    <li>a</li>
+    <li>b</li>
 </ul>
-{/html}
+```
 {/solution}
 
 {discussion}
-A couple of notes.
-
-1. Any HTML entities in the list values are escaped.
-2. The second argument, `$attributes`, will only apply to the top level list. If you have sublists, they won't contain any attributes.
+1. リストの値はエスケープされます
+2. 第二引数 `$attributes`, トップレベルのリストに適用されますが、サブリストを持っている場合、それらには属性が含まれません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

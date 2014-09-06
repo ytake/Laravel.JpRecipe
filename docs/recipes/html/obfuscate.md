@@ -1,8 +1,6 @@
 ---
 Title:    文字列を難読化
 Topics:   html
-Code:     HTML::obfuscate()
-Id:       197
 Position: 17
 ---
 
@@ -39,3 +37,9 @@ Webページ上の文字列がスパムボットに収集されるのを防ぎ�
 これを用いて電子メールを難読化します [[メールアドレスを難読化]]、
 [[メールアドレスのHTMLリンクを生成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

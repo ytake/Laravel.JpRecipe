@@ -1,71 +1,76 @@
 ---
-Title:    Generating a HTML Link to a Named Route
+Title:    名前付きルートへのHTMLリンクを生成する
 Topics:   html
-Code:     HTML::linkRoute()
-Id:       190
 Position: 10
 ---
 
 {problem}
-You want to generate a link to one of your routes.
+ルートへのリンクを生成したい
 {/problem}
 
 {solution}
-Use the `HTML::linkRoute()` method.
+`HTML::linkRoute()` メソッドを利用します
 
-The only required argument is the first one, the name of the route.
+第一引数にルートの名前を指定します
 
-{html}
-{{ HTML::linkRoute('login') }}
-{/html}
+```html
+{{HTML::linkRoute('login')}}
+```
 
-Depending on your `app/routes.php` file, this may output something like.
+上記の様な指定の場合は `app/routes.php`ファイルに
+`login`と名付けられているルートが存在していなければなりません
 
-{html}
+```html
 <a href="http://your.url/user/login">http://your.url/user/login</a>
-{/html}
+```
 
 {warn}
-If you don't have a route with the name specified, an error will get generated.
+指定した名前付きルートが存在しない場合は、エラーがスローされます
 {/warn}
 
-You can pass a second argument to specify the title to display.
+第二引数でタイトルを指定することができます
 
-{html}
-{{ HTML::linkRoute('login', 'Sign In') }}
-{/html}
+```html
+{{HTML::linkRoute('login', 'Sign In')}}
+```
 
-This produces something similar to the following (based on routes.php).
+以下の様に生成されます(ルーティングによって異なります)
 
-{html}
+```html
 <a href="http://your.url/user/login">Sign In</a>
-{/html}
+```
 
-If you're route takes parameters, then you must pass a third argument.
+引数を利用する場合は、三番目のパラメータに配列を利用して指定することができます
 
-{html}
-{{ HTML::linkRoute('items.show', 'Show item #4', array(4)) }}
-{/html}
+```html
+{{HTML::linkRoute('items.show', 'Show item #4', [4])}}
+```
 
-The output could look something like below.
+次の様に生成されます
 
-{html}
+```html
 <a href="http://your.url/items/4">Show item #4</a>
-{/html}
+```
 
-You can specify an array as the fourth parameter. This array should contain any additional attributes to apply to the anchor tag.
+第四引数には配列を利用して属性を追加します
 
-{html}
-{{ HTML::linkRoute('login', 'Sign In', array(), array('class' => 'btn')) }}
-{/html}
+```html
+{{HTML::linkRoute('login', 'Sign In', [], ['class' => 'btn'])}}
+```
 
-Now the anchor tag has a class attribute.
+属性`class`が追加されます
 
-{html}
+```html
 <a href="http://your.url/user/login" class="btn">Sign In</a>
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

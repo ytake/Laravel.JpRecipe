@@ -1,8 +1,6 @@
 ---
 Title:    パフォーマンス改善するためにフレームワークを最適化したい
 Topics:   artisan
-Code:     -
-Id:       60
 Position: 8
 ---
 
@@ -79,3 +77,11 @@ class HomeController extends Controller
 
 この違いに注意して下さい。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

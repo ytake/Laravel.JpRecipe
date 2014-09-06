@@ -1,8 +1,6 @@
 ---
 Title:    データベースでのシーディング
 Topics:   artisan
-Code:     -
-Id:       69
 Position: 17
 ---
 
@@ -31,3 +29,11 @@ $ php artisan db:seed --class=MyDatabaseSeeder
 
 開発マシン上で標準なレコードを生成しておく場合には良い方法です。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

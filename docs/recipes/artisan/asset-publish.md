@@ -1,8 +1,6 @@
 ---
 Title:    公開されているパッケージを利用する
 Topics:   artisan
-Code:     -
-Id:       279
 Position: 26
 ---
 
@@ -13,9 +11,9 @@ Position: 26
 {solution}
 `php artisan asset:publish`コマンドが利用出来ます
 
-{bash}
+```bash
 $ php artisan asset:publish cool-package
-{/bash}
+```
 
 サードパーティのパッケージをアプリケーションの`public/packages/cool-package`ディレクトリへコピーし、
 ウェブ上で利用することが出来ます。
@@ -24,13 +22,21 @@ $ php artisan asset:publish cool-package
 {discussion}
 Laravel向けではないパッケージでは、パスを指定しなければならない可能性があります。
 
-{bash}
+```bash
 $ php artisan asset:publish cool-package --path=/package/dir
-{/bash}
+```
 
 ワークベンチのパッケージの場合、ワークベンチ名を指定してください。
 
-{bash}
+```bash
 $ php artisan asset:publish --bench=cool-package
-{/bash}
+```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}

@@ -1,47 +1,53 @@
 ---
-Title:    Generating a Link to a CSS File
+Title:    cssファイルへのリンクを作成する
 Topics:   html
-Code:     HTML::style()
-Id:       184
 Position: 4
 ---
 
 {problem}
-You want to add a link to a CSS file in your Blade template.
+BladeテンプレートにCSSファイルへのリンクを追加したい
 {/problem}
 
 {solution}
-Use the `HTML::style()` method.
+`HTML::style()`メソッドを利用します
 
-You can just pass the path to the style sheet.
+スタイルシートへのパスを指定することができます。
 
-{html}
-{{ HTML::style('css/style.css') }}
-{/html}
+```html
+{{HTML::style('css/style.css')}}
+```
 
-This will add the following HTML.
+次のHTMLが作成されます
 
-{html}
+```html
 <link media="all" type="text/css" rel="stylesheet"
   href="http://your.url/css/style.css">
-{/html}
+```
 
-If the file path you pass isn't a complete URL, Laravel will use your application's URL to build a complete URL.
+指定したファイルパスがURLではない場合に、
+LaravelはアプリケーションのURLを利用して、ドメインを含む完全なURLでファイルパスを生成します
 
-You can pass additional attributes in an array as the second argument. This also allows you to override the default attributes
+第二引数には配列を利用して属性を追加します
+これを利用してデフォルトの属性を上書きすることもできます
 
-{html}
-{{ HTML::style('css/style.css', array('media' => 'print')) }}
-{/html}
+```html
+{{HTML::style('css/style.css', ['media' => 'print')]}}
+```
 
-Now the media is `"print"` instead of the default `"all"`.
+mediaをデフォルトの`"all"`から`"print"`へ変更します
 
-{html}
+```html
 <link media="print" type="text/css" rel="stylesheet"
   href="http://your.url/css/style.css">
-{/html}
+```
 {/solution}
 
 {discussion}
-Nothing to discuss.
+とくにありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

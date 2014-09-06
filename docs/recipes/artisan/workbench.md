@@ -33,7 +33,7 @@ Laravelワークベンチはパッケージを動作させるのに最適な方�
 
 新しいワークベンチを作成すると、次のような構造が作成されます。
 
-```
+```text
 myapp : プロジェクトディレクトリ
 |- workbench : ワークベンチディレクトリ
 |---- yourname : ベンダーディレクトリ
@@ -46,9 +46,21 @@ myapp : プロジェクトディレクトリ
 |---------- vendor : パッケージのベンダーディレクトリ
 ```
 
-`--resources`オプションを使用することで、`config`、 `controllers`、 `lang`、 `migrations`、そして`views`が`src`ディレクトリに生成されます。
+`--resources`オプションを使用することで、
+`config`、 `controllers`、 `lang`、 `migrations`、
+そして`views`が`src`ディレクトリに生成されます。
 
 Laravelのブートストラップが自動的にワークベンチを読み込みます。
 
-パッケージの開発が完了したら、新しいGithubリポジトリへ`workbench`ディレクトリ以下全てを置き、パッケージを他のユーザが利用可能な状態にします。
+パッケージの開発が完了したら、
+新しいGithubリポジトリへ`workbench`ディレクトリ以下全てを置き、
+パッケージを他のユーザが利用可能な状態にします。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:syossan27
+(Twitter)[https://twitter.com/syossan27]
+(web)[http://syossan.hateblo.jp/]
+{/credit}
