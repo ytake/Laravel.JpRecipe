@@ -27,5 +27,5 @@ Position: 1
 Author:お名前
 
 ご自身のurlなど記述していただいて構いません
-(ララベル・レシピ)[http://recipes.laravel.jp/]
+[ララベル・レシピ](http://recipes.laravel.jp)
 {/credit}
