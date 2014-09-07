@@ -1,38 +1,39 @@
 ---
-Title:    Getting the Contents of a File
+Title:    ファイルの内容を取得する
 Topics:   file system
-Code:     File::get()
-Id:       126
 Position: 2
 ---
 
 {problem}
-You want to load the contents of a file.
+ファイルの内容を取得したい
 {/problem}
 
 {solution}
-Use the `File::get()` method.
+`File::get()` メソッドを利用します
 
-{php}
-$contents = File::get($filename);
-{/php}
+```php
+$contents = \File::get($filename);
+```
 {/solution}
 
 {discussion}
-If the file isn't found an exception is returned.
+ファイルが見つからない場合は例外が返却されます
 
-Specifically, a `Illuminate\Filesystem\FileNotFoundException` exception is returned.
+具体的には `Illuminate\Filesystem\FileNotFoundException` がスローされます
 
-If you don't explicitly test if the file exists yourself, it's good practice to wrap the call in a try/catch block.
+try/catchを利用して、エラーを捕捉する様にしましょう
 
-{php}
-try
-{
-    $contents = File::get($filename);
+```php
+try {
+    $contents = \File::get($filename);
+} catch (\Illuminate\Filesystem\FileNotFoundException $exception) {
+    die("ファイルがありません");
 }
-catch (Illuminate\Filesystem\FileNotFoundException)
-{
-    die("The file doesn't exist");
-}
-{/php}
+```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

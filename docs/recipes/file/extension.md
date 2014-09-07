@@ -1,25 +1,30 @@
 ---
-Title:    Extracting a File Extension From a Path
+Title:    ファイル拡張子を取得する
 Topics:   file system
-Code:     File::extension()
-Id:       136
 Position: 12
 ---
 
 {problem}
-You want to quickly determine a file's extension.
+ファイル拡張子を取得したい
 {/problem}
 
 {solution}
-Use the `File::extension()` method.
+`File::extension()` メソッドを利用します
 
-{php}
-$extension = File::extension($filename);
-{/php}
+```php
+$extension = \File::extension($filename);
+```
 
-If there is no extension, an empty string is returned. Otherwise, a string containing everything _after_ the last period in the filename is returned.
+拡張子がない場合は空の文字列が返されます
+通常はファイル名の最後のピリオド _以降の_ 全ての文字列が返されます
 {/solution}
 
 {discussion}
-No discussion needed.
+特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,27 +1,31 @@
 ---
-Title:    Writing the Contents of a File
+Title:    文字列等のコンテンツをファイルに書き込む
 Topics:   file system
-Code:     File::put()
-Id:       130
 Position: 6
 ---
 
 {problem}
-You want to create or replace a file's contents.
+ファイルの作成または内容を置換したい
 {/problem}
 
 {solution}
-Use the `File::put()` method.
+`File::put()` メソッドを利用します
 
-{php}
-$bytes_written = File::put($file, $contents);
-if ($bytes_written === false)
-{
-    die("Error writing to file");
+```php
+$bytes_written = \File::put($file, $contents);
+if ($bytes_written === false) {
+    die("ファイルに書き込めません");
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This is a wrapper over PHP's `file_put_contents()`.
+これは`file_put_contents()`のラッパー関数です
+[file_put_contents](http://php.net/manual/ja/function.file-put-contents.php)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

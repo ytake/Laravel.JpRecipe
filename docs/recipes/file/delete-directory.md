@@ -1,39 +1,45 @@
 ---
-Title:    Recursively Deleting a Directory
+Title:    再帰的にディレクトリを削除する
 Topics:   file system
-Code:     File::deleteDirectory(), File::exists()
-Id:       149
 Position: 25
 ---
 
 {problem}
-You want to delete the contents of a directory.
-
-You want to delete everything recursively, all files and subdirectories.
+再帰的にすべてのファイル、すべてのサブディレクトリを削除したい
 {/problem}
 
 {solution}
-Use the `File::deleteDirectory()` method.
+`File::deleteDirectory()` メソッドを利用します
 
-{php}
-$success = File::deleteDirectory($directory);
-{/php}
+```php
+$success = \File::deleteDirectory($directory);
+```
 
-The method will return `false` if the directory doesn't exist. Otherwise it returns `true` when complete.
+ディレクトリが存在しない場合は、`false`が返却され、
+それ以外の場合は`true`が返却されます
 
-If you want to preserve the top level directory, pass a second argument.
+トップレベルのディレクトリを保持したい場合は、第二引数に`true`を指定して下さい
 
-{php}
-$success = File::deleteDirectory($directory, true);
-{/php}
+```php
+$success = \File::deleteDirectory($directory, true);
+```
 
-This will keep `$directory` itself from being removed.
+`$directory`を残して、その配下が全て削除されます
 {/solution}
 
 {discussion}
-This method can quietly fail.
+このメソッドは失敗する場合があります
 
-If there's an issue deleting one of the files, this method has the potential of failing quietly. It can return `true` even if one or more files are not actually deleted.
+実際にどれかのファイルが削除されていない場合でも、`true`が返却されます
 
-If you're not preserving the top level directory, you can always perform a quick `File::exists()` check on the directory to verify everything's been deleted.
+指定したトップレベルのディレクトリも全て削除する場合(第二引数が`false`の場合)、
+確実にディレクトリが削除されたかどうかを確認する場合は、
+`File::exists()`メソッドを利用してください
+[[ファイルが存在するかどうかを確認する]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,27 +1,37 @@
 ---
-Title:    Requiring a File Once
+Title:    一度だけファイルを読み込む
 Topics:   file system
-Code:     File::requireOnce()
-Id:       129
 Position: 5
 ---
 
 {problem}
-You want to require a file one time only.
+一度だけファイルを読み込みたい
 
-You know you can use PHP's `require_once` statement, but want to do it the Laravel way.
+一般的にはPHPの`require_once`を利用しますが、これをLaravel流に利用してみましょう
 {/problem}
 
 {solution}
-Use the `File::require_once()` method.
+`File::requireOnce()` メソッドを利用します
 
-{php}
-File::requireOnce($some_php_file);
-{/php}
+```php
+\File::requireOnce($some_php_file);
+```
 {/solution}
 
 {discussion}
-This is a wrapper over `require_once`.
+これは `require_once` のラッパー関数です
 
-And just like `require_once` a fatal error will occur if the file is missing.
+`require_once`と同様に、ファイルが存在しない場合は致命的なエラーが発生します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

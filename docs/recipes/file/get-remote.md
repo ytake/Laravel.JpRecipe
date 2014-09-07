@@ -1,31 +1,34 @@
 ---
-Title:    Getting the Contents of a Remote File
+Title:    リモートファイルの内容を取得する
 Topics:   -
-Code:     File::getRemote()
-Id:       127
 Position: 3
 ---
 
 {problem}
-You want to load the contents of a remote file.
+リモートファイルの内容をロードしたい
 {/problem}
 
 {solution}
-Use the `File::getRemote()` method.
+`File::getRemote()` メソッドを利用します
 
-{php}
-$contents = File::getRemote($url);
-{/php}
+```php
+$contents = \File::getRemote($url);
+```
 {/solution}
 
 {discussion}
-If the file cannot be fetched, `false` is returned.
+ファイルが取得できない場合は、`false`が返却されます
 
-{php}
-$contents = File::getRemote($url);
-if ($contents === false)
-{
-    die("Couldn't fetch the file.");
+```php
+$contents = \File::getRemote($url);
+if ($contents === false) {
+    die("ファイルが取得できません");
 }
-{/php}
+```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

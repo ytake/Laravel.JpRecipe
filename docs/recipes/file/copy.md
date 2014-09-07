@@ -1,28 +1,32 @@
 ---
-Title:    Copying a File to a New Location
+Title:    ファイルをコピーする
 Topics:   file system
-Code:     copy(), File::copy()
-Id:       135
 Position: 11
 ---
 
 {problem}
-You want to copy a file to a different location.
+別の場所にファイルをコピーしたい
 
-You know you can use PHP's `copy()` function, but want to use Laravel's `File` facade.
+一般的にはPHPの`copy()`を利用しますが、`File`ファサードを利用してみましょう
 {/problem}
 
 {solution}
-Use the `File::copy()` method.
+`File::copy()` メソッドを利用します
 
-{php}
-if ( ! File::copy($file, $dest))
-{
-    die("Couldn't copy file");
+```php
+if (!\File::copy($file, $dest)) {
+    die("ファイルをコピーできませんでした");
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This is a wrapper on PHP's `copy()` function.
+これは`copy()`のラッパー関数です
+[copy](http://php.net/manual/ja/function.copy.php)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

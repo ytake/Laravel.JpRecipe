@@ -9,8 +9,7 @@
 \Route::when('webmaster/recipe*', 'post.once', ['post']);
 \Route::when('webmaster/category*', 'post.once', ['post']);
 
-\Route::get('faq/{a?}', function($a = null) {
-        var_dump($a);
+\Route::get('faq', function() {
     $title = \Config::get('recipe.title') . "FAQ";
     \View::inject('title', $title);
     return \View::make('home.faq.index');

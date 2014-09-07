@@ -1,28 +1,32 @@
 ---
-Title:    Moving a File to a New Location
+Title:    ファイルを移動する
 Topics:   file system
-Code:     File::move(), rename()
-Id:       134
 Position: 10
 ---
 
 {problem}
-You want to move a file to a different location.
+ファイルを別のディレクトリに移動させたい
 {/problem}
 
 {solution}
-Use the `File::move()` method.
+`File::move()` メソッドを利用します
 
-{php}
-if ( ! File::move($oldfile, $newfile))
-{
+```php
+if (!\File::move($oldfile, $newfile)) {
     die("Couldn't rename file");
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This is a wrapper on PHP's `rename()` function.
+これはPHPの`rename()`のラッパー関数です
 
-Use it to move files to different directories, to different drives, or to rename a file.
+別のディレクトリ、別のドライブにファイルを移動させたり、
+ファイルの名前を変更します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}
