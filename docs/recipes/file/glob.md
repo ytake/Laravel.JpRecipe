@@ -1,52 +1,54 @@
 ---
-Title:    Finding Files Matching a Pattern
+Title:    パターンに一致するファイルを検索する
 Topics:   file system
-Code:     File::glob(), glob()
-Id:       143
 Position: 19
 ---
 
 {problem}
-You want to find files matching a pattern.
+パターンに一致するファイルを検索したい
 {/problem}
 
 {solution}
-Use the `File::glob()` method.
+`File::glob()` メソッドを利用します
 
-{php}
-$log_files = File::glob('/test/*.log');
-if ($log_files === false)
-{
-    die("An error occurred.");
+```php
+$log_files = \File::glob('/test/*.log');
+if ($log_files === false) {
+    die("エラーが発生しました");
 }
-{/php}
+```
 
-You can also pass flags to the method.
+メソッドにフラグを指定することができます
 
-{php}
-$dir_list = File::glob('/test/*', GLOB_ONLYDIR);
-if ($dir_files === false)
-{
-    die("An error occurred.");
+```php
+$dir_list = \File::glob('/test/*', GLOB_ONLYDIR);
+if ($dir_files === false) {
+    die("エラーが発生しました");
 }
-{/php}
+```
 
-Valid flags are:
+有効なフラグは次のとおりです:
 
-* `GLOB_MARK` - Adds a slash to each directory returned
-* `GLOB_NOSORT` - Return files as they appear in the directory (no sorting)
-* `GLOB_NOCHECK` - Return the search pattern if no files matching it were found
-* `GLOB_NOESCAPE` - Backslashes do not quote meta-characters
-* `GLOB_BRACE` - Expands {a,b,c} to match 'a', 'b', or 'c'
-* `GLOB_ONLYDIR` - Return only directory entries which match the pattern
-* `GLOB_ERR` - Stop on read errors (like unreadable directories), by default
-   errors are ignored.
+* `GLOB_MARK` - 返却された各ディレクトリにスラッシュを追加します
+* `GLOB_NOSORT` - ディレクトリに表示されるファイルを返却します (ソートはされません) 指定しない場合はパス名をアルファベット順にソートします
+* `GLOB_NOCHECK` - 一致するファイルが見つからなかった場合、検索パターンを返却します
+* `GLOB_NOESCAPE` - バックスラッシュによるメタ文字のクォートを行いません
+* `GLOB_BRACE` -  {a,b,c} を展開し「a」、「b」あるいは「c」のいずれかにマッチさせます
+* `GLOB_ONLYDIR` - パターンにマッチするディレクトリのみを返します
+* `GLOB_ERR` - (ディレクトリが読めないなどの) 読み込みエラー時に停止します デフォルトではエラーは無視されます
 
-Returns an empty array if no files are matched or a `false` on error.
+一致したものが無い場合は空の配列、エラー時は`false`が返却されます
 
-Note that on some systems there's no difference between an empty match and an error.
+一部のシステムでは、一致したものが無い場合とエラーの間に違いがないことに注意してください
 {/solution}
 
 {discussion}
-This is a wrapper on the PHP `glob()` function.
+これは`glob()`のラッパー関数です
+[glob](http://php.net/manual/ja/function.glob.php)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,25 +1,30 @@
 ---
-Title:    Getting the Size of a File
+Title:    ファイルのサイズを取得する
 Topics:   file system
-Code:     File::size()
-Id:       138
 Position: 14
 ---
 
 {problem}
-You want to know what the size of a file is.
+ファイルのサイズを取得したい
 {/problem}
 
 {solution}
-Use the `File::size()` method.
+`File::size()` メソッドを利用します
 
-{php}
-$bytes = File::size($filename);
-{/php}
+```php
+$bytes = \File::size($filename);
+```
 {/solution}
 
 {discussion}
-Watch out for errors.
+エラーには気をつけてください
 
-If you try to get the type of non-existent files or files you don't have access to, errors will occur.
+存在しないファイルや、アクセス権を持っていないファイルのタイプを取得しようとすると、
+エラーが発生します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

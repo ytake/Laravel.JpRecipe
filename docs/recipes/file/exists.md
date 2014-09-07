@@ -1,30 +1,34 @@
 ---
-Title:    Determining If a File Exists
+Title:    ファイルが存在するかどうかを確認する
 Topics:   file system
-Code:     File::exists()
-Id:       123
 Position: 1
 ---
 
 {problem}
-You want to see if a file exists.
+ファイルが存在するかそうかを確認したい
 
-You know you can use the PHP `file_exists()` method, but want to do it the Laravel way.
+通常はPHPの`file_exists()`メソッドを利用しますが、Laravel流で利用してみましょう
 {/problem}
 
 {solution}
-Use the `File::exists()` method.
+`File::exists()` メソッドを利用します
 
-{php}
-if (File::exists($myfile))
-{
-    echo "Yup. It exists.";
+```php
+if (\File::exists($myfile)) {
+    echo "ファイルがあります！";
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-This method actually calls `file_exists()`.
+このメソッドは内部で `file_exists()` をコールしています
 
-But it does allow better testing because using the facade allows you to easily mock the method when needed.
+ファサードを使用すると、テストで必要なときに簡単にメソッドをモックすることができます
+[[ファサードをモックする]] を参照して下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

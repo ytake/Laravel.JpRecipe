@@ -1,31 +1,34 @@
 ---
-Title:    Getting All the Files Recursively From a Directory
-Topics:   file system
-Code:     File::allFiles(), SplFileInfo
-Id:       145
+Title:    ディレクトリから再帰的にファイルを取得する
+Topics:   file system, SplFileInfo
 Position: 21
 ---
 
 {problem}
-You want to fetch all the files recursively from your file system.
+ファイルシステムから再帰的にすべてのファイルを取得したい
 {/problem}
 
 {solution}
-Use the `File::allFiles()` method.
+`File::allFiles()` メソッドを利用します
 
-{php}
-$files = File::allFiles($directory);
-foreach ($files as $file)
-{
-    echo (string)$file, "\n";
+```php
+$files = \File::allFiles($directory);
+foreach ($files as $file) {
+    echo (string) $file;
 }
-{/php}
+```
 {/solution}
 
 {discussion}
-The method returns an array of `SplFileInfo` objects.
+メソッドは `SplFileInfo` オブジェクトの配列を返します
 
-Specifically, it returns a `Symfony\Component\Finder\SplFileInfo` object which is derived from the basic PHP `SplFileInfo` class to add relative paths. Each object returned will represent a single file _(no directories are returned)_.
+具体的には、PHPの`SplFileInfo`クラスから派生した`Symfony\Component\Finder\SplFileInfo`オブジェクトが返却されます
 
-If the directory doesn't exist, an `InvalidArgumentException` will be thrown.
+ディレクトリが存在しない場合は、`InvalidArgumentException`がスローされます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

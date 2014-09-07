@@ -1,27 +1,31 @@
 ---
-Title:    Getting a List of All Files in a Directory
+Title:    ディレクトリ内のすべてのファイルを一覧で取得する
 Topics:   file system
-Code:     File::files()
-Id:       144
 Position: 20
 ---
 
 {problem}
-You want to pull a list of all files in a directory.
+ディレクトリ内のすべてのファイルを一覧で取得したい
 {/problem}
 
 {solution}
-Use the `File::files()` method.
+`File::files()` メソッドを利用します
 
-{php}
-$files = File::files();
-{/php}
+```php
+$files = \File::files();
+```
 {/solution}
 
 {discussion}
-This method always returns an array.
+このメソッドは常に配列が返却されます
 
-The array only contains files, no directories.
+配列はファイルのみが返却されます
 
-If no files are found in the directory, or the directory doesn't exist, an empty array is returned.
+ディレクトリ内にファイルが見つからない、またはディレクトリが存在しない場合は空の配列が返却されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

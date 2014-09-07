@@ -1,31 +1,36 @@
 ---
-Title:    Getting a File's Last Modification Time
+Title:    ファイルの最終更新日時を取得する
 Topics:   file system
-Code:     File::lastModified()
-Id:       139
 Position: 15
 ---
 
 {problem}
-You need to know the last time a file was modified.
+ファイルが変更された最終更新日時を取得したい
 {/problem}
 
 {solution}
-Use the `File::lastModified()` method.
+`File::lastModified()` メソッドを利用します
 
-{php}
-$timestamp = File::lastModified($filename);
-if ($timestamp === false)
-{
-    die("Failure getting the time");
+```php
+$timestamp = \File::lastModified($filename);
+if ($timestamp === false) {
+    die("日時が取得できません");
 }
-{/php}
+```
 
-The value returned is a Unix timestamp.
+UNIXタイムスタンプが返却されます
 {/solution}
 
 {discussion}
-If there's an error, a warning message is emitted.
+エラーの場合、警告がスローされます
 
-It's a good idea to make sure the file exists before getting the modification time. See [[Determining If a File Exists]].
+
+ファイルの更新時刻を取得する前に、ファイルが存在することを確認しておきましょう
+[[ファイルが存在するか確認する]] を参照してください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

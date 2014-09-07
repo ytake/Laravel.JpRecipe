@@ -1,27 +1,32 @@
 ---
-Title:    Getting the Type of a File
+Title:    ファイルのタイプを取得する
 Topics:   file system
-Code:     File::type()
-Id:       137
 Position: 13
 ---
 
 {problem}
-You want to know what the type of a file is.
+ファイルのタイプが何であるかを知りたい
 {/problem}
 
 {solution}
-Use the `File::type()` method.
+`File::type()` メソッドを利用します
 
-{php}
-echo File::type($filename);
-{/php}
+```php
+echo \File::type($filename);
+```
 
-Usually this returns `"file"` or `"dir"`.
+通常は`"file"` または `"dir"` が返却されます
 {/solution}
 
 {discussion}
-Watch out for errors.
+エラーには気をつけてください
 
-If you try to get the type of non-existent files or files you don't have access to, errors will occur.
+存在しないファイルや、アクセス権を持っていないファイルのタイプを取得しようとすると、
+エラーが発生します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

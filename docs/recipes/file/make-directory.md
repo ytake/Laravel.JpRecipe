@@ -1,51 +1,61 @@
 ---
-Title:    Creating a Directory
+Title:    ディレクトリを作成する
 Topics:   file system
-Code:     File::makeDirectory()
-Id:       147
 Position: 23
 ---
 
 {problem}
-You want to create a directory.
+ディレクトリを作りたい
 {/problem}
 
 {solution}
-Use the `File::makeDirectory()` method.
+`File::makeDirectory()` メソッドを利用します
 
-There's multiple arguments you can use.
+複数の引数が使用できます
 
-You can create a directory using defaults.
+デフォルトで、ディレクトリを作りたいパスを指定して作成する事が出来ます
 
-{php}
-$result = File::makeDirectory('/path/to/directory');
-{/php}
+```php
+$result = \File::makeDirectory('/path/to/directory');
+```
 
-This will return true if `directory` was able to be created in the `/path/to` directory. The file mode of the created directory is `0777`.
+`/path/to`ディレクトリに`directory`が作成された場合に `true` が返却されます
+作成されるディレクトリのファイルモードは`0777`です
 
-You can specify the mode.
+ファイルモードを指定することができます
 
-{php}
-$result = File::makeDirectory('/path/to/directory', 0775);
-{/php}
+```php
+$result = \File::makeDirectory('/path/to/directory', 0775);
+```
 
-This will return true if `directory` was able to be created in the `/path/to` directory. The file mode of the created directory will be `0775`.
+`/path/to`ディレクトリに`directory`が作成された場合に `true` が返却されます
+ファイルモードは`0775`でディレクトリが作成されます
 
-You can also create the directories recursively.
+ディレクトリを再帰的に作成することもできます
 
-{php}
-$result = File::makeDirectory('/path/to/directory', 0775, true);
-{/php}
+```php
+$result = \File::makeDirectory('/path/to/directory', 0775, true);
+```
 
-This will attempt to create `/path` if it doesn't exist. Then `/path/to` if it doesn't exist. And finally `/path/to/directory` if it doesn't exist. If all created directories are successfully created then `true` will be returned.
+これは `/path` が存在しない場合はそれを作成します
+また `/path/to` が存在しない場合も同様に作成し、
+最後に `/path/to/directory` が作成されます
+正常に作成された場合に`true`が返却されます
 {/solution}
 
 {discussion}
-There's also a seldom used 4th option.
+滅多に使われませんが、第四引数を利用する事もできます
 
-{php}
-$result = File::makeDirectory('/path/to/directory', 0775, true, true);
-{/php}
+```php
+$result = \File::makeDirectory('/path/to/directory', 0775, true, true);
+```
 
-This last option is `$force` and if true it will suppress any errors output on failure.
+第四引数のオプションは`$force`で、
+作成に失敗した場合でもエラー出力が抑制されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

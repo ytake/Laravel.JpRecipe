@@ -1,5 +1,5 @@
 ---
-Title:    Copying a Directory From One Location to Another
+Title:    ディレクトリをコピーする
 Topics:   file system
 Code:     File::copyDirectory()
 Id:       148
@@ -7,31 +7,41 @@ Position: 24
 ---
 
 {problem}
-You want to copy an entire directory to another location.
+別の場所にディレクトリ全体をコピーしたい
 
-You want to copy it recursively, all files and subdirectories, to the new location.
+再起的にコピーする事も可能です、実際にコピーしてみましょう
 {/problem}
 
 {solution}
-Use the `File::copyDirectory()` method.
+`File::copyDirectory()` メソッドを利用します
 
-{php}
-$success = File::copyDirectory($sourceDir, $destinationDir);
-{/php}
+```php
+$success = \File::copyDirectory($sourceDir, $destinationDir);
+```
 
-The method will return `true` if all files and subdirectories are successfully copied.
+すべてのファイルやディレクトリがコピーされた場合に`true`が返却されます
 
-If the destination directory doesn't exist it will be created. It will be created recursively as needed.
+コピー先にディレクトリが存在しない場合は作成されます
+また必要に応じて、再帰的に作成されます
 {/solution}
 
 {discussion}
-There's an optional third argument.
+オプションの第三引数があります
 
-Internally, the `File::copyDirectory()` method uses PHP's `FilesystemIterator` class to scan the files and directories to copy. The `FilesystemIterator` takes flags as a second parameters. You can pass a third argument to `File::copyDirectory()` which gets passed along to the `FilesystemIterator` constructor. By default, `File::copyDirectory()` uses the `SKIP_DOTS` constant.
+`File::copyDirectory()`メソッドは
+ファイルをコピーするディレクトリをスキャンするためにPHPの `FilesystemIterator`クラスを使用しています
+`FilesystemIterator`は、第二引数にフラグを指定する事ができます
+`File::copyDirectory()`の第三引数に指定すると、
+`FilesystemIterator`のコンストラクタに渡されます
+デフォルトではSKIP_DOTS定数が利用されています
 
-_This means files beginning with dots are not copied._
+_ドットで始まるファイルはコピーされません_
 
-{warn}
-Be careful using this third option. The `File::copyDirectory()` method may not behave as expected unless you understand well how the `FilesystemIterator` is used for directory traversal.
-{/warn}
+[FilesystemIterator クラス](http://jp1.php.net/manual/ja/class.filesystemiterator.php)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

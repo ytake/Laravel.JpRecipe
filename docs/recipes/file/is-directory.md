@@ -1,28 +1,32 @@
 ---
-Title:    Determining if a Path is a Directory
+Title:    パスがディレクトリかどうかを確認する
 Topics:   file system
-Code:     File::isDirectory(), is_dir()
-Id:       140
 Position: 16
 ---
 
 {problem}
-You want to check if a filepath is a directory.
+ファイルパスがディレクトリかどうか確認したい
 {/problem}
 
 {solution}
-Use the `File::isDirectory()` method.
+`File::isDirectory()` メソッドを利用します
 
-{php}
-if (File::isDirectory($filename))
-{
-    echo "Yes. It's a directory.";
+```php
+if (\File::isDirectory($filename)) {
+    echo "ディレクトリです";
 }
-{/php}
+```
 
-If the path exists and is a directory `true` is returned. Otherwise `false` is returned.
+指定したディレクトリが存在する場合は `true`が返却され、
+存在しない場合は `false`が返却されます
 {/solution}
 
 {discussion}
-This is a simple wrapper on the PHP `is_dir()` function.
+これはPHPの`is_dir()`のラッパー関数です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

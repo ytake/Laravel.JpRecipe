@@ -1,31 +1,35 @@
 ---
-Title:    Appending to a File
+Title:    ファイルへの末尾に文字列等のコンテンツを追加する
 Topics:   file system
-Code:     File::append()
-Id:       132
 Position: 8
 ---
 
 {problem}
-You want to write content to the _end_ of a file.
+ファイルの _末尾に_ にコンテンツを追加したい
 {/problem}
 
 {solution}
-Use the `File::append()` method.
+`File::append()` メソッドを利用します
 
-{php}
-$bytesWritten = File::append($filename, $content);
-if ($bytesWritten === false)
-{
-    die("Couldn't write to the file.");
+```php
+$bytesWritten = \File::append($filename, $content);
+if ($bytesWritten === false) {
+    die("ファイルに書き込めませんでした");
 }
-{/php}
+```
 
-This will add the content to the end of existing files. If the file doesn't exist then the entire contents will be `$content`.
+既存のファイルの末尾にコンテンツを追加します
+ファイルが存在しない場合、内容は `$content` になります
 {/solution}
 
 {discussion}
-Watch the return value.
+戻り値を確認して下さい
 
-If there's a problem writing to the file `false` is returned.
+ファイル書き込みで問題がある場合は `false` が返却されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

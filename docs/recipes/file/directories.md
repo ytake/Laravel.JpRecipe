@@ -1,30 +1,34 @@
 ---
-Title:    Getting All the Directories in a Directory
+Title:    ディレクトリ内のすべてのディレクトリを取得する
 Topics:   file system
-Code:     File::directories()
-Id:       146
 Position: 22
 ---
 
 {problem}
-You want to get a list of all the directories with a directory.
+ディレクトリ内のすべてのディレクトリを一覧で取得したい
 {/problem}
 
 {solution}
-Use the `File::directories()` method.
+`File::directories()` メソッドを利用します
 
-{php}
-$list = File::directories('/test');
-echo "Test contains ", count($list), "directories.";
-{/php}
+```php
+$list = \File::directories('/test');
+echo "Test ディレクトリ内に ", count($list), "ディレクトリあります";
+```
 {/solution}
 
 {discussion}
-The method returns an array of strings.
+文字列の配列を返却します
 
-Each string is the full path to the subdirectories of the directory argument.
+返却される文字列は、サブディレクトリへのフルパスです
 
-If the directory used as the argument contains no subdirectories an empty array is returned.
+ディレクトリにサブディレクトリが含まれていない場合は空の配列が返されます
 
-If the directory argument doesn't exist, an `InvalidArgumentException` will be thrown.
+引数でディレクトリが指定されていない場合は、`InvalidArgumentException`がスローされます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,28 +1,32 @@
 ---
-Title:    Determining if a Path is a File
+Title:    ファイルパスがファイルかどうか確認する
 Topics:   file system
-Code:     File::isFile(), is_file()
-Id:       142
 Position: 18
 ---
 
 {problem}
-You want to check if a file path is a file.
+ファイルパスがファイルかどうか確認したい
 {/problem}
 
 {solution}
-Use the `File::isFile()` method.
+`File::isFile()` メソッドを利用する
 
-{php}
-if (File::isFile($filename))
-{
-    echo "Yep. It's a file.";
+```php
+if (\File::isFile($filename)) {
+    echo "ファイルです";
 }
-{/php}
+```
 
-If the file exists and is a regular file then `true` is returned. Otherwise `false` is returned.
+通常のファイルが存在する場合は `true`が返却され、
+ファイルが存在しない場合は `false`が返却されます
 {/solution}
 
 {discussion}
-This is a simple wrapper on the PHP `is_file()` function.
+これはPHPの`is_file()`のラッパー関数です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

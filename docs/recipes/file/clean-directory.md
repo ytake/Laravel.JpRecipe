@@ -1,31 +1,34 @@
 ---
-Title:    Emptying a Directory of All Files and Folders
+Title:    ディレクトリ内のすべてのファイルとフォルダを空にする
 Topics:   file system
-Code:     File::cleanDirectory(), File::deleteDirectory()
-Id:       150
 Position: 26
 ---
 
 {problem}
-You want to empty a directory completely of it's contents.
-
-But you want to retain the directory itself.
+指定したディレクトリを残して、その中身をすべて削除したい
 {/problem}
 
 {solution}
-Use the `File::cleanDirectory()` method.
+`File::cleanDirectory()` メソッドを利用します
 
-{php}
-$success = File::cleanDirectory($directory);
-{/php}
+```php
+$success = \File::cleanDirectory($directory);
+```
 
-The method will return `false` if the directory doesn't exist. Otherwise it returns `true` when complete.
+ディレクトリが存在しない場合は、`false`が返却され、
+それ以外の場合は`true`が返却されます
 {/solution}
 
 {discussion}
-This is a wrapper on `File::deleteDirectory()`.
+これは`File::deleteDirectory()`メソッドのラッパー関数です
 
 It operates just as `File::deleteDirectory()` does but it always retains the directory instead of deleting it.
 
-See [[Recursively Deleting a Directory]] for more details.
+詳細は [[再帰的にディレクトリを削除する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,39 +1,41 @@
 ---
-Title:    Getting the Return Value of a File.
+Title:    ファイルの戻り値を取得する
 Topics:   file system
-Code:     File::get(), File::getRequire()
-Id:       128
 Position: 4
 ---
 
 {problem}
-You want to get the return value of a file.
-
-You have a PHP file that returns the value and want to execute the file and capture the return value.
+値を返すPHPファイ等がある場合に、ファイルの戻り値を取得したい
 {/problem}
 
 {solution}
-Use the `File::getRequire()` method.
+`File::getRequire()` メソッドを利用します
 
-
-{php}
+```php
 <?php
-// file1.php - returns an array
-return array(
+// file1.php - 配列を返却します
+return [
     'key1' => 'value1',
     'key2' => 'value2',
-);
-?>
+];
+```
 
-// Fetching the array of the file above
-$value = File::getRequire('file1.php');
-{/php}
+```php
+// 上記のファイルの配列をフェッチ
+$value = \File::getRequire('file1.php');
+```
 {/solution}
 
 {discussion}
-If the file isn't found an exception is returned.
+ファイルが見つからない場合は例外がスローされます
 
-Just like `File::get()` a `Illuminate\Filesystem\FileNotFoundException` exception is returned if the file is missing.
+`File::get()`と同様に `Illuminate\Filesystem\FileNotFoundException` がスローされます
 
-It's a good idea to wrap this in a try/catch block unless you are certain the file exists.
+try/catchを利用して、エラーを捕捉する様にしましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}
