@@ -43,6 +43,7 @@
 
 \App::error(function(\Exception $exception, $code) {
     \Log::error($exception);
+    return \Response::view('error', []);
 });
 
 /*

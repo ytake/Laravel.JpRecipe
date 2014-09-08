@@ -12,3 +12,8 @@ composer.lock
 Thumbs.db
 _ide_helper.php
 /app/config/local
+/tmp
+/config
+Gemfile.lock
+Gemfile
+Capfile
