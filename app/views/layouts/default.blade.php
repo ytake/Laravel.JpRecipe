@@ -5,6 +5,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="robots" content="index">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="fb:app_id" content="{{Config::get('recipe.facebook_app_id')}}">
     <meta property="og:title" content="@yield('title', Config::get('recipe.title'))">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{Request::url()}}">
