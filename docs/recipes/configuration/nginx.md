@@ -1,8 +1,6 @@
 ---
 Title:    Nginx VirtualHostの作成
 Topics:   configuration, Nginx
-Code:     -
-Id:       26
 Position: 3
 ---
 
@@ -22,7 +20,7 @@ $ sudo vi myapp
 
 下記の様な場合、
 
-```text
+```nginx
 server {
     listen 80;
     server_name myapp.localhost.com;
@@ -73,15 +71,22 @@ group = vagrant
 
 ファイルを保存し、PHPのFastCGI Process Managerを再起動します
 
-```bash
+```text
 $ sudo service php5-fpm restart
 ```
+
 {/solution}
 
 {discussion}
 Nginxのは、多くの設定オプションがあります
 
-上記の設定はLaravelを動作させる基本的な設定ですが、
-Nginxは、柔軟性と、強力な処理能力を提供します。
+上記の設定はLaravelを動作させる基本的な設定ですが、  
+Nginxは、柔軟性と、強力な処理能力を提供します  
 詳細については、[Nginx Website](http://wiki.nginx.org/Main)をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

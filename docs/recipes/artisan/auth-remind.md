@@ -28,16 +28,16 @@ $ php artisan migrate
 
 {discussion}
 Laravelはパスワードリマインダーをすぐに実行できる様に、  
-あらかじめ用意しています。
+あらかじめ用意しています
 
 利用するにあたって、アプリケーションで必要なリマインダーを実装する必要がありますが、  
-基本的にはテーブルを作成するだけで簡単に実装ができます。
+基本的にはテーブルを作成するだけで簡単に実装ができます
 {/discussion}
 
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

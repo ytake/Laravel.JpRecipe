@@ -1,8 +1,6 @@
 ---
 Title:    Redisをインストールする
 Topics:   installation, redis
-Code:     -
-Id:       95
 Position: 12
 ---
 
@@ -23,3 +21,9 @@ redisをcache等で利用するには設定をする必要があります
 
 指定方法は[[キャッシュドライバーにRedisを利用する]]をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    Bladeテンプレートで他のテンプレートをインクルードする
 Topics:   Blade
-Code:     @include
-Id:       90
 Position: 10
 ---
 
@@ -25,13 +23,13 @@ Bladeテンプレートで他のテンプレートをインクルードしたい
 </html>
 ```
 
-上記のビューが生成される際に、
-`views/common-header.php` または `views/common-header.blade.php`を探して
+上記のビューが生成される際に、  
+`views/common-header.php` または `views/common-header.blade.php`を探して  
 `@include('common-header')`が指定したファイルの内容に置き換えられます
 
 #### 変数を指定する事も出来ます
 
-デフォルトでは全ての変数を継承して利用されますが、
+デフォルトでは全ての変数を継承して利用されますが、  
 新たに変数を付け加える事が出来ます
 
 例えば、下記の様な`views/partials/item-display.blade.php`というビューがあったとしましょう:

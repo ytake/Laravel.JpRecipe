@@ -1,8 +1,6 @@
 ---
 Title:    Submitボタンを作成する
 Topics:   forms
-Code:     Form::submit()
-Id:       171
 Position: 21
 ---
 
@@ -53,3 +51,9 @@ valueを指定するには第一引数を利用します
 {discussion}
 特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

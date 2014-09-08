@@ -17,16 +17,14 @@ Position: 10
 {{HTML::linkRoute('login')}}
 ```
 
-上記の様な指定の場合は `app/routes.php`ファイルに
+上記の様な指定の場合は `app/routes.php`ファイルに  
 `login`と名付けられているルートが存在していなければなりません
 
 ```html
 <a href="http://your.url/user/login">http://your.url/user/login</a>
 ```
 
-{warn}
 指定した名前付きルートが存在しない場合は、エラーがスローされます
-{/warn}
 
 第二引数でタイトルを指定することができます
 

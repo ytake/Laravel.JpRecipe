@@ -1,8 +1,6 @@
 ---
 Title:    月を選択するセレクトボックスを作成する
 Topics:   form
-Code:     Form::selectMonth
-Id:       166
 Position: 16
 ---
 
@@ -40,7 +38,7 @@ Position: 16
 {/solution}
 
 {discussion}
-デフォルト値を指定する場合は第二引数に、
+デフォルト値を指定する場合は第二引数に、  
 属性を追加する場合は、第三引数に配列を利用します
 
 ```html
@@ -66,3 +64,9 @@ Position: 16
 </select>
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

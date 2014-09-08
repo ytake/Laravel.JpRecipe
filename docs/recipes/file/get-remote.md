@@ -25,6 +25,7 @@ if ($contents === false) {
     die("ファイルが取得できません");
 }
 ```
+
 {/discussion}
 
 {credit}

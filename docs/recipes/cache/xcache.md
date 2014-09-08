@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュドライバーにXCacheを利用する
 Topics:   cache, configuration, XCache
-Code:     -
-Id:       100
 Position: 8
 ---
 
@@ -24,11 +22,17 @@ XCacheキャッシュドライバーを利用します
 {/solution}
 
 {discussion}
-'xcache'ドライバーを利用する前に、
-'xcache'がインストールされているかを確認して下さい
+'xcache'ドライバーを利用する前に、  
+'xcache'がインストールされているかを確認して下さい  
 詳細は [[XCacheをインストールする]] レシピにあります
 
-Laravelで利用するには、
-[[XCacheをインストールする]] レシピにもある通り、
+Laravelで利用するには、  
+[[XCacheをインストールする]] レシピにもある通り、  
 `xcache.var_size`の設定を変更して下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

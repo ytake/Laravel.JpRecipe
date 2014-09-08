@@ -1,8 +1,6 @@
 ---
 Title:    Bladeで @for を使用する
 Topics:   Blade
-Code:     @endfor, @for
-Id:       87
 Position: 7
 ---
 

@@ -1,8 +1,6 @@
 ---
 Title:    ロケール(言語)変更を検知する
 Topics:   -
-Code:     App::setLocale(), Event::listen()
-Id:       271
 Position: 10
 ---
 
@@ -25,5 +23,11 @@ Position: 10
 {discussion}
 このイベントは、`App::setLocale()`がコールされた時に発動します
 
-[[Setting the Default Locale]]も参考にしてください
+[[デフォルトの実行言語を設定]]も参考にしてください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

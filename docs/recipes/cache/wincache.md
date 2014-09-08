@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュドライバーにWinCacheを利用する
 Topics:   cache, configuration
-Code:     -
-Id:       98
 Position: 7
 ---
 
@@ -28,3 +26,9 @@ WinCacheは、FastCGI拡張機能を使用しているIISサーバーが必要�
 * [PHP Documentation Page](http://www.php.net/manual/en/wincache.requirements.php)
 * [WinCache PECL Page](http://pecl.php.net/package/wincache)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

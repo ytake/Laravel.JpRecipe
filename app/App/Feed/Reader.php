@@ -26,7 +26,7 @@ class Reader
                 foreach ($feed as $entry) {
                     $edata = [
                         'title' => $entry->getTitle(),
-                        'description' => $entry->getDescription(),
+                        'description' => preg_replace("/<img(.+?)>/", "", $entry->getDescription()),
                         'dateModified' => $entry->getDateModified(),
                         'authors' => $entry->getAuthors(),
                         'link' => $entry->getLink(),

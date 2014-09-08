@@ -1,8 +1,6 @@
 ---
 Title:    404エラーを登録する
 Topics:   -
-Code:     App::missing()
-Id:       203
 Position: 21
 ---
 
@@ -13,7 +11,8 @@ Position: 21
 {solution}
 `App::missing()`メソッドを利用します
 
-一般的な設置場所は`app/start/global.php`ですが、早期に実行される場所であればどこにでも設置出来ます  
+一般的な設置場所は`app/start/global.php`ですが、  
+早期に実行される場所であればどこにでも設置出来ます  
 サービスプロバイダなどでも構いません
 
 ```php
@@ -25,13 +24,20 @@ App::missing(function($exception) {
 {/solution}
 
 {discussion}
-処理が終了すると`Response`を返却します。
+処理が終了すると`Response`を返却します
 
 適切にハンドラなどを設置していない場合は、  
-アクセスしたユーザーなどにそのままエラーを返却します。  
-Laravelのエラー画面などがそのまま表示される事になる場合もありますので、適切に処理を記述しましょう。
+アクセスしたユーザーなどにそのままエラーを返却します  
+Laravelのエラー画面などがそのまま表示される事になる場合もありますので、  
+適切に処理を記述しましょう
 
 場合によっては、ここでエラー内容をログとして出力して、  
-他のハンドラで処理をする等、色々なパターンで利用出来ます。  
-要望にあった内容で実装してみてください。  
+他のハンドラで処理をする等、色々なパターンで利用出来ます  
+要望にあった内容で実装してみてください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

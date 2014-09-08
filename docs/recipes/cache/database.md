@@ -1,15 +1,13 @@
 ---
 Title:    キャッシュドライバーにデータベースを利用する
 Topics:   configuration
-Code:     Cache::decrement(), Cache::increment(), Schema::create()
-Id:       38
 Position: 2
 ---
 
 {problem}
 複数のサーバ間などでキャッシュを共有して使えるようにしたい
 
-複数のサーバでキャッシュを利用する場合に、ファイルキャッシュでは他のサーバから利用する事は出来ません
+複数のサーバでキャッシュを利用する場合に、ファイルキャッシュでは他のサーバから利用する事は出来ません  
 データベースを介して複数のサーバ間でキャッシュを共有してみましょう
 {/problem}
 
@@ -34,11 +32,13 @@ mysql> exit
 {/solution}
 
 {discussion}
-このレシピでは、すでにデータベースがインストール済みで、設定が済んでいるものと仮定しています
+このレシピでは、すでにデータベースがインストール済みで、  
+設定が済んでいるものと仮定しています
 
-導入が済んでいない場合は [[MySQLをインストールする]] 、[[MySQLドライバーの設定方法]] をご覧ください
+導入が済んでいない場合は  
+[[MySQLをインストールする]] 、[[MySQLドライバーの設定方法]] をご覧ください
 
-キャッシュに利用する接続先とテーブルを変更することができます
+キャッシュに利用する接続先とテーブルを変更することができます  
 `app/config/cache.php`で設定を変更します
 
 ```php
@@ -46,8 +46,8 @@ mysql> exit
 'table' => 'cache',
 ```
 
-`app/config/database.php`で接続先が'mydb'、
-キャッシュのテーブルが'mycache'の場合は、
+`app/config/database.php`で接続先が'mydb'、  
+キャッシュのテーブルが'mycache'の場合は、  
 `app/config/cache.php`で次の様に指定します
 
 ```php
@@ -72,3 +72,9 @@ Schema::create('cache', function($table)
 
 ファイルキャッシュドライバーと同様に`Cache::increment()`、`Cache::decrement()`は利用できません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

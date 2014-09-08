@@ -9,6 +9,7 @@
         	    </h3>
         	</div>
        	    <div class="panel-body recipe-body">
+       	        @if($list->getIterator()->count())
                 @foreach($list as $row)
                 <p>
                     <span class="glyphicon glyphicon-cutlery"></span>&nbsp;&nbsp;
@@ -17,6 +18,9 @@
                 </p>
                 @endforeach
                 {{$list->appends(['words' => \Input::get('words')])->links()}}
+                @else
+                <span class="glyphicon glyphicon-search"></span>&nbsp;{{e(Input::get('words'))}} 関連のレシピは見つかりませんでした
+                @endif
         	</div>
         </div>
     </div>

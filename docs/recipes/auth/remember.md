@@ -1,15 +1,13 @@
 ---
 Title:    Cookieを使って認証されたかどうかを確認
 Topics:   authentication
-Code:     Auth::viaRemember()
-Id:       83
 Position: 17
 ---
 
 {problem}
 何を使って認証されたかを知りたい
 
-認証には二通りあることを理解しておいてください。  
+認証には二通りあることを理解しておいてください  
 "remember me" cookieを使って認証したかどうかを取得する事ができます
 {/problem}
 
@@ -28,3 +26,9 @@ if (\Auth::viaRemember()) {
 {discussion}
 特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

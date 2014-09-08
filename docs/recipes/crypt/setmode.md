@@ -1,8 +1,6 @@
 ---
 Title:    暗号化モードを変更する
 Topics:   encryption
-Code:     Config::setMode()
-Id:       109
 Position: 5
 ---
 
@@ -21,7 +19,7 @@ Position: 5
 {discussion}
 このモードは、`Crypt::encrypt()`と`Crypt::decrypt()`に利用されます。
 
-ただし、このメソッドをコールした場合に有効になるのは、
+ただし、このメソッドをコールした場合に有効になるのは、  
 現在のリクエスト処理の間のみです
 
 モードのリストは次の通りです:
@@ -35,3 +33,9 @@ Position: 5
 
 Laravelではデフォルトで`cbc`を利用しています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    MySQLをインストールする
 Topics:   installation, MySQL
-Code:     -
-Id:       19
 Position: 5
 ---
 
@@ -30,10 +28,10 @@ EOF
 $ sudo service mysql restart
 ```
 
-これは`root`ユーザーにパスワード`root`が設定されています。
+これは`root`ユーザーにパスワード`root`が設定されています  
 デフォルトのストレージエンジンは`InnoDB`に設定しました
 
-仕様や用途でストレージエンジンを使い分けてください
+仕様や用途でストレージエンジンを使い分けてください  
 [ストレージエンジンの選択](http://dev.mysql.com/doc/refman/5.1/ja/storage-engine-choosing.html)
 {/solution}
 
@@ -44,3 +42,9 @@ MySQLは世界で最も普及しているオープンソースのデータベー
 
 [[MySQLドライバーの設定方法]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

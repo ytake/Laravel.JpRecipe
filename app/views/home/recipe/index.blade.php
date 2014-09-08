@@ -15,6 +15,7 @@
         	        <img src="/images/logos/laravel_jp.png" width="45px" height="45px">{{$recipe->title}}
         	    </h2>
         	</div>
+        	<hr class="recipe-header-line" />
        	    <div class="panel-body recipe-body">
                 @foreach($tags as $tag)
                 <span class="pull-right label label-laravel" title="{{$tag->tag_name}}-タグ">{{$tag->tag_name}}</span>
@@ -31,14 +32,16 @@
                     <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;アドバイス
                 </h2>
                 {{Markdown::render($recipe->discussion)}}
+                <hr />
+                <small>{{Markdown::render($recipe->credit)}}</small>
         	</div>
         	<hr />
         	<div class="panel-body recipe-body">
         	@if(isset($info->prev))
         	<div style="float:left;">
-        	<a href="{{route('home.recipe', ['one' => $info->prev->recipe_id])}}" title="{{$info->prev->title}}" class="btn btn-danger">
-        	    <<&nbsp;前のレシピ
-        	</a>
+        	    <a href="{{route('home.recipe', ['one' => $info->prev->recipe_id])}}" title="{{$info->prev->title}}" class="btn btn-danger">
+        	        <<&nbsp;前のレシピ
+        	    </a>
         	</div>
             @endif
         	@if(isset($info->next))

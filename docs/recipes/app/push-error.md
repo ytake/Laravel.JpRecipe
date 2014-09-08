@@ -1,13 +1,11 @@
 ---
 Title:    最終的なエラーハンドラ登録
 Topics:   -
-Code:     App::error(), App::pushError()
-Id:       205
 Position: 23
 ---
 
 {problem}
-色々エラー処理を登録しているが、そのなかでも任意のところだけでエラー処理を行いたい
+色々なエラー処理を登録しているが、そのなかでも任意のところだけでエラー処理を行いたい
 {/problem}
 
 {solution}
@@ -23,8 +21,14 @@ Position: 23
 {/solution}
 
 {discussion}
-これは、`App::error()`とほぼ同等です。
+これは、`App::error()`とほぼ同等です
 
 違いは、`App::error()`よりも`App:pushError()`がハンドラーとして利用されます  
-こちらを参照してください[[エラーハンドラの登録]].
+こちらを参照してください　[[エラーハンドラの登録]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

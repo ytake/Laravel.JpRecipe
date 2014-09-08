@@ -5,13 +5,13 @@ Position: 27
 ---
 
 {problem}
-アプリケーションと簡単に対話したい。
+アプリケーションと簡単に対話したい
 {/problem}
 
 {solution}
-`php artisan tinker`コマンドが利用できます。
+`php artisan tinker`コマンドが利用できます
 
-このコマンドは設定が既に読み込まれているPHPアプリケーションのためのREPL (Read-Eval-Print Loop)を提供しています。
+このコマンドは設定が既に読み込まれているPHPアプリケーションのためのREPL (Read-Eval-Print Loop)を提供しています
 
 ```bash
 $ php artisan tinker
@@ -20,7 +20,7 @@ http:://your.app.url
 [2] > exit;
 ```
 
-データベースへのアクセス、モデルを使うなどが可能です。
+データベースへのアクセス、モデルを使うなどが可能です
 
 ```bash
 $ php artisan tinker
@@ -37,19 +37,19 @@ Chuck
 {/solution}
 
 {discussion}
-tinkerコマンドは_Boris_を使っています。
+tinkerコマンドは _Boris_ を使っています
 
-_Boris_はPHPのための小さく、堅実なREPLです。
-[github.com/d11wtq/boris](https://github.com/d11wtq/boris)のページをチェックしてみてください。
+_Boris_ は軽量で堅実なREPLです
+[github.com/d11wtq/boris](https://github.com/d11wtq/boris) をチェックしてみてください
 
-tinkerコマンドが動作しない場合は`php.ini`の`disable_functions`の設定に`pcntl_()`関数が含まれている可能性が非常に高いです。
-`php.ini`のこの行をコメントアウトし、tinkerを使用できるようにする必要があります。
+tinkerコマンドが動作しない場合は`php.ini`の`disable_functions`の設定に`pcntl_()`関数が含まれている可能性が非常に高いです  
+`php.ini`のこの行をコメントアウトし、tinkerを使用できるようにする必要があります
 {/discussion}
 
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

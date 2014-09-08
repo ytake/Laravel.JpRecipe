@@ -1,8 +1,6 @@
 ---
 Title:    年を選択するセレクトボックスを作成する
 Topics:   form
-Code:     Form::selectYear
-Id:       165
 Position: 15
 ---
 
@@ -29,7 +27,7 @@ Position: 15
 </select>
 ```
 
-デフォルト値を指定する場合は第四引数に、
+デフォルト値を指定する場合は第四引数に、  
 属性を追加する場合は、第五引数に配列を利用します
 
 ```html
@@ -52,3 +50,9 @@ Position: 15
 
 少しの記述でよく使われるフォームの実装が行える様に`Form::selectRange()`を利用して提供されています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

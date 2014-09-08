@@ -1,8 +1,6 @@
 ---
 Title:    手動でログインする
 Topics:   -
-Code:     Auth::attempt(), Auth::login()
-Id:       221
 Position: 26
 ---
 
@@ -21,7 +19,7 @@ Auth::login($user);
 ```
 
 ログインを記憶させる様にするには、第二引数に"remember me"Cookieを使用する様に  
-`true`を指定します。
+`true`を指定します
 
 ```php
 \Auth::login($user, true);
@@ -29,7 +27,7 @@ Auth::login($user);
 {/solution}
 
 {discussion}
-`Auth::attempt()`は自動でこれらの処理をおこないます。
+`Auth::attempt()`は自動でこれらの処理をおこないます
 
 `Auth::attempt()`は、認証が成功した場合に、内部で`Auth::login()`を利用します
 
@@ -37,5 +35,11 @@ Auth::login($user);
 ただし、テスト時等では複雑な処理は必要ない為、  
 `Auth::login()`を利用すると良いでしょう
 
-これらは、`auth.login`イベントを発生させます。
+これらは、`auth.login`イベントを発生させます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

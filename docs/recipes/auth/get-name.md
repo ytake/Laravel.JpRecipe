@@ -21,5 +21,11 @@ $cookie_name = Auth::getName();
 {discussion}
 このCookieの名前は'login_'から始まる、長い文字列です
 
-大体は `login_82e5d2c56bdd0811318f0cf078b78bfc` の様な文字列になります。
+大体は `login_82e5d2c56bdd0811318f0cf078b78bfc` の様な文字列になります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

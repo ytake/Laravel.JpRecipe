@@ -1,23 +1,20 @@
 ---
 Title:    Hosts ファイルの編集
 Topics:   configuration
-Code:     -
-Id:       24
 Position: 1
 ---
 
 {problem}
 開発等でホスト名を利用したい
 
-複数のアプリケーションをテストするために、異なるホスト名を使用する必要がありますが、
-DNSサーバーにホスト名を設定する必要はありません
+複数のアプリケーションをテストするために、異なるホスト名を使用する必要がありますが、  
+DNSサーバーにホスト名を設定する必要はありません  
 代わりに、_internal_ ホスト名を使用したい。
 {/problem}
 
 {solution}
 hostsファイルを編集します
 
-The following examples illustrate adding `myapp.localhost.com` pointing to IP address `192.168.100.100`.
 次の例では、ホスト名`myapp.localhost.com`で IPアドレス`192.168.100.100`を指します
 
 #### Linuxのhostsファイル編集方法
@@ -34,13 +31,13 @@ $ sudo vi /etc/hosts
 
 保存して、DNSをフラッシュします
 
-```bash
+```text
 $ sudo service dns-clean start
 ```
 
 #### OS Xのhostsファイル編集方法
 
-```bash
+```text
 $ sudo nano /private/etc/hosts
 ```
 
@@ -52,7 +49,7 @@ $ sudo nano /private/etc/hosts
 
 保存して、DNSをフラッシュします
 
-```bash
+```text
 $ dscacheutil -flushcache
 ```
 
@@ -76,6 +73,7 @@ C:\Windows\System32\drivers\etc>notepad hosts
 ```text
 C:\Windows\System32\drivers\etc>ipconfig /flushdns
 ```
+
 {/solution}
 
 {discussion}
@@ -88,3 +86,9 @@ C:\Windows\System32\drivers\etc>ipconfig /flushdns
 * myapp.localhost.com
 
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

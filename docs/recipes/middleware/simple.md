@@ -1,8 +1,6 @@
 ---
 Title:    簡単でシンプルなミドルウェアクラスを作成する
 Topics:   middleware
-Code:     -
-Id:       114
 Position: 2
 ---
 
@@ -81,11 +79,12 @@ class Middleware implements HttpKernelInterface
 {discussion}
 上記で実装したクラスは特に何も実行されません
 
-簡単な作成方法と、設置場所を学習しました。  
+簡単な作成方法と、設置場所を学習しました  
 実際に追加等をする場合は、アプリケーションの規約等に従い、  
-名前空間やクラス名を任意の名前で実装してください。
+名前空間やクラス名を任意の名前で実装してください
 
-`handle()`メソッドを利用して、ログ出力等を実装してテストや動作確認などを行って見ましょう。  
+`handle()`メソッドを利用して、ログ出力等を実装してテストや動作確認などを行って見ましょう
+
 ```php
 // In step #1) リクエスト内容を変更してみましょう
 
@@ -101,5 +100,12 @@ error_log("Middleware entry\n", 3, $logfile);
 // `app/start/global.php`でログ関連の設定をする必要があります。
 \Log::info("Middleware exit");
 ```
+
 実際に動作しているかどうかは、`app/storage/logs/laravel.log`で確認する事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

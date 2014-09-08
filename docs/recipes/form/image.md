@@ -1,8 +1,6 @@
 ---
 Title:    画像ボタンを作成する
 Topics:   forms
-Code:     Form::image()
-Id:       170
 Position: 20
 ---
 
@@ -57,3 +55,9 @@ _name_ 属性を追加して出力されます
 {discussion}
 特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -17,7 +17,7 @@ Position: 13
 $email = \HTML::email('me@local.com');
 ```
 
-`$email`はブラウザでは正しく表示されますが、
+`$email`はブラウザでは正しく表示されますが、  
 読みづらい文字列が含まれる様になります
 
 ```html

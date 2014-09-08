@@ -1,8 +1,6 @@
 ---
 Title:    Bladeで @foreach を使用する
 Topics:   Blade
-Code:     @endforeach, @foreach
-Id:       88
 Position: 8
 ---
 
@@ -46,6 +44,6 @@ PHPのforeachの様にループでキーを使用する事が出来ます
 {discussion}
 未定義の変数に注意して下さい
 
-サンプルの様に利用する場合に、`$items`や`$dict`が未定義の場合は
+サンプルの様に利用する場合に、`$items`や`$dict`が未定義の場合は  
 PHPと同様に警告メッセージが出力されます
 {/discussion}

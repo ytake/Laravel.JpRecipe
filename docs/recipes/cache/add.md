@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュに指定したアイテムが無い場合に追加する
 Topics:   cache
-Code:     Cache::add()
-Id:       267
 Position: 16
 ---
 
@@ -31,3 +29,9 @@ if ($result) {
 1. `false`が返却された場合は、`Cache::get()`でアイテムを取得することができます
 2. cacheに指定したキーが存在し、その値が`null`の場合に、新しい値が保存された場合は **常に** `true`が返却されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

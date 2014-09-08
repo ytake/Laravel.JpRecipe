@@ -38,10 +38,11 @@ class SearchController extends BaseController
             return \Redirect::to('/')->withErrors(['words' => '検索キーワードはかならず記入して下さい']);
         }
         $words = preg_split("[　 ,]", $requests['words']);
-        /** @var array $data */
+        /** @var \Illuminate\Pagination\Paginator $res */
         $data = [
             'list' => $this->recipe->getRecipesFromText($words, \Input::get('page', 1), self::PER_PAGE)
         ];
+        $this->title("検索: " . implode(',', $words));
         $this->view('home.search.index', $data);
     }
 }

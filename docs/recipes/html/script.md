@@ -25,7 +25,7 @@ Bladeテンプレートでjavascriptファイルを読み込みたい
 <script src="http://your.url/js/functions.js"></script>
 ```
 
-指定したファイルパスがURLではない場合に、
+指定したファイルパスがURLではない場合に、  
 LaravelはアプリケーションのURLを利用して、ドメインを含む完全なURLでファイルパスを生成します
 
 第二引数には配列を利用して属性を追加します
@@ -44,7 +44,7 @@ LaravelはアプリケーションのURLを利用して、ドメインを含む�
 {discussion}
 HTML5では`<script>`タグの`type`属性はオプションです
 
-現在のアプリケーションがHTML4.01でしたら、
+現在のアプリケーションがHTML4.01でしたら、  
 属性に`"type" => "text/javascript"`を追加する必要があります
 {/discussion}
 

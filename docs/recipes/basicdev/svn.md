@@ -1,18 +1,15 @@
 ---
 Title:    Subversionを使ってプロジェクトを管理する
 Topics:   Subversion, version control
-Code:     -
-Id:       42
 Position: 3
 ---
 
 {problem}
-バージョン管理のシステムを導入していないので、
-プロジェクトのコードの変更履歴等が追えない。
+バージョン管理のシステムを導入していないので、プロジェクトのコードの変更履歴等が追えない
 {/problem}
 
 {solution}
-[Subversion](http://subversion.apache.org/)を使ってみましょう。
+[Subversion](http://subversion.apache.org/)を使ってみましょう
 
 ### Step 1 - 空のプロジェクトをインポート
 
@@ -62,12 +59,18 @@ $ svn commit -m "Initial import"
 {discussion}
 紹介した方法は、たくさんあるやり方のうちの一つです
 
-自分のプロジェクトにあった方法はほかにもあるかもしれません。  
+自分のプロジェクトにあった方法はほかにもあるかもしれません  
 他にもいくつか選択肢があります:
 
 * Laravelプロジェクトを作成する前に、空のプロジェクトをSubversionに含める
 * 簡単に利用する為に、GUIクライアントなどを導入する
 * 最初に全てをインポートする
 
-やり方は様々です。
+やり方は様々です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

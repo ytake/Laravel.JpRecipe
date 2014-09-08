@@ -12,9 +12,9 @@
             <div class="col-md-3 col-sm-6">
                 <h4>Contributors</h4>
                 <ul class="arrow">
-                    <li>@kurikazu</li>
-                    <li>@blue_goheimochi</li>
-                    <li>@syossan27</li>
+                    <li><a href="https://twitter.com/kurikazu" target="_blank">@kurikazu</a></li>
+                    <li><a href="https://twitter.com/blue_goheimochi" target="_blank">@blue_goheimochi</a></li>
+                    <li><a href="https://twitter.com/syossan27" target="_blank">@syossan27</a></li>
                 </ul>
             </div><!--/.col-md-3-->
             <div class="col-md-3 col-sm-6">
@@ -64,10 +64,12 @@
                 <address>
                     <strong>Yuuki Takezawa</strong><br>
                 </address>
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
-                    <small><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Laravel Recipes(JP)</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Yuuki Takezawa</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</small>
-                </a>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    <img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+                </a><br />
+                <small>
+                <a xmlns:cc="http://creativecommons.org/ns#" href="http://recipes.laravel.jp" property="cc:attributionName" rel="cc:attributionURL">Yuuki Takezawa</a> 作『<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Laravel Recipes(JP)</span>』は<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>で提供されています。<br /><a xmlns:dct="http://purl.org/dc/terms/" href="http://laravel-recipes.com" rel="dct:source">http://laravel-recipes.com</a>にある作品に基づいている。
+                </small>
                 <br />
                 <a href="https://www.facebook.com/yuuki.takezawa" target="_blank"><img src="/images/facebook.png" width="30px" height="30px"></a>
                 <a href="https://twitter.com/ex_takezawa" target="_blank"><img src="/images/twitter.png" width="30px" height="30px"></a>

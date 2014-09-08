@@ -1,8 +1,6 @@
 ---
 Title:    Laravelの暗号化について理解する
 Topics:   cookies, encryption
-Code:     -
-Id:       110
 Position: 6
 ---
 
@@ -26,3 +24,9 @@ Laravelは3箇所でCryptパッケージを利用しています
 
 cookieのミドルウェアとして扱われている事に注意してください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

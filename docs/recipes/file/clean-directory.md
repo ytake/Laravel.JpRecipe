@@ -15,14 +15,12 @@ Position: 26
 $success = \File::cleanDirectory($directory);
 ```
 
-ディレクトリが存在しない場合は、`false`が返却され、
+ディレクトリが存在しない場合は、`false`が返却され、  
 それ以外の場合は`true`が返却されます
 {/solution}
 
 {discussion}
 これは`File::deleteDirectory()`メソッドのラッパー関数です
-
-It operates just as `File::deleteDirectory()` does but it always retains the directory instead of deleting it.
 
 詳細は [[再帰的にディレクトリを削除する]] をご覧ください
 {/discussion}

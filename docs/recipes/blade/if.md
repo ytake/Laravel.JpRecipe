@@ -1,8 +1,6 @@
 ---
 Title:    Bladeで @if を使用する
 Topics:   Blade
-Code:     @else, @elseif, @endif, @if
-Id:       84
 Position: 4
 ---
 

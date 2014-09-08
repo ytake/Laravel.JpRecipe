@@ -1,8 +1,6 @@
 ---
 Title:    Fatalエラーのエラーハンドリング
 Topics:   -
-Code:     App::error(), App::fatal()
-Id:       206
 Position: 24
 ---
 
@@ -14,13 +12,15 @@ Fatalエラー処理を独自に実装したい
 `App::fatal()`を使ってハンドラーを登録します
 
 これは`FatalErrorException`をインターセプトします。  
-このエクセプションは具体的には`Symfony\Component\Debug\Exception\FatalErrorException`がスローされます
+このエクセプションは具体的には  
+`Symfony\Component\Debug\Exception\FatalErrorException`がスローされます
 
 ```php
 \App::fatal(function($exception) {
     die('FATAL ERROR: '.$exception->getMessage());
 });
 ```
+
 {/solution}
 
 {discussion}
@@ -32,7 +32,15 @@ Fatalエラー例外処理には注意が必要です。
 * Laravelの基盤となるコアクラスなどでエラーが発生している
 * エラーを100%処理するのは様々な要因があり、難しい場合がある
 
-`E_ERROR`,`E_CORE_ERROR`,`E_COMPILE_ERROR` または `E_PARSE`、これらのFatalエラーはPHPの設定で定義されています。
+`E_ERROR`,`E_CORE_ERROR`,`E_COMPILE_ERROR` または `E_PARSE`、  
+これらのFatalエラーはPHPの設定で定義されています
 
-未定義の例外が原因でアプリケーションが終了した時に、LaravelはFatalエラーをスローします。
+未定義の例外が原因でアプリケーションが終了した時に、  
+LaravelはFatalエラーをスローします
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

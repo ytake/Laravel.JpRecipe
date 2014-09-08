@@ -21,18 +21,18 @@ $success = \File::copyDirectory($sourceDir, $destinationDir);
 
 すべてのファイルやディレクトリがコピーされた場合に`true`が返却されます
 
-コピー先にディレクトリが存在しない場合は作成されます
+コピー先にディレクトリが存在しない場合は作成されます  
 また必要に応じて、再帰的に作成されます
 {/solution}
 
 {discussion}
 オプションの第三引数があります
 
-`File::copyDirectory()`メソッドは
-ファイルをコピーするディレクトリをスキャンするためにPHPの `FilesystemIterator`クラスを使用しています
-`FilesystemIterator`は、第二引数にフラグを指定する事ができます
-`File::copyDirectory()`の第三引数に指定すると、
-`FilesystemIterator`のコンストラクタに渡されます
+`File::copyDirectory()`メソッドは  
+ファイルをコピーするディレクトリをスキャンするためにPHPの `FilesystemIterator`クラスを使用しています  
+`FilesystemIterator`は、第二引数にフラグを指定する事ができます  
+`File::copyDirectory()`の第三引数に指定すると、  
+`FilesystemIterator`のコンストラクタに渡されます  
 デフォルトではSKIP_DOTS定数が利用されています
 
 _ドットで始まるファイルはコピーされません_

@@ -11,7 +11,7 @@ Position: 10
 {/problem}
 
 {solution}
-ビューは自由に変更出来ます。  
+ビューは自由に変更出来ます  
 `app/views/emails/auth`ディレクトリにある、`reminder.blade.php`を編集しましょう
 
 この パスワードリマインダーは`email`を利用します
@@ -48,15 +48,24 @@ Position: 10
 {discussion}
 これはLaravelで用意されている唯一のデフォルトのビューです
 
-レシピに従って実装する場合は、[[Creating a Reminders Controller]]  
-2つのビューを作成する必要が有ります
+レシピに従って実装する場合は、2つのビューを作成する必要が有ります  
+[[リマインダーコントローラの作成]]
+
 ### 1
 `views/password/remind.blade.php`
 
-: このビューはメールアドレスを利用出来る様にしましょう。"パスワードを忘れましたか？"等のリンクを用意しましょう
+: このビューはメールアドレスを利用出来る様にしましょう  
+"パスワードを忘れましたか？"等のリンクを用意しましょう
+
 ### 2
 `views/password/reset.blade.php`
 
-: このビューはパスワードを変更するユーザーが利用するものです。リマインダーのメールにこのページのリンクを含めましょう。  
-このページのフィールドに'email', 'password', 'password_confirmation', 'token'を必ず含めてください。
+: このビューはパスワードを変更するユーザーが利用するものです。リマインダーのメールにこのページのリンクを含めましょう  
+このページのフィールドに'email', 'password', 'password_confirmation', 'token'を必ず含めてください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

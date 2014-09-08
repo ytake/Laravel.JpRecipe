@@ -86,6 +86,7 @@ class HomeController extends BaseController
         ];
         // title設定
         $this->title($recipe->title);
+        $this->description($recipe->problem);
         $this->view('home.recipe.index', $data);
     }
 
@@ -94,10 +95,13 @@ class HomeController extends BaseController
      */
     public function getCategory($one)
     {
+        $category = $this->category->getCategory($one);
         $data = [
-            'category' => $this->category->getCategory($one),
+            'category' => $category,
             'list' => $this->recipe->getRecipesFromCategory($one)
         ];
+        $this->title($category->description);
+        $this->description($category->description);
         $this->view('home.category.index', $data);
     }
 

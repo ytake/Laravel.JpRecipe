@@ -1,9 +1,6 @@
 ---
 Title:    入力フィールドを作成する
 Topics:   forms
-Code:     Form::email(), Form::file(), Form::hidden(), Form::input(),
-          Form::model(), Form::password(), Form::text(), Form::url()
-Id:       161
 Position: 11
 ---
 
@@ -32,7 +29,7 @@ Position: 11
 {/solution}
 
 {discussion}
-希望するフィールドのタイプを指定して作成しますが、
+希望するフィールドのタイプを指定して作成しますが、  
 `Form::input()`を利用する代わりに下記のメソッドも直接利用する事が出来ます
 
 * `Form::password()` - [[パスワードフィールドを作成する]].
@@ -44,6 +41,12 @@ Position: 11
 
 ### Model binding
 
-フォームモデルを利用して入力値をオーバーライドする方法については、
+フォームモデルを利用して入力値をオーバーライドする方法については、  
 [[モデルをベースにしたフォームを作成する]] レシピをご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

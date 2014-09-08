@@ -1,8 +1,6 @@
 ---
 Title:    認証で利用するCookie Jarを設定する
 Topics:   -
-Code:     Auth::setCookieJar()
-Id:       226
 Position: 31
 ---
 
@@ -21,12 +19,18 @@ Cookie Jarは`Illuminate\Cookie\CookieJar`を使って実装しなければな�
 {/solution}
 
 {discussion}
-これは高度なトピックです。
+これは高度なトピックです
 
-ほとんどの場合は、Laravelによって作成された標準のcookieハンドラだけで正常に動作します。  
-`Auth`ファサードが使用するCookie Jarは、`Cookie`ファサードが使用するものと同じものです。
+ほとんどの場合は、Laravelによって作成された標準のcookieハンドラだけで正常に動作します  
+`Auth`ファサードが使用するCookie Jarは、`Cookie`ファサードが使用するものと同じものです
 
-標準のcookieプロバイダー以外のものを利用する場合にこの実装方法を利用します。  
-認証ルーチンが実行される前に、このメソッドが実行されるようにします。  
+標準のcookieプロバイダー以外のものを利用する場合にこの実装方法を利用します  
+認証ルーチンが実行される前に、このメソッドが実行されるようにします  
 実装する場合は、サービスプロバイダーか、`app/start/global.php`を利用しましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

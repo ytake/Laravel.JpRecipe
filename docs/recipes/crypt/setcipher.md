@@ -1,8 +1,6 @@
 ---
 Title:    暗号化のアルゴリズムを設定する
 Topics:   encryption
-Code:     Crypt::setCipher(), mcrypt_list_algorithms()
-Id:       108
 Position: 4
 ---
 
@@ -39,9 +37,15 @@ Position: 4
 
 これらのアルゴリズムは、`Crypt::encrypt()`, `Crypt::decrypt()`に利用されます
 
-ただし、このメソッドをコールした場合に有効になるのは、
+ただし、このメソッドをコールした場合に有効になるのは、  
 現在のリクエスト処理の間のみです
 
-永続的に変更する場合は、
+永続的に変更する場合は、  
 `app/config/app.php`内の'cipher'の値を任意のアルゴリズムに変更してください。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

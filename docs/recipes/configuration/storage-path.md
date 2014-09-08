@@ -1,8 +1,6 @@
 ---
 Title:    storageディレクトリの変更
 Topics:   configuration
-Code:     -
-Id:       32
 Position: 7
 ---
 
@@ -43,5 +41,10 @@ $ mkdir /home/myname/storage/path/logs
 ほとんどの場合はLaravelが提供するデフォルトのストレージディレクトリで正常に機能します  
 環境によっては実行権限を与える必要があります  
 [[storageディレクトリの実行権限を変更する]].
-
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュをタグ付け、またはセクションで整理する
 Topics:   cache
-Code:     Cache::section()
-Id:       101
 Position: 9
 ---
 
@@ -13,7 +11,7 @@ kキャッシュにたくさんの値があり、その値を整理したい
 {solution}
 キャッシュをタグ付けしたり、セクションで整理することができます
 
-`Cache::section()`, `Cache::tags()`を利用して、
+`Cache::section()`, `Cache::tags()`を利用して、  
 キャッシュのアイテムを  _グループ化_ する事が出来ます
 
 ```php
@@ -22,8 +20,8 @@ $item = \Cache::section('inventory')->get('last-purchased');
 $item = \Cache::tags('inventory')->get('last-purchased');
 ```
 
-セクションや、タグは、キャッシュの値をそれぞれのグループとして利用し、
-そのセクションやタグだけに作用する処理を実行したり、またはキャッシュ全体の処理を実行したりと、
+セクションや、タグは、キャッシュの値をそれぞれのグループとして利用し、  
+そのセクションやタグだけに作用する処理を実行したり、またはキャッシュ全体の処理を実行したりと、  
 細分化させて利用する事が出来ます
 
 ```php
@@ -43,3 +41,9 @@ $value = \Cache::section('section')->get('key');
 
 セクション、タグはファイル、またはデータベースキャッシュドライバーでは利用できません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

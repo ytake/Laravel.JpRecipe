@@ -1,8 +1,6 @@
 ---
 Title:    フォームを閉じる
 Topics:   forms
-Code:     Form::close()
-Id:       152
 Position: 3
 ---
 
@@ -25,7 +23,13 @@ Position: 3
 {discussion}
 実際には`</form>`生成するだけのメソッドではありません
 
-定義されたラベルやフォームモデルを利用してる場合は、
-内部でそれらをリセットします
+定義されたラベルやフォームモデルを利用してる場合は、  
+内部でそれらをリセットします  
 実装しているwebページで複数のフォームを実装している場合に重要なポイントとなります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

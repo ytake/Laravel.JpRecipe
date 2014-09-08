@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュからすべての項目を削除する
 Topics:   cache
-Code:     Cache::flush()
-Id:       275
 Position: 23
 ---
 
@@ -26,3 +24,9 @@ Position: 23
 \Cache::tags('widgets')->flush();
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

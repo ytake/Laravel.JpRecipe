@@ -20,7 +20,7 @@ if ($bytes_written === false) {
 {/solution}
 
 {discussion}
-これは`file_put_contents()`のラッパー関数です
+これは`file_put_contents()`のラッパー関数です  
 [file_put_contents](http://php.net/manual/ja/function.file-put-contents.php)
 {/discussion}
 

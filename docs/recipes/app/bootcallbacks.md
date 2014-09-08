@@ -1,8 +1,6 @@
 ---
 Title:    Booting、Booted Callbacksを登録する
 Topics:   callbacks
-Code:     App::booted(), App::booting()
-Id:       103
 Position: 11
 ---
 
@@ -35,3 +33,9 @@ App::booting(function($app) {
 
 [[リクエストのライフサイクルについて理解する]]をご覧下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

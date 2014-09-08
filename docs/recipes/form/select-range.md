@@ -1,8 +1,6 @@
 ---
 Title:    選択肢の範囲を指定してセレクトボックスを作成する
 Topics:   form
-Code:     Form::selectRange
-Id:       164
 Position: 14
 ---
 
@@ -32,7 +30,7 @@ Position: 14
 </select>
 ```
 
-デフォルト値を指定する場合は第四引数に、
+デフォルト値を指定する場合は第四引数に、  
 属性を追加する場合は、第五引数に配列を利用します
 
 ```html
@@ -58,3 +56,9 @@ Position: 14
 
 詳細については [[セレクトボックスを作成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

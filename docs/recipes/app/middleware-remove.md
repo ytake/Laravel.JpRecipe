@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションからミドルウェア(HttpKernel)を削除する
 Topics:   middleware
-Code:     App::forgetMiddleware()
-Id:       112
 Position: 13
 ---
 
@@ -23,12 +21,14 @@ Position: 13
 {/solution}
 
 {discussion}
-ローレベルのメソッドですが、実行する場合はリクエストのライフサイクルの中でも早いうちに実行しなければなりません  
+ローレベルのメソッドですが、  
+実行する場合はリクエストのライフサイクルの中でも早いうちに実行しなければなりません
 
-記述する具体的な場所は、サービスプロバイダーの`register()`に記述します。  
+記述する具体的な場所は、サービスプロバイダーの`register()`に記述します  
 `register()`の後に呼ばれるメソッドなどでは、効果がありません
 
-[[リクエストのライフサイクルについて理解する]]の、"Build stacked HTTP Kernel"の部分が該当します。  
+[[リクエストのライフサイクルについて理解する]]の、  
+"Build stacked HTTP Kernel"の部分が該当します
 
 ただし、次のクラスは削除する事ができません:
 
@@ -38,3 +38,9 @@ Position: 13
 
 これらはLaravelのコアクラスの為、削除はできません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

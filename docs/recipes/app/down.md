@@ -14,7 +14,7 @@ Position: 15
 {/problem}
 
 {solution}
-`App::down()`でハンドラを登録します。  
+`App::down()`でハンドラを登録します  
 
 ```php
 \App::down(function() {
@@ -23,7 +23,7 @@ Position: 15
 ```
 
 この少しのコードで、`maintenance.mode`ビューと共に、  
-HTTPステータスコードの503を出力します。
+HTTPステータスコードの503を出力します
 {/solution}
 
 {discussion}
@@ -35,3 +35,9 @@ HTTPステータスコードの503を出力します。
 
 また[[アプリケーションの停止がメンテナンスが理由で停止しているのか判定する]]も見てみるといいでしょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

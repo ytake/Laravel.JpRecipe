@@ -1,8 +1,6 @@
 ---
 Title:    IoCコンテナでオブジェクトを生成する
 Topics:   IoC container
-Code:     app(), App::bind(), App::instance(), App::make(), App::singleton()
-Id:       44
 Position: 5
 ---
 
@@ -116,3 +114,9 @@ $bar = \App::make('Bar');
 $obj = app('stdClass');
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

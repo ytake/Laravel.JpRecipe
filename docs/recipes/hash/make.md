@@ -1,8 +1,6 @@
 ---
 Title:    ハッシュ値を生成する
 Topics:   -
-Code:     Hash::make()
-Id:       125
 Position: 1
 ---
 
@@ -23,7 +21,7 @@ $hashed_password = \Hash::make($plaintext_password);
 
 [Blowfish](http://ja.wikipedia.org/wiki/Blowfish)  
 
-ハッシュ値を作成する時に、パラメータを指定する事ができます。  
+ハッシュ値を作成する時に、パラメータを指定する事ができます  
 これはアルゴリズムのコストを指定します  
 [パスワードのハッシュ 定義済み定数](http://php.net/manual/ja/password.constants.php)
 
@@ -31,3 +29,9 @@ $hashed_password = \Hash::make($plaintext_password);
 $hashed = \Hash::make($plaintext, ['rounds' => 10]);
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

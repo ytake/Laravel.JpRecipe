@@ -1,8 +1,6 @@
 ---
 Title:    テキストエリアを作成する
 Topics:   forms
-Code:     Form::textarea()
-Id:       162
 Position: 12
 ---
 
@@ -55,7 +53,7 @@ _value_ を指定したい場合は第二引数で指定します
 {discussion}
 ドキュメントにはありませんが、"size"属性を利用する事が出来ます
 
-"size"を利用する場合は、"30x5"という形で利用しますが、
+"size"を利用する場合は、"30x5"という形で利用しますが、  
 最初の数字(30)で列数を指定し、2番目の数字は行を指定した形式でなければなりません
 
 ```html
@@ -78,3 +76,9 @@ _value_ を指定したい場合は第二引数で指定します
 <textarea rows="1" cols="1" name="notes">hoge</textarea>
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

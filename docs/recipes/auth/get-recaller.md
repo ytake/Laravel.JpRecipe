@@ -1,8 +1,6 @@
 ---
 Title:    'Remember Me'で利用されるCookie名を取得
 Topics:   -
-Code:     Auth::getRecallerName()
-Id:       227
 Position: 32
 ---
 
@@ -23,3 +21,9 @@ $remember_name = Auth::getRecallerName();
 
 大体は `remember_82e5d2c56bdd0811318f0cf078b78bfc` の様な文字列になります。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

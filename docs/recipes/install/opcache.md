@@ -7,7 +7,7 @@ Position: 15
 {problem}
 キャッシュを使って、アプリケーションを高速化させたい
 
-php5.5環境ではOPcacheが標準となっています
+php5.5環境ではOPcacheが標準となっています  
 5.5以前の環境の場合は導入して高速化させてみましょう
 {/problem}
 
@@ -18,7 +18,7 @@ OPcacheをインストールします
 $ pecl install zendopcache-beta
 ```
 
-OPcacheはコンパイル済みのバイトコードを共有メモリに保存して、
+OPcacheはコンパイル済みのバイトコードを共有メモリに保存して、  
 リクエストのたびにスクリプトを読み込んでパースする手間を省いてパフォーマンスを向上させます
 
 インストール後に `extension=opcache.so` を追記して、
@@ -48,7 +48,7 @@ opcache.revalidate_freq=0
 {discussion}
 OPcacheは様々な設定ができます
 
-詳細については公式リファレンスを参考にしてください
+詳細については公式リファレンスを参考にしてください  
 [OPcache](http://php.net/manual/ja/opcache.installation.php)
 
 {/discussion}

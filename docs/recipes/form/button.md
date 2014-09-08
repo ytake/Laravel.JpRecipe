@@ -1,8 +1,6 @@
 ---
 Title:    ボタンを作成する
 Topics:   forms
-Code:     Form::button()
-Id:       172
 Position: 22
 ---
 
@@ -41,3 +39,9 @@ Bladeテンプレートでボタンを作成したい
 {discussion}
 とくにありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    キーに対応する多言語翻訳文字列を取得する
 Topics:   localization
-Code:     Lang::get()
-Id:       249
 Position: 1
 ---
 
@@ -14,7 +12,7 @@ Position: 1
 `Lang::get()`メソッドを利用します
 
 `Lang::get()`にキーを指定すると、  
-現在設定されている言語のファイルの中から指定キーを探します。  
+現在設定されている言語のファイルの中から指定キーを探します  
 指定されたモノが見つからない場合は、元のキーが返却されます
 
 ```php
@@ -25,7 +23,7 @@ echo \Lang::get('message.hello');
 _(XXは、現在の言語環境です)_  
 
 メッセージにプレースホルダが含まれている場合は、  
-第二引数にそれを指定してください。  
+第二引数にそれを指定してください  
 `app/lang/en/message.php`とした場合・・・
 
 ```php
@@ -55,7 +53,7 @@ echo \Lang::get('message.hello', array(), 'en');
 それぞれの言語に対応したファイルを設置する場合に、  
 `app/lang`ディレクトリには次の様に設置しましょう  
 
-```
+```text
 /app
    /lang
       /en
@@ -70,3 +68,9 @@ echo \Lang::get('message.hello', array(), 'en');
 
 この様にそれぞれの言語に対応したファイルを設置します
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

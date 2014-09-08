@@ -1,8 +1,6 @@
 ---
 Title:    認証のためのイベントディスパッチャー設定
 Topics:   -
-Code:     Auth::setDispatcher()
-Id:       232
 Position: 37
 ---
 
@@ -25,9 +23,15 @@ Position: 37
 
 ほとんどの場合に、Laravelで用意されている標準的なイベントディスパッチャだけで正常に動作します  
 `Auth`ファサードが使用するディスパッチャは、  
-`Event`ファサードが使用するものと同じものです。
+`Event`ファサードが使用するものと同じものです
 
-独自のディスパッチャを使用する場合は、この方法を利用してみてください。  
-認証ルーチンが実行される前に、このメソッドが実行されるようにします。  
+独自のディスパッチャを使用する場合は、この方法を利用してみてください  
+認証ルーチンが実行される前に、このメソッドが実行されるようにします  
 実装する場合は、サービスプロバイダーまたは `app/start/global.php`を利用しましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

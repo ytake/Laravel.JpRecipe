@@ -1,8 +1,6 @@
 ---
 Title:    コンテンツの挿入を停止してセクションを上書きする
-Topics:   -
-Code:     @overwrite
-Id:       244
+Topics:   Blade
 Position: 16
 ---
 

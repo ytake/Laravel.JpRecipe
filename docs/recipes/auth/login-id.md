@@ -1,8 +1,6 @@
 ---
 Title:     ユーザーのIDを利用してログインする
 Topics:   -
-Code:     Auth::login(), Auth::loginUsingId()
-Id:       222
 Position: 27
 ---
 
@@ -24,15 +22,23 @@ if (!$user) {
 ユーザーオブジェクトを返却しますが、  
 ユーザーデータが存在しない場合は`null`が返却されます
 
-"remember me"Cookieを使ってログインを記憶させる場合は次の様に、第二引数にtrueを指定してください
+"remember me"Cookieを使ってログインを記憶させる場合は次の様に、  
+第二引数にtrueを指定してください
+
 ```php
 Auth::loginUsingId($user_id, true);
 ```
 {/solution}
 
 {discussion}
-基本的には`Auth::login()`と同じ動作をします。
+基本的には`Auth::login()`と同じ動作をします
 
-このメソッドは、ユーザー検索後に`Auth::login()`を利用してログインさせます。
-詳細は[[手動でログインする]] を参照してください。
+このメソッドは、ユーザー検索後に`Auth::login()`を利用してログインさせます  
+詳細は[[手動でログインする]] を参照してください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュからアイテムを削除する
 Topics:   cache
-Code:     Cache::forget()
-Id:       272
 Position: 20
 ---
 
@@ -21,3 +19,9 @@ Position: 20
 {discussion}
 とくにありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

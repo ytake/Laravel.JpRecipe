@@ -120,13 +120,18 @@ class ApplicationServiceProvider extends ServiceProvider
     protected function registerErrorHandler()
     {
         // production only
-        if( $this->app->environment() == 'production') {
+        if($this->app->environment() == 'production') {
             $this->app->error(
                 function (NotFoundHttpException $exception) {
                     return $this->app['redirect']->to('/');
                 }
             );
         }
+        $this->app->error(
+            function (\ErrorException $e) {
+                return $this->app['redirect']->to('/');
+            }
+        );
     }
 
     /**

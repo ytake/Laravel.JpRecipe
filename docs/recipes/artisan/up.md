@@ -5,15 +5,15 @@ Position: 10
 ---
 
 {problem}
-アプリケーションのメンテナンスモードを解除する必要があります。
+アプリケーションのメンテナンスモードを解除する必要があります
 
-アプリケーションの準備ができて、メンテナンスモードの状態になっています。
+アプリケーションの準備ができて、メンテナンスモードの状態になっています
 {/problem}
 
 {solution}
-`php artisan up`コマンドが利用できます。
+`php artisan up`コマンドが利用できます
 
-このコマンドはメンテナンスモードのフラグをクリアします。
+このコマンドはメンテナンスモードのフラグをクリアします
 
 ```bash
 $ php artisan up
@@ -21,15 +21,15 @@ $ php artisan up
 {/solution}
 
 {discussion}
-このコマンドはファイルを削除します。
+このコマンドはファイルを削除します
 
-このコマンドは`app/storage/meta/down`というファイルを削除しています。
+このコマンドは`app/storage/meta/down`というファイルを削除しています
 {/discussion}
 
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

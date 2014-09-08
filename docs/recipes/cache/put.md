@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュにアイテムを追加する
 Topics:   cache
-Code:     Cache::get(), Cache::put()
-Id:       266
 Position: 15
 ---
 
@@ -35,3 +33,9 @@ if ($value === null) {
 }
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

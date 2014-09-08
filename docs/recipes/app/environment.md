@@ -1,8 +1,6 @@
 ---
 Title:    実行している環境を確認
 Topics:   environment
-Code:     App::environment(), App::isLocal(), App::runningUnitTests()
-Id:       1
 Position: 1
 ---
 
@@ -11,7 +9,7 @@ Position: 1
 
 環境による処理の切り分けを行いたいときに、  
 アプリケーションの実行されている環境の取得方法を知っていると便利ですが、  
-どれが最善の方法なのかがわからない
+どれが最善の方法なのでしょうか？
 {/problem}
 
 {solution}
@@ -46,5 +44,12 @@ if (\App::environment('production', 'staging')) {
 echo app('env');
 ```
 
-環境設定について詳しく紹介しています [[Environment Specific Configurations]] for d
+環境設定について詳しく紹介しています  
+[[実行環境の決定]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

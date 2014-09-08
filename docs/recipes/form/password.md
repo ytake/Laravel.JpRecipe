@@ -1,8 +1,6 @@
 ---
 Title:    パスワードフィールドを作成する
 Topics:   forms
-Code:     Form::input(), Form::password()
-Id:       156
 Position: 6
 ---
 
@@ -45,3 +43,9 @@ Position: 6
 {discussion}
 このメソッドは`Form::input()`メソッドを利用し、typeに`"password"`を指定しています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

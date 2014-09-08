@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュドライバーのインスタンスを取得する
 Topics:   cache
-Code:     Cache::driver()
-Id:       261
 Position: 11
 ---
 
@@ -19,7 +17,7 @@ Position: 11
 $driver = \Cache::driver();
 ```
 
-デフォルトドライバーが作成されていない場合は、
+デフォルトドライバーが作成されていない場合は、  
 作成する前にインスタンスを返却します
 
 他に、取得したいドライバの名前を指定する事が出来ます
@@ -44,6 +42,12 @@ $driver = \Cache::driver('apc');
 * WinCache cache driver
 * XCache cache driver
 
-独自に実装したキャッシュドライバーも同様に取得する事が出来ます
+独自に実装したキャッシュドライバーも同様に取得する事が出来ます  
 [[独自のキャッシュドライバーを利用する]].
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

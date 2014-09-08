@@ -1,8 +1,6 @@
 ---
 Title:    フォームのラベルを作成する
 Topics:   forms
-Code:     Form::label()
-Id:       154
 Position: 5
 ---
 
@@ -67,8 +65,7 @@ Laravelの`Form`ファサードを利用してみましょう
 {{Form::text('testing')}}
 ```
 
-上記の様に記述した場合は
-idを指定していない場合は下記の様に出力されます
+上記の様に記述した場合はidを指定していない場合は下記の様に出力されます
 
 ```html
 <label for="testi">Testi</label>
@@ -77,3 +74,9 @@ idを指定していない場合は下記の様に出力されます
 
 _これは`Form`ファサードを利用して生成した場合にのみ作用します_
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

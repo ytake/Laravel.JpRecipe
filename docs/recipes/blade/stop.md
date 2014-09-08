@@ -1,8 +1,6 @@
 ---
 Title:    セクションへの挿入を終了する
-Topics:   -
-Code:     @stop
-Id:       242
+Topics:   Blade
 Position: 14
 ---
 
@@ -50,6 +48,6 @@ Position: 14
 one
 ```
 
-`@parent`を利用して、前のセクションの内容を利用する事が出来ます
+`@parent`を利用して、前のセクションの内容を利用する事が出来ます  
 [[Bladeで親セクションの内容を利用する]]
 {/discussion}

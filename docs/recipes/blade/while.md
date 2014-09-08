@@ -1,8 +1,6 @@
 ---
 Title:    Blade Bladeで @while を使用する
 Topics:   Blade
-Code:     @endwhile, @while
-Id:       89
 Position: 9
 ---
 

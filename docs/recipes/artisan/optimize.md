@@ -5,19 +5,20 @@ Position: 8
 ---
 
 {problem}
-アプリケーションを可能な限り高速化したい。
+アプリケーションを可能な限り高速化したい
 {/problem}
 
 {solution}
-`php artisan optimize`コマンドが利用できます。
+`php artisan optimize`コマンドが利用できます
 
 ```bash
 $ php artisan optimize
 ```
 
-このコマンドは最適化されたクラスローダを生成します。
+このコマンドは最適化されたクラスローダを生成します
 
-`Config::get('app.debug')`がtrueでテストしている場合、`--force`オプションを利用することで強制的にクラスローダを生成します。
+`Config::get('app.debug')`がtrueでテストしている場合、  
+`--force`オプションを利用することで強制的にクラスローダを生成します
 
 ```bash
 $ php artisan optimize --force
@@ -25,11 +26,12 @@ $ php artisan optimize --force
 {/solution}
 
 {discussion}
-追加した独自クラスをプリロードしたい。
+追加した独自クラスをプリロードしたい
 
-アプリケーションで頻繁に使用されるクラスがある場合、独自クラスを最適化プロセスに追加することができます。
+アプリケーションで頻繁に使用されるクラスがある場合、  
+独自クラスを最適化プロセスに追加することができます
 
-`app/config/compiled.php`に独自クラスのファイル名を追記します。
+`app/config/compiled.php`に独自クラスのファイル名を追記します
 
 ```php
 <?php
@@ -40,14 +42,14 @@ return [
 ];
 ```
 
-最適化は`bootstrap/compiled.php`ファイルを、コメントを削除した全てのクラスを含んで生成します。
+最適化は`bootstrap/compiled.php`ファイルを、コメントを削除した全てのクラスを含んで生成します
 
 #### 独自クラスを追加するときの注意
 
-名前空間を使用している場合、必ず全てのクラスに使用しているか確認して下さい。
-使用していないとエラーの可能性があります。
+名前空間を使用している場合、必ず全てのクラスに使用しているか確認して下さい  
+使用していないとエラーの可能性があります
 
-例えば、最適化のためコンパイルされたリストにコントロールクラスを置いているとしましょう。
+例えば、最適化のためコンパイルされたリストにコントロールクラスを置いているとしましょう
 
 ```php
 <?php
@@ -59,9 +61,9 @@ class HomeController extends \Controller
 }
 ```
 
-このファイルではエラーが発生します。
-最適化された単一のファイルに複数の名前空間があるためです。
-`use Controller;`を追加することで問題はなくなるでしょう。
+このファイルではエラーが発生します  
+最適化された単一のファイルに複数の名前空間があるためです  
+`use Controller;`を追加することで問題はなくなるでしょう
 
 ```php
 <?php
@@ -81,7 +83,7 @@ class HomeController extends Controller
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

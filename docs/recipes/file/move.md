@@ -21,7 +21,7 @@ if (!\File::move($oldfile, $newfile)) {
 {discussion}
 これはPHPの`rename()`のラッパー関数です
 
-別のディレクトリ、別のドライブにファイルを移動させたり、
+別のディレクトリ、別のドライブにファイルを移動させたり、  
 ファイルの名前を変更します
 {/discussion}
 

@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションがリクエスト処理の準備ができているかどうか
 Topics:   -
-Code:     App::isBooted(), App::readyForResponses()
-Id:       201
 Position: 19
 ---
 
@@ -29,7 +27,13 @@ if (\App::readyForResponses()) {
 アプリケーションの仕組みとして、  
 リクエスト関連の処理が先に整ってから各サービスプロバイダーが読み込まれるまで、  
 任意のコード内では(`app/start/global.php`, `controllers`, `routes`, `views`)、  
-常に`true`が返却されます。
+常に`true`が返却されます
 
-サービスプロバイダに記述するのが一番理にかなっているかもしれません。
+サービスプロバイダに記述するのが一番理にかなっているかもしれません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

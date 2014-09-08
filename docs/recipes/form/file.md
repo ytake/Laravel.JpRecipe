@@ -1,8 +1,6 @@
 ---
 Title:    ファイルアップロードのフィールドを作成する
 Topics:   forms
-Code:     Form::file(), Form::input(), Form::model()
-Id:       160
 Position: 10
 ---
 
@@ -45,3 +43,9 @@ Position: 10
 {discussion}
 このメソッドは`Form::input()`メソッドを利用し、typeに`"file"`を指定しています
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

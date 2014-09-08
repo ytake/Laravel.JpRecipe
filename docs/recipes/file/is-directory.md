@@ -17,7 +17,7 @@ if (\File::isDirectory($filename)) {
 }
 ```
 
-指定したディレクトリが存在する場合は `true`が返却され、
+指定したディレクトリが存在する場合は `true`が返却され、  
 存在しない場合は `false`が返却されます
 {/solution}
 

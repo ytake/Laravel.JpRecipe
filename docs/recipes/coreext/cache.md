@@ -1,13 +1,11 @@
 ---
 Title:    独自のキャッシュドライバーを利用する
 Topics:   cache
-Code:     Cache::extend()
-Id:       262
 Position: 6
 ---
 
 {problem}
-Laravelで用意されているキャッシュドライバーが、現在の仕様に合っていない等、
+Laravelで用意されているキャッシュドライバーが、現在の仕様に合っていない等、  
 独自のドライバーを作成して利用したい
 {/problem}
 
@@ -16,7 +14,7 @@ Laravelを拡張して独自のキャッシュドライバーを作成します
 
 #### Step 1 - Illuminate\Cache\StoreInterfaceを実装する
 
-まずキャッシュのメソッドを利用するためのクラスを作成しなければなりません
+まずキャッシュのメソッドを利用するためのクラスを作成しなければなりません  
 サンプルとしてキャッシュしないダミーキャッシュドライバを作成してみましょう
 
 ```php
@@ -168,3 +166,9 @@ class DummyCacheStore implements StoreInterface
 
 独自のキャッシュドライバのスケルトンとして、この例を使用してみましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    パスワードリマインダーの有効期限を変更
 Topics:   authentication, configuration
-Code:     -
-Id:       77
 Position: 11
 ---
 
@@ -22,7 +20,13 @@ Position: 11
 {/solution}
 
 {discussion}
-有効期限は、セキュリティ関連の機能です  
+有効期限は、セキュリティ関連の機能です
 
 期限時間を短くする事で、セキュリティの強化にも繋がります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

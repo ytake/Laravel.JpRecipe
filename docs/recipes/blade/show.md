@@ -1,8 +1,6 @@
 ---
 Title:    Bladeテンプレートで現在のセクションを取得する
-Topics:   -
-Code:     @show
-Id:       240
+Topics:   Blade
 Position: 12
 ---
 
@@ -13,7 +11,7 @@ Position: 12
 {solution}
 `@show` を利用します
 
-現在のセクションを終了して、その内容を取得し、
+現在のセクションを終了して、その内容を取得し、  
 そのセクションの内容がすぐに出力されます
 
 ```html

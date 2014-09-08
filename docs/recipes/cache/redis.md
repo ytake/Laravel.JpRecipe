@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュドライバーにRedisを利用する
 Topics:   cache, configuration, redis
-Code:     -
-Id:       96
 Position: 5
 ---
 
@@ -22,8 +20,8 @@ Redisキャッシュドライバーを利用します
 'driver' => 'redis',
 ```
 
-複数のredisサーバがあったり、
-ローカル以外のredisを利用している場合は、
+複数のredisサーバがあったり、  
+ローカル以外のredisを利用している場合は、  
 同様に`app/config/database.php`ファイルの **redis** の内容も変更してください
 
 ```php
@@ -45,3 +43,9 @@ Redisがインストールされているか確認しましょう
 
 インストール方法は [[Redisをインストールする]] レシピにあります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

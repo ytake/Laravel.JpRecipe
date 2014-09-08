@@ -1,8 +1,6 @@
 ---
 Title:    資格情報をバリデートする
 Topics:   -
-Code:     Auth::validate()
-Id:       216
 Position: 21
 ---
 
@@ -30,3 +28,9 @@ if(!$valid) {
 {discussion}
 認証のバリデートは、`auth.attempt`イベントを発生させます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}
