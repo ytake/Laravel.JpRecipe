@@ -1,8 +1,6 @@
 ---
 Title:    Shutdownコールバック処理を実行する
 Topics:   callbacks
-Code:     App::shutdown()
-Id:       56
 Position: 9
 ---
 
@@ -17,7 +15,7 @@ Laravelアプリケーションが予期せぬエラーで終了した場合等�
 `App::shutdown()`を利用します
 
 引数等を指定せずに`App::shutdown()`と記述する事で、  
-登録してある処理を実行させる事が出来ます。
+登録してある処理を実行させる事が出来ます
 
 ```php
 // 登録済みのShutdownコールバック実行
@@ -26,9 +24,15 @@ Laravelアプリケーションが予期せぬエラーで終了した場合等�
 {/solution}
 
 {discussion}
-これは標準的なものではありません。
+これは標準的なものではありません
 
-これを実行する事で、リクエストのライフサイクルは標準的な流れで処理されません。
+これを実行する事で、リクエストのライフサイクルは標準的な流れで処理されません  
 また、`App::shutdown()`は、アプリケーションが終了していない場合でも、  
-任意に実行出来る事に注意して下さい。  
+任意に実行出来る事に注意して下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

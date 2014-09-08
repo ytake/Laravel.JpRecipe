@@ -1,8 +1,6 @@
 ---
 Title:    LaravelプロジェクトでTravis CIを使った継続的インテグレーション
-Topics:   solution
-Code:     -
-Id:       75
+Topics:   solution, travisCI
 Position: 1
 ---
 
@@ -11,14 +9,15 @@ LaravelプロジェクトでTravis CIを利用した継続的インテグレー�
 {/problem}
 
 {solution}
-Travis CIを利用するには、GitHubを利用している事が前提となります。  
+Travis CIを利用するには、GitHubを利用している事が前提となります  
 すでにGitHubのアカウントをお持ちであれば、  
 そのアカウントを使ってTravis CIにログインをして、  
-利用したいリポジトリを選択するだけです。  
-次に選択されたリポジトリに、`.travis.yml`が設定されている必要があります。  
+利用したいリポジトリを選択するだけです  
+次に選択されたリポジトリに、`.travis.yml`が設定されている必要があります
 
-ベーシックなファイルは以下の通りです。
-```
+ベーシックなファイルは以下の通りです
+
+```text
 language: php
 php:
   - 5.4
@@ -38,25 +37,27 @@ notifications:
   emails:
     - あなたのメールアドレス
 ```
-`php`でどのバージョンを利用するか指定します。  
-LaravelはHHVMでも完全に動作します。  
-ここではphp5.4からHHVMまでを利用してテストを行います。  
 
-`befor_script`でテストが実行される前に実行したいスクリプトを記述しましょう。  
+`php`でどのバージョンを利用するか指定します  
+LaravelはHHVMでも完全に動作します  
+ここではphp5.4からHHVMまでを利用してテストを行います
+
+`befor_script`でテストが実行される前に実行したいスクリプトを記述しましょう  
 ここでは、composerでライブラリやLaravelをインストールし、  
-storageに実行権限を与えています。  
+storageに実行権限を与えています
 
-あとは phpunitを実行する様に指定します。  
+あとは phpunitを実行する様に指定します
 
-`notifications`で、結果をメール等で通知する事ができます。  
+`notifications`で、結果をメール等で通知する事ができます
 
-準備が整ったらpush時に動作するか確認してみましょう。
+準備が整ったらpush時に動作するか確認してみましょう
 {/solution}
 
 {discussion}
-Travis CIの利用方法は様々です。  
-また広く利用されているデータベースも利用する事ができます。  
-用意されているデータベースは次の通りです。  
+Travis CIの利用方法は様々です  
+また広く利用されているデータベースも利用する事ができます  
+用意されているデータベースは次の通りです
+
 `MySQL`  
 `PostgreSQL`  
 `MongoDB`  
@@ -71,6 +72,10 @@ Travis CIの利用方法は様々です。
 `Kestrel`  
 `SQLite3`  
 
-他にも多くのCIサービスがあります。  
-利用している環境や、利用出来る機能等で選択肢は様々ですがどのサービスも気軽に利用出来ます。
+他にも多くのCIサービスがあります  
+利用している環境や、利用出来る機能等で選択肢は様々ですがどのサービスも気軽に利用出来ます
 {/discussion}
+
+{credit}
+Author:Yuuki Takezawa
+{/credit}

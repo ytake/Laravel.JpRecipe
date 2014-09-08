@@ -1,8 +1,6 @@
 ---
 Title:    フォームで利用するセッションを設定する
 Topics:   forms
-Code:     Form::setSessionStore()
-Id:       179
 Position: 28
 ---
 
@@ -22,6 +20,12 @@ $session = new \MySessionHandler;
 {discussion}
 これはテストで非常に有用です
 
-実装したフォームマクロのユニットテストをしている場合に、
+実装したフォームマクロのユニットテストをしている場合に、  
 このメソッドを利用して、必要に応じてセッションクラスをモックする事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

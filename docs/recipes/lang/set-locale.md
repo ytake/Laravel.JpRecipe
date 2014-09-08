@@ -1,8 +1,6 @@
 ---
 Title:    デフォルトの実行言語を設定
 Topics:   localization
-Code:     Lang::setLocale()
-Id:       254
 Position: 5
 ---
 
@@ -24,6 +22,12 @@ Position: 5
 `Lang::setLocale()`は、現在ロードされているサービスにのみ作用します
 
 `App::setLocale()`は、現在ロードされているサービスに作用し、  
-`Lang::setLocale()`をコールしてtranslatorを更新します
+`Lang::setLocale()`をコールしてtranslatorを更新します  
 また`locale.changed`イベントを発動させます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,24 +1,21 @@
 ---
 Title:    Bladeが使用するタグを変更する
-Topics:   -
-Code:     Blade::setContentTags()
-Id:       246
+Topics:   Blade
 Position: 18
 ---
 
 {problem}
 Bladeのタグにデフォルトとは異なるものを利用したい
-You want to use different content tags in your Blade template.
 
-Bladeは`{{` と `}}` を利用して内容を表示しますが、
-同じ`{{` と `}}`を使うMustache, AngularJSなどと衝突することになります
+Bladeは`{{` と `}}` を利用して内容を表示しますが、  
+同じ`{{` と `}}`を使うMustache, AngularJSなどと衝突することになります  
 衝突を避ける様にこれらを変更してみましょう
 {/problem}
 
 {solution}
 `Blade::setContentTags()`メソッドを利用します
 
-例えば、タグに`[%` と `%]`を利用するとしましょう
+例えば、タグに`[%` と `%]`を利用するとしましょう  
 まずはメソッドをコールします
 
 ```php

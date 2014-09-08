@@ -1,8 +1,6 @@
 ---
 Title:    ミドルウェア(HttpKernel)を登録する
 Topics:   middleware
-Code:     App::middleware()
-Id:       111
 Position: 12
 ---
 
@@ -16,13 +14,13 @@ Position: 12
 {solution}
 `App::middleware()`メソッドを利用します
 
-まず、ミドルウェアクラス `MyApp\Middleware` として、クラスを登録します。
+まず、ミドルウェアクラス `MyApp\Middleware` として、クラスを登録します
 
 ```php
 \App::middleware('MyApp\Middleware');
 ```
 
-`MyApp\Middleware`クラスはアプリケーション内に設置してなければいけません。
+`MyApp\Middleware`クラスはアプリケーション内に設置してなければいけません
 
 登録するクラスのコンストラクタで引数が必要な場合は、  
 次の様に指定する事ができます
@@ -38,10 +36,17 @@ Position: 12
 
 {discussion}
 ミドルウェアの処理が実行される場所を知るのは、重要なポイントの一つです
-[[リクエストのライフサイクルについて理解する]]を参考にしてください  
+
+[[リクエストのライフサイクルについて理解する]] を参考にしてください  
 
 ミドルウェアに関連するレシピは下記のものです:
 
 * [[ミドルウェアについて理解する]]
 * [[簡単でシンプルなミドルウェアクラスを作成する]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

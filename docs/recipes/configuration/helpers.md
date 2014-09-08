@@ -1,8 +1,6 @@
 ---
 Title:    ヘルパーファイルの作成
 Topics:   configuration
-Code:     -
-Id:       50
 Position: 10
 ---
 
@@ -12,7 +10,7 @@ Position: 10
 {/problem}
 
 {solution}
-`helpers.php`としてファイルを作成してみましょう。  
+`helpers.php`としてファイルを作成してみましょう  
 ファイル名はなんでも構いませんが、ここでは`helpers.php`としています
 
 まず`app/helpers.php`を作成します
@@ -71,3 +69,9 @@ Laravelは`app/filters.php`, `app/routes.php`を標準で持っています
 上記のファイル等はサービスプロバイダーに設置する事も出来ます
 
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

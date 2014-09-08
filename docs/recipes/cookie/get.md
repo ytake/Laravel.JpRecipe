@@ -1,8 +1,6 @@
 ---
 Title:    リクエストからクッキーを取得する
 Topics:   cookies
-Code:     Cookie::get(), Request::cookie()
-Id:       49
 Position: 2
 ---
 
@@ -31,3 +29,9 @@ echo "Hello $name";
 
 実際には、`Cookie::get()`は`Request::cookie()`のラッパーです
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

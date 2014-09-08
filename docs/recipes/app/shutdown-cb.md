@@ -1,8 +1,6 @@
 ---
 Title:    Shutdownコールバックの登録
 Topics:   callbacks
-Code:     App::shutdown()
-Id:       55
 Position: 8
 ---
 
@@ -11,7 +9,7 @@ Position: 8
 {/problem}
 
 {solution}
-Shutdownでコールバック処理を実装します。
+Shutdownでコールバック処理を実装します
 
 ```php
 \App::shutdown(function() {
@@ -21,8 +19,14 @@ Shutdownでコールバック処理を実装します。
 {/solution}
 
 {discussion}
-レスポンスが返却された直後に、Shutdownコールバックが実行されます。
+レスポンスが返却された直後に、Shutdownコールバックが実行されます
 
-記述したコードはシャットダウン処理中に実行されます。  
-アプリケーションを停止させて、ログを書き込む等に利用されます。
+記述したコードはシャットダウン処理中に実行されます  
+アプリケーションを停止させて、ログを書き込む等に利用されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

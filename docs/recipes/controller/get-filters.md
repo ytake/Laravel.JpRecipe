@@ -1,8 +1,6 @@
 ---
 Title:    コントローラーのBeforeとAfterフィルターを取得する
-Topics:   filters
-Code:     Controller::getAfterFilters(), Controller::getBeforeFilters()
-Id:       47
+Topics:   filters, controller
 Position: 3
 ---
 
@@ -23,12 +21,13 @@ class SomeController extends Controller
     }
 }
 ```
+
 {/solution}
 
 {discussion}
 これはローレベルのfunctionです
 
-一般的には、コントローラーのメソッドからフィルターにアクセスする必要はありません。  
+一般的には、コントローラーのメソッドからフィルターにアクセスする必要はありません  
 コントローラーの`__construct()`以外でBeforeフィルターを指定している場合は、  
 既に正常に実行された状態です
 
@@ -36,3 +35,9 @@ Afterフィルターはコントローラーのメソッドが実行されるま
 
 どうしてもフィルターにアクセスする必要がある場合は、このレシピの通りに実行してみましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

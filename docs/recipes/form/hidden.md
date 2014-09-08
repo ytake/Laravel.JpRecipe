@@ -1,8 +1,6 @@
 ---
 Title:    hiddenフィールドを作成する
 Topics:   forms
-Code:     Form::hidden(), Form::input(), Form::model()
-Id:       157
 Position: 7
 ---
 
@@ -45,6 +43,12 @@ hidden入力フィールドを作成したい
 {discussion}
 このメソッドは`Form::input()`に`"hidden"`タイプを指定して利用しています
 
-**NOTE:** フォームモデルを利用している場合は、値利用の優先度が異なります
+**NOTE:** フォームモデルを利用している場合は、値利用の優先度が異なります  
 詳しくは[[モデルをベースにしたフォームを作成する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

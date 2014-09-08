@@ -43,7 +43,7 @@ if ($dir_files === false) {
 {/solution}
 
 {discussion}
-これは`glob()`のラッパー関数です
+これは`glob()`のラッパー関数です  
 [glob](http://php.net/manual/ja/function.glob.php)
 {/discussion}
 

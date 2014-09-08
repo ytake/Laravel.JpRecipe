@@ -1,18 +1,15 @@
 ---
 Title:    Gitを使ってプロジェクトを管理する
 Topics:   Git, version control
-Code:     -
-Id:       31
 Position: 2
 ---
 
 {problem}
-バージョン管理のシステムを導入していないので、
-プロジェクトのコードの変更履歴等が追えない。
+バージョン管理のシステムを導入していないので、プロジェクトのコードの変更履歴等が追えない
 {/problem}
 
 {solution}
-[Git](http://git-scm.com/)を使ってみましょう。
+[Git](http://git-scm.com/)を使ってみましょう
 
 ```bash
 $ cd myapp
@@ -26,9 +23,9 @@ $ git init
 $ git status
 ```
 
-変更したファイル、管理されていないファイル等が表示されます。
+変更したファイル、管理されていないファイル等が表示されます
 
-```
+```text
 # On branch master
 #
 # Initial commit
@@ -52,24 +49,25 @@ $ git status
 ```
 
 `composer.lock`を管理したい場合は、  
-`.gitignore`を編集して該当の行を削除してください。  
+`.gitignore`を編集して該当の行を削除してください  
 こうすることで`composer.lock`を管理に含める事が出来ます
 
 
 `composer.lock` を管理下に含めている場合は、  
-`composer install`後に、全てのバージョンが正しく導入されているか確認して下さい。  
-必要に応じて`composer update`で最新のものと入れ替えて下さい。  
+`composer install`後に、全てのバージョンが正しく導入されているか確認して下さい  
+必要に応じて`composer update`で最新のものと入れ替えて下さい
 
-まだメールアドレスや、アカウント名などを登録していなければ、登録してみましょう。  
+まだメールアドレスや、アカウント名などを登録していなければ、登録してみましょう  
 作業は簡単です。
 
-```bash
+```text
 $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 ```
 
 ファイルをリポジトリに追加する場合は、2つのコマンドを実行します
-```bash
+
+```text
 $ git add .
 $ git commit -m "initial checkin"
 ```
@@ -77,7 +75,7 @@ $ git commit -m "initial checkin"
 最後に `status` コマンドで確認すると、  
 何も表示されていないはずです
 
-```bash
+```text
 $ git status
 ```
 
@@ -90,12 +88,18 @@ nothing to commit, working directory clean
 {/solution}
 
 {discussion}
-LaravelもGitjを利用しています
+LaravelもGitを利用しています
 
-Laravelはディレクトリ、ファイル構造を正しく保つため、隠しファイルを含んでいます。  
+Laravelはディレクトリ、ファイル構造を正しく保つため、隠しファイルを含んでいます  
 `app/storage/logs`, `vendor`などは管理しないようにしています
 
 ローカルで変更や更新を行い、gitフロー、githubフロー等に従って、  
 ブランチを作成したり、プルリクエストなどを利用して、  
-ただしくバージョン管理されている事を確認しましょう。
+ただしくバージョン管理されている事を確認しましょう
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

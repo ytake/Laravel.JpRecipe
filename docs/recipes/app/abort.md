@@ -1,8 +1,6 @@
 ---
 Title:    Httpステータスに関する例外をスローする
 Topics:   -
-Code:     App::abort(), App::missing()
-Id:       202
 Position: 20
 ---
 
@@ -61,3 +59,9 @@ HTTPの例外には通常、クライアント·エラーの400およびサー�
 
 こちらも参考にしてみてください [[404エラーを登録する]].
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

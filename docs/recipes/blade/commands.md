@@ -1,8 +1,6 @@
 ---
 Title:    Bladeで利用できるメソッド一覧
-Topics:   -
-Code:     -
-Id:       248
+Topics:   Blade
 Position: 22
 ---
 

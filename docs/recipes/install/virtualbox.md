@@ -1,15 +1,13 @@
 ---
 Title:    VirtualBoxをインストールする
 Topics:   installation, VirtualBox
-Code:     -
-Id:       15
 Position: 1
 ---
 
 {problem}
 仮想仮想が必要です
 
-Vagrantを使うには、仮想環境が必要です
+Vagrantを使うには、仮想環境が必要です  
 Vagrant導入前にVirtualBoxをインストールしてみましょう
 {/problem}
 
@@ -24,8 +22,8 @@ VirtualBoxのwebページ [downloads](https://www.virtualbox.org/wiki/Downloads)
 
 #### Step 2 - ダウンロードとインストール
 
-利用しているOSにあったパッケージを探してダウンロードします
-ダウンロード後はそのままインストールします
+利用しているOSにあったパッケージを探してダウンロードします  
+ダウンロード後はそのままインストールします  
 VirtualBoxは、Windows、Mac OSX、Linux用のインストーラーを提供しています
 
 #### Step 3 - 動作確認
@@ -42,10 +40,10 @@ _(Windowsの場合は、**Oracle VM VirtualBox** から起動出来ます)_
 {discussion}
 VirtualBoxって何ですか？
 
-VirtualBoxは、クロスプラットフォームの仮想化アプリケーションです
+VirtualBoxは、クロスプラットフォームの仮想化アプリケーションです  
 同時に（複数の仮想マシン内）複数のオペレーティングシステムを実行できるアプリケーションです
 
-VirtualBoxを使用して、OSの新バージョンをテストしたり、
+VirtualBoxを使用して、OSの新バージョンをテストしたり、  
 特定のOSのみでしか動作しないもののテスト等に最適です
 
 {/discussion}

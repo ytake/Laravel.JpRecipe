@@ -1,8 +1,6 @@
 ---
 Title:    Afterフィルターをコントローラーで登録する
-Topics:   filters
-Code:     Controller::afterFilter()
-Id:       45
+Topics:   filters, controller
 Position: 2
 ---
 
@@ -44,6 +42,7 @@ class MyController extends \Controller
 	  }
 }
 ```
+
 {/solution}
 
 {discussion}
@@ -52,3 +51,9 @@ class MyController extends \Controller
 コントローラーのメソッドが実行された後、レスポンスを返却する前にこのフィルターがコールされます  
 ユーザーにレスポンスを返す直前に何らかの処理が必要な場合に利用すると便利です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

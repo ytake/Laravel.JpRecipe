@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションからログアウトさせる
 Topics:   -
-Code:     Auth::logout(), Event::listen(), Log::info()
-Id:       224
 Position: 29
 ---
 
@@ -17,7 +15,8 @@ Position: 29
 \Auth::logout();
 ```
 
-これは、メモリからユーザーが消去され、セッションで保持されていたユーザーオブジェクト等もクリアされます。
+これは、メモリからユーザーが消去され、  
+セッションで保持されていたユーザーオブジェクト等もクリアされます
 {/solution}
 
 {discussion}
@@ -31,3 +30,9 @@ Position: 29
 });
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

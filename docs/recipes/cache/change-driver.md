@@ -1,14 +1,11 @@
 ---
 Title:    処理中にCacheのドライバーを変更する
 Topics:   cache, configuration
-Code:     -
-Id:       97
 Position: 25
 ---
 
 {problem}
-処理中に利用するCacheのドライバーを変更して、
-複数のドライバーを使い分けたい
+処理中に利用するCacheのドライバーを変更して、複数のドライバーを使い分けたい
 {/problem}
 
 {solution}
@@ -18,8 +15,8 @@ Position: 25
 \Cache::setDefaultDriver('memcached');
 ```
 
-リクエスト内の処理で、この指定以降でCacheに利用されるドライバーは
-memcachedとなります
+リクエスト内の処理で、  
+この指定以降でCacheに利用されるドライバーはmemcachedとなります
 {/solution}
 
 {discussion}
@@ -39,3 +36,7 @@ memcachedとなります
 ```
 
 {/discussion}
+
+{credit}
+Author:Yuuki Takezawa
+{/credit}

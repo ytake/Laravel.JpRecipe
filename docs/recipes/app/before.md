@@ -1,8 +1,6 @@
 ---
 Title:    "Before"フィルターを実装する
 Topics:   filters
-Code:     App::before()
-Id:       53
 Position: 6
 ---
 
@@ -32,7 +30,13 @@ Position: 6
 "before"フィルターを実装する一般的なファイルは、`app/filters.php`になりますが、  
 サービスプロバイダー等で実装する事も可能です。
 
-アプリケーション処理前に実行されるフィルターについて、理解を深める事ができます。  
+アプリケーション処理前に実行されるフィルターについて、理解を深める事ができます  
 [[リクエストのライフサイクルについて理解する]]  
 の実行手順のセクションに詳細が記述されています。  
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

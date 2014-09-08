@@ -5,15 +5,13 @@ Position: 20
 ---
 
 {problem}
-パスワードリマインダーテーブルが巨大になってきている。
-
-多くのレコードがテーブルに存在します。
+パスワードリマインダーテーブルに多くのレコードがあるため巨大になってきている
 {/problem}
 
 {solution}
-`php artisan auth:clear-reminders`コマンドが利用できます。
+`php artisan auth:clear-reminders`コマンドが利用できます
 
-このコマンドは`password_reminders`テーブルから期限切れトークンを全て削除します。
+このコマンドは`password_reminders`テーブルから期限切れトークンを全て削除します
 
 ```bash
 $ php artisan auth:clear-reminders
@@ -21,15 +19,15 @@ $ php artisan auth:clear-reminders
 {/solution}
 
 {discussion}
-定期的にコマンドを実行してください。
+定期的にコマンドを実行してください
 
-１日１回、もしくは１週間に１回はcronのジョブでコマンドを実行することになるでしょう。
+１日１回、もしくは１週間に１回はcronのジョブでコマンドを実行することになるでしょう
 {/discussion}
 
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

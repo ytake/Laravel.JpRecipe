@@ -1,8 +1,6 @@
 ---
 Title:    namespaceを利用した開発方法
 Topics:   namespace, psr, facades
-Code:     -
-Id:       43
 Position: 12
 ---
 
@@ -14,7 +12,7 @@ PSR−0、PSR−1、PSR−2、PSR−4コーディング規約については理�
 {/problem}
 
 {solution}
-[[PSR-0準拠のディレクトリ構造]]にも記されている通り、
+[[PSR-0準拠のディレクトリ構造]]にも記されている通り、  
 composer.jsonを編集します。
 
 編集後に autoloadファイルを再生成しましょう
@@ -51,7 +49,7 @@ class AcmeController extends BaseController
 ```
 
 ### Facadeをインポート
-useで利用するファサードをインポートします。  
+useで利用するファサードをインポートします  
 これはFacadeをそのまま指定するか、または`Illuminate\Support\Facades`を指定します
 
 ```php
@@ -76,8 +74,8 @@ class AcmeController extends BaseController
 {/solution}
 
 {discussion}
-利用環境にもよりますが、pecl Eventをインストールしている環境では、
-Eventが衝突するため、下記の様にして回避する必要があります。
+利用環境にもよりますが、pecl Eventをインストールしている環境では、  
+Eventが衝突するため、下記の様にして回避する必要があります
 
 ```php
 <?php
@@ -95,5 +93,10 @@ class AcmeModel
 ```
 
 名前空間についてしっかりと理解する事で、対応する事が出来ます
-
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

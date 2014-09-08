@@ -49,6 +49,17 @@ class BaseController extends Controller
     }
 
     /**
+     * @param null $string
+     * @return void
+     */
+    protected function description($string = null)
+    {
+        $description = ($string) ? " | $string" : null;
+        $description = \Config::get('recipe.description_prefix') . $description . " レシピ";
+        \View::inject('description', $description);
+    }
+
+    /**
      * @access private
      * @param array $array
      * @return array

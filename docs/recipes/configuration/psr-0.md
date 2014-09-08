@@ -1,8 +1,6 @@
 ---
 Title:    PSR-0準拠のディレクトリ構造
 Topics:   configuration, psr-0
-Code:     -
-Id:       46
 Position: 9
 ---
 
@@ -34,7 +32,7 @@ PSR-0に準拠したディレクトリ構造を利用してみましょう
 }
 ```
 
-ここでは、`"classmap"` から使用していないディレクトリを全て削除して、
+ここでは、`"classmap"` から使用していないディレクトリを全て削除して、  
 `"psr-0"`を利用するディレクトリを追加します
 
 autoloadファイルを再生成します
@@ -66,3 +64,9 @@ class MiscController extends \Controller
 PSR-0を利用する事で、  
 "どこにコードを実装したら良いですか？"から"どうやって構造化するべきですか？"と考え方に変化をもたらします
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

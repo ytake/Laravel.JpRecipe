@@ -1,8 +1,6 @@
 ---
 Title:    Apache VirtualHostの作成
 Topics:   Apache, configuration
-Code:     -
-Id:       25
 Position: 2
 ---
 
@@ -19,6 +17,7 @@ Position: 2
 $ cd /etc/apache2/sites-available
 $ sudo vi myapp.conf
 ```
+
 **お使いのOSでオペレーションは若干異なります**
 
 `/home/vagrant/projects/myapp`に設置しているとすると・・
@@ -59,9 +58,10 @@ export APACHE_RUN_GROUP=vagrant
 
 ファイルを保存して、再起動します
 
-```bash
+```text
 $ sudo service apache2 restart
 ```
+
 {/solution}
 
 {discussion}
@@ -73,3 +73,9 @@ $ sudo service apache2 restart
 
 上記の環境の場合は、`http://myapp.localhost.com`にアクセスすると、Laravelプロジェクトにアクセスできる様になります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュに保存されているアイテムの値をインクリメントする
 Topics:   cache
-Code:     Config::increment()
-Id:       273
 Position: 21
 ---
 
@@ -17,7 +15,7 @@ Position: 21
 $value = \Cache::increment('key');
 ```
 
-最初にメソッドがコールされた場合に`$value`が1となり、
+最初にメソッドがコールされた場合に`$value`が1となり、  
 その次は2、というようにインクリメントされて返却される様になります
 
 インクリメントする値を指定することも可能です
@@ -30,3 +28,9 @@ $value = \Cache::increment('key', 50);
 {discussion}
 ファイル、データベースでキャッシュを利用している場合は動作しません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

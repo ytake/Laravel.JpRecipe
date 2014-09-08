@@ -1,8 +1,6 @@
 ---
 Title:    Bladeで親セクションの内容を利用する
-Topics:   -
-Code:     @parent
-Id:       245
+Topics:   Blade
 Position: 17
 ---
 
@@ -38,9 +36,9 @@ Bottom
 {/solution}
 
 {discussion}
-`@extend`を使用する場合は、
-まず既存のテンプレートをロードして処理します
-その後、`@extend`で指定されたテンプレートが処理されます。
+`@extend`を使用する場合は、  
+まず既存のテンプレートをロードして処理します  
+その後、`@extend`で指定されたテンプレートが処理されます
 
 `@extend` と `@parent`はうまく互いに補完しあった方法をとっています
 {/discussion}

@@ -1,8 +1,6 @@
 ---
 Title:    リセットボタンを作成する
 Topics:   forms
-Code:     Form::reset()
-Id:       169
 Position: 19
 ---
 
@@ -41,3 +39,9 @@ Bladeテンプレートでリセットボタンを作成したい
 {discussion}
 特にありません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

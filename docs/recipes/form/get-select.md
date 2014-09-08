@@ -1,8 +1,6 @@
 ---
 Title:    選択オプションを取得
 Topics:   forms, html
-Code:     Form::getSelectOption()
-Id:       180
 Position: 29
 ---
 
@@ -31,6 +29,12 @@ $html = Form::getSelectOption('My Option', 1, 3);
 {discussion}
 これはマクロに使用されるケースが多いでしょう
 
-セレクトボックスを利用したマクロを実装している場合は、
+セレクトボックスを利用したマクロを実装している場合は、  
 オプションを構築する際に、非常に便利なメソッドではないでしょうか？
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

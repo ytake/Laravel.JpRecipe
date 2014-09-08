@@ -1,8 +1,6 @@
 ---
 Title:    認証に使うモデルを変更する
 Topics:   authentication, configuration
-Code:     config/auth.php, RemindableInterface, UserInterface
-Id:       11
 Position: 8
 ---
 
@@ -14,21 +12,21 @@ Position: 8
 {/problem}
 
 {solution}
-`app/config/auth.php` のモデルの項目を変更しましょう。
+`app/config/auth.php` のモデルの項目を変更しましょう
 
 ```php
 'model' => 'MyApp\Models\User',
 ```
-例えばこの様な指定になります。
+例えばこの様な指定になります
 
 {/solution}
 
 {discussion}
-認証で利用するモデルは、決まったインターフェースを実装している必要があります。
+認証で利用するモデルは、決まったインターフェースを実装している必要があります
 
-認証に独自のモデルを利用する場合は、必ず`UserInterface`を実装して下さい。  
+認証に独自のモデルを利用する場合は、必ず`UserInterface`を実装して下さい  
 また、パスワードのリマインダーを利用する場合は、  
-`RemindableInterface`を必ず実装しなければなりません。
+`RemindableInterface`を必ず実装しなければなりません
 
 ```php
 <?php
@@ -43,3 +41,9 @@ class User extends \Eloquent implements UserInterface, RemindableInterface
 }
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

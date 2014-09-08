@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュで永久的にアイテムを保存する
 Topics:   cache
-Code:     Cache::flush(), Cache::forever()
-Id:       269
 Position: 18
 ---
 
@@ -23,6 +21,12 @@ Position: 18
 {discussion}
 キャッシュをクリアすると、永久的なアイテムも削除されます
 
-`artisan cache:clear`、または`Cache::flush()`をコールすると
+`artisan cache:clear`、または`Cache::flush()`をコールすると  
 `Cache::forever()`で保存したアイテムも全て削除されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

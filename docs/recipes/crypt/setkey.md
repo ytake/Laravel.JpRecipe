@@ -1,8 +1,6 @@
 ---
 Title:    暗号化キーを設定する
 Topics:   encryption
-Code:     Config::get(), Crypt::decrypt(), Crypt::encrypt(), Crypt::setKey()
-Id:       107
 Position: 3
 ---
 
@@ -23,8 +21,13 @@ Position: 3
 
 ですが、これらが有効なのは現在のリクエスト中のみです
 
-Laravelは自動で`Config::get('app.key')`をコールして、
-暗号化で利用します。
-キーを変更した場合,
+Laravelは自動で`Config::get('app.key')`をコールして、暗号化で利用します  
+キーを変更した場合、  
 `Crypt::decrypt()`が正しく複合化するのは、暗号化で利用したキーの場合のみとなります
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

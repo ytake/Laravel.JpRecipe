@@ -1,8 +1,6 @@
 ---
 Title:    Cookieやsessionを使わない認証
 Topics:   -
-Code:     Auth::once()
-Id:       215
 Position: 20
 ---
 
@@ -28,3 +26,9 @@ if (!$logged_in) {
 
 このメソッドはテストで利用すると便利です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

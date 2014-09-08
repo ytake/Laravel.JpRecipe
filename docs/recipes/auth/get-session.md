@@ -1,8 +1,6 @@
 ---
 Title:    認証に利用されているセッションストアを取得
 Topics:   -
-Code:     Auth::getSession()
-Id:       237
 Position: 42
 ---
 
@@ -11,7 +9,7 @@ Position: 42
 {/problem}
 
 {solution}
-`Auth::getSession()`メソッドを利用します。
+`Auth::getSession()`メソッドを利用します
 
 ```php
 $request = Auth::getSession();
@@ -19,10 +17,16 @@ $request = Auth::getSession();
 {/solution}
 
 {discussion}
-通常は`Session`ファサードを用いてアクセスします。
+通常は`Session`ファサードを用いてアクセスします
 
 デフォルトでは、Laravelは`Session`ファサードと`Auth`ファサードの両方で  
-同じセッションストアを使用しています。  
+同じセッションストアを使用しています  
 アプリケーションで明示的にセッションストアの設定しない場合は、  
-`Session`ファサードを利用する事で簡単に取得する事ができます。
+`Session`ファサードを利用する事で簡単に取得する事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

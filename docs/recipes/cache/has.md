@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュにアイテムが存在するか確認する
 Topics:   cache
-Code:     Config::has()
-Id:       102
 Position: 10
 ---
 
@@ -32,3 +30,9 @@ if (!Cache::has('test-null')) {
 }
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

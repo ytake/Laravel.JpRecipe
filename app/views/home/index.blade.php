@@ -114,7 +114,9 @@ $(document).ready(function() {
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-sort-by-attributes"></span>&nbsp;&nbsp;人気レシピ</div>
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-sort-by-attributes"></span>&nbsp;&nbsp;人気レシピ
+            </div>
             <div class="panel-body">
                 <table class="table">
                     <tr>

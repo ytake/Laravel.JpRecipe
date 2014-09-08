@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュキーにプレフィックスを利用する
 Topics:   cache
-Code:     -
-Id:       276
 Position: 24
 ---
 
@@ -28,6 +26,12 @@ return [
 {discussion}
 キャッシュを保存する場合や、検索する場合に自動的に指定したプレフィックスが使われます
 
-ファイル、配列をキャッシュドライバーをお使いの場合は利用できません。
+ファイル、配列をキャッシュドライバーをお使いの場合は利用できません  
 これらのドライバーはそのアプリケーション固有のキャッシュに利用されるため、プレフィックスは使用されません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

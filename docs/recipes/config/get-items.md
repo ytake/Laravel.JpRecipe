@@ -1,8 +1,6 @@
 ---
 Title:    config全てを取得する
 Topics:   configuration
-Code:     Config::get(), Config::getItems()
-Id:       40
 Position: 5
 ---
 
@@ -22,7 +20,7 @@ configの全ての項目を表示したい
 var_dump(\Config::getItems())
 ```
 
-特定のグループ(config/配下のファイル名等)のconfigを主取るする場合は、
+特定のグループ(config/配下のファイル名等)のconfigを主取るする場合は、  
 `Config::('groupname')`を使用します
 
 ```php
@@ -34,8 +32,8 @@ var_dump(\Config::get('database'));
 {discussion}
 `Config::getItems()`はロードされたものだけを出力します
 
-例えば、 _queue_ がまだロードされていない場合は、
-`Config::getItems()`では取得出来ません。
+例えば、 _queue_ がまだロードされていない場合は、  
+`Config::getItems()`では取得出来ません
 
 この場合は、取得したい項目を直接指定してアクセスします
 
@@ -46,3 +44,9 @@ var_dump(\Config::get('database'));
 var_dump(\Config::getItems());
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

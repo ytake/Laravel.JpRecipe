@@ -1,8 +1,6 @@
 ---
 Title:    キャッシュからアイテムを取得する
 Topics:   cache
-Code:     Cache::get()
-Id:       265
 Position: 14
 ---
 
@@ -20,7 +18,7 @@ if ($value === null) {
 }
 ```
 
-値が見つからない(または有効期限切れ)場合は、`Cache::get()`はデフォルトを返却します
+値が見つからない(または有効期限切れ)場合は、`Cache::get()`はデフォルトを返却します  
 デフォルトが第二引数で指定されていない場合は`null`が返却されます
 
 ```php
@@ -33,7 +31,7 @@ echo $value;
 {discussion}
 `null`も保存される事に注意して下さい
 
-`Cache::get()`のデフォルト値は`null`のため、
+`Cache::get()`のデフォルト値は`null`のため、  
 第二引数で指定しない限り`null`が返却されます
 
 次のコードの場合、常に`true`となります
@@ -49,3 +47,9 @@ if (Cache::get('test1') == Cache::get('test2')) {
 }
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

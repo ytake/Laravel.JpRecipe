@@ -1,8 +1,6 @@
 ---
 Title:    セレクトボックスを作成する
 Topics:   forms
-Code:     Form::select()
-Id:       163
 Position: 13
 ---
 
@@ -114,3 +112,9 @@ Bladeテンプレートでセレクトボックスを作成したい
 </select>
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

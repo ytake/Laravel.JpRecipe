@@ -1,8 +1,6 @@
 ---
 Title:    現在の言語環境を設定する
 Topics:   -
-Code:     App::setLocale()
-Id:       208
 Position: 26
 ---
 
@@ -19,7 +17,8 @@ Position: 26
 ```
 
 リクエストの処理内で`es`に変更したとして、  
-次の処理をする場合は、またアプリケーションで設定されているデフォルトの言語環境に戻る事を覚えておいてください
+次の処理をする場合は、  
+アプリケーションで設定されているデフォルトの言語環境に戻る事を覚えておいてください
 {/solution}
 
 {discussion}
@@ -31,3 +30,9 @@ Position: 26
 2. 翻訳関連処理で言語を指定する
 3. `locale.changed`イベントをアプリケーションで検知する
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

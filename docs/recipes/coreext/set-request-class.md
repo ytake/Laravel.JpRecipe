@@ -1,8 +1,6 @@
 ---
 Title:    デフォルトのリクエストクラスを変更する
 Topics:   -
-Code:     App::requestClass()
-Id:       210
 Position: 4
 ---
 
@@ -13,8 +11,8 @@ Position: 4
 {solution}
 ライフサイクルの早期段階で`Application::requestClass()`を利用します
 
-Laravelアプリケーションが起動する際に`Application`クラスが生成され、
-`Application`クラスが最初にリクエストクラスのインスタンスを生成するので、
+Laravelアプリケーションが起動する際に`Application`クラスが生成され、  
+`Application`クラスが最初にリクエストクラスのインスタンスを生成するので、  
 生成される前に変更しなければなりません
 
 #### Step 1 - クラスを作成する
@@ -41,16 +39,23 @@ use Illuminate\Foundation\Application;
 Application::requestClass('MyApp\Request');
 ```
 
-これだけです！
-`Application`が構築されるときに、`Illuminate\Http\Request`に変わって独自のクラスが利用されます
+これだけです！  
+`Application`が構築されるときに、  
+`Illuminate\Http\Request`に変わって独自のクラスが利用されます
 {/solution}
 
 {discussion}
-`Application::requestClass()`にクラスを指定しない場合は、リクエストクラスを設定せずに
-利用されるリクエストクラス名を返却します
+`Application::requestClass()`にクラスを指定しない場合は、  
+リクエストクラスを設定せずに利用されるリクエストクラス名を返却します
 
 [[デフォルトのRequestクラスを取得する]] をご覧下さい
 
-リクエストライフサイクルの初期で設定されるため、
+リクエストライフサイクルの初期で設定されるため、  
 この段階では`App`ファサードを利用する事はできません
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

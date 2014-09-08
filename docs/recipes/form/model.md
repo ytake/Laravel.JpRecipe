@@ -1,9 +1,6 @@
 ---
 Title:    モデルをベースにしたフォームを作成する
 Topics:   forms
-Code:     Form::checkbox(), Form::input(), Form::model(), Form::open(),
-          Form::radio(), Form::select(), Form::textarea()
-Id:       151
 Position: 2
 ---
 
@@ -32,3 +29,9 @@ Position: 2
 2. **明示的に指定したデータ** 例えば、`Form::input()`をコールする際に`$value`引数に値を指定した場合に、次にこの値が使用されます
 3. **モデル データ** フォームフィールドと同じ名前の属性を持っている場合に、その値が使用されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

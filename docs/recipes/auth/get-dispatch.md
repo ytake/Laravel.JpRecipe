@@ -1,8 +1,6 @@
 ---
 Title:    認証で使用されるイベントを取得する
 Topics:   -
-Code:     Auth::getDispatcher()
-Id:       231
 Position: 36
 ---
 
@@ -22,7 +20,14 @@ $events = Auth::getDispatcher();
 通常は`Event`ファサードを利用してアクセス、取得する事ができます
 
 デフォルトでは、Laravelは`Event`ファサードと`Auth`ファサードの両方で  
-同じイベント·ドライバを使用しています。  
+同じイベント·ドライバを使用しています
+
 アプリケーションで明示的にイベントディスパッチャーを設定しない場合は、  
-`Event`ファサードを利用する事で簡単に取得する事ができます。
+`Event`ファサードを利用する事で簡単に取得する事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

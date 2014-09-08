@@ -1,13 +1,11 @@
 ---
 Title:    以前の入力値が空かどうかを確認する
 Topics:   forms
-Code:     Form::oldInputIsEmpty()
-Id:       177
 Position: 26
 ---
 
 {problem}
-以前の入力値があるかどうかを確認したい
+以前の入力値があるかどうかを確認したい  
 (前回 フォームに送信したデータを指します)
 {/problem}
 
@@ -24,3 +22,9 @@ if (!\Form::oldInputIsEmpty()) {
 {discussion}
 [[セッションから前の入力値を取得する]] も参考にして下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

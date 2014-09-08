@@ -15,12 +15,13 @@ Position: 26
 $ php artisan asset:publish cool-package
 ```
 
-サードパーティのパッケージをアプリケーションの`public/packages/cool-package`ディレクトリへコピーし、
-ウェブ上で利用することが出来ます。
+サードパーティのパッケージをアプリケーションの`public/packages/cool-package`ディレクトリへコピーし、  
+ウェブ上で利用することが出来ます
 {/solution}
 
 {discussion}
-Laravel向けではないパッケージでは、パスを指定しなければならない可能性があります。
+Laravel向けではないパッケージでは、  
+パスを指定しなければならない可能性があります
 
 ```bash
 $ php artisan asset:publish cool-package --path=/package/dir
@@ -36,7 +37,7 @@ $ php artisan asset:publish --bench=cool-package
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

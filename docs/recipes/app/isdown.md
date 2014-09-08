@@ -1,8 +1,6 @@
 ---
 Title:    アプリケーションの停止がメンテナンスが理由で停止しているのか判定する
 Topics:   -
-Code:     App::isDownForMaintenance()
-Id:       120
 Position: 14
 ---
 
@@ -34,3 +32,9 @@ if (\App::isDownForMaintenance()) {
 * [[メンテナンスモードを作成したい]]
 * [[アプリケーションのメンテナンスモードを解除したい]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    デフォルトのRequestクラスを取得する
 Topics:   -
-Code:     App::requestClass()
-Id:       209
 Position: 27
 ---
 
@@ -19,7 +17,13 @@ echo "Request Class = ", \App::requestClass();
 {/solution}
 
 {discussion}
-デフォルトのリクエストクラスを変更する場合も同じクラスを利用しますが、
-指定の方法は、少し異なります。  
-[[Changing the Default Request Class]]を参考にしてください。
+デフォルトのリクエストクラスを変更する場合も同じクラスを利用しますが、  
+指定の方法は、少し異なります  
+[[デフォルトのリクエストクラスを変更する]]を参考にしてください。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,22 +1,20 @@
 ---
 Title:    Bladeが使用するエスケープタグを変更する
-Topics:   -
-Code:     Blade::setEscapedContentTags()
-Id:       247
+Topics:   Blade
 Position: 19
 ---
 
 {problem}
 Bladeのエスケープタグにデフォルトとは異なるものを利用したい
 
-Bladeは`{{{` と `}}}` を利用して内容を表示しますが、
+Bladeは`{{{` と `}}}` を利用して内容を表示しますが、  
 他のタグに変更してみましょう
 {/problem}
 
 {solution}
 `Blade::setEscapedContentTags()`メソッドを利用します
 
-例えば、タグに`[{{` と `}}]`を利用するとしましょう
+例えば、タグに`[{{` と `}}]`を利用するとしましょう  
 まずはメソッドをコールします
 
 ```php

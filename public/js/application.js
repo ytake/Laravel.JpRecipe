@@ -4,8 +4,7 @@ $(document).ready(function(){
 		languages: {
 			'php': "language-php",
 			'js': "language-js",
-			'bash': "language-bash",
-            'text': "language-text"
+			'bash': "language-bash"
 		}
 	});
 	hljs.initHighlightingOnLoad();

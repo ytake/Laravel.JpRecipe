@@ -1,8 +1,6 @@
 ---
 Title:    Bladeテンプレートのコメント
 Topics:   Blade
-Code:     -
-Id:       86
 Position: 6
 ---
 

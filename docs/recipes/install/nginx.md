@@ -1,13 +1,11 @@
 ---
 Title:    Nginxをインストールする
 Topics:   installation, Nginx
-Code:     -
-Id:       21
 Position: 7
 ---
 
 {problem}
-まだWebサーバがインストールされていないので
+まだWebサーバがインストールされていないので  
 Laravelアプリケーションを利用するWebサーバをインストールしたい
 {/problem}
 
@@ -20,6 +18,7 @@ Nginxをインストールします
 $ sudo apt-get install -y php5-fpm nginx
 $ sudo service nginx start
 ```
+
 {/solution}
 
 {discussion}
@@ -31,3 +30,9 @@ Nginxは高速で、設定も簡単で、Apacheのようにメモリを多く使
 
 [[Nginx VirtualHostの作成]] も参考にしてください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    フィールド名のID属性を取得する
 Topics:   forms
-Code:     Form::getIdAttribute(), Form::macro()
-Id:       174
 Position: 23
 ---
 
@@ -17,12 +15,19 @@ Position: 23
 $id = \Form::getIdAttribute('fieldname', $attributes);
 ```
 
-フィールドにIDがあればIDを返却し、
+フィールドにIDがあればIDを返却し、  
 フィールドにIDが無い場合は、`null`を返却します
 {/solution}
 
 {discussion}
 これはマクロに使用されるケースが多いでしょう
 
-フォームマクロについては、 [[Formマクロを作成する]] レシピを参考にしてください
+フォームマクロについては、  
+[[Formマクロを作成する]] レシピを参考にしてください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -23,7 +23,7 @@ $string ＝ \HTML::decode('&amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;');
 {discussion}
 このメソッドはPHPの`html_entity_decode()`ラッパー関数です
 
-具体的には`html_entity_decode($value, ENT_QUOTES, 'UTF-8')`をコールしています
+具体的には`html_entity_decode($value, ENT_QUOTES, 'UTF-8')`をコールしています  
 これらのオプションは`HTML::entities()`で`htmlentities()`に指定されたものを補完しています
 {/discussion}
 

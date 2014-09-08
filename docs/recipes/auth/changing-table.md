@@ -1,40 +1,38 @@
 ---
 Title:    認証で利用するテーブルを変更する
 Topics:   authentication, configuration
-Code:     config/auth.php
-Id:       12
 Position: 9
 ---
 
 {problem}
-アプリケーションで認証に利用するテーブルは **users** ではなく他のものを利用したい。
+アプリケーションで認証に利用するテーブルは **users** ではなく他のものを利用したい
 
 認証ドライバを **database** で利用していて、  
 Laravelデフォルトの`users`テーブル以外のものを指定したい
 {/problem}
 
 {solution}
-`app/config/auth.php`のテーブル項目を変更しましょう。
+`app/config/auth.php`のテーブル項目を変更しましょう
 
 ```php
 'table' => 'administrators',
 ```
 
-この例は、利用するテーブルを **administrators** に変更した例です。
+この例は、利用するテーブルを **administrators** に変更した例です
 {/solution}
 
 {discussion}
 テーブル名を変更して、  
 且つソースコードに変更を加えたくない場合は、  
-Laravelが認証で必要とするカラムがある事を忘れないで下さい。
+Laravelが認証で必要とするカラムがある事を忘れないで下さい
 
 認証で必要とされるカラムはいくつかありますが、  
 プライマリに`id`、  
-パスワードには`password`  
-が必要であり、その他にユーザー情報を持たせるカラム等がありますが、  
-`email`か`username`カラムを用意して下さい。
+パスワードには`password`が必要であり、  
+その他にユーザー情報を持たせるカラム等がありますが、  
+`email`か`username`カラムを用意して下さい
 
-[[資格情報を使って認証する]]で述べた様に下記の様なカラムを用意するとスムーズです。
+[[資格情報を使って認証する]] で述べた様に下記の様なカラムを用意するとスムーズです
 ```php
 <?php
 
@@ -77,6 +75,11 @@ class CreateUsersTable extends Migration
 
 ```
 これ以外にも、  
-独自のカラムなどの場合でも、簡単に認証を実装する事が可能です。  
-
+独自のカラムなどの場合でも、簡単に認証を実装する事が可能です
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

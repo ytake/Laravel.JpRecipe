@@ -1,8 +1,6 @@
 ---
 Title:    コレクション内の項目をレンダリングする
-Topics:   -
-Code:     @foreach
-Id:       239
+Topics:   Blade
 Position: 11
 ---
 
@@ -44,7 +42,7 @@ Items:
 @each('items.single', $items, 'item', 'items.empty')
 ```
 
-`$items`が空の場合に`items.empty`ビューがレンダリングされます。
+`$items`が空の場合に`items.empty`ビューがレンダリングされます  
 第四引数にビューではなく、文字列を指定する事も可能です
 
 ```html

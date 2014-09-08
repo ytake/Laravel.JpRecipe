@@ -1,15 +1,13 @@
 ---
 Title:    セッションから前の入力値を取得する
 Topics:   forms
-Code:     Form::old()
-Id:       176
 Position: 25
 ---
 
 {problem}
 ページを再表示した時に、以前入力した値を取得したい
 
-Laraveはフィールドの値をセッションに保存し、
+Laraveはフィールドの値をセッションに保存し、  
 ページを再表示した場合等に、以前の入力値を取得する事が出来ます
 {/problem}
 
@@ -32,10 +30,16 @@ return \Redirect::to('リダイレクト先')->withInput();
 {discussion}
 これはマクロに使用されるケースが多いでしょう
 
-入力エラーなどの場合において、
+入力エラーなどの場合において、  
 エラーメッセージ表示と、ユーザーの入力した値を再利用してフォームを再描画する場合等に利用されるでしょう
 
 ただし、再利用は一回だけです
 
-[[Getting the Value Attribute a Field Should Use]] も参考にして下さい
+[[優先度を付けた入力値の取得]] も参考にして下さい
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

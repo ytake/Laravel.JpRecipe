@@ -1,9 +1,6 @@
 ---
 Title:    デフォルトで利用されている言語環境を取得する
 Topics:   localization
-Code:     App::getLocale(), Lang::getLocale(), Lang::locale(),
-          Lang::setLocale()
-Id:       253
 Position: 4
 ---
 
@@ -15,7 +12,7 @@ Position: 4
 `Lang::getLocale()`メソッド、  
 またはエイリアスの`Lang::locale()`を利用します
 
-translatorが利用している現在のデフォルト言語環境を取得します。
+translatorが利用している現在のデフォルト言語環境を取得します
 
 ```php
 echo Lang::getLocale();
@@ -29,6 +26,12 @@ echo Lang::getLocale();
 `App::getLocale()`は、コンフィグファイルで指定されている言語環境を取得します
 
 ほとんどの場合は、同じ値を返却しますが、  
-`Lang::setLocale()`で任意で変更された場合は異なる値を返却します。  
+`Lang::setLocale()`で任意で変更された場合は異なる値を返却します  
 ただし、システムに影響は与えず変更されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

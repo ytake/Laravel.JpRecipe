@@ -1,8 +1,6 @@
 ---
 Title:    翻訳を確認
 Topics:   localization
-Code:     Lang::has()
-Id:       251
 Position: 2
 ---
 
@@ -35,3 +33,9 @@ if (Lang::has('message.welcome', 'es')) {
 
 引数が指定されていない場合は、現在実行中の言語が指定されます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,12 +1,6 @@
 ---
 Title:    HTMLマクロを作成する
 Topics:   html
-Code:     HTML::attributes(), HTML::decode(), HTML::email(),
-          HTML::entities(), HTML::image(), HTML::link(), HTML::linkAction(),
-          HTML::linkAsset(), HTML::linkRoute(), HTML::linkSecureAsset(),
-          HTML::macro(), HTML::mailto(), HTML::obfuscate(), HTML::ol(),
-          HTML::script(), HTML::secureLink(), HTML::style(), HTML::ul()
-Id:       181
 Position: 3
 ---
 
@@ -19,7 +13,7 @@ Position: 3
 
 `HTML::macro()`は`HTML`ファサードを拡張して、独自のメソッドを追加する事ができます
 
-最初にマクロを登録しましょう
+最初にマクロを登録しましょう  
 その後に`HTML`ファサードを拡張して利用出来る様にします
 
 `app/start/global.php`ファイルに下記の様に追加してみましょう
@@ -59,7 +53,7 @@ Position: 3
 });
 ```
 
-`HTML::sumthin()`に必須の引数一つと、二つのオプションを追加しました。
+`HTML::sumthin()`に必須の引数一つと、二つのオプションを追加しました  
 引数を指定しない場合、Laravelはエラーを返します
 
 テンプレートで以下の様に記述します
@@ -82,8 +76,8 @@ Position: 3
 {discussion}
 ソースコードを見てみましょう！
 
-`vendor/laravel/src/Illuminate\Html`ディレクトリの`HtmlBuilder.php`を見ると、
-リファレンス等に載っていないいくつかのpublicメソッドがあります。
+`vendor/laravel/src/Illuminate\Html`ディレクトリの`HtmlBuilder.php`を見ると、  
+リファレンス等に載っていないいくつかのpublicメソッドがあります
 
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
@@ -107,3 +101,9 @@ Position: 3
 
 マクロから他のマクロをコールする事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

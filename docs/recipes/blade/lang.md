@@ -1,8 +1,6 @@
 ---
 Title:    Bladeテンプレートで他言語対応をする
-Topics:   -
-Code:     @lang, Lang::get()
-Id:       250
+Topics:   Blade
 Position: 20
 ---
 
@@ -19,12 +17,12 @@ Bladeテンプレートで他言語対応をしたい
 @lang('messages.welcome')
 ```
 
-現在のロケールの`messages.php`に`welcome`キーがあれば、
+現在のロケールの`messages.php`に`welcome`キーがあれば、  
 ロケールに合わせたメッセージが出力されます
 
 現在のロケールに含まれない場合はそのまま`messages.welcome`が出力されます
 
-メッセージにプレースホルダが利用されている場合は、
+メッセージにプレースホルダが利用されている場合は、  
 第二引数に配列を使って指定します
 
 ```html

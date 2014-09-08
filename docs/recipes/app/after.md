@@ -1,8 +1,6 @@
 ---
 Title:    フィルター"After"を実装する
 Topics:   filters
-Code:     App::after()
-Id:       54
 Position: 7
 ---
 
@@ -11,7 +9,7 @@ Position: 7
 {/problem}
 
 {solution}
-フィルターの"after"をフレームワークに登録します。
+フィルターの"after"をフレームワークに登録します
 
 ```php
 \App::after(function($request, $response) {
@@ -28,5 +26,11 @@ Position: 7
 このフィルターはレスポンスのオブジェクトを受け取った後に実行される為、  
 レスポンスをフィルター内で変更する事ができます  
 こちらも参考にしてみて下さい [[リクエストのライフサイクルについて理解する]]  
-アプリケーション処理後に実行されるフィルターについて、理解を深める事ができます。
+アプリケーション処理後に実行されるフィルターについて、理解を深める事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

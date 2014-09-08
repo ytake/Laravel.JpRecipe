@@ -1,8 +1,6 @@
 ---
 Title:    Memcachedをインストールする
 Topics:   cache, installation, memcached
-Code:     -
-Id:       93
 Position: 11
 ---
 
@@ -27,5 +25,11 @@ $ sudo service apache2 restart
 {discussion}
 memcachedをcache等で利用するには設定をする必要があります
 
-指定方法は[[Setting up the Memcached Cache Driver]]をご覧ください
+指定方法は[[キャッシュドライバーにmemcachedを利用する]] をご覧ください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

@@ -1,8 +1,6 @@
 ---
 Title:    configの値を取得する
 Topics:   configuration
-Code:     Config::get()
-Id:       9
 Position: 3
 ---
 
@@ -29,11 +27,17 @@ $default = \Config::get('non.existant.config.key', 'I am default');
 {discussion}
 Laravelはconfigの値は、リクエスト内でキャッシュして利用されます
 
-最初にconfigの値を取得した場合、
-全体の設定値がロードされ、それぞれの動作環境別のconfigとマージされます
-([[実行環境の決定]]も参考にしてください)
+最初にconfigの値を取得した場合、  
+全体の設定値がロードされ、それぞれの動作環境別のconfigとマージされます  
+([[実行環境の決定]]も参考にしてください)  
 これらは現在のリクエスト内のみで有効になります
 
-リクエスト内の処理では、
+リクエスト内の処理では、  
 configにアクセスする度に、ファイルをロードするという事はありません。
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

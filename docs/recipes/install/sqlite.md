@@ -1,8 +1,6 @@
 ---
 Title:    SQLiteをインストールする
 Topics:   installation, SQLite
-Code:     -
-Id:       119
 Position: 14
 ---
 
@@ -27,9 +25,15 @@ $ sudo service (apache2|nginx) restart
 {discussion}
 SQLiteはサーバを必要としません
 
-SQLiteはスタンドアローンのデータベースエンジンです
-webアプリケーションではtestなどによく利用されていますが、
+SQLiteはスタンドアローンのデータベースエンジンです  
+webアプリケーションではtestなどによく利用されていますが、  
 小さいアプリケーションで利用するのもおすすめです
 
 こちらも参考にしてください [[SQLiteドライバーの設定方法]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

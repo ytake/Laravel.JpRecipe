@@ -5,21 +5,21 @@ Position: 31
 ---
 
 {problem}
-新しいArtisanコマンドを追加したい。
+新しいArtisanコマンドを追加したい
 {/problem}
 
 {solution}
-`php artisan command:make`コマンドが利用できます。
+`php artisan command:make`コマンドが利用できます
 
-このコマンドは作成するコマンドの土台を設定してくれます。
+このコマンドは作成するコマンドの土台を設定してくれます
 
 ```bash
 $ php artisan command:make TestCommand
 Command created successfully.
 ```
 
-コマンドを実行することで`app/commands`ディレクトリの中に`TestCommand.php`を生成します。
-このファイルの内容は以下の通りです。
+コマンドを実行することで`app/commands`ディレクトリの中に`TestCommand.php`を生成します  
+このファイルの内容は以下の通りです
 
 ```php
 <?php
@@ -94,27 +94,27 @@ class TestCommand extends Command
 
 ```
 
-この状態から編集していく必要があります。
-コマンドの詳細を記述し、`fire()`メソッドを実装していきます。
+この状態から編集していく必要があります  
+コマンドの詳細を記述し、`fire()`メソッドを実装していきます
 {/solution}
 
 {discussion}
-次にコマンドをArtisanに認識させます。
+次にコマンドをArtisanに認識させます
 
-`app/start/artisan.php`ファイルに以下を追記してください。
+`app/start/artisan.php`ファイルに以下を追記してください
 
 ```php
 \Artisan::add(new TestCommand);
 ```
 
-プロジェクトの構造に応じて、オートローダーをダンプする必要があります。
+プロジェクトの構造に応じて、オートローダーをダンプする必要があります
 
 ```bash
 $ composer dump-autoload
 ```
 
-コマンドが使える形で作成できました。
-listコマンドを実行すると新しいコマンドが表示されていることでしょう。
+コマンドが使える形で作成できました  
+listコマンドを実行すると新しいコマンドが表示されていることでしょう
 
 ```bash
 $ php artisan list
@@ -124,7 +124,7 @@ $ php artisan list
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

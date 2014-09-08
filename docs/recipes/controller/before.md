@@ -1,8 +1,6 @@
 ---
 Title:    Beforeフィルターをコントローラーで登録する
-Topics:   filters
-Code:     Controller::beforeFilter()
-Id:       41
+Topics:   filters, controller
 Position: 1
 ---
 
@@ -66,3 +64,9 @@ class MyController extends \Controller
 実際にはルーター処理が実行される前に実行されます  
 [[リクエストのライフサイクルについて理解する]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

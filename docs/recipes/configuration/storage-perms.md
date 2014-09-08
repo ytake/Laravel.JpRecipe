@@ -1,8 +1,6 @@
 ---
 Title:    storageディレクトリの実行権限を変更する
 Topics:   Apache, configuration, Nginx, permissions
-Code:     -
-Id:       43
 Position: 8
 ---
 
@@ -11,7 +9,7 @@ Permission deniedエラーが発生している
 
 Laravelが何かをファイルに書き出そうとしていて、原因が実行権限によるものだと疑ってみましょう  
 この場合実行環境にもよりますが、アクセスしたときに何も表示されない真っ白な表示か、  
-またはExceptionが投げられます  
+またはExceptionが投げられます
 {/problem}
 
 {solution}
@@ -22,6 +20,7 @@ $ cd app/storage
 $ sudo chmod 777 *
 $ sudo chmod 666 */*
 ```
+
 {/solution}
 
 {discussion}
@@ -37,3 +36,9 @@ $ sudo chmod 666 */*
 * [[Apache VirtualHostの作成]]
 * [[Nginx VirtualHostの作成]]
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

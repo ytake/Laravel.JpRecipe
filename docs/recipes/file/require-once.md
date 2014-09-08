@@ -29,9 +29,3 @@ Author:Chuck Heintzelman
 
 Editor and Translator:Yuuki Takezawa
 {/credit}
-
-{credit}
-Author:Chuck Heintzelman
-
-Editor and Translator:Yuuki Takezawa
-{/credit}

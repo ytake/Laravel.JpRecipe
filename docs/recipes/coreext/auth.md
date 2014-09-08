@@ -1,13 +1,11 @@
 ---
 Title:    独自の認証ドライバーを利用する
 Topics:   extension
-Code:     -
-Id:       115
 Position: 1
 ---
 
 {problem}
-Laravelで用意されている認証ドライバーが、現在の仕様に合っていない等、
+Laravelで用意されている認証ドライバーが、現在の仕様に合っていない等、  
 独自のドライバーを作成して利用したい
 {/problem}
 
@@ -16,8 +14,8 @@ Laravelを拡張して独自のドライバーを作成します
 
 #### Step 1 - UserProviderInterfaceを実装する
 
-まず、認証を処理するクラスを作成しなければなりません
-ここではサンプルとしてランダムに資格情報を検証して、
+まず、認証を処理するクラスを作成しなければなりません  
+ここではサンプルとしてランダムに資格情報を検証して、  
 50%をダミーユーザーとして返却するものを紹介します
 
 ```php
@@ -134,9 +132,14 @@ class DummyAuthProvider implements UserProviderInterface
 {discussion}
 この例はあり得ない例ですが、独自認証ドライバーの基本的な追加方法を踏まえています
 
-このレシピサイトも独自のドライバーを使っています
-[Laravel.JpRecipe](https://github.com/ytake/Laravel.JpRecipe)
-またデータベースなども拡張して、
+このレシピサイトも独自のドライバーを使っています  
+[Laravel.JpRecipe](https://github.com/ytake/Laravel.JpRecipe)  
+またデータベースなども拡張して、  
 標準に含まれていないものを使って、拡張して作成する事もできますので参考にしてみましょう
-[Laravel.VoltDB](https://github.com/ytake/Laravel.VoltDB)
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

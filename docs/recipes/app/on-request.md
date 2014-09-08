@@ -1,8 +1,6 @@
 ---
 Title:    静的にデフォルトのリクエストクラスをコールする
 Topics:   -
-Code:     App::onRequest()
-Id:       212
 Position: 29
 ---
 
@@ -15,14 +13,14 @@ Position: 29
 {solution}
 `App::onRequest()`メソッドを利用します
 
-このメソッドは二つの引数、メソッド名、およびメソッドのパラメータの配列を取ります。  
-引数を仕様しない場合はパラメータの配列を省略することができます。
+このメソッドは二つの引数、メソッド名、およびメソッドのパラメータの配列を取ります  
+引数を仕様しない場合はパラメータの配列を省略することができます
 
 ```php
 $request = \App::onRequest('createFromGlobals');
 ```
 
-こちらも参考にしてください [[Changing the Default Request Class]].
+[[デフォルトのリクエストクラスを変更する]] も参考にしてください
 {/solution}
 
 {discussion}
@@ -45,8 +43,14 @@ $request = \App::onRequest('createFromGlobals');
 * `getHttpMethodParameterOverride()` - リクエストパラメータのサポートの状態を確認します
 
 デフォルトのリクエストクラスをオーバーライドしているのであれば、  
-任意のpublic、またはstaticメソッドなどを`App:: onRequest`で呼び出すことができます。
+任意のpublic、またはstaticメソッドなどを`App:: onRequest`で呼び出すことができます
 
-ここに挙げたリストは、任意で変更する事ができるということを覚えておいてください。  
+ここに挙げたリストは、任意で変更する事ができるということを覚えておいてください  
 現時点の利用可能なクラスなどは、ソースコードを直接確認してください
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

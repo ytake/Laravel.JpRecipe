@@ -5,24 +5,24 @@ Position: 21
 ---
 
 {problem}
-パスワードリマインダーを実装するためのコードを作成したい。
+パスワードリマインダーを実装するためのコードを作成したい
 {/problem}
 
 {solution}
-`php artisan auth:reminders-controller`コマンドが利用できます。
+`php artisan auth:reminders-controller`コマンドが利用できます
 
 ```bash
 $ php artisan auth:reminders-controller
 ```
 
-以下のルートのハンドラを含み、`app/controllers`ディレクトリにファイルが生成されます。
+以下のルートのハンドラを含み、`app/controllers`ディレクトリにファイルが生成されます
 
-* GET /password/remind - パスワードリマインダービューを表示します。
-* POST /password/remind - パスワードリマインドのPOSTリクエストをハンドルします。
-* GET /password/reset/{token} - トークンのためのパスワードリセットビューを表示します。
-* POST /password/reset - パスワードリセットのリクエストをハンドルします。
+* GET /password/remind - パスワードリマインダービューを表示します
+* POST /password/remind - パスワードリマインドのPOSTリクエストをハンドルします
+* GET /password/reset/{token} - トークンのためのパスワードリセットビューを表示します
+* POST /password/reset - パスワードリセットのリクエストをハンドルします
 
-メソッドを利用し、生成されたファイルは`controllers/RemindersController.php`にあります。
+メソッドを利用し、生成されたファイルは`controllers/RemindersController.php`にあります
 
 ```php
 <?php
@@ -101,7 +101,8 @@ class RemindersController extends Controller
 }
 ```
 
-上記のコントローラーをルートに設定するため`app/routes.php`ファイルに１行追加する必要があります。
+上記のコントローラーをルートに設定するため  
+`app/routes.php`ファイルに１行追加する必要があります。
 
 ```php
 \Route::controller('password', 'RemindersController');
@@ -109,17 +110,18 @@ class RemindersController extends Controller
 {/solution}
 
 {discussion}
-以下の変更が必要になります。
+以下の変更が必要になります
 
-`php artisan auth:reminders-controller`の利用はリマインダーを使い始めるには調度良いですが、
-おそらくアプリケーションにいくつかの変更をしたくなると思います。
+`php artisan auth:reminders-controller`の利用はリマインダーを使い始めるには丁度良いですが、  
+おそらくアプリケーションにいくつかの変更をしたくなると思います
 
-名前空間を使用している場合、コマンド実行後にRemindersControllerを別の場所に移動し、適切に編集し、ルートの編集を行います。
+名前空間を使用している場合、コマンド実行後にRemindersControllerを別の場所に移動し、  
+適切に編集し、ルートの編集を行います
 
 #### RESTfulな実装に変更
 
-何かをハンドリングする方法よりコントローラのルーティングを利用したRESTfulな方法に変更をするとよいでしょう。
-以下の様に行います。
+何かをハンドリングする方法よりコントローラのルーティングを利用したRESTfulな方法に変更をするとよいでしょう
+以下の様に行います
 
 * Change the `getRemind()` method to `index()`.
 * Change the `postRemind()` method to `store()`.
@@ -127,7 +129,7 @@ class RemindersController extends Controller
 * Change the `postReset()` method to `update()`.
 
 これに応じてビューを更新する必要があります。
-また、`app/routes.php`ファイルも同じく変更する必要があります。
+また、`app/routes.php`ファイルも同じく変更する必要があります
 
 ```php
 Route::resource('password', 'RemindersController', [
@@ -139,7 +141,7 @@ Route::resource('password', 'RemindersController', [
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

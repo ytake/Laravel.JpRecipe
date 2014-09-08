@@ -1,15 +1,11 @@
 ---
 Title:    実行環境の決定
 Topics:   configuration, environment
-Code:     App::detectEnvironment()
-Id:       27
 Position: 4
 ---
 
 {problem}
-本番環境と異なる設定をしたい
-
-開発環境、ステージング環境、本番環境とで異なる設定が必要な場合
+開発環境、ステージング環境、本番環境とで異なる設定をしたい
 {/problem}
 
 {solution}
@@ -30,10 +26,10 @@ $env = $app->detectEnvironment(array(
 実行しているPCのhostnameが'homestead'の場合に**local**環境を利用します
 
 #### 注意
-Laravel 4.1ではhostnameは使用しない、安全性に欠ける方法を利用していた為非難されました
+Laravel 4.1ではhostnameは使用しない、安全性に欠ける方法を利用していた為非難されました  
 現在は実行しているPCのhostnameを取得しています(`gethostname()`)
 
-利用しているPCの名前に変更してみましょう。  
+利用しているPCの名前に変更してみましょう  
 コマンドラインでは以下のコマンドで取得できます
 
 ```bash
@@ -72,6 +68,7 @@ return [
 	  'timezone' => 'Asia/Tokyo',
 ];
 ```
+
 {/solution}
 
 {discussion}
@@ -97,3 +94,9 @@ echo Config::get('app.timezone');
 `testing`はユニットテストで使用されます
 
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

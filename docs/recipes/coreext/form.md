@@ -1,16 +1,6 @@
 ---
 Title:    Formマクロを作成する
 Topics:   form
-Code:     Form::button(), Form::checkbox(), Form::close(), Form::email(),
-          Form::file(), Form::getIdAttribute(), Form::getSelectOption(),
-          Form::getSessionStore(), Form::getValueAttribute(), Form::hidden(),
-          Form::image(), Form::input(), Form::label(), Form::macro(),
-          Form::model(), Form::old(), Form::oldInputIsEmpty(), Form::open(),
-          Form::password(), Form::radio(), Form::reset(), Form::select(),
-          Form::selectMonth(), Form::selectRange(), Form::selectYear(),
-          Form::setSessionStore(), Form::submit(), Form::text(),
-          Form::textarea(), Form::token(), Form::url()
-Id:       173
 Position: 2
 ---
 
@@ -23,7 +13,7 @@ Position: 2
 
 `Form::macro()`は`Form`ファサードを拡張して、独自のメソッドを追加する事ができます
 
-最初にマクロを登録しましょう
+最初にマクロを登録しましょう  
 その後に`Form`ファサードを拡張して利用出来る様にします
 
 `app/start/global.php`ファイルに下記の様に追加してみましょう
@@ -86,8 +76,8 @@ The output would be.
 {discussion}
 ソースコードを見てみましょう！
 
-`vendor/laravel/src/Illuminate\Html`ディレクトリの`FormBuilder.php`を見ると、
-リファレンス等に載っていないいくつかのpublicメソッドがあります。
+`vendor/laravel/src/Illuminate\Html`ディレクトリの`FormBuilder.php`を見ると、  
+リファレンス等に載っていないいくつかのpublicメソッドがあります
 
 マクロで`$this`にはアクセス出来ませんが、以下のメソッドを利用する事ができます:
 
@@ -127,3 +117,9 @@ The output would be.
 
 マクロから他のマクロをコールする事ができます
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

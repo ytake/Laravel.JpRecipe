@@ -21,7 +21,7 @@ if (!\File::copy($file, $dest)) {
 {/solution}
 
 {discussion}
-これは`copy()`のラッパー関数です
+これは`copy()`のラッパー関数です  
 [copy](http://php.net/manual/ja/function.copy.php)
 {/discussion}
 

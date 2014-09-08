@@ -9,7 +9,7 @@ Position: 23
 {/problem}
 
 {solution}
-`php artisan cache:clear`コマンドが利用できます。
+`php artisan cache:clear`コマンドが利用できます
 
 ```bash
 $ php artisan cache:clear
@@ -29,7 +29,7 @@ _このコマンドはローカルファイルシステムからファイルを�
 {credit}
 Author:Chuck Heintzelman
 
-Editor and Translator:syossan27
-(Twitter)[https://twitter.com/syossan27]
-(web)[http://syossan.hateblo.jp/]
+Editor and Translator:syossan27  
+[Twitter](https://twitter.com/syossan27)  
+[web](http://syossan.hateblo.jp/0)
 {/credit}

@@ -7,7 +7,7 @@ Position: 1
 {problem}
 webページを _"escape"_ して出力したい
 
-一般的にはPHPの `htmlentities()` メソッドが利用されますが、
+一般的にはPHPの `htmlentities()` メソッドが利用されますが、  
 これをLaravel流に利用してみましょう
 {/problem}
 
@@ -34,7 +34,7 @@ echo e('<h1>Title example</h1>');
 
 具体的には `htmlentities($your_string, ENT_QUOTES, 'UTF-8', false)` としてコールしています
 
-シングルクオートとダブルクオートを共に変換し、文字を変換するときにUTF-8が利用されます
+シングルクオートとダブルクオートを共に変換し、文字を変換するときにUTF-8が利用されます  
 [PHPマニュアル htmlspecialchars](http://php.net/manual/ja/function.htmlspecialchars.php)
 {/discussion}
 

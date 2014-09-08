@@ -1,8 +1,6 @@
 ---
 Title:    資格情報を使って認証する
 Topics:   -
-Code:     Auth::attempt()
-Id:       219
 Position: 24
 ---
 
@@ -10,7 +8,7 @@ Position: 24
 ユーザーログインを実装したい
 
 資格情報を使った通常のログインや、  
-自動ログインなどを実装する事ができます。
+自動ログインなどを実装する事ができます
 {/problem}
 
 {solution}
@@ -22,22 +20,22 @@ Position: 24
 $success = Auth::attempt(['username' => 'me', 'password' => 'pass']);
 ```
 
-`username = 'me' and 'password' == Hash::make('pass')`を利用してログインします。  
-成功した場合は`true`が返却され、ログインします。  
+`username = 'me' and 'password' == Hash::make('pass')`を利用してログインします  
+成功した場合は`true`が返却され、ログインします  
 失敗した場合は`false`が返却されます
 
-第二引数を利用すると、cookieを利用した自動ログインを実装することができます。  
+第二引数を利用すると、cookieを利用した自動ログインを実装することができます  
 デフォルトでは第二引数はfalseに指定されているため、  
-自動ログインを実装する場合は`true`に変更してください。
+自動ログインを実装する場合は`true`に変更してください
 
 ```php
 $success = Auth::attempt($credentials, true);
 ```
 
-`$success`で`true`が返却された時に、自動ログインのcookieがセットされます。
+`$success`で`true`が返却された時に、自動ログインのcookieがセットされます
 
-第三引数を利用してログインを検証しないようにする事ができます。  
-デフォルトでは、`true`に指定されています。
+第三引数を利用してログインを検証しないようにする事ができます  
+デフォルトでは、`true`に指定されています
 
 ```php
 $success = Auth::attempt($credentials, false, false);
@@ -46,10 +44,10 @@ $success = Auth::attempt($credentials, false, false);
 
 {discussion}
 デフォルトで利用する場合、  
-`password`は、`\Hash::make('pass')`を使って認証処理が実行される事を覚えておいてください。  
+`password`は、`\Hash::make('pass')`を使って認証処理が実行される事を覚えておいてください
 
 データベースを使用して、Auth::attempt()を利用する場合は、  
-次のようなテーブルを用意してください。  
+次のようなテーブルを用意してください
 
 ```php
 <?php
@@ -93,3 +91,9 @@ class CreateUsersTable extends Migration
 
 ```
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

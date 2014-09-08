@@ -1,8 +1,6 @@
 ---
 Title:    認証ユーザーを設定する
 Topics:   -
-Code:     Auth::setUser()
-Id:       230
 Position: 35
 ---
 
@@ -21,5 +19,10 @@ $user = \User::find($user_id);
 
 {discussion}
 このメソッドを利用してもログイン状態にはなりません
-
 {/discussion}
+
+{credit}
+Author:Chuck Heintzelman
+
+Editor and Translator:Yuuki Takezawa
+{/credit}

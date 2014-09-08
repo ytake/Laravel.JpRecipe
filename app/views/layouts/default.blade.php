@@ -8,15 +8,15 @@
     <meta property="og:title" content="@yield('title', Config::get('recipe.title'))">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{Request::url()}}">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="{{asset('images/logos/laravel-slant.png')}}">
     <meta property="og:description" content="@yield('description', Config::get('recipe.description'))">
     <meta name="twitter:card" value="summary"/>
     <meta name="twitter:site" value=""/>
-    <meta name="twitter:creator" value=""/>
+    <meta name="twitter:creator" value="@ex_takezawa"/>
     <meta name="twitter:url" value="{{Request::url()}}"/>
     <meta name="twitter:title" value="@yield('title', Config::get('recipe.title'))"/>
     <meta name="twitter:description" value="@yield('description', Config::get('recipe.description'))"/>
-    <meta name="twitter:image" value="" />
+    <meta name="twitter:image" value="{{asset('images/logos/laravel-slant.png')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yuuki Takezawa and LaravelJp contributors">
     <meta name="description" content="@yield('description', Config::get('recipe.description'))">
@@ -49,10 +49,10 @@
 @yield('scripts')
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-XXXXXXXX-1', 'auto');
+    ga('create', '{{Config::get('recipe.ga')}}', 'auto');
     ga('send', 'pageview');
 </script>
 <div id="fb-root"></div>
@@ -60,7 +60,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=737347899640805&version=v2.0";
+        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId={{Config::get('recipe.facebook_app_id')}}&version=v2.0";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
