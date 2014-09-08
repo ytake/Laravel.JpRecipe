@@ -75,7 +75,7 @@ class FeedController extends Controller
             foreach($recipes as $recipe) {
                 $url = $urlset->appendChild($dom->createElement('url'));
                 $url->appendChild($dom->createElement('loc', route('home.recipe', [$recipe->recipe_id])));
-                $url->appendChild($dom->createElement('lastmod', $recipe->updated_at));
+                $url->appendChild($dom->createElement('lastmod', date('c', strtotime($recipe->updated_at))));
                 $url->appendChild($dom->createElement('priority', '0.5'));
                 $url->appendChild($dom->createElement('changefreq', 'never'));
             }
