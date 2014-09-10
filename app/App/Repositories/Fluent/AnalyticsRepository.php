@@ -76,7 +76,7 @@ class AnalyticsRepository implements AnalyticsRepositoryInterface
     public function getDisableKey()
     {
         $redis = \Redis::connection('default');
-        $previous = date("Ymd", strtotime("0day", strtotime(date("Ymd"))));
+        $previous = date("Ymd", strtotime("- 1day", strtotime(date("Ymd"))));
         $result = $redis->keys(self::SET_PREFIX . "{$previous}*");
         if(count($result)) {
             $redis->pipeline(
