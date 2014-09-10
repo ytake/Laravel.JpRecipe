@@ -45,7 +45,7 @@ class BaseController extends Controller
     {
         $title = ($string) ? " | $string" : null;
         $title = \Config::get('recipe.title') . $title;
-        \View::inject('title', $title);
+        \View::inject('title', e(str_replace(["\r\n","\r","\n"], '', $title)));
     }
 
     /**
@@ -56,7 +56,7 @@ class BaseController extends Controller
     {
         $description = ($string) ? " | $string" : null;
         $description = \Config::get('recipe.description_prefix') . $description . " レシピ";
-        \View::inject('description', $description);
+        \View::inject('description', e(str_replace(["\r\n","\r","\n"], '', $description)));
     }
 
     /**

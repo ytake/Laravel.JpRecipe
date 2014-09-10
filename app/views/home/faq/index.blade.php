@@ -14,7 +14,7 @@
                 <h3 class="text-danger"><span class="glyphicon glyphicon-ok"></span>&nbsp;レシピについての質問</h3>
                 <h4><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;簡単なレシピばっかり？</h4>
                 <p>
-                    多くは書学者向けのものである場合が多いですが、日本で独自に追加したレシピ以外は、<br />
+                    多くはビギナー向けのものである場合が多いですが、日本で独自に追加したレシピ以外は、<br />
                     基本的には原文を翻訳したものになっています(意訳含む)<br />
                     こんなレシピが欲しい！という方は気軽にご連絡を頂けると助かります
                 </p>
