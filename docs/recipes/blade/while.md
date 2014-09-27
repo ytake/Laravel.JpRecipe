@@ -1,5 +1,5 @@
 ---
-Title:    Blade Bladeで @while を使用する
+Title:    Bladeで @while を使用する
 Topics:   Blade
 Position: 9
 ---

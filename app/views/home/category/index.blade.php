@@ -14,7 +14,7 @@
                 <p class="lead">{{$category->description}}</p>
                 <hr />
                 @foreach($list as $row)
-                <p><span class="glyphicon glyphicon-cutlery">&nbsp;{{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['alt' => $row->title, 'title' => $row->title])}}</p>
+                <p><span class="glyphicon glyphicon-cutlery">&nbsp;{{HTML::linkAction('home.recipe', $row->title, ['one' => $row->recipe_id], ['title' => $row->title])}}</p>
                 @endforeach
         	</div>
         </div>

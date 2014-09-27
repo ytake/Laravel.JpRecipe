@@ -117,7 +117,7 @@ class CategoryTableSeeder extends Seeder
             'slug' => 'eloquent',
             'name' => 'Eloquent',
             'description' => 'Eloquentのレシピ',
-            'position' => 2,
+            'position' => 3,
         ],
         [
             'section_id' => 2,
@@ -204,11 +204,18 @@ class CategoryTableSeeder extends Seeder
             'position' => 16,
         ],
         [
-            'section_id' => 3,
+            'section_id' => 2,
             'slug' => 'session',
             'name' => 'Session',
             'description' => 'Sessionファサードのレシピ',
             'position' => 17,
+        ],
+        [
+            'section_id' => 2,
+            'slug' => 'paginator',
+            'name' => 'Paginator',
+            'description' => 'Paginatorファサードのレシピ',
+            'position' => 18,
         ],
         [
             'section_id' => 4,
