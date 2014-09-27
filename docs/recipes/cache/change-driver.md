@@ -9,32 +9,16 @@ Position: 25
 {/problem}
 
 {solution}
-`Cache::setDefaultDriver()`メソッドを利用します
+`Cache::driver()`メソッドを利用します
 
 ```php
-\Cache::setDefaultDriver('memcached');
+\Cache::driver('memcached')->get('key');
 ```
-
-リクエスト内の処理で、  
-この指定以降でCacheに利用されるドライバーはmemcachedとなります
+任意でドライバーを切り替える事が出来ます
 {/solution}
 
 {discussion}
-あくまでもリクエスト内でのみ動的にドライバーを変更する事が出来ます
-
-下記の様にコールした場合、
-
-```php
-// デフォルトで指定されているドライバーを取得
-\Cache::getDefaultDriver();
-// これ以降のCache処理はapcを指定
-\Cache::setDefaultDriver('redis');
-// 'redis'が返却され、以降はredisが利用されます
-\Cache::getDefaultDriver();
-// redisにcacheデータがインサートされます
-\Cache::put('testing', ['testing'], 240);
-```
-
+特にありません
 {/discussion}
 
 {credit}
