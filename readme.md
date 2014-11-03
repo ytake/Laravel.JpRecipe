@@ -1,7 +1,9 @@
 ## jp recipe
-[![Build Status](https://travis-ci.org/ytake/Laravel.JpRecipe.svg?branch=translate-app)](https://travis-ci.org/ytake/Laravel.JpRecipe)
-[![Coverage Status](https://coveralls.io/repos/ytake/Laravel.JpRecipe/badge.png?branch=translate-app)](https://coveralls.io/r/ytake/Laravel.JpRecipe?branch=translate-app)
-[![Dependency Status](https://www.versioneye.com/user/projects/53e18735151b35f8b70002ee/badge.svg)](https://www.versioneye.com/user/projects/53e18735151b35f8b70002ee)
+[![Build Status](http://img.shields.io/travis/ytake/Laravel.JpRecipe/master.svg?style=flat)](https://coveralls.io/r/ytake/Laravel.JpRecipe?branch=master)
+[![Coverage Status](http://img.shields.io/coveralls/ytake/Laravel.JpRecipe/master.svg?style=flat)](https://coveralls.io/r/ytake/Laravel.JpRecipe?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/53e18735151b35f8b70002ee/badge.svg?style=flat)](https://www.versioneye.com/user/projects/53e18735151b35f8b70002ee)
+[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/ytake/Laravel.JpRecipe/master.svg?style=flat)](https://scrutinizer-ci.com/g/ytake/Laravel.JpRecipe/?branch=master)
+
 ###for dev
 generate ide-helper
 ```bash
