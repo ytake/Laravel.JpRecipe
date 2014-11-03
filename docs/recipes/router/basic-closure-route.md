@@ -1,6 +1,6 @@
 ---
 Title:    クロージャを利用したルーティングの作成
-Topics:   route
+Topics:   route, laravel4
 Position: 1
 ---
 

@@ -85,8 +85,8 @@ Laravelのデータベースコンポーネント内部で自動的に接続先�
 \DB::connection('mysq_slave')->select(...);
 
 // queryBuilder
-\DB::connection('mysq_master')->table->('table_name')->insert(...);
-\DB::connection('mysq_slave')->table->('table_name')->get();
+\DB::connection('mysq_master')->table('table_name')->insert(...);
+\DB::connection('mysq_slave')->table('table_name')->get();
 
 // eloquent
 User::on('mysql_slave')->find(1);

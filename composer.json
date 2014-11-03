@@ -14,7 +14,7 @@
         "ext-mcrypt": "*",
         "ext-json": "*",
         "laravel/framework": "4.2.*",
-        "guzzlehttp/guzzle": "4.1.*",
+        "guzzlehttp/guzzle": "4.*",
         "nocarrier/hal": "0.9.*",
         "zendframework/zend-feed": "2.*",
         "zendframework/zend-servicemanager": "2.*",
