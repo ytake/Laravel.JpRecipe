@@ -18,6 +18,10 @@
     <filter>
         <whitelist>
             <directory>./app/App</directory>
+            <exclude>
+                <file>./app/App/Providers/ApplicationServiceProvider.php</file>
+                <file>./app/App/Exception/OAuthErrorException.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>
