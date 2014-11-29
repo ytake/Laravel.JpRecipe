@@ -37,12 +37,16 @@
             "app/database/seeds"
         ],
         "psr-4": {
-            "App\\": "app/App",
-            "App\\Tests\\": "tests"
+            "App\\": "app/App"
         },
         "files": [
             "app/common.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests"
+        }
     },
     "scripts": {
         "post-install-cmd": [
