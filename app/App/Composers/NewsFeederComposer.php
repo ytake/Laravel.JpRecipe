@@ -1,7 +1,7 @@
 <?php
 namespace App\Composers;
 
-use App\Feed\Reader;
+use App\Feed\ReaderInterface;
 
 /**
  * Class NewsFeederComposer
@@ -11,13 +11,13 @@ use App\Feed\Reader;
 class NewsFeederComposer
 {
 
-    /** @var Reader  */
+    /** @var ReaderInterface */
     protected $reader;
 
     /**
-     * @param Reader $reader
+     * @param ReaderInterface $reader
      */
-    public function __construct(Reader $reader)
+    public function __construct(ReaderInterface $reader)
     {
         $this->reader = $reader;
     }
