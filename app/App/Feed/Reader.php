@@ -1,6 +1,7 @@
 <?php
 namespace App\Feed;
 
+use Zend\Http\Client;
 use Zend\Feed\Exception\RuntimeException;
 
 /**
@@ -8,8 +9,19 @@ use Zend\Feed\Exception\RuntimeException;
  * @package App\Feed
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class Reader
+class Reader implements ReaderInterface
 {
+
+    /** @var \Zend\Http\Client  */
+    protected $client;
+
+    /**
+     * @param Client $client
+     */
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
 
     /**
      * @param string $url
@@ -19,7 +31,11 @@ class Reader
     public function read($url, $limit = 5)
     {
         $data = [];
+
+        $this->client->setUri($url)
+            ->setOptions(['adapter' => 'Zend\Http\Client\Adapter\Curl']);
         try {
+            \Zend\Feed\Reader\Reader::setHttpClient($this->client);
             $feed = \Zend\Feed\Reader\Reader::import($url);
             if ($feed) {
                 $i = 0;
@@ -40,7 +56,7 @@ class Reader
                 }
             }
         } catch(RuntimeException $exception) {
-
+            $data[] = [];
         }
         return $data;
     }

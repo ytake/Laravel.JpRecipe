@@ -7,7 +7,7 @@ return [
     'description_prefix' => "PHPフレームワーク Laravel",
     'document_path' => base_path() . "/docs/recipes",
     'packages_feed' => 'http://packalyst.com/rss/packages',
-    'news_feed' => 'http://laravel-news.com/feed/',
+    'news_feed' => 'https://laravel-news.com/feed/',
     /**  */
     'facebook_app_id' => '',
     'ga' => ''
