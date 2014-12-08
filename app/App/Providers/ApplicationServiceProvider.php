@@ -39,6 +39,7 @@ class ApplicationServiceProvider extends ServiceProvider
         });
         // feed provider
         $this->app->bind("App\Presenter\FeedInterface", "App\Presenter\Feed");
+        $this->app->bind("App\Feed\ReaderInterface", "App\Feed\Reader");
 
         $this->app->bind("App\Repositories\AclRepositoryInterface", "App\Repositories\Fluent\AclRepository");
         $this->app->bind("App\Repositories\TagRepositoryInterface", "App\Repositories\Fluent\TagRepository");

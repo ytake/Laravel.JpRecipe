@@ -3,6 +3,7 @@ namespace App\Tests\Composer;
 
 use Mockery AS m;
 use App\Feed\Reader;
+use Zend\Http\Client;
 use App\Tests\TestCase;
 use App\Composers\NewsFeederComposer;
 
@@ -19,7 +20,7 @@ class NewsFeederComposerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->compose = new NewsFeederComposer(new Reader);
+        $this->compose = new NewsFeederComposer(new Reader(new Client()));
     }
 
     public function testInstance()
