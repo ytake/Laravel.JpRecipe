@@ -1,14 +1,19 @@
 {
-    "name": "ytake-application-pack",
-    "version": "0.0.1",
-    "description": "basic application pack",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "grunt": "*",
-        "grunt-bower-task": "*",
-        "grunt-contrib-uglify": "*"
-    }
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "bower": "*",
+    "gulp-bower": "*",
+    "gulp-react": "*",
+    "gulp-filter": "*",
+    "gulp-shell": "0.*",
+    "gulp-notify": "*",
+    "laravel-elixir": "*",
+    "main-bower-files": "*",
+    "underscore": "1.*",
+    "gulp-plumber": "*",
+    "gulp-minify-css": "*",
+    "gulp-css-url-adjuster": "*",
+    "browser-sync": "*",
+    "gulp-uglify": "*"
+  }
 }

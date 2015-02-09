@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /webmaster/
-Sitemap: http://recipes.laravel.jp/sitemap.xml
+Disallow:

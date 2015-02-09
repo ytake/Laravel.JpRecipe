@@ -1,0 +1,40 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+
+/**
+ * Class Controller
+ * @package App\Http\Controllers
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ */
+abstract class Controller extends BaseController
+{
+
+    use DispatchesCommands, ValidatesRequests;
+
+    /**
+     * @param null $string
+     * @return void
+     */
+    protected function title($string = null)
+    {
+        $title = ($string) ? " | $string" : null;
+        $title = \Config::get('recipe.title') . $title;
+        \View::inject('title', e(str_replace(["\r\n","\r","\n"], '', $title)));
+    }
+
+    /**
+     * @param null $string
+     * @return void
+     */
+    protected function description($string = null)
+    {
+        $description = ($string) ? " | $string" : null;
+        $description = \Config::get('recipe.description_prefix') . $description . " レシピ";
+        \View::inject('description', e(str_replace(["\r\n","\r","\n"], '', $description)));
+    }
+
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Laravel.JpRecipe",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "*",
+    "react": "0.*",
+    "highlightjs" : "*"
+  },
+  "exportsOverride": {
+  },
+  "overrides": {
+    "jquery": {
+      "main": "**/*.min.js"
+    },
+    "materialize": {
+      "main": [
+        "**/*.min.js",
+        "**/*.min.css"
+      ]
+    },
+    "react": {
+      "main": [
+        "**/*.min.js"
+      ]
+    },
+    "highlightjs": {
+      "main": [
+        "**/*.pack.js",
+        "**/github.css"
+      ]
+    }
+  }
+}
