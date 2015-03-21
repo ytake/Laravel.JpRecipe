@@ -1,17 +1,19 @@
 <?php
-namespace App\Controllers\Api;
+namespace App\Http\Controllers\Api;
 
 use Nocarrier\Hal;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
+
 
 /**
  * API only
  * Class RecipeController
  * @package App\Controllers
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @Resource("api/v1/recipes", only={"index","show"})
  */
 class RecipeController extends Controller
 {

@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use App\Presenter\FeedInterface;
-use Illuminate\Routing\Controller;
 use App\Repositories\RecipeRepositoryInterface;
 
 /**
@@ -30,6 +29,7 @@ class FeedController extends Controller
     }
 
     /**
+     * @get("feed/{format?}", as="feed.index")
      * @param string $format
      * @return mixed
      */
@@ -56,6 +56,7 @@ class FeedController extends Controller
     }
 
     /**
+     * @Get("sitemap.xml", as="sitemap")
      * @return \Illuminate\Http\Response
      */
     public function getSiteMap()

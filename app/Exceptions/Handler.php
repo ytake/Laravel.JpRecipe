@@ -4,6 +4,11 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+/**
+ * Class Handler
+ * @package App\Exceptions
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ */
 class Handler extends ExceptionHandler
 {
 
@@ -26,7 +31,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
-        return parent::report($e);
+        parent::report($e);
     }
 
     /**

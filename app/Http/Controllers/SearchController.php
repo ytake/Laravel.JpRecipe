@@ -28,6 +28,7 @@ class SearchController extends Controller
     }
 
     /**
+     * @Get("search", as="search.index")
      * @param SearchRequest $request
      * @return \Illuminate\View\View
      */
