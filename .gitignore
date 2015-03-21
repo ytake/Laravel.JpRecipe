@@ -1,4 +1,5 @@
 /bootstrap/compiled.php
+.phpstorm.meta.php
 /vendor
 /node_modules
 composer.phar
