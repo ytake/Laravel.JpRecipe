@@ -1,15 +1,15 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Services;
 
 use App\Presenter\FeedInterface;
 use App\Repositories\RecipeRepositoryInterface;
 
 /**
- * Class FeedController
- * @package App\Controllers\Api
- * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * Class FeedService
+ * @package App\Services
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class FeedController extends Controller
+class FeedService
 {
 
     /** @var FeedInterface */
@@ -29,11 +29,10 @@ class FeedController extends Controller
     }
 
     /**
-     * @get("feed/{format?}", as="feed.index")
      * @param string $format
-     * @return mixed
+     * @return \Illuminate\Http\Response|mixed
      */
-    public function getIndex($format = 'atom')
+    public function getFeed($format = 'atom')
     {
         $this->feed->setHeaders($format);
         $feed = $this->feed->getFeeder();
@@ -56,8 +55,7 @@ class FeedController extends Controller
     }
 
     /**
-     * @Get("sitemap.xml", as="sitemap")
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function getSiteMap()
     {
@@ -82,7 +80,6 @@ class FeedController extends Controller
             }
         }
         $dom->formatOutput = true;
-        $content = $dom->saveXML();
-        return \Response::make($content, 200, ["Content-Type" => "application/xml; charset=UTF-8"]);
+        return $dom->saveXML();
     }
 }

@@ -69,11 +69,9 @@ class Feed implements FeedInterface
     {
         try {
             $feed = $this->feed->export($this->format);
-            return \Response::make($feed, 200, $this->header[$this->format]);
+            return response($feed, 200, $this->header[$this->format]);
         } catch(\Zend\Feed\Writer\Exception\InvalidArgumentException $w) {
-
-            return \Response::make([], 404);
+            return response([], 404);
         }
-
     }
 }

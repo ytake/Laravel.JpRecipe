@@ -24,4 +24,5 @@ interface FeedInterface
      * @return \Zend\Feed\Writer\Feed
      */
     public function getFeeder();
-} 
+
+}

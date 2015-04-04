@@ -21,13 +21,13 @@ class RecipeService
     /** @var CategoryRepositoryInterface */
     protected $category;
 
-    /** @var RecipeRepositoryInterface  */
+    /** @var RecipeRepositoryInterface */
     protected $recipe;
 
-    /** @var RecipeTagRepositoryInterface  */
+    /** @var RecipeTagRepositoryInterface */
     protected $tag;
 
-    /** @var AnalyticsRepositoryInterface  */
+    /** @var AnalyticsRepositoryInterface */
     protected $analytics;
 
     /**
@@ -59,7 +59,7 @@ class RecipeService
     public function getContentsRanking()
     {
         $result = $this->analytics->getSortedCount(0, 6);
-        if($result) {
+        if ($result) {
             foreach ($result as $row) {
                 $recipe = $this->recipe->getRecipe($row->recipe_id);
                 $category = $this->category->getCategory($recipe->category_id);
@@ -77,42 +77,52 @@ class RecipeService
     public function getSections()
     {
         $sections = $this->section->getSections();
-        foreach($sections as $section) {
+        foreach ($sections as $section) {
             $section->recipes = $this->recipe->getRecipeFromSectionByRand($section->section_id);
         }
         return $sections;
     }
 
     /**
-     * @return RecipeRepositoryInterface
+     * @param int $latest
+     * @return array
      */
-    public function getRecipeRepository()
+    public function getIndexContents($latest = 7)
     {
-        return $this->recipe;
+        return [
+            'latest' => $this->recipe->getLatestRecipe($latest),
+            'sections' => $this->getSections(),
+            'popular' => $this->getContentsRanking()
+        ];
     }
 
     /**
-     * @return CategoryRepositoryInterface
+     * @param $recipeId
+     * @return array
      */
-    public function getCategoryRepository()
+    public function getRecipe($recipeId)
     {
-        return $this->category;
+        // recipe取得
+        $recipe = $this->recipe->getRecipe($recipeId);
+        $recipe->category = $this->category->getCategory($recipe->category_id);
+        return [
+            'recipe' => $recipe,
+            'tags' => $this->tag->getRecipeTags($recipe->recipe_id),
+            'info' => $this->recipe->getPrevNextRecipes($recipeId)
+        ];
     }
 
     /**
-     * @return SectionRepositoryInterface
+     * @param $categoryId
+     * @return array
      */
-    public function getSectionRepository()
+    public function getCategories($categoryId)
     {
-        return $this->section;
-    }
-
-    /**
-     * @return RecipeTagRepositoryInterface
-     */
-    public function getTagRepository()
-    {
-        return $this->tag;
+        $category = $this->category->getCategory($categoryId);
+        return [
+            'category' => $category,
+            'list' => $this->recipe->getRecipesFromCategory($categoryId)
+        ];
     }
 
 }

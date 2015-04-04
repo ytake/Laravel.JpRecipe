@@ -26,13 +26,9 @@ class HomeController extends Controller
      * @Get(as="home.index")
      * @return \Illuminate\View\View
      */
-    public function getIndex()
+    public function index()
     {
-        $data = [
-            'latest' => $this->service->getRecipeRepository()->getLatestRecipe(7),
-            'sections' => $this->service->getSections(),
-            'popular' => $this->service->getContentsRanking()
-        ];
+        $data = $this->service->getIndexContents();
         return view('home.index', $data);
     }
 
@@ -41,23 +37,16 @@ class HomeController extends Controller
      * @param null $recipeId
      * @return \Illuminate\View\View
      */
-    public function getRecipe($recipeId = null)
+    public function recipe($recipeId = null)
     {
         // アクセス保存
         $this->dispatchFromArray("App\Commands\AnalysisCommand", ['recipe_id' => $recipeId]);
-
         // recipe取得
-        $recipe = $this->service->getRecipeRepository()->getRecipe($recipeId);
-        $recipe->category = $this->service->getCategoryRepository()->getCategory($recipe->category_id);
-        $data = [
-            'recipe' => $recipe,
-            'tags' => $this->service->getTagRepository()->getRecipeTags($recipe->recipe_id),
-            'info' => $this->service->getRecipeRepository()->getPrevNextRecipes($recipeId)
-        ];
+        $recipe = $this->service->getRecipe($recipeId);
         // title設定
-        $this->title($recipe->title);
-        $this->description($recipe->problem);
-        return view('home.recipe.index', $data);
+        $this->title($recipe['recipe']->title);
+        $this->description($recipe['recipe']->problem);
+        return view('home.recipe.index', $recipe);
     }
 
     /**
@@ -65,16 +54,12 @@ class HomeController extends Controller
      * @param $categoryId
      * @return \Illuminate\View\View
      */
-    public function getCategory($categoryId)
+    public function category($categoryId)
     {
-        $category = $this->service->getCategoryRepository()->getCategory($categoryId);
-        $data = [
-            'category' => $category,
-            'list' => $this->service->getRecipeRepository()->getRecipesFromCategory($categoryId)
-        ];
-        $this->title($category->description);
-        $this->description($category->description);
-        return view('home.category.index', $data);
+        $categories = $this->service->getCategories($categoryId);
+        $this->title($categories['category']->description);
+        $this->description($categories['category']->description);
+        return view('home.category.index', $categories);
     }
 
     /**
@@ -82,7 +67,7 @@ class HomeController extends Controller
      * @param $sectionId
      * @return \Illuminate\View\View
      */
-    public function getSection($sectionId)
+    public function section($sectionId)
     {
         $section = $this->service->getSectionRepository()->getSection($sectionId);
         $data = [
@@ -98,7 +83,7 @@ class HomeController extends Controller
      * @get("faq", as="faq.index")
      * @return \Illuminate\View\View
      */
-    public function getFaq()
+    public function faq()
     {
         \View::inject('title', config('recipe.title') . "FAQ");
         return view('home.faq.index');

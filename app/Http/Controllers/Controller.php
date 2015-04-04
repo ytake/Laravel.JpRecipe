@@ -22,7 +22,7 @@ abstract class Controller extends BaseController
     protected function title($string = null)
     {
         $title = ($string) ? " | $string" : null;
-        $title = \Config::get('recipe.title') . $title;
+        $title = config('recipe.title') . $title;
         \View::inject('title', e(str_replace(["\r\n","\r","\n"], '', $title)));
     }
 
@@ -33,7 +33,7 @@ abstract class Controller extends BaseController
     protected function description($string = null)
     {
         $description = ($string) ? " | $string" : null;
-        $description = \Config::get('recipe.description_prefix') . $description . " レシピ";
+        $description = config('recipe.description_prefix') . $description . " レシピ";
         \View::inject('description', e(str_replace(["\r\n","\r","\n"], '', $description)));
     }
 
