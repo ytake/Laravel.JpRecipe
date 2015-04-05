@@ -1,7 +1,6 @@
 <?php
 namespace App\Presenter;
 
-use Parsedown;
 use App\Repositories\RecipeRepositoryInterface;
 
 /**
@@ -14,7 +13,7 @@ use App\Repositories\RecipeRepositoryInterface;
 class Markdown implements MarkdownInterface
 {
 
-    /** @var \Parsedown  */
+    /** @var Parsedown  */
     protected $parser;
 
     /** @var RecipeRepositoryInterface  */
@@ -37,7 +36,7 @@ class Markdown implements MarkdownInterface
      * @param int $life cache life time
      * @return mixed|string
      */
-    public function render($text, $cacheKey = null, $life = 360)
+    public function render($text, $cacheKey = null, $life = 0)
     {
         //
         if(!$life || is_null($cacheKey)) {

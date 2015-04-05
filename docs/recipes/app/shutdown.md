@@ -1,6 +1,6 @@
 ---
 Title:    Shutdownコールバック処理を実行する
-Topics:   callbacks
+Topics:   callbacks, Laravel4
 Position: 9
 ---
 
@@ -9,6 +9,7 @@ Position: 9
 
 Laravelアプリケーションが予期せぬエラーで終了した場合等に、  
 登録してあるShutdownコールバックを任意で使用したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

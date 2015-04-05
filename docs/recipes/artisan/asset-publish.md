@@ -1,11 +1,12 @@
 ---
 Title:    公開されているパッケージを利用する
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 26
 ---
 
 {problem}
-サードパーティのパッケージをアプリケーションにコピーしたい
+サードパーティのパッケージをアプリケーションにコピーしたい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

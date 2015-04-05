@@ -1,11 +1,12 @@
 ---
 Title:    デフォルトのRequestクラスを取得する
-Topics:   -
+Topics:   Laravel4
 Position: 27
 ---
 
 {problem}
-Laravelのリクエスト処理を構築しているクラスを知りたい
+Laravelのリクエスト処理を構築しているクラスを知りたい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

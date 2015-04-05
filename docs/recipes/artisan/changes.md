@@ -1,13 +1,14 @@
 ---
 Title:    Laravelの変更ログを表示したい
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 4
 ---
 
 {problem}
 Laravelフレームワークの変更を見たい。
 
-最新のアップグレードにどんな新機能が追加されたか気になる。
+最新のアップグレードにどんな新機能が追加されたか気になる。  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}
@@ -79,5 +80,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

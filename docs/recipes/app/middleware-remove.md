@@ -1,11 +1,12 @@
 ---
 Title:    アプリケーションからミドルウェア(HttpKernel)を削除する
-Topics:   middleware
+Topics:   middleware, Laravel4
 Position: 13
 ---
 
 {problem}
-ミドルウェアの一部を削除したい
+ミドルウェアの一部を削除したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

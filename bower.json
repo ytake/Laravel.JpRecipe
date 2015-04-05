@@ -11,7 +11,8 @@
   "dependencies": {
     "materialize": "*",
     "react": "0.*",
-    "highlightjs" : "*"
+    "highlightjs" : "*",
+    "font-awesome": "*"
   },
   "exportsOverride": {
   },
@@ -19,10 +20,17 @@
     "jquery": {
       "main": "**/*.min.js"
     },
+    "font-awesome": {
+      "main": [
+        "**/*.min.css",
+        "fonts/**/*"
+      ]
+    },
     "materialize": {
       "main": [
         "**/*.min.js",
-        "**/*.min.css"
+        "**/*.min.css",
+        "font/**/*"
       ]
     },
     "react": {
@@ -33,7 +41,8 @@
     "highlightjs": {
       "main": [
         "**/*.pack.js",
-        "**/github.css"
+        "**/monokai_sublime.css",
+        "**/monokai.css"
       ]
     }
   }

@@ -30,4 +30,4 @@ class CategoryComposer
     {
         $view->with('categories', $this->category->getNavigationCategory());
     }
-} 
+}

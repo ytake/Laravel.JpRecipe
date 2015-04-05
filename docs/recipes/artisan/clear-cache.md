@@ -20,7 +20,8 @@ $ php artisan cache:clear
 このコマンドは以下の２つのことを行っています。
 
 1. キャッシュを空にするために`Cache::flush()`呼び出されます。
-2. `app/storage/meta/services.json`ファイルは削除され、
+2. `app/storage/meta/services.json(Laravel4)`,
+   `(storage/framework|vendor)/services.json(Laravel5)`ファイルは削除され、
    アプリケーションで使用しているサービスプロバイダの読み込みを最適化しようとします。
 
 _このコマンドはローカルファイルシステムからファイルを削除するので、アプリケーションが動いている複数のサーバを持っている場合は上記のコマンドをそれぞれのサーバで実行する必要があります。_
@@ -31,5 +32,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

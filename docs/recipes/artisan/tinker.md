@@ -1,11 +1,12 @@
 ---
 Title:    LaravelでREPLを行いたい
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 27
 ---
 
 {problem}
-アプリケーションと簡単に対話したい
+アプリケーションと簡単に対話したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}
@@ -51,5 +52,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

@@ -9,13 +9,13 @@ Position: 17
 {/problem}
 
 {solution}
-`app/config/app.php`内の`providers[]`配列に、  
+`app/config/app.php(Laravel4)`, `config/app.php(Laravel5)`内の`providers[]`配列に、  
 作成したサービスプロバイダを追加します。
 
 これは通常のサービスプロバイダ登録方法で、  
-`app/config/app.php`の`providers[]`配列の最後に追加します  
-環境毎に異なるサービスプロバイダを記述する場合は、  
-それぞれの`app/config/環境/app.php`にで同じ様に追加してください
+`app/config/app.php(Laravel4)`,`config/app.php(Laravel5)`の`providers[]`配列の最後に追加します  
+Laravel4の場合、環境毎に異なるサービスプロバイダを記述する場合は、  
+それぞれの`app/config/環境/app.php`にて同じ様に追加してください
 
 ```php
 'providers' => [
@@ -28,6 +28,25 @@ Position: 17
 遅延束縛として実行時に任意のクラスや設定したものが実行されます  
 
 その後、サービスプロバイダの`boot()`が実行されます
+
+Laravel5の場合、環境毎に異なるサービスプロバイダを記述する場合は、  
+`app/Providers/ConfigServiceProvider.php`へ下記のように記述します  
+
+```php
+	public function register()
+	{
+		if ($this->app->environment("local")) {
+			$this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
+		}
+		config([
+			
+		]);
+	}
+```
+Laravel4同様に、registerメソッド実行後に`boot()`が実行されますが、  
+`boot()`メソッドにはメソッドインジェクションを利用して記述することができます
+
+
 {/solution}
 
 {discussion}

@@ -1,11 +1,12 @@
 ---
 Title:    リマインダーコントローラの作成
-Topics:   artisan, authentication, password reminders
+Topics:   artisan, authentication, password reminders, Laravel4
 Position: 21
 ---
 
 {problem}
-パスワードリマインダーを実装するためのコードを作成したい
+パスワードリマインダーを実装するためのコードを作成したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

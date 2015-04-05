@@ -1,11 +1,12 @@
 ---
 Title:    パッケージのビューをアプリケーション上で公開したい
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 25
 ---
 
 {problem}
-サードパーティのビューをアプリケーションへコピーしたい
+サードパーティのビューをアプリケーションへコピーしたい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}
@@ -31,5 +32,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

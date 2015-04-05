@@ -1,11 +1,12 @@
 ---
 Title:    Fatalエラーのエラーハンドリング
-Topics:   -
+Topics:   Laravel4
 Position: 24
 ---
 
 {problem}
-Fatalエラー処理を独自に実装したい
+Fatalエラー処理を独自に実装したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

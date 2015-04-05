@@ -1,11 +1,12 @@
 ---
 Title:    パスワードリマインダーのマイグレーションを作成する
-Topics:   artisan, authentication, password reminders
+Topics:   artisan, authentication, password reminders, Laravel4
 Position: 19
 ---
 
 {problem}
-パスワードリマインダーを管理するテーブルをつくりたい
+パスワードリマインダーを管理するテーブルをつくりたい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

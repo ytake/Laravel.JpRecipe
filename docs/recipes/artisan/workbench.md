@@ -1,11 +1,12 @@
 ---
 Title:    新しいパッケージのワークベンチを作成したい
-Topics:   artisan, packages
+Topics:   artisan, packages, Laravel4
 Position: 22
 ---
 
 {problem}
-Laravelプロジェクト間で共有できるパッケージを作成したい
+Laravelプロジェクト間で共有できるパッケージを作成したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}
@@ -61,5 +62,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

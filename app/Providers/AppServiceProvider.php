@@ -1,6 +1,8 @@
 <?php
 namespace App\Providers;
 
+use App\Presenter\MaterializePaginator;
+use Illuminate\Pagination\Paginator;
 use Parsedown;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 
     /**
@@ -25,20 +27,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'Illuminate\Contracts\Auth\Registrar',
-            'App\Services\Registrar'
-        );
-
         // feed provider
         $this->app->bind("App\Presenter\FeedInterface", "App\Presenter\Feed");
         $this->app->bind("App\Repositories\TagRepositoryInterface", "App\Repositories\Fluent\TagRepository");
         $this->app->bind("App\Repositories\RecipeRepositoryInterface", "App\Repositories\Fluent\RecipeRepository");
         $this->app->bind("App\Repositories\SectionRepositoryInterface", "App\Repositories\Fluent\SectionRepository");
         $this->app->bind("App\Repositories\CategoryRepositoryInterface", "App\Repositories\Fluent\CategoryRepository");
-        $this->app->bind("App\Repositories\RecipeTagRepositoryInterface",
+        $this->app->bind(
+            "App\Repositories\RecipeTagRepositoryInterface",
             "App\Repositories\Fluent\RecipeTagRepository");
-        $this->app->bind("App\Repositories\AnalyticsRepositoryInterface",
+        $this->app->bind(
+            "App\Repositories\AnalyticsRepositoryInterface",
             "App\Repositories\Fluent\AnalyticsRepository");
 
         // view composer
@@ -51,7 +50,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->router->filter('post.once', 'App\Filters\PostOnceFilter');
 
         $this->app->bindShared('markdown', function ($app) {
-            return new \App\Presenter\Markdown(new Parsedown, $app->make("App\Repositories\RecipeRepositoryInterface"));
+            return new \App\Presenter\Markdown(new \App\Presenter\Parsedown, $app->make("App\Repositories\RecipeRepositoryInterface"));
+        });
+
+        Paginator::presenter(function(){
+            // return new MaterializePaginator();
         });
     }
 

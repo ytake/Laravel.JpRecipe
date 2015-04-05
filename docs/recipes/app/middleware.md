@@ -1,6 +1,6 @@
 ---
 Title:    ミドルウェア(HttpKernel)を登録する
-Topics:   middleware
+Topics:   middleware, Laravel4
 Position: 12
 ---
 
@@ -8,7 +8,8 @@ Position: 12
 ローレベルで、リクエストやレスポンスを独自に変更したい
 
 `before filters`または`after filters`を学習してある事が前提ですが、  
-これらはローレベルで有りながらもアプリケーションでグローバルに作用します
+これらはローレベルで有りながらもアプリケーションでグローバルに作用します  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

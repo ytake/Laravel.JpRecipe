@@ -1,11 +1,12 @@
 ---
 Title:    App::Finishコールバックの登録方法
-Topics:   -
+Topics:   Laravel4
 Position: 18
 ---
 
 {problem}
-リクエスト処理後にアプリケーションが終了する前に任意の処理を実装したい
+リクエスト処理後にアプリケーションが終了する前に任意の処理を実装したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

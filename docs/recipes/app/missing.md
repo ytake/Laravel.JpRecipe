@@ -1,11 +1,12 @@
 ---
 Title:    404エラーを登録する
-Topics:   -
+Topics:   Laravel4
 Position: 21
 ---
 
 {problem}
-404エラーを任意のものに変更したい
+404エラーを任意のものに変更したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

@@ -7,15 +7,21 @@ Position: 6
 {problem}
 簡単にルートの一覧を表示したい
 
-`app/routes.php`ファイルを見ればルートがわかりますが、  
+`app/routes.php(Laravel4)`, `app/Http/routes.php(Laravel5)`ファイルを見ればルートがわかりますが、  
 テーブル表示のように全てのルートの一覧で出力する事が出来ます
 {/problem}
 
 {solution}
-`php artisan routes`コマンドが利用できます
+Laravel4では、  
+`php artisan routes`コマンドが、  
+Laravel5では、  
+`php artisan route:list`コマンドが利用できます
 
 ```bash
+# Laravel4
 $ php artisan routes
+# Laravel5
+$ php artisan route:list
 ```
 
 このコマンドでコンソール上に見やすいルート一覧が表示されます
@@ -57,5 +63,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

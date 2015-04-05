@@ -69,14 +69,10 @@ class HomeController extends Controller
      */
     public function section($sectionId)
     {
-        $section = $this->service->getSectionRepository()->getSection($sectionId);
-        $data = [
-            'section' => $section,
-            'list' => $this->service->getCategoryRepository()->getCategoryFromSection($sectionId)
-        ];
+        $section = $this->service->getSection($sectionId);
         // title設定
-        $this->title($section->name);
-        return view('home.section.index', $data);
+        $this->title($section['section']->name);
+        return view('home.section.index', $section);
     }
 
     /**
@@ -85,7 +81,7 @@ class HomeController extends Controller
      */
     public function faq()
     {
-        \View::inject('title', config('recipe.title') . "FAQ");
+        view()->inject('title', config('recipe.title') . "FAQ");
         return view('home.faq.index');
     }
 }

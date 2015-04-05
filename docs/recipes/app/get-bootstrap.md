@@ -1,11 +1,12 @@
 ---
 Title:    アプリケーションのBootstrapファイルを取得する
-Topics:   -
+Topics:   Laravel4
 Position: 16
 ---
 
 {problem}
-アプリケーションのbootstrapファイルを取得したい
+アプリケーションのbootstrapファイルを取得したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

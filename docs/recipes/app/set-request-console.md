@@ -1,11 +1,12 @@
 ---
 Title:    コマンドライン向けリクエスト処理の設定
-Topics:   -
+Topics:   Laravel4
 Position: 28
 ---
 
 {problem}
-コマンドラインから、リクエストを設定したい
+コマンドラインから、リクエストを設定したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

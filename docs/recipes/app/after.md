@@ -1,11 +1,12 @@
 ---
 Title:    フィルター"After"を実装する
-Topics:   filters
+Topics:   filters, Laravel4
 Position: 7
 ---
 
 {problem}
-リクエスト後に、毎回実行される処理を実装したい(ControllerやRoute等)
+リクエスト後に、毎回実行される処理を実装したい(ControllerやRoute等)  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

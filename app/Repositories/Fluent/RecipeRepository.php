@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\Fluent;
 
+use App\Presenter\MaterializePresenter;
 use App\Repositories\RecipeRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -50,8 +51,7 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
             $query->where('cat.category_id', $categoryId);
         }
         return $query->orderBy('recipe.position', 'ASC')
-            // ->remember(240, "recipe:category:{$categoryId}")
-            ->get(['recipe.*', 'cat.name']);
+            ->get(['recipe.recipe_id', 'recipe.title', 'cat.name']);
     }
 
     /**
@@ -192,7 +192,11 @@ class RecipeRepository extends AbstractFluent implements RecipeRepositoryInterfa
         $params[] = $limit;
         $result = \DB::connection('slave')->select($select . $commonQuery . $selectQuery, $params);
         if($count) {
-            return new LengthAwarePaginator($result, $count->count, $limit);
+            $paginator = new LengthAwarePaginator($result, $count->count, $limit);
+            $paginator->presenter(function($pager) {
+                return new MaterializePresenter($pager);
+            });
+            return $paginator;
         }
         return $result;
     }

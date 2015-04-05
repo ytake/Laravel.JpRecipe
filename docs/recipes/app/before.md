@@ -1,11 +1,12 @@
 ---
 Title:    "Before"フィルターを実装する
-Topics:   filters
+Topics:   filters, Laravel4
 Position: 6
 ---
 
 {problem}
-リクエスト受信時に、コントローラーより先に実行される処理を実装・登録したい
+リクエスト受信時に、コントローラーより先に実行される処理を実装・登録したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

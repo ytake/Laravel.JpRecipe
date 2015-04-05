@@ -2,23 +2,20 @@
 @section('scripts')
 @stop
 @section('content')
-<div class="row">
-    <div class="col-md-8 col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading recipe-header">
-                <h3>
-        	        <span class="glyphicon glyphicon-glass"></span>セクション:{{$section->name}}
-        	    </h3>
-        	</div>
-       	    <div class="panel-body recipe-body">
-                @foreach($list as $row)
-                <p><span class="glyphicon glyphicon-cutlery">&nbsp;<a href="{{route('home.category', ['one' => $row->category_id])}}" title="$row->description">{{$row->description}}</a></span></p>
-                @endforeach
-        	</div>
+    <div class="row">
+        <div class="col s12 card-panel">
+            <h3>
+                <i class="fa fa-comments"></i>セクション:{{$section->name}}
+            </h3>
+            <hr/>
+            @foreach($list as $row)
+                <p>
+                    <i class="fa fa-cutlery"></i>&nbsp;
+                    <a href="{{route('home.category', ['one' => $row->category_id])}}" title="$row->description">
+                        {{$row->description}}
+                    </a>
+                </p>
+            @endforeach
         </div>
     </div>
-    <div class="col-md-4 col-sm-6">
-        @include('elements.sidebar')
-    </div>
-</div>
 @stop

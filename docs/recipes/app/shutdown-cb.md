@@ -1,11 +1,12 @@
 ---
 Title:    Shutdownコールバックの登録
-Topics:   callbacks
+Topics:   callbacks, Laravel4
 Position: 8
 ---
 
 {problem}
-アプリケーション終了直前に実装んしたコードを実行したい
+アプリケーション終了直前に実装んしたコードを実行したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

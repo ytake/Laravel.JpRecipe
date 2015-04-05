@@ -18,9 +18,10 @@ if (\App::getLocale() == 'en') {
 ```
 
 言語環境を指定する場合は、  
-`app/config/app.php`、または`環境ごとのapp.php`の`locale`で設定することができます  
+Laravel4では`app/config/app.php`、または`環境ごとのapp.php`の`locale`で設定することができます  
+Laravel5では`config/app.php`、または`.env`で`locale`を指定します  
 デフォルトは`en`で設定されています  
-英語以外に日本語などで他言語化する場合は`app/lang/`内に言語に対応したファイルを設置することで、  
+英語以外に日本語などで他言語化する場合は`app/lang/(Laravel4)`, `resource/lang/(Laravel5)`内に言語に対応したファイルを設置することで、  
 任意の言語で表示などをすることができます  
 {/solution}
 

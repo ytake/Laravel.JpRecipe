@@ -1,11 +1,12 @@
 ---
 Title:    新しくArtisanコマンドを作りたい(Artisan::add)
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 31
 ---
 
 {problem}
-新しいArtisanコマンドを追加したい
+新しいArtisanコマンドを追加したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

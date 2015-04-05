@@ -1,11 +1,12 @@
 ---
 Title:    パッケージ設定をアプリケーション上で公開したい
-Topics:   artisan
+Topics:   artisan, Laravel4
 Position: 24
 ---
 
 {problem}
-サードパーティの設定をアプリケーション上にコピーしたい
+サードパーティの設定をアプリケーション上にコピーしたい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

@@ -10,7 +10,7 @@ class SearchRequest extends Request
 {
 
     /** @var string  */
-    protected $redirectRoute = "index";
+    protected $redirectRoute = "home.index";
 
     /**
      * Determine if the user is authorized to make this request.
@@ -19,7 +19,7 @@ class SearchRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

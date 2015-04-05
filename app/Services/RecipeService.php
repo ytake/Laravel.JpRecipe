@@ -1,11 +1,12 @@
 <?php
 namespace App\Services;
 
-use App\Repositories\AnalyticsRepositoryInterface;
+use App\Exceptions\RecipeNotFoundException;
 use App\Repositories\RecipeRepositoryInterface;
 use App\Repositories\SectionRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\RecipeTagRepositoryInterface;
+use App\Repositories\AnalyticsRepositoryInterface;
 
 /**
  * Class RecipeService
@@ -99,11 +100,15 @@ class RecipeService
     /**
      * @param $recipeId
      * @return array
+     * @throws RecipeNotFoundException
      */
     public function getRecipe($recipeId)
     {
         // recipe取得
         $recipe = $this->recipe->getRecipe($recipeId);
+        if (!$recipe) {
+            throw new RecipeNotFoundException;
+        }
         $recipe->category = $this->category->getCategory($recipe->category_id);
         return [
             'recipe' => $recipe,
@@ -122,6 +127,19 @@ class RecipeService
         return [
             'category' => $category,
             'list' => $this->recipe->getRecipesFromCategory($categoryId)
+        ];
+    }
+
+    /**
+     * @param $sectionId
+     * @return array
+     */
+    public function getSection($sectionId)
+    {
+        $section = $this->section->getSection($sectionId);
+        return [
+            'section' => $section,
+            'list' => $this->category->getCategoryFromSection($sectionId)
         ];
     }
 

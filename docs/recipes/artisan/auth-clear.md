@@ -1,11 +1,12 @@
 ---
 Title:    期限切れパスワードのリマインダーをクリアする
-Topics:   artisan, authentication, password reminders
+Topics:   artisan, authentication, password reminders, Laravel4
 Position: 20
 ---
 
 {problem}
-パスワードリマインダーテーブルに多くのレコードがあるため巨大になってきている
+パスワードリマインダーテーブルに多くのレコードがあるため巨大になってきている  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

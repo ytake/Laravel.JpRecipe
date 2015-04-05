@@ -1,11 +1,12 @@
 ---
 Title:    エラーハンドラの登録
-Topics:   -
+Topics:   Laravel4
 Position: 22
 ---
 
 {problem}
-独自のエラーハンドラを追加したい
+独自のエラーハンドラを追加したい  
+このレシピはLaravel4のみ対応です
 {/problem}
 
 {solution}

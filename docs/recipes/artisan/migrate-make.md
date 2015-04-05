@@ -11,9 +11,10 @@ Position: 12
 {/problem}
 
 {solution}
-`php artisan migrate:make`コマンドが利用できます
+Laravel4では`php artisan migrate:make`コマンドが利用でき、  
+Laravel5では`php artisan make:migration`コマンドが利用できます  
 
-このコマンドは`app/database/migrations`ディレクトリに  
+このコマンドは`app/database/migrations(Laravel4)`,`database/migrations(Laravel5)`ディレクトリに  
 マイグレーションテンプレートを土台として作成します
 
 コマンド実行後、生成されたファイルに必要となる詳細を追記していきます  
@@ -46,5 +47,5 @@ Author:Chuck Heintzelman
 
 Editor and Translator:syossan27  
 [Twitter](https://twitter.com/syossan27)  
-[web](http://syossan.hateblo.jp/0)
+[web](http://syossan.hateblo.jp)
 {/credit}

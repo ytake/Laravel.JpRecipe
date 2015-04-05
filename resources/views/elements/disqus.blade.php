@@ -1,4 +1,4 @@
-@if(!Request::is('auth/login*') && !Request::is('search*'))
+@if(!Request::is('search*'))
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

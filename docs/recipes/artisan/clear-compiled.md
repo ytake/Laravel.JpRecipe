@@ -21,8 +21,10 @@ $ php artisan clear-compiled
 {discussion}
 このコマンドは２つのファイルを削除します
 
-1. `bootstrap/compiled.php`、このファイルは最適化されたクラスを生成するためのファイルになります
-2. `app/storage/meta/services.json`、このファイルはアプリケーションで使用されているサービスプロバイダの読み込みを最適化するためのファイルになります
+1. `bootstrap/compiled.php(Laravel4)`、`(storage/framework|vendor)/compiled.php(Laravel5)`,
+   このファイルは最適化されたクラスを生成するためのファイルになります
+2. `app/storage/meta/services.json(Laravel4)`、`(storage/framework|vendor)/services.json(Laravel5)`,
+   このファイルはアプリケーションで使用されているサービスプロバイダの読み込みを最適化するためのファイルになります
 
 [[パフォーマンス改善するためにフレームワークを最適化したい]] の項目も見て下さい。
 {/discussion}
