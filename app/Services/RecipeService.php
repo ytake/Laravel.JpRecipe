@@ -120,10 +120,14 @@ class RecipeService
     /**
      * @param $categoryId
      * @return array
+     * @throws RecipeNotFoundException
      */
     public function getCategories($categoryId)
     {
         $category = $this->category->getCategory($categoryId);
+        if(!$category) {
+            throw new RecipeNotFoundException(404);
+        }
         return [
             'category' => $category,
             'list' => $this->recipe->getRecipesFromCategory($categoryId)

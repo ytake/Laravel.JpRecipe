@@ -53,10 +53,15 @@ class HomeController extends Controller
      * @Get("category/{categoryId}",as="home.category")
      * @param $categoryId
      * @return \Illuminate\View\View
+     * @throws \App\Exceptions\RecipeNotFoundException
      */
     public function category($categoryId)
     {
-        $categories = $this->service->getCategories($categoryId);
+        try {
+            $categories = $this->service->getCategories($categoryId);
+        } catch(\App\Exceptions\RecipeNotFoundException $e) {
+            throw $e;
+        }
         $this->title($categories['category']->description);
         $this->description($categories['category']->description);
         return view('home.category.index', $categories);
