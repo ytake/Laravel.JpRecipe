@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Api;
 
+use App\Extend\Response;
 use Nocarrier\Hal;
 use App\Http\Controllers\Controller;
 use App\Repositories\RecipeRepositoryInterface;
@@ -13,7 +14,7 @@ use App\Repositories\CategoryRepositoryInterface;
  * Class RecipeController
  * @package App\Controllers
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
- * @Resource("api/v1/recipes", only={"index","show"})
+ * @Resource("api/v1/recipe", only={"index","show"})
  */
 class RecipeController extends Controller
 {
@@ -119,7 +120,7 @@ class RecipeController extends Controller
         switch($format)
         {
             case "hal":
-                return \Response::hal($array);
+                return Response::hal($array);
                 break;
             default:
                 return \Response::json($array);

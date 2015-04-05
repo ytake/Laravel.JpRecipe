@@ -65,7 +65,7 @@ class AddRecipeCommand extends Command
      */
     public function fire()
     {
-        $path = \Config::get('recipe.document_path');
+        $path = config('recipe.document_path');
         $categories = scandir($path);
         foreach($categories as $directory) {
 

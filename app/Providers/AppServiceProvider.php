@@ -52,10 +52,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bindShared('markdown', function ($app) {
             return new \App\Presenter\Markdown(new \App\Presenter\Parsedown, $app->make("App\Repositories\RecipeRepositoryInterface"));
         });
-
-        Paginator::presenter(function(){
-            // return new MaterializePaginator();
-        });
     }
 
 }

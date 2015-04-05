@@ -15,23 +15,28 @@ Laravelをインストールすると、デフォルトで`phpunit.xml`が設置
 Laravelはデフォルトの状態でユニットテストを簡単に行う事ができます
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+        <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
-    backupStaticAttributes="false"
-    bootstrap="bootstrap/autoload.php"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    stopOnFailure="false"
-    syntaxCheck="false"
->
-    <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory>./app/tests/</directory>
-        </testsuite>
-    </testsuites>
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false">
+<testsuites>
+    <testsuite name="Application Test Suite">
+        <directory>./tests/</directory>
+    </testsuite>
+</testsuites>
+<php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="SESSION_DRIVER" value="array"/>
+    <env name="QUEUE_DRIVER" value="sync"/>
+</php>
 </phpunit>
 ```
 
@@ -57,10 +62,10 @@ $ composer update
 などでインストールしましょう。  
 
 ###テストの場所？
-デフォルトの状態では、`app/tests`配下を対象として実行されます  
-任意のディレクトリに変更する場合は`<directory>./app/tests/</directory>`から忘れずに変更してください
+デフォルトの状態では、`tests`配下を対象として実行されます  
+任意のディレクトリに変更する場合は`<directory>./tests/</directory>`から忘れずに変更してください
 
-サンプルで用意されている`app/tests/ExampleTest.php`を実行してみましょう
+サンプルで用意されている`tests/ExampleTest.php`を実行してみましょう
 
 Laravelプロジェクトのディレクトリで、実行します  
 composerでphpunitを導入した場合は、`./vendor/bin/phpunit`を指定して実行します
@@ -77,7 +82,7 @@ $ ./vendor/bin/phpunit app/tests/ExampleTest.php
 $ ./vendor/bin/phpunit
 ```
 
-としてください。
+としてください  
 {/solution}
 
 {discussion}
