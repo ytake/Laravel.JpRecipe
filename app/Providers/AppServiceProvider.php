@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Providers;
 
 use App\Presenter\MaterializePaginator;
@@ -8,6 +9,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class AppServiceProvider
+ *
  * @package App\Providers
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
@@ -50,7 +52,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->router->filter('post.once', 'App\Filters\PostOnceFilter');
 
         $this->app->bindShared('markdown', function ($app) {
-            return new \App\Presenter\Markdown(new \App\Presenter\Parsedown, $app->make("App\Repositories\RecipeRepositoryInterface"));
+            return new \App\Presenter\Markdown(new \App\Presenter\Parsedown,
+                $app->make("App\Repositories\RecipeRepositoryInterface"));
         });
     }
 
