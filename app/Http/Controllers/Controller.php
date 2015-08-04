@@ -7,14 +7,12 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 /**
  * Class Controller
+ *
  * @package App\Http\Controllers
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 abstract class Controller extends BaseController
 {
-
-    use DispatchesCommands, ValidatesRequests;
-
     /**
      * @param null $string
      * @return void
@@ -23,7 +21,7 @@ abstract class Controller extends BaseController
     {
         $title = ($string) ? " | $string" : null;
         $title = config('recipe.title') . $title;
-        view()->inject('title', e(str_replace(["\r\n","\r","\n"], '', $title)));
+        view()->inject('title', e(str_replace(["\r\n", "\r", "\n"], '', $title)));
     }
 
     /**
@@ -34,7 +32,6 @@ abstract class Controller extends BaseController
     {
         $description = ($string) ? " | $string" : null;
         $description = config('recipe.description_prefix') . $description . " レシピ";
-        view()->inject('description', e(str_replace(["\r\n","\r","\n"], '', $description)));
+        view()->inject('description', e(str_replace(["\r\n", "\r", "\n"], '', $description)));
     }
-
 }

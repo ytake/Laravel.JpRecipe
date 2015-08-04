@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * Class TestCase
+ */
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
+
+    /**
+     * The base URL to use while testing the application.
+     *
+     * @var string
+     */
+    protected $baseUrl = 'http://homestead.app';
 
     /**
      * Creates the application.
@@ -18,6 +28,24 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     }
 
     /**
+     * for testing logger
+     *
+     * @return void
+     */
+    protected function registerTestLogger()
+    {
+        $this->app->bind('log', function ($app) {
+            $logger = new \Illuminate\Log\Writer(
+                new \Monolog\Logger('testing'), $app['events']
+            );
+            (new \Illuminate\Foundation\Bootstrap\ConfigureLogging)
+                ->bootstrap($app);
+
+            return $logger;
+        });
+    }
+
+    /**
      * @param $class
      * @param $name
      *
@@ -28,6 +56,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         $class = new \ReflectionClass($class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
+
         return $method;
     }
 
@@ -42,17 +71,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         $class = new \ReflectionClass($class);
         $property = $class->getProperty($name);
         $property->setAccessible(true);
+
         return $property;
     }
-
-    /**
-     * Migrate the database
-     */
-    protected function prepareForTests()
-    {
-        \Artisan::call("migrate:reset");
-        \Artisan::call('migrate');
-        \Artisan::call('db:seed');
-    }
 }
-

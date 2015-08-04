@@ -9,8 +9,10 @@ use Illuminate\Database\Migrations\Migration;
  */
 class Sections extends Migration
 {
-
+    /** @var string */
     protected $table = "sections";
+
+    use DownForeignKeyCheckTrait;
 
     /**
      * Run the migrations.
@@ -18,7 +20,7 @@ class Sections extends Migration
      */
     public function up()
     {
-        \Schema::create($this->table, function($table) {
+        \Schema::create($this->table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('section_id');
             $table->string('name')->unique();
@@ -29,16 +31,4 @@ class Sections extends Migration
             $table->index(['section_id', 'position'], 'SECTION_INDEX');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-        \Schema::drop($this->table);
-    }
-
 }

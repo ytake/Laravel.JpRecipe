@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Feed;
 
 use Zend\Http\Client;
@@ -7,7 +8,7 @@ use Zend\Feed\Exception\RuntimeException;
 /**
  * Class Reader
  * @package App\Feed
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class Reader implements ReaderInterface
 {
@@ -24,7 +25,7 @@ class Reader implements ReaderInterface
 
     /**
      * @param string $url
-     * @param int $limit
+     * @param int    $limit
      * @return array
      */
     public function read($url, $limit = 5)
@@ -56,6 +57,7 @@ class Reader implements ReaderInterface
         } catch (RuntimeException $exception) {
             $data[] = [];
         }
+
         return $data;
     }
 }

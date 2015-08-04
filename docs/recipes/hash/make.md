@@ -31,7 +31,5 @@ $hashed = \Hash::make($plaintext, ['rounds' => 10]);
 {/discussion}
 
 {credit}
-Author:Chuck Heintzelman
-
 Editor and Translator:Yuuki Takezawa
 {/credit}

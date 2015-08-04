@@ -1,12 +1,23 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Presenter;
 
 use Illuminate\Pagination\BootstrapThreePresenter;
 
 /**
  * Class MaterializePaginator
+ *
  * @package App\Presenter
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class MaterializePresenter extends BootstrapThreePresenter
 {
@@ -32,13 +43,14 @@ class MaterializePresenter extends BootstrapThreePresenter
 
     /**
      * @param string $url
-     * @param int $page
-     * @param null $rel
+     * @param int    $page
+     * @param null   $rel
      * @return string
      */
     protected function getAvailablePageWrapper($url, $page, $rel = null)
     {
         $rel = is_null($rel) ? '' : ' rel="' . $rel . '"';
+
         return '<li class="waves-effect"><a href="' . htmlentities($url) . '"' . $rel . '>' . $page . '</a></li>';
     }
 

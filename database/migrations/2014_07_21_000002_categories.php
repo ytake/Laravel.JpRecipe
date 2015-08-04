@@ -9,8 +9,10 @@ use Illuminate\Database\Migrations\Migration;
  */
 class Categories extends Migration
 {
-
+    /** @var string  */
     protected $table = "categories";
+
+    use DownForeignKeyCheckTrait;
 
     /**
      * Run the migrations.
@@ -18,7 +20,7 @@ class Categories extends Migration
      */
     public function up()
     {
-        \Schema::create($this->table, function($table) {
+        \Schema::create($this->table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('category_id')->unsigned();
             $table->integer('section_id')->unsigned();
@@ -33,16 +35,4 @@ class Categories extends Migration
                 ->on('sections')->onDelete('cascade')->onUpdate('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-        \Schema::drop($this->table);
-    }
-
 }

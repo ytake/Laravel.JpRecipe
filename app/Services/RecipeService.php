@@ -1,4 +1,14 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Services;
 
 use App\Exceptions\RecipeNotFoundException;
@@ -10,8 +20,9 @@ use App\Repositories\AnalyticsRepositoryInterface;
 
 /**
  * Class RecipeService
+ *
  * @package App\Services
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class RecipeService
 {
@@ -32,9 +43,9 @@ class RecipeService
     protected $analytics;
 
     /**
-     * @param SectionRepositoryInterface $section
-     * @param CategoryRepositoryInterface $category
-     * @param RecipeRepositoryInterface $recipe
+     * @param SectionRepositoryInterface   $section
+     * @param CategoryRepositoryInterface  $category
+     * @param RecipeRepositoryInterface    $recipe
      * @param RecipeTagRepositoryInterface $tag
      * @param AnalyticsRepositoryInterface $analytics
      */
@@ -69,6 +80,7 @@ class RecipeService
                 $row->name = isset($category->name) ? $category->name : null;
             }
         }
+
         return $result;
     }
 
@@ -81,6 +93,7 @@ class RecipeService
         foreach ($sections as $section) {
             $section->recipes = $this->recipe->getRecipeFromSectionByRand($section->section_id);
         }
+
         return $sections;
     }
 
@@ -110,6 +123,7 @@ class RecipeService
             throw new RecipeNotFoundException;
         }
         $recipe->category = $this->category->getCategory($recipe->category_id);
+
         return [
             'recipe' => $recipe,
             'tags' => $this->tag->getRecipeTags($recipe->recipe_id),
@@ -125,9 +139,10 @@ class RecipeService
     public function getCategories($categoryId)
     {
         $category = $this->category->getCategory($categoryId);
-        if(!$category) {
+        if (!$category) {
             throw new RecipeNotFoundException(404);
         }
+
         return [
             'category' => $category,
             'list' => $this->recipe->getRecipesFromCategory($categoryId)
@@ -141,10 +156,19 @@ class RecipeService
     public function getSection($sectionId)
     {
         $section = $this->section->getSection($sectionId);
+
         return [
             'section' => $section,
             'list' => $this->category->getCategoryFromSection($sectionId)
         ];
     }
 
+    /**
+     * @param $title
+     * @return mixed
+     */
+    public function getRecipeFromTitle($title)
+    {
+        return $this->recipe->getRecipeFromTitle($title);
+    }
 }

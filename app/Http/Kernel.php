@@ -1,12 +1,23 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 /**
  * Class Kernel
+ *
  * @package App\Http
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class Kernel extends HttpKernel
 {
@@ -17,12 +28,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        // 'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
         'Illuminate\Cookie\Middleware\EncryptCookies',
         'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
         'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
-        // 'App\Http\Middleware\VerifyCsrfToken',
     ];
 
     /**
@@ -33,5 +42,4 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'App\Http\Middleware\RecipeMiddleWare'
     ];
-
 }

@@ -13,6 +13,7 @@ if (!function_exists('datetime_format')) {
         if ($string === "" || $string == null) {
             return "";
         }
+
         return strftime($format, strtotime($string));
     }
 }

@@ -1,4 +1,14 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Http\Controllers\Api;
 
 use App\Extend\Response;
@@ -12,30 +22,31 @@ use App\Repositories\CategoryRepositoryInterface;
 /**
  * API only
  * Class RecipeController
+ *
  * @package App\Controllers
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  * @Resource("api/v1/recipe", only={"index","show"})
  */
 class RecipeController extends Controller
 {
 
-    /** @var SectionRepositoryInterface  */
+    /** @var SectionRepositoryInterface */
     protected $section;
 
-    /** @var CategoryRepositoryInterface  */
+    /** @var CategoryRepositoryInterface */
     protected $category;
 
-    /** @var RecipeRepositoryInterface  */
+    /** @var RecipeRepositoryInterface */
     protected $recipe;
 
     /** @var Hal */
     protected $hal;
 
     /**
-     * @param SectionRepositoryInterface $section
+     * @param SectionRepositoryInterface  $section
      * @param CategoryRepositoryInterface $category
-     * @param RecipeRepositoryInterface $recipe
-     * @param Hal $hal
+     * @param RecipeRepositoryInterface   $recipe
+     * @param Hal                         $hal
      */
     public function __construct(
         SectionRepositoryInterface $section,
@@ -57,8 +68,8 @@ class RecipeController extends Controller
         $input = \Input::get('format', 'json');
         $array = [];
         $result = $this->recipe->getRecipesFromCategory();
-        if($result) {
-            foreach($result as $row) {
+        if ($result) {
+            foreach ($result as $row) {
                 $params = [
                     'id' => $row->recipe_id,
                     'title' => $row->title,
@@ -67,16 +78,17 @@ class RecipeController extends Controller
                     ]
                 ];
                 $array[] = $params;
-                if($input == 'hal') {
+                if ($input == 'hal') {
                     $this->hal->addLink('recipes', route('home.recipe', ['one' => $row->recipe_id]), $params);
                 }
             }
         }
-        if($input == 'hal') {
+        if ($input == 'hal') {
             $this->hal->setUri('self');
             $this->hal->addLink('self', route('home.index'));
             $array = $this->hal;
         }
+
         return $this->render($array, $input);
     }
 
@@ -89,7 +101,7 @@ class RecipeController extends Controller
         $input = \Input::get('format', 'json');
         $array = [];
         $recipe = $this->recipe->getRecipe($id);
-        if($recipe) {
+        if ($recipe) {
             $category = $this->category->getCategory($recipe->category_id);
             $array = [
                 'id' => $recipe->recipe_id,
@@ -102,23 +114,23 @@ class RecipeController extends Controller
             ];
         }
         // render for hypermedia
-        if($input == 'hal') {
+        if ($input == 'hal') {
             $this->hal->setUri(route('home.recipe', ['one' => $id]));
             $this->hal->setData($array);
             $array = $this->hal;
         }
+
         return $this->render($array, $input);
     }
 
     /**
-     * @param $array
+     * @param        $array
      * @param string $format
      * @return \Illuminate\Http\JsonResponse
      */
     public function render($array = null, $format = 'json')
     {
-        switch($format)
-        {
+        switch ($format) {
             case "hal":
                 return Response::hal($array);
                 break;

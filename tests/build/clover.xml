@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1438685595">
+  <project timestamp="1438685595">
+    <package name="App\Composers">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Composers/CategoryComposer.php">
+        <class name="CategoryComposer" namespace="App\Composers" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+        </class>
+        <line num="21" type="method" name="__construct" crap="1" count="1"/>
+        <line num="23" type="stmt" count="1"/>
+        <line num="24" type="stmt" count="1"/>
+        <line num="29" type="method" name="compose" crap="1" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="20" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Composers/FeederComposer.php">
+        <class name="FeederComposer" namespace="App\Composers" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+        </class>
+        <line num="27" type="method" name="__construct" crap="2" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="36" type="method" name="compose" crap="6" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <metrics loc="48" ncloc="33" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Composers/NewsFeederComposer.php">
+        <class name="NewsFeederComposer" namespace="App\Composers" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="15" coveredelements="0"/>
+        </class>
+        <line num="22" type="method" name="__construct" crap="2" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="31" type="method" name="compose" crap="6" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <metrics loc="43" ncloc="29" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="15" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Console\Commands">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Console/Commands/AddRecipeCommand.php">
+        <class name="AddRecipeCommand" namespace="App\Console\Commands" fullPackage="App" package="App">
+          <metrics methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="131" coveredstatements="0" elements="138" coveredelements="0"/>
+        </class>
+        <line num="62" type="method" name="__construct" crap="2" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="80" type="method" name="fire" crap="20" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="103" type="method" name="addRecipes" crap="90" count="0"/>
+        <line num="104" type="stmt" count="0"/>
+        <line num="106" type="stmt" count="0"/>
+        <line num="108" type="stmt" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="112" type="stmt" count="0"/>
+        <line num="113" type="stmt" count="0"/>
+        <line num="114" type="stmt" count="0"/>
+        <line num="115" type="stmt" count="0"/>
+        <line num="116" type="stmt" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="119" type="stmt" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="122" type="stmt" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="125" type="stmt" count="0"/>
+        <line num="126" type="stmt" count="0"/>
+        <line num="127" type="stmt" count="0"/>
+        <line num="128" type="stmt" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="131" type="stmt" count="0"/>
+        <line num="132" type="stmt" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="0"/>
+        <line num="139" type="stmt" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="0"/>
+        <line num="142" type="stmt" count="0"/>
+        <line num="143" type="stmt" count="0"/>
+        <line num="144" type="stmt" count="0"/>
+        <line num="145" type="stmt" count="0"/>
+        <line num="146" type="stmt" count="0"/>
+        <line num="147" type="stmt" count="0"/>
+        <line num="148" type="stmt" count="0"/>
+        <line num="149" type="stmt" count="0"/>
+        <line num="150" type="stmt" count="0"/>
+        <line num="151" type="stmt" count="0"/>
+        <line num="160" type="method" name="getParseContents" crap="6" count="0"/>
+        <line num="161" type="stmt" count="0"/>
+        <line num="162" type="stmt" count="0"/>
+        <line num="163" type="stmt" count="0"/>
+        <line num="164" type="stmt" count="0"/>
+        <line num="165" type="stmt" count="0"/>
+        <line num="167" type="stmt" count="0"/>
+        <line num="168" type="stmt" count="0"/>
+        <line num="176" type="method" name="getParseHeader" crap="110" count="0"/>
+        <line num="177" type="stmt" count="0"/>
+        <line num="178" type="stmt" count="0"/>
+        <line num="179" type="stmt" count="0"/>
+        <line num="180" type="stmt" count="0"/>
+        <line num="181" type="stmt" count="0"/>
+        <line num="182" type="stmt" count="0"/>
+        <line num="183" type="stmt" count="0"/>
+        <line num="184" type="stmt" count="0"/>
+        <line num="185" type="stmt" count="0"/>
+        <line num="186" type="stmt" count="0"/>
+        <line num="187" type="stmt" count="0"/>
+        <line num="188" type="stmt" count="0"/>
+        <line num="189" type="stmt" count="0"/>
+        <line num="190" type="stmt" count="0"/>
+        <line num="191" type="stmt" count="0"/>
+        <line num="192" type="stmt" count="0"/>
+        <line num="193" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="0"/>
+        <line num="195" type="stmt" count="0"/>
+        <line num="196" type="stmt" count="0"/>
+        <line num="197" type="stmt" count="0"/>
+        <line num="198" type="stmt" count="0"/>
+        <line num="199" type="stmt" count="0"/>
+        <line num="200" type="stmt" count="0"/>
+        <line num="201" type="stmt" count="0"/>
+        <line num="203" type="stmt" count="0"/>
+        <line num="204" type="stmt" count="0"/>
+        <line num="206" type="stmt" count="0"/>
+        <line num="207" type="stmt" count="0"/>
+        <line num="213" type="method" name="convertGfm" crap="2" count="0"/>
+        <line num="214" type="stmt" count="0"/>
+        <line num="215" type="stmt" count="0"/>
+        <line num="216" type="stmt" count="0"/>
+        <line num="217" type="stmt" count="0"/>
+        <line num="218" type="stmt" count="0"/>
+        <line num="219" type="stmt" count="0"/>
+        <line num="220" type="stmt" count="0"/>
+        <line num="221" type="stmt" count="0"/>
+        <line num="222" type="stmt" count="0"/>
+        <line num="224" type="stmt" count="0"/>
+        <line num="225" type="stmt" count="0"/>
+        <line num="231" type="method" name="addTags" crap="42" count="0"/>
+        <line num="232" type="stmt" count="0"/>
+        <line num="233" type="stmt" count="0"/>
+        <line num="234" type="stmt" count="0"/>
+        <line num="235" type="stmt" count="0"/>
+        <line num="236" type="stmt" count="0"/>
+        <line num="237" type="stmt" count="0"/>
+        <line num="238" type="stmt" count="0"/>
+        <line num="239" type="stmt" count="0"/>
+        <line num="240" type="stmt" count="0"/>
+        <line num="241" type="stmt" count="0"/>
+        <line num="242" type="stmt" count="0"/>
+        <line num="243" type="stmt" count="0"/>
+        <line num="244" type="stmt" count="0"/>
+        <line num="246" type="stmt" count="0"/>
+        <line num="247" type="stmt" count="0"/>
+        <line num="248" type="stmt" count="0"/>
+        <line num="249" type="stmt" count="0"/>
+        <metrics loc="250" ncloc="176" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="131" coveredstatements="0" elements="138" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Console/Commands/CleanCommand.php">
+        <class name="CleanCommand" namespace="App\Console\Commands" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="7" elements="10" coveredelements="8"/>
+        </class>
+        <line num="37" type="method" name="__construct" crap="1" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="47" type="method" name="fire" crap="2.03" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="51" type="stmt" count="1"/>
+        <line num="52" type="stmt" count="1"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="1"/>
+        <metrics loc="56" ncloc="31" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="7" elements="10" coveredelements="8"/>
+      </file>
+    </package>
+    <package name="App\Console">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Console/Kernel.php">
+        <class name="Kernel" namespace="App\Console" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="43" type="method" name="schedule" crap="1" count="3"/>
+        <line num="46" type="stmt" count="3"/>
+        <metrics loc="48" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+    </package>
+    <package name="App\DataAccess\Cache">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Cache/Cache.php">
+        <class name="Cache" namespace="App\DataAccess\Cache" fullPackage="App" package="App">
+          <metrics methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="0" elements="45" coveredelements="0"/>
+        </class>
+        <line num="37" type="method" name="__construct" crap="2" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="48" type="method" name="get" crap="2" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="59" type="method" name="put" crap="6" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="77" type="method" name="putPaginateCache" crap="2" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="99" type="method" name="has" crap="2" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="101" type="stmt" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="108" type="method" name="forget" crap="2" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="116" type="method" name="flush" crap="2" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="119" type="stmt" count="0"/>
+        <metrics loc="120" ncloc="68" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="0" elements="45" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Cache/Cacheable.php">
+      <metrics loc="69" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="App\DataAccess\Fluent">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/AbstractFluent.php">
+        <class name="AbstractFluent" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="38" coveredelements="0"/>
+        </class>
+        <line num="46" type="method" name="add" crap="2" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="59" type="method" name="all" crap="2" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="70" type="method" name="find" crap="12" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="90" type="method" name="delete" crap="2" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="104" type="method" name="update" crap="2" count="0"/>
+        <line num="105" type="stmt" count="0"/>
+        <line num="107" type="stmt" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="119" type="method" name="getConnection" crap="2" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="122" type="stmt" count="0"/>
+        <metrics loc="123" ncloc="66" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="38" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/AnalyticsRepository.php">
+        <class name="AnalyticsRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="0" elements="47" coveredelements="0"/>
+        </class>
+        <line num="33" type="method" name="setCount" crap="12" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="57" type="method" name="getSortedCount" crap="20" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="87" type="method" name="deleteDisableKey" crap="12" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="94" type="method" name="anonymous function" crap="6" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="98" type="stmt" count="0"/>
+        <line num="99" type="stmt" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="101" type="stmt" count="0"/>
+        <metrics loc="102" ncloc="72" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="0" elements="50" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/CategoryRepository.php">
+        <class name="CategoryRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="0" elements="63" coveredelements="0"/>
+        </class>
+        <line num="38" type="method" name="addCategory" crap="6" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="56" type="method" name="updateCategory" crap="2" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="66" type="method" name="getCategories" crap="2" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="78" type="method" name="getCategoryList" crap="2" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="88" type="method" name="getCategoryFromSection" crap="2" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="99" type="method" name="getCategory" crap="2" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="101" type="stmt" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="108" type="method" name="getCategoryFromSlug" crap="2" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="112" type="stmt" count="0"/>
+        <line num="113" type="stmt" count="0"/>
+        <line num="119" type="method" name="getCategoryPosition" crap="2" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="122" type="stmt" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="128" type="method" name="getNavigationCategory" crap="12" count="0"/>
+        <line num="129" type="stmt" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="131" type="stmt" count="0"/>
+        <line num="132" type="stmt" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="0"/>
+        <line num="139" type="stmt" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="0"/>
+        <line num="143" type="stmt" count="0"/>
+        <line num="144" type="stmt" count="0"/>
+        <metrics loc="145" ncloc="88" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="0" elements="63" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/RecipeRepository.php">
+        <class name="RecipeRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="108" coveredstatements="0" elements="121" coveredelements="0"/>
+        </class>
+        <line num="41" type="method" name="getRecipesPage" crap="6" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="58" type="method" name="getRecipesFromCategory" crap="6" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="74" type="method" name="addRecipe" crap="6" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="90" type="method" name="deleteRecipe" crap="2" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="102" type="method" name="updateRecipe" crap="2" count="0"/>
+        <line num="103" type="stmt" count="0"/>
+        <line num="104" type="stmt" count="0"/>
+        <line num="105" type="stmt" count="0"/>
+        <line num="107" type="stmt" count="0"/>
+        <line num="108" type="stmt" count="0"/>
+        <line num="114" type="method" name="getRecipe" crap="2" count="0"/>
+        <line num="115" type="stmt" count="0"/>
+        <line num="116" type="stmt" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="123" type="method" name="getRecipeFromTitle" crap="2" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="125" type="stmt" count="0"/>
+        <line num="126" type="stmt" count="0"/>
+        <line num="132" type="method" name="getRecipePosition" crap="2" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="146" type="method" name="getRecipeFromSectionByRand" crap="12" count="0"/>
+        <line num="147" type="stmt" count="0"/>
+        <line num="148" type="stmt" count="0"/>
+        <line num="149" type="stmt" count="0"/>
+        <line num="150" type="stmt" count="0"/>
+        <line num="151" type="stmt" count="0"/>
+        <line num="152" type="stmt" count="0"/>
+        <line num="153" type="stmt" count="0"/>
+        <line num="154" type="stmt" count="0"/>
+        <line num="155" type="stmt" count="0"/>
+        <line num="156" type="stmt" count="0"/>
+        <line num="157" type="stmt" count="0"/>
+        <line num="158" type="stmt" count="0"/>
+        <line num="159" type="stmt" count="0"/>
+        <line num="160" type="stmt" count="0"/>
+        <line num="161" type="stmt" count="0"/>
+        <line num="162" type="stmt" count="0"/>
+        <line num="163" type="stmt" count="0"/>
+        <line num="164" type="stmt" count="0"/>
+        <line num="166" type="stmt" count="0"/>
+        <line num="167" type="stmt" count="0"/>
+        <line num="176" type="method" name="getLatestRecipe" crap="2" count="0"/>
+        <line num="177" type="stmt" count="0"/>
+        <line num="178" type="stmt" count="0"/>
+        <line num="179" type="stmt" count="0"/>
+        <line num="180" type="stmt" count="0"/>
+        <line num="182" type="stmt" count="0"/>
+        <line num="183" type="stmt" count="0"/>
+        <line num="184" type="stmt" count="0"/>
+        <line num="185" type="stmt" count="0"/>
+        <line num="186" type="stmt" count="0"/>
+        <line num="187" type="stmt" count="0"/>
+        <line num="197" type="method" name="getRecipesFromText" crap="20" count="0"/>
+        <line num="198" type="stmt" count="0"/>
+        <line num="199" type="stmt" count="0"/>
+        <line num="200" type="stmt" count="0"/>
+        <line num="201" type="stmt" count="0"/>
+        <line num="202" type="stmt" count="0"/>
+        <line num="204" type="stmt" count="0"/>
+        <line num="205" type="stmt" count="0"/>
+        <line num="206" type="stmt" count="0"/>
+        <line num="207" type="stmt" count="0"/>
+        <line num="208" type="stmt" count="0"/>
+        <line num="209" type="stmt" count="0"/>
+        <line num="210" type="stmt" count="0"/>
+        <line num="211" type="stmt" count="0"/>
+        <line num="212" type="stmt" count="0"/>
+        <line num="214" type="stmt" count="0"/>
+        <line num="216" type="stmt" count="0"/>
+        <line num="217" type="stmt" count="0"/>
+        <line num="218" type="stmt" count="0"/>
+        <line num="219" type="stmt" count="0"/>
+        <line num="220" type="stmt" count="0"/>
+        <line num="221" type="stmt" count="0"/>
+        <line num="222" type="method" name="anonymous function" crap="2" count="0"/>
+        <line num="223" type="stmt" count="0"/>
+        <line num="224" type="stmt" count="0"/>
+        <line num="226" type="stmt" count="0"/>
+        <line num="227" type="stmt" count="0"/>
+        <line num="229" type="stmt" count="0"/>
+        <line num="230" type="stmt" count="0"/>
+        <line num="236" type="method" name="getPrevNextRecipes" crap="2" count="0"/>
+        <line num="237" type="stmt" count="0"/>
+        <line num="238" type="stmt" count="0"/>
+        <line num="239" type="stmt" count="0"/>
+        <line num="240" type="stmt" count="0"/>
+        <line num="241" type="stmt" count="0"/>
+        <line num="242" type="stmt" count="0"/>
+        <line num="243" type="stmt" count="0"/>
+        <line num="244" type="stmt" count="0"/>
+        <line num="246" type="stmt" count="0"/>
+        <line num="247" type="stmt" count="0"/>
+        <metrics loc="248" ncloc="166" classes="1" methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="112" coveredstatements="0" elements="125" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/RecipeTagRepository.php">
+        <class name="RecipeTagRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="29" coveredelements="0"/>
+        </class>
+        <line num="33" type="method" name="getRecipeTags" crap="12" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="54" type="method" name="deleteRecipeTags" crap="2" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="67" type="method" name="addRecipeTag" crap="2" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="76" type="method" name="getRecipesFromTag" crap="2" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <metrics loc="80" ncloc="45" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="29" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/SectionRepository.php">
+        <class name="SectionRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="21" coveredelements="0"/>
+        </class>
+        <line num="39" type="method" name="getSections" crap="2" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="57" type="method" name="getSectionList" crap="2" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="69" type="method" name="getSection" crap="2" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <metrics loc="73" ncloc="37" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="21" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/DataAccess/Fluent/TagRepository.php">
+        <class name="TagRepository" namespace="App\DataAccess\Fluent" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="24" coveredelements="0"/>
+        </class>
+        <line num="39" type="method" name="getTags" crap="2" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="48" type="method" name="getTag" crap="2" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="58" type="method" name="getTagFromName" crap="12" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="76" type="method" name="addTag" crap="2" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <metrics loc="80" ncloc="44" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="24" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Exceptions">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Exceptions/Handler.php">
+        <class name="Handler" namespace="App\Exceptions" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+        </class>
+        <line num="43" type="method" name="report" crap="2" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="55" type="method" name="render" crap="2" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <metrics loc="59" ncloc="24" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Exceptions/RecipeNotFoundException.php">
+        <class name="RecipeNotFoundException" namespace="App\Exceptions" fullPackage="App" package="App">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="25" ncloc="10" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Feed">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Feed/Reader.php">
+        <class name="Reader" namespace="App\Feed" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="0" elements="35" coveredelements="0"/>
+        </class>
+        <line num="21" type="method" name="__construct" crap="2" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="31" type="method" name="read" crap="30" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <metrics loc="63" ncloc="49" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="0" elements="35" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Http\Controllers\Api">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Controllers/Api/RecipeController.php">
+        <class name="RecipeController" namespace="App\Http\Controllers\Api" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="0" elements="73" coveredelements="0"/>
+        </class>
+        <line num="51" type="method" name="__construct" crap="2" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="66" type="method" name="index" crap="30" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="99" type="method" name="show" crap="12" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="101" type="stmt" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="103" type="stmt" count="0"/>
+        <line num="104" type="stmt" count="0"/>
+        <line num="105" type="stmt" count="0"/>
+        <line num="106" type="stmt" count="0"/>
+        <line num="107" type="stmt" count="0"/>
+        <line num="108" type="stmt" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="112" type="stmt" count="0"/>
+        <line num="113" type="stmt" count="0"/>
+        <line num="114" type="stmt" count="0"/>
+        <line num="115" type="stmt" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="119" type="stmt" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="131" type="method" name="render" crap="6" count="0"/>
+        <line num="132" type="stmt" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="0"/>
+        <line num="139" type="stmt" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="0"/>
+        <metrics loc="142" ncloc="101" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="0" elements="73" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Http\Controllers">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Controllers/FaqController.php">
+        <class name="FaqController" namespace="App\Http\Controllers" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+        </class>
+        <line num="16" type="method" name="index" crap="1" count="1"/>
+        <line num="18" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="1"/>
+        <metrics loc="22" ncloc="13" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Controllers/FeedController.php">
+        <class name="FeedController" namespace="App\Http\Controllers" fullPackage="App" package="App">
+          <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="18" coveredelements="0"/>
+        </class>
+        <line num="31" type="method" name="__construct" crap="2" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="41" type="method" name="getIndex" crap="2" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="50" type="method" name="getSiteMap" crap="2" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <metrics loc="60" ncloc="32" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="18" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Controllers/HomeController.php">
+        <class name="HomeController" namespace="App\Http\Controllers" fullPackage="App" package="App">
+          <metrics methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="34" coveredelements="0"/>
+        </class>
+        <line num="31" type="method" name="__construct" crap="2" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="40" type="method" name="index" crap="2" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="52" type="method" name="recipe" crap="2" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="71" type="method" name="category" crap="6" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="89" type="method" name="section" crap="2" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <metrics loc="97" ncloc="50" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="34" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Controllers/SearchController.php">
+        <class name="SearchController" namespace="App\Http\Controllers" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="13" coveredelements="0"/>
+        </class>
+        <line num="36" type="method" name="__construct" crap="2" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="46" type="method" name="getIndex" crap="2" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <metrics loc="56" ncloc="29" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="13" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Extend\Module">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Extend/Module/HalRender.php">
+        <class name="HalRender" namespace="App\Extend\Module" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
+        </class>
+        <line num="37" type="method" name="__construct" crap="2" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="48" type="method" name="render" crap="2" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <metrics loc="54" ncloc="27" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Extend">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Extend/Response.php">
+        <class name="Response" namespace="App\Extend" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+        </class>
+        <line num="36" type="method" name="hal" crap="2" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <metrics loc="42" ncloc="18" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Http\Middleware">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Middleware/EncryptCookies.php">
+        <class name="EncryptCookies" namespace="App\Http\Middleware" fullPackage="App" package="App">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="31" ncloc="10" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Middleware/RecipeMiddleWare.php">
+        <class name="RecipeMiddleWare" namespace="App\Http\Middleware" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="32" type="method" name="handle" crap="2" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <metrics loc="36" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Middleware/VerifyCsrfToken.php">
+        <class name="VerifyCsrfToken" namespace="App\Http\Middleware" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="32" type="method" name="handle" crap="2" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <metrics loc="36" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Http\Requests">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Http/Requests/SearchRequest.php">
+        <class name="SearchRequest" namespace="App\Http\Requests" fullPackage="App" package="App">
+          <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
+        </class>
+        <line num="31" type="method" name="authorize" crap="2" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="41" type="method" name="rules" crap="2" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="53" type="method" name="messages" crap="2" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <metrics loc="59" ncloc="28" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Jobs">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Jobs/AnalysisCommand.php">
+        <class name="AnalysisCommand" namespace="App\Jobs" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+        </class>
+        <line num="21" type="method" name="__construct" crap="2" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="30" type="method" name="handle" crap="2" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <metrics loc="34" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Jobs/Jobs.php">
+        <class name="Jobs" namespace="App\Jobs" fullPackage="App" package="App">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="12" ncloc="6" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Presenter">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Presenter/Feed.php">
+        <class name="Feed" namespace="App\Presenter" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="0" elements="31" coveredelements="0"/>
+        </class>
+        <line num="34" type="method" name="__construct" crap="2" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="43" type="method" name="setHeaders" crap="2" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="61" type="method" name="getFeeder" crap="2" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="69" type="method" name="render" crap="6" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <metrics loc="79" ncloc="57" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="0" elements="31" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Presenter/Markdown.php">
+        <class name="Markdown" namespace="App\Presenter" fullPackage="App" package="App">
+          <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="35" coveredelements="0"/>
+        </class>
+        <line num="36" type="method" name="__construct" crap="2" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="49" type="method" name="render" crap="20" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="70" type="method" name="convertToRef" crap="30" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <metrics loc="86" ncloc="51" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="0" elements="35" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Presenter/MarkdownFacade.php">
+        <class name="MarkdownFacade" namespace="App\Presenter" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="29" type="method" name="getFacadeAccessor" crap="2" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <metrics loc="33" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Presenter/MaterializePresenter.php">
+        <class name="MaterializePresenter" namespace="App\Presenter" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="25" coveredelements="0"/>
+        </class>
+        <line num="30" type="method" name="render" crap="6" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="50" type="method" name="getAvailablePageWrapper" crap="6" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="63" type="method" name="getDisabledTextWrapper" crap="2" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="74" type="method" name="getActivePageWrapper" crap="2" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <metrics loc="79" ncloc="41" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="25" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Services">
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Services/AnalyticsService.php">
+        <class name="AnalyticsService" namespace="App\Services" fullPackage="App" package="App">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+        </class>
+        <line num="20" type="method" name="__construct" crap="1" count="1"/>
+        <line num="22" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="1"/>
+        <line num="29" type="method" name="deleteAnalyze" crap="1" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="20" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Services/ConsoleRecipeService.php">
+        <class name="ConsoleRecipeService" namespace="App\Services" fullPackage="App" package="App">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+        </class>
+        <line num="22" type="method" name="__construct" crap="2" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <metrics loc="26" ncloc="12" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Services/ContentService.php">
+        <class name="ContentService" namespace="App\Services" fullPackage="App" package="App">
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="0" elements="43" coveredelements="0"/>
+        </class>
+        <line num="17" type="method" name="parseContents" crap="6" count="0"/>
+        <line num="18" type="stmt" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="32" type="method" name="getParseHeader" crap="12" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="49" type="method" name="replaceElement" crap="30" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="71" type="method" name="replaceContent" crap="6" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <metrics loc="78" ncloc="54" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="0" elements="43" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Services/FeedService.php">
+        <class name="FeedService" namespace="App\Services" fullPackage="App" package="App">
+          <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="51" coveredelements="0"/>
+        </class>
+        <line num="36" type="method" name="__construct" crap="2" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="46" type="method" name="getFeed" crap="20" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="72" type="method" name="getSiteMap" crap="12" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <metrics loc="98" ncloc="70" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="51" coveredelements="0"/>
+      </file>
+      <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/Services/RecipeService.php">
+        <class name="RecipeService" namespace="App\Services" fullPackage="App" package="App">
+          <metrics methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="71" coveredstatements="0" elements="79" coveredelements="0"/>
+        </class>
+        <line num="52" type="method" name="__construct" crap="2" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="71" type="method" name="getContentsRanking" crap="42" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="90" type="method" name="getSections" crap="6" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="98" type="stmt" count="0"/>
+        <line num="104" type="method" name="getIndexContents" crap="2" count="0"/>
+        <line num="105" type="stmt" count="0"/>
+        <line num="106" type="stmt" count="0"/>
+        <line num="107" type="stmt" count="0"/>
+        <line num="108" type="stmt" count="0"/>
+        <line num="109" type="stmt" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="118" type="method" name="getRecipe" crap="6" count="0"/>
+        <line num="119" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="122" type="stmt" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="125" type="stmt" count="0"/>
+        <line num="127" type="stmt" count="0"/>
+        <line num="128" type="stmt" count="0"/>
+        <line num="129" type="stmt" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="131" type="stmt" count="0"/>
+        <line num="132" type="stmt" count="0"/>
+        <line num="139" type="method" name="getCategories" crap="6" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="0"/>
+        <line num="142" type="stmt" count="0"/>
+        <line num="143" type="stmt" count="0"/>
+        <line num="144" type="stmt" count="0"/>
+        <line num="146" type="stmt" count="0"/>
+        <line num="147" type="stmt" count="0"/>
+        <line num="148" type="stmt" count="0"/>
+        <line num="149" type="stmt" count="0"/>
+        <line num="150" type="stmt" count="0"/>
+        <line num="156" type="method" name="getSection" crap="2" count="0"/>
+        <line num="157" type="stmt" count="0"/>
+        <line num="158" type="stmt" count="0"/>
+        <line num="160" type="stmt" count="0"/>
+        <line num="161" type="stmt" count="0"/>
+        <line num="162" type="stmt" count="0"/>
+        <line num="163" type="stmt" count="0"/>
+        <line num="164" type="stmt" count="0"/>
+        <line num="170" type="method" name="getRecipeFromTitle" crap="2" count="0"/>
+        <line num="171" type="stmt" count="0"/>
+        <line num="172" type="stmt" count="0"/>
+        <line num="173" type="stmt" count="0"/>
+        <metrics loc="174" ncloc="116" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="71" coveredstatements="0" elements="79" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/Applications/MAMP/htdocs/Laravel.JpRecipe/app/common.php">
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <metrics loc="19" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="3" coveredelements="0"/>
+    </file>
+    <metrics files="41" loc="3051" ncloc="1815" classes="39" methods="125" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="967" coveredstatements="18" elements="1092" coveredelements="25"/>
+  </project>
+</coverage>

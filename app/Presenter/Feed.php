@@ -5,19 +5,20 @@ use Zend\Feed\Writer\Feed AS ZendFeed;
 
 /**
  * Class Feed
+ *
  * @package App\Presenter
  * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class Feed implements FeedInterface
 {
 
-    /** @var ZendFeed  */
+    /** @var ZendFeed */
     protected $feed;
 
     /** @var string */
     protected $format;
 
-    /** @var array  */
+    /** @var array */
     protected $header = [
         'atom' => [
             'Content-Type' => 'application/atom+xml'
@@ -47,9 +48,9 @@ class Feed implements FeedInterface
         $this->feed->setDescription(\Config::get('recipe.title'));
         $this->feed->setDateModified(time());
         $this->feed->addAuthor([
-                'name'  => 'Yuuki Takezawa',
-                'email' => 'yuuki.takezawa@comnect.jp.net'
-            ]);
+            'name' => 'Yuuki Takezawa',
+            'email' => 'yuuki.takezawa@comnect.jp.net'
+        ]);
         $this->feed->addHub('http://pubsubhubbub.appspot.com/');
         $this->format = $format;
     }
@@ -69,8 +70,9 @@ class Feed implements FeedInterface
     {
         try {
             $feed = $this->feed->export($this->format);
+
             return response($feed, 200, $this->header[$this->format]);
-        } catch(\Zend\Feed\Writer\Exception\InvalidArgumentException $w) {
+        } catch (\Zend\Feed\Writer\Exception\InvalidArgumentException $w) {
             return response([], 404);
         }
     }

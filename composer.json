@@ -1,5 +1,5 @@
 {
-  "name": "laravel-jp/laravel-jp-recipe",
+  "name": "ytake/laravel-jp-recipe",
   "description": "The Laravel Framework. jp recipe site",
   "keywords": [
     "framework",
@@ -8,13 +8,12 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Yuuki Takezawa",
+      "name": "yuuki takezawa",
       "email": "yuuki.takezawa@comnect.jp.net"
     }
   ],
   "require": {
     "php": ">=5.5.9",
-    "ext-mcrypt": "*",
     "ext-json": "*",
     "laravel/framework": "5.1.*",
     "predis/predis": "1.*",
@@ -27,11 +26,15 @@
     "laravelcollective/annotations": "5.1.*"
   },
   "require-dev": {
+    "fzaninotto/faker": "~1.4",
     "phpunit/phpunit": "4.*",
     "phpspec/phpspec": "~2.1",
     "mockery/mockery": "*",
+    "doctrine/dbal": "~2.3",
     "barryvdh/laravel-ide-helper": "2.*",
-    "satooshi/php-coveralls": "dev-master"
+    "satooshi/php-coveralls": "dev-master",
+    "phpmd/phpmd" : "*",
+    "laravel/homestead": "*"
   },
   "autoload": {
     "classmap": [
@@ -49,17 +52,24 @@
       "tests/TestCase.php"
     ]
   },
+  "suggest": {
+    "halleck45/phpmetrics": "provides various metrics about PHP projects."
+  },
   "scripts": {
     "post-install-cmd": [
       "php artisan clear-compiled",
       "php artisan optimize"
     ],
+    "pre-update-cmd": [
+      "php artisan clear-compiled"
+    ],
     "post-update-cmd": [
-      "php artisan clear-compiled",
       "php artisan optimize"
     ],
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
     "post-create-project-cmd": [
-      "php -r \"copy('.env.example', '.env');\"",
       "php artisan key:generate"
     ]
   },

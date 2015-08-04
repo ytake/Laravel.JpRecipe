@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Providers;
 
 use Collective\Annotations\AnnotationsServiceProvider as ServiceProvider;
@@ -25,10 +26,11 @@ class AnnotationsServiceProvider extends ServiceProvider
      * @var array
      */
     protected $scanRoutes = [
-        'App\Http\Controllers\HomeController',
-        'App\Http\Controllers\SearchController',
-        'App\Http\Controllers\FeedController',
-        'App\Http\Controllers\Api\RecipeController',
+        \App\Http\Controllers\HomeController::class,
+        \App\Http\Controllers\SearchController::class,
+        \App\Http\Controllers\FeedController::class,
+        \App\Http\Controllers\Api\RecipeController::class,
+        \App\Http\Controllers\FaqController::class
     ];
 
     /**

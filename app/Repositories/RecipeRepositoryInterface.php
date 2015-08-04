@@ -1,8 +1,19 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Repositories;
 
 /**
  * Interface RecipeRepositoryInterface
+ *
  * @package App\Repositories
  * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
@@ -23,7 +34,7 @@ interface RecipeRepositoryInterface
     public function addRecipe(array $attribute);
 
     /**
-     * @param $id
+     * @param       $id
      * @param array $attribute
      * @return mixed
      */
@@ -55,7 +66,8 @@ interface RecipeRepositoryInterface
 
     /**
      * セクション内でランダムにレシピを取得
-     * @param $sectionId
+     *
+     * @param     $sectionId
      * @param int $limit
      * @return array
      */
@@ -69,8 +81,8 @@ interface RecipeRepositoryInterface
 
     /**
      * @param array $text
-     * @param int $current
-     * @param int $limit
+     * @param int   $current
+     * @param int   $limit
      * @return mixed
      */
     public function getRecipesFromText(array $text, $current = 1, $limit = 25);

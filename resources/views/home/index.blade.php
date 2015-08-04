@@ -11,15 +11,15 @@
                         <li class="light center">
                             @foreach($latest as $late)
                                 <i class="fa fa-cutlery"></i>
-                                <a href="{{route('home.recipe', ['one' => $late->recipe_id])}}"
-                                   title="{{$late->title}}">
-                                    {{mb_strimwidth($late->title, 0, 50, "...")}}
+                                <a href="{{{route('home.recipe', ['one' => $late->recipe_id])}}}"
+                                   title="{{{$late->title}}}">
+                                    {{{mb_strimwidth($late->title, 0, 50, "...")}}}
                                 </a><br/>
                                 <small>
                                     <i class="fa fa-cogs"></i>
-                                    <a href="{{route('home.category', ['one' => $late->category_id])}}">
-                                        {{$late->name}}
-                                    </a>/&nbsp;{{datetime_format($late->created_at, "%Y年%m月%d日 %H:%M")}}
+                                    <a href="{{{route('home.category', ['one' => $late->category_id])}}}">
+                                        {{{$late->name}}}
+                                    </a>/&nbsp;{{{datetime_format($late->created_at, "%Y年%m月%d日 %H:%M")}}}
                                 </small>
                                 <br/>
                             @endforeach
@@ -37,18 +37,18 @@
                         <li class="light center">
                             @foreach($popular as $row)
                                 <i class="fa fa-cutlery"></i>
-                                <a href="{{route('home.recipe', ['one' => $row->recipe_id])}}" title="{{$row->title}}">
-                                    {{mb_strimwidth($row->title, 0, 50, "...")}}
+                                <a href="{{{route('home.recipe', ['one' => $row->recipe_id])}}}"
+                                   title="{{{$row->title}}}">
+                                    {{{mb_strimwidth($row->title, 0, 50, "...")}}}
                                 </a><br/>
                                 <small>
-                                    <i class="fa fa-cogs"></i><a
-                                            href="{{route('home.category', ['one' => $row->category_id])}}">
-                                        {{$row->name}}
+                                    <i class="fa fa-cogs"></i>
+                                    <a href="{{{route('home.category', ['one' => $row->category_id])}}}">
+                                        {{{$row->name}}}
                                     </a>
-                                    <i class="fa fa-eye"></i>&nbsp;&nbsp;{{$row->views}}:views
+                                    <i class="fa fa-eye"></i>&nbsp;&nbsp;{{{$row->views}}}:views
                                 </small>
                                 <br/>
-
                             @endforeach
                         </li>
                     </ul>

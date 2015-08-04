@@ -6,14 +6,14 @@ use Carbon\Carbon;
 /**
  * Class SectionTableSeeder
  * @package Receipe\DBSeeder
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class SectionTableSeeder extends Seeder
 {
-
+    /** @var string */
     protected $table = 'sections';
 
-    /** @var array  */
+    /** @var array */
     protected $attribute = [
         [
             'name' => 'Laravel 基本設定',
@@ -43,7 +43,7 @@ class SectionTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach($this->attribute as $row) {
+        foreach ($this->attribute as $row) {
 
             $row['created_at'] = Carbon::now()->toDateTimeString();
             \DB::connection('master')->table($this->table)->insert($row);

@@ -1,36 +1,40 @@
 <?php
+/**
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Repositories\AnalyticsRepositoryInterface;
+use App\Services\AnalyticsService;
 
 /**
  * Class CleanCommand
+ *
  * @package App\Commands
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class CleanCommand extends Command
 {
-
-    /**
-     * The console command name.
-     * @var string
-     */
+    /** @var string  */
     protected $name = 'jp-recipe:cleanup';
 
-    /**
-     * The console command description.
-     * @var string
-     */
+    /** @var string  */
     protected $description = "redis cleanup";
 
-    /** @var AnalyticsRepositoryInterface */
+    /** @var AnalyticsService */
     protected $analytics;
 
     /**
-     * @param AnalyticsRepositoryInterface $analytics
+     * @param AnalyticsService $analytics
      */
-    public function __construct(AnalyticsRepositoryInterface $analytics)
+    public function __construct(AnalyticsService $analytics)
     {
         parent::__construct();
         $this->analytics = $analytics;
@@ -43,11 +47,10 @@ class CleanCommand extends Command
     public function fire()
     {
         try {
-            $this->analytics->getDisableKey();
-            $this->info("cleanup for Redis key");
-        } catch(\Predis\Connection\ConnectionException $error) {
+            $this->analytics->deleteAnalyze();
+            $this->info("cleanup for Redis keys");
+        } catch (\Predis\Connection\ConnectionException $error) {
             throw $error;
         }
     }
-
 }

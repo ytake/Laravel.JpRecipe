@@ -1,15 +1,8 @@
-/bootstrap/compiled.php
 .phpstorm.meta.php
+_ide_helper.php
 /vendor
 /node_modules
 composer.phar
 .env
-.env.production
-.DS_Store
-.idea
 Thumbs.db
-_ide_helper.php
-/tmp
-Gemfile.lock
-Gemfile
-Capfile
+myreport.html

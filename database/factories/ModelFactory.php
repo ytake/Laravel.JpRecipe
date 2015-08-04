@@ -10,7 +10,7 @@
 | database. Just tell the factory how a default model should look.
 |
 */
-
+/**
 $factory->define(App\User::class, function ($faker) {
     return [
         'name' => $faker->name,
@@ -19,3 +19,4 @@ $factory->define(App\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+ */

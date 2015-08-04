@@ -12,13 +12,15 @@ class Recipes extends Migration
 
     protected $table = "recipes";
 
+    use DownForeignKeyCheckTrait;
+    
     /**
      * Run the migrations.
      * @return void
      */
     public function up()
     {
-        \Schema::create($this->table, function($table) {
+        \Schema::create($this->table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('recipe_id');
             $table->string('title')->unique();
@@ -36,19 +38,7 @@ class Recipes extends Migration
         });
         // for index(text length)
         \DB::connection('master')->statement(
-            "ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))"
+            'ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))'
         );
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-        \Schema::drop($this->table);
-    }
-
 }

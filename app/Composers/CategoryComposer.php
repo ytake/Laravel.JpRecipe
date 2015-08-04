@@ -1,17 +1,18 @@
 <?php
 namespace App\Composers;
 
+use Illuminate\View\View;
 use App\Repositories\CategoryRepositoryInterface;
 
 /**
  * Class CategoryComposer
+ *
  * @package App\Composers
- * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
 class CategoryComposer
 {
-
-    /** @var CategoryRepositoryInterface  */
+    /** @var CategoryRepositoryInterface */
     protected $category;
 
     /**
@@ -23,10 +24,9 @@ class CategoryComposer
     }
 
     /**
-     * @param $view
-     * @return void
+     * @param View $view
      */
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->with('categories', $this->category->getNavigationCategory());
     }
