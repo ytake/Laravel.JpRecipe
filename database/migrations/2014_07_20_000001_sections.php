@@ -26,8 +26,7 @@ class Sections extends Migration
             $table->string('name')->unique();
             $table->string('description');
             $table->integer('position')->default(1);
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->nullableTimestamps();
             $table->index(['section_id', 'position'], 'SECTION_INDEX');
         });
     }

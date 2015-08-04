@@ -256,9 +256,8 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         foreach ($this->attribute as $row) {
-
             $row['created_at'] = Carbon::now()->toDateTimeString();
-            \DB::connection('master')->table($this->table)->insert($row);
+            \DB::connection()->table($this->table)->insert($row);
         }
     }
-} 
+}

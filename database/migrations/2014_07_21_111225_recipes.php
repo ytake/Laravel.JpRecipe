@@ -30,15 +30,8 @@ class Recipes extends Migration
             $table->text('discussion')->nullable();
             $table->text('credit')->nullable();
             $table->integer('position')->default(1);
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->nullableTimestamps();
             $table->index(['category_id', 'position', 'recipe_id'], 'RECIPE_INDEX');
-            $table->foreign('category_id')->references('category_id')
-                ->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
-        // for index(text length)
-        \DB::connection('master')->statement(
-            'ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))'
-        );
     }
 }

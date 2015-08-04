@@ -87,8 +87,9 @@ class AddRecipeCommand extends Command
             if ($category) {
                 $files = "{$path}/{$directory}";
                 if ($scan = scandir($files)) {
+                    var_dump($scan);
                     // insert
-                    $this->addRecipes($scan, $files, $category);
+                    // $this->addRecipes($scan, $files, $category);
                 }
             }
         }

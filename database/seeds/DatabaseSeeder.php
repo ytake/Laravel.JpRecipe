@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Schema\Blueprint;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,9 +13,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
         $this->call('SectionTableSeeder');
         $this->call('CategoryTableSeeder');
+        \Schema::table('categories', function (Blueprint $table) {
+            $table->foreign('section_id')->references('section_id')
+                ->on('sections')->onDelete('cascade')->onUpdate('cascade');
+        });
+        \Schema::table('recipes', function (Blueprint $table) {
+            $table->foreign('category_id')->references('category_id')
+                ->on('categories')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        \Schema::table('recipe_tags', function (Blueprint $table) {
+            $table->foreign('recipe_id')->references('recipe_id')
+                ->on('recipes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tag_id')->references('tag_id')
+                ->on('tags')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['recipe_id', 'tag_id'], 'RECIPE_TAG_UNIQUE');
+        });
+        // for index(text length)
+        if(\DB::getDefaultConnection() !== 'testing') {
+            \DB::connection('master')->statement(
+                'ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))'
+            );
+            \DB::connection('master')->statement(
+                'ALTER TABLE `sections` CHANGE COLUMN `time_updated` `time_updated`'
+                .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+            );
+            \DB::connection('master')->statement(
+                'ALTER TABLE `categories` CHANGE COLUMN `time_updated` `time_updated`'
+                .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+            );
+            \DB::connection('master')->statement(
+                'ALTER TABLE `recipes` CHANGE COLUMN `time_updated` `time_updated`'
+                .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+            );
+        }
         $this->command->info('complete');
     }
 

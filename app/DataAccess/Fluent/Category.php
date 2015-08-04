@@ -11,53 +11,36 @@
 
 namespace App\DataAccess\Fluent;
 
-use App\Repositories\CategoryRepositoryInterface;
+use Illuminate\Support\Str;
 
 /**
- * Class CategoryRepository
+ * Class Category
  *
- * @package App\Repositories\Fluent
- * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @package App\DataAccess\Fluent
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class CategoryRepository extends AbstractFluent implements CategoryRepositoryInterface
+class Category extends AbstractFluent
 {
-    /** @var string */
-    protected $cacheKey = "category:";
-
     /** @var string */
     protected $table = 'categories';
 
-    /** @var */
+    /** @var string */
     protected $primary = 'category_id';
 
     /**
      *
      * @param array $attribute
+     *
      * @return mixed
      */
     public function addCategory(array $attribute)
     {
-        $attribute['slug'] = \Str::slug($attribute['name']);
+        $attribute['slug'] = Str::slug($attribute['name']);
         if (!isset($attribute['position'])) {
             $position = $this->getCategoryPosition($attribute['section_id']);
             $attribute['position'] = (int)$position + 1;
         }
-        \Cache::forget('category_list');
-        \Cache::forget('nav_category');
-
         return $this->add($attribute);
-    }
-
-    /**
-     * @param       $id
-     * @param array $attribute
-     * @return mixed
-     */
-    public function updateCategory($id, array $attribute)
-    {
-        \Cache::forget('category_list');
-
-        return $this->update($id, $attribute);
     }
 
     /**
@@ -67,22 +50,11 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
     {
         return $this->getConnection('slave')
             ->orderByRaw('section_id, position ASC')->get();
-        // ->remember(240, 'category_list')->get();
-    }
-
-    /**
-     * @param $column
-     * @param $key
-     * @return array|\Illuminate\Database\Query\Builder|mixed|static
-     */
-    public function getCategoryList($column, $key)
-    {
-        return $this->getConnection('slave')
-            ->orderByRaw('section_id, position ASC')->lists($column, $key);
     }
 
     /**
      * @param $sectionId
+     *
      * @return array|static[]
      */
     public function getCategoryFromSection($sectionId)
@@ -93,27 +65,19 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
     }
 
     /**
-     * @param $id
-     * @return mixed|static
-     */
-    public function getCategory($id)
-    {
-        return $this->find($id);
-    }
-
-    /**
      * @param $slug
+     *
      * @return mixed|static
      */
-    public function getCategoryFromSlug($slug)
+    public function getFromSlug($slug)
     {
         return $this->getConnection('slave')
-            ->where('slug', strtolower($slug))
-            ->first();
+            ->where('slug', strtolower($slug))->first();
     }
 
     /**
      * @param $sectionId
+     *
      * @return mixed
      */
     private function getCategoryPosition($sectionId)
@@ -127,19 +91,11 @@ class CategoryRepository extends AbstractFluent implements CategoryRepositoryInt
      */
     public function getNavigationCategory()
     {
-        if (\Cache::has('nav_category')) {
-            return \Cache::get('nav_category');
-        }
         $sql = "SELECT cat.*, COUNT(recipe.category_id) AS recipe_count"
             . " FROM categories AS cat"
             . " LEFT JOIN recipes AS recipe ON recipe.category_id = cat.category_id"
             . " GROUP BY cat.category_id"
             . " ORDER BY slug ASC";
-        $result = \DB::connection('slave')->select($sql);
-        if ($result) {
-            \Cache::add('nav_category', $result, 360);
-        }
-
-        return $result;
+        return $this->db->connection('slave')->select($sql);
     }
 }

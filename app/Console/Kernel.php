@@ -29,8 +29,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\Commands\CleanCommand',
-        'App\Console\Commands\AddRecipeCommand',
+        // 'App\Console\Commands\CleanCommand',
+        // 'App\Console\Commands\AddRecipeCommand',
     ];
 
     /**

@@ -62,11 +62,6 @@ class StubCategoryComposer implements \App\Repositories\CategoryRepositoryInterf
         // TODO: Implement getCategories() method.
     }
 
-    public function getCategoryList($column, $key)
-    {
-        // TODO: Implement getCategoryList() method.
-    }
-
     public function getCategoryFromSection($sectionId)
     {
         // TODO: Implement getCategoryFromSection() method.

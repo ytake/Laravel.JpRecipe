@@ -9,20 +9,30 @@
  * THE SOFTWARE.
  */
 
-namespace App\Services;
-
-use App\Repositories\FileRepositoryInterface;
+namespace App\DataAccess\Fluent;
 
 /**
- * Class ConsoleRecipeService
+ * Class Tag
  *
- * @package App\Services
+ * @package App\DataAccess\Fluent
+ * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class ConsoleRecipeService
+class Tag extends AbstractFluent
 {
+    /** @var string */
+    protected $table = 'tags';
 
-    public function __construct(FileRepositoryInterface $file)
+    /** @var string */
+    protected $primary = 'tag_id';
+
+    /**
+     * @param $name
+     *
+     * @return mixed|static
+     */
+    public function getTagFromName($name)
     {
-
+        return $this->getConnection('slave')
+            ->where('tag_name', $name)->first();
     }
 }

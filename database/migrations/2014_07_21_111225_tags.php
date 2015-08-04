@@ -24,7 +24,7 @@ class Tags extends Migration
             $table->engine = 'InnoDB';
             $table->increments('tag_id')->unsigned();
             $table->string('tag_name')->unique();
-            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at');
         });
     }
 }

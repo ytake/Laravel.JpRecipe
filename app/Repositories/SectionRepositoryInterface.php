@@ -27,17 +27,4 @@ interface SectionRepositoryInterface
      * @return \stdClass
      */
     public function getSections();
-
-    /**
-     * @param $column
-     * @param $key
-     * @return mixed
-     */
-    public function getSectionList($column, $key);
-
-    /**
-     * @param $sectionId
-     * @return mixed
-     */
-    public function getSection($sectionId);
 }

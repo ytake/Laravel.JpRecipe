@@ -12,6 +12,7 @@
 namespace App\DataAccess\Fluent;
 
 use Carbon\Carbon;
+use Illuminate\Database\DatabaseManager;
 
 /**
  * Class AbstractFluent
@@ -21,10 +22,6 @@ use Carbon\Carbon;
  */
 abstract class AbstractFluent implements FluentInterface
 {
-
-    /** @var string  query cache key */
-    protected $cacheKey;
-
     /** @var string  table name */
     protected $table;
 
@@ -37,6 +34,17 @@ abstract class AbstractFluent implements FluentInterface
     /** @var string */
     protected $slave = 'slave';
 
+    /** @var DatabaseManager  */
+    protected $db;
+
+    /**
+     * @param DatabaseManager $db
+     */
+    public function __construct(DatabaseManager $db)
+    {
+        $this->db = $db;
+    }
+
     /**
      * add
      *
@@ -47,7 +55,7 @@ abstract class AbstractFluent implements FluentInterface
     {
         $attributes['created_at'] = Carbon::now()->toDateTimeString();
 
-        return \DB::connection($this->master)->table($this->table)->insertGetId($attributes);
+        return $this->db->connection($this->master)->table($this->table)->insertGetId($attributes);
     }
 
     /**
@@ -58,7 +66,7 @@ abstract class AbstractFluent implements FluentInterface
      */
     public function all(array $columns = ['*'])
     {
-        return \DB::connection($this->slave)->table($this->table)->get($columns);
+        return $this->db->connection($this->slave)->table($this->table)->get($columns);
     }
 
     /**
@@ -69,18 +77,8 @@ abstract class AbstractFluent implements FluentInterface
      */
     public function find($id, array $columns = ['*'], $lifeTime = 120)
     {
-        if (\Cache::has($this->cacheKey . $id)) {
-            return \Cache::get($this->cacheKey . $id);
-        }
-        $result = \DB::connection($this->slave)->table($this->table)
+        return $this->db->connection($this->slave)->table($this->table)
             ->where($this->primary, $id)->first($columns);
-        if ($result) {
-            \Cache::put($this->cacheKey . $id, $result, $lifeTime);
-
-            return $result;
-        }
-
-        return null;
     }
 
     /**
@@ -89,10 +87,7 @@ abstract class AbstractFluent implements FluentInterface
      */
     public function delete($id)
     {
-        // cache forget
-        \Cache::forget($this->cacheKey . $id);
-
-        return \DB::connection($this->master)->table($this->table)
+        return $this->db->connection($this->master)->table($this->table)
             ->where($this->primary, $id)->delete();
     }
 
@@ -104,9 +99,9 @@ abstract class AbstractFluent implements FluentInterface
     public function update($id, array $attributes)
     {
         // cache forget
-        \Cache::forget($this->cacheKey . $id);
+        // \Cache::forget($this->cacheKey . $id);
 
-        return \DB::connection($this->master)->table($this->table)
+        return $this->db->connection($this->master)->table($this->table)
             ->where($this->primary, $id)->update($attributes);
     }
 
@@ -118,6 +113,6 @@ abstract class AbstractFluent implements FluentInterface
      */
     public function getConnection($connection)
     {
-        return \DB::connection($connection)->table($this->table);
+        return $this->db->connection($connection)->table($this->table);
     }
 }

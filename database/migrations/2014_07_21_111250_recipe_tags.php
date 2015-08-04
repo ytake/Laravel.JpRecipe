@@ -10,7 +10,7 @@ use Illuminate\Database\Migrations\Migration;
 class RecipeTags extends Migration
 {
     /** @var string  */
-    protected $table = "recipe_tags";
+    protected $table = 'recipe_tags';
 
     use DownForeignKeyCheckTrait;
 
@@ -24,12 +24,7 @@ class RecipeTags extends Migration
             $table->engine = 'InnoDB';
             $table->integer('recipe_id')->unsigned();
             $table->integer('tag_id')->unsigned();
-            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->foreign('recipe_id')->references('recipe_id')
-                ->on('recipes')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('tag_id')->references('tag_id')
-                ->on('tags')->onDelete('cascade')->onUpdate('cascade');
-            $table->unique(['recipe_id', 'tag_id'], 'RECIPE_TAG_UNIQUE');
+            $table->timestamp('created_at');
         });
     }
 }

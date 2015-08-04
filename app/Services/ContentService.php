@@ -29,7 +29,7 @@ class ContentService
      * @param $file
      * @return bool|string
      */
-    public function getParseHeader($element, $file)
+    public function parseHeader($element, $file)
     {
         $preg = preg_match_all("/---(.*?)---/us", $file, $matches);
         if ($preg) {
