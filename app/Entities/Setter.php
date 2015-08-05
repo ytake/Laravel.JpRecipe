@@ -9,39 +9,30 @@
  * THE SOFTWARE.
  */
 
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+namespace App\Entities;
 
 /**
- * Class Kernel
+ * Class Setter
  *
- * @package App\Console
+ * @package App\Entities
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  */
-class Kernel extends ConsoleKernel
+trait Setter
 {
-
     /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
+     * @param $name
+     * @param $value
      */
-    protected $commands = [
-        \App\Console\Commands\AddRecipeCommand::class,
-    ];
-
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-     *
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
+    public function __set($name, $value)
     {
-
+        try {
+            $reflectionProperty = new \ReflectionProperty($this, $name);
+            if (!$reflectionProperty->isPublic()) {
+                $reflectionProperty->setAccessible(true);
+            }
+            $reflectionProperty->setValue($this, $value);
+        } catch (\ReflectionException $e) {
+            return;
+        }
     }
-
 }

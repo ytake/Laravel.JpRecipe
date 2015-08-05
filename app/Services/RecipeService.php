@@ -54,13 +54,11 @@ class RecipeService
         CategoryRepositoryInterface $category,
         RecipeRepositoryInterface $recipe,
         RecipeTagRepositoryInterface $tag,
-        AnalyticsRepositoryInterface $analytics
     ) {
         $this->section = $section;
         $this->category = $category;
         $this->recipe = $recipe;
         $this->tag = $tag;
-        $this->analytics = $analytics;
     }
 
 

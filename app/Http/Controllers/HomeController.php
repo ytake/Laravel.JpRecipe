@@ -51,8 +51,6 @@ class HomeController extends Controller
      */
     public function recipe($recipeId = null)
     {
-        // アクセス保存
-        $this->dispatchFromArray("App\Commands\AnalysisCommand", ['recipe_id' => $recipeId]);
         // recipe取得
         $recipe = $this->service->getRecipe($recipeId);
         // title設定

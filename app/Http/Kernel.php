@@ -40,6 +40,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'App\Http\Middleware\RecipeMiddleWare'
+
     ];
 }

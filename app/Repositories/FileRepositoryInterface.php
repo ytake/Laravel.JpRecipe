@@ -17,4 +17,12 @@ interface FileRepositoryInterface
      * @return array
      */
     public function scanDirectory($directory);
+
+    /**
+     * @param $file
+     *
+     * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function open($file);
 }

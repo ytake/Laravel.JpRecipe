@@ -34,18 +34,18 @@ class DatabaseSeeder extends Seeder
         // for index(text length)
         if(\DB::getDefaultConnection() !== 'testing') {
             \DB::connection('master')->statement(
-                'ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`,`problem`(255),`solution`(255),`discussion`(255))'
+                'ALTER TABLE `recipes` ADD INDEX SEARCH_INDEX(`title`)'
             );
             \DB::connection('master')->statement(
-                'ALTER TABLE `sections` CHANGE COLUMN `time_updated` `time_updated`'
+                'ALTER TABLE `sections` CHANGE COLUMN `updated_at` `updated_at`'
                 .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
             );
             \DB::connection('master')->statement(
-                'ALTER TABLE `categories` CHANGE COLUMN `time_updated` `time_updated`'
+                'ALTER TABLE `categories` CHANGE COLUMN `updated_at` `updated_at`'
                 .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
             );
             \DB::connection('master')->statement(
-                'ALTER TABLE `recipes` CHANGE COLUMN `time_updated` `time_updated`'
+                'ALTER TABLE `recipes` CHANGE COLUMN `updated_at` `updated_at`'
                 .' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
             );
         }

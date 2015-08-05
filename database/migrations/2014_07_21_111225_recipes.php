@@ -23,15 +23,12 @@ class Recipes extends Migration
         \Schema::create($this->table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('recipe_id');
-            $table->string('title')->unique();
+            $table->string('title')->nullable()->unique();
             $table->integer('category_id')->unsigned();
-            $table->text('problem');
-            $table->text('solution');
-            $table->text('discussion')->nullable();
-            $table->text('credit')->nullable();
-            $table->integer('position')->default(1);
+            $table->text('description')->nullable();
+            $table->longText('body');
             $table->nullableTimestamps();
-            $table->index(['category_id', 'position', 'recipe_id'], 'RECIPE_INDEX');
+            $table->index(['category_id', 'title', 'recipe_id'], 'RECIPE_INDEX');
         });
     }
 }

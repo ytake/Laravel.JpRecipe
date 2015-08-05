@@ -11,6 +11,8 @@
 
 namespace App\Repositories;
 
+use App\Entities\Content;
+
 /**
  * Interface RecipeRepositoryInterface
  *
@@ -28,10 +30,11 @@ interface RecipeRepositoryInterface
     public function getRecipesPage($limit = 25, $categoryId = null);
 
     /**
-     * @param array $attribute
+     * @param Content $attribute
+     *
      * @return mixed
      */
-    public function addRecipe(array $attribute);
+    public function addRecipe(Content $attribute);
 
     /**
      * @param       $id

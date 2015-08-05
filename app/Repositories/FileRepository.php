@@ -12,7 +12,7 @@ use Illuminate\Filesystem\Filesystem;
  */
 class FileRepository implements FileRepositoryInterface
 {
-    /** @var Filesystem  */
+    /** @var Filesystem */
     protected $file;
 
     /**
@@ -31,5 +31,16 @@ class FileRepository implements FileRepositoryInterface
     public function scanDirectory($directory)
     {
         return $this->file->allFiles($directory);
+    }
+
+    /**
+     * @param $file
+     *
+     * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function open($file)
+    {
+        return $this->file->get($file);
     }
 }

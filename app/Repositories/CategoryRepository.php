@@ -11,46 +11,76 @@
 
 namespace App\Repositories;
 
+use App\DataAccess\Fluent\Category;
+
 /**
  * Interface CategoryRepositoryInterface
  *
  * @package App\Repositories
  */
-interface CategoryRepositoryInterface
+class CategoryRepository implements CategoryRepositoryInterface
 {
+    /** @var Category */
+    protected $category;
+
+    /**
+     * @param Category $category
+     */
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
 
     /**
      *
      * @param array $attribute
      * @return mixed
      */
-    public function save(array $attribute);
+    public function save(array $attribute)
+    {
+        $this->category->add($attribute);
+    }
 
     /**
      * @return array|static[]
      */
-    public function all();
+    public function all()
+    {
+
+    }
 
     /**
      * @param $sectionId
      * @return array|static[]
      */
-    public function getCategoryBySection($sectionId);
+    public function getCategoryBySection($sectionId)
+    {
+
+    }
 
     /**
      * @param $id
      * @return mixed
      */
-    public function find($id);
+    public function find($id)
+    {
+
+    }
 
     /**
      * @param $slug
      * @return mixed
      */
-    public function getCategoryBySlug($slug);
+    public function getCategoryBySlug($slug)
+    {
+        return $this->category->getFromSlug($slug);
+    }
 
     /**
      * @return mixed
      */
-    public function getCategoryWithCount();
+    public function getCategoryWithCount()
+    {
+
+    }
 }

@@ -11,12 +11,9 @@
 
 namespace App\Console\Commands;
 
+use App\Services\ConsoleRecipeService;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
-use App\Repositories\TagRepositoryInterface;
-use App\Repositories\RecipeRepositoryInterface;
-use App\Repositories\CategoryRepositoryInterface;
-use App\Repositories\RecipeTagRepositoryInterface;
 
 /**
  * Class AddRecipeCommand
@@ -26,13 +23,15 @@ use App\Repositories\RecipeTagRepositoryInterface;
  */
 class AddRecipeCommand extends Command
 {
+    /** @var ConsoleRecipeService */
+    protected $recipe;
 
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'jp-recipe:add';
+    protected $name = 'recipe:add';
 
     /**
      * The console command description.
@@ -41,35 +40,13 @@ class AddRecipeCommand extends Command
      */
     protected $description = "recipes to database";
 
-    /** @var CategoryRepositoryInterface */
-    protected $category;
-
-    /** @var RecipeRepositoryInterface */
-    protected $recipe;
-
-    /** @var TagRepositoryInterface */
-    protected $tag;
-
-    /** @var RecipeTagRepositoryInterface */
-    protected $recipeTag;
-
     /**
-     * @param CategoryRepositoryInterface  $category
-     * @param RecipeRepositoryInterface    $recipe
-     * @param TagRepositoryInterface       $tag
-     * @param RecipeTagRepositoryInterface $recipeTag
+     * @param ConsoleRecipeService $recipe
      */
-    public function __construct(
-        CategoryRepositoryInterface $category,
-        RecipeRepositoryInterface $recipe,
-        TagRepositoryInterface $tag,
-        RecipeTagRepositoryInterface $recipeTag
-    ) {
+    public function __construct(ConsoleRecipeService $recipe)
+    {
         parent::__construct();
-        $this->category = $category;
         $this->recipe = $recipe;
-        $this->tag = $tag;
-        $this->recipeTag = $recipeTag;
     }
 
     /**
@@ -80,149 +57,12 @@ class AddRecipeCommand extends Command
     public function fire()
     {
         $path = config('recipe.document_path');
-        $categories = scandir($path);
-        foreach ($categories as $directory) {
+        $this->recipe->addRecipes(
+            $this->recipe->scanRecipeFiles(
+                $path . '/' . $this->laravel->getLocale()
+            )
+        );
 
-            $category = $this->category->getCategoryFromSlug($directory);
-            if ($category) {
-                $files = "{$path}/{$directory}";
-                if ($scan = scandir($files)) {
-                    var_dump($scan);
-                    // insert
-                    // $this->addRecipes($scan, $files, $category);
-                }
-            }
-        }
-    }
-
-    /**
-     * @param array     $dir
-     * @param           $files
-     * @param \stdClass $category
-     * @return void
-     */
-    protected function addRecipes(array $dir, $files, \stdClass $category)
-    {
-
-        foreach ($dir as $value) {
-
-            if ($value != "." && $value != "..") {
-                $file = \File::get("{$files}/{$value}");
-                $problem = $this->getParseContents('problem', $file);
-                $solution = $this->getParseContents('solution', $file);
-                $discussion = $this->getParseContents('discussion', $file);
-                $credit = $this->getParseContents('credit', $file);
-                $title = $this->getParseHeader('title', $file);
-                $position = $this->getParseHeader('position', $file);
-                $topics = $this->getParseHeader('topics', $file);
-
-                if ($problem && $solution && $discussion && $title) {
-                    $array = [
-                        'problem' => trim($problem),
-                        'category_id' => $category->category_id,
-                        'solution' => trim($this->convertGfm($solution)),
-                        'discussion' => trim($this->convertGfm($discussion)),
-                        'credit' => trim($this->convertGfm($credit)),
-                        'title' => trim($title),
-                        'position' => trim($position)
-                    ];
-                    try {
-                        // new recipes
-                        $recipeId = $this->recipe->addRecipe($array);
-                        $this->addTags($recipeId, $topics);
-                        $this->info("added : {$files}/{$value}");
-                    } catch (QueryException $e) {
-                        // update recipes
-                        $recipe = $this->recipe->getRecipeFromTitle(trim($title));
-                        $this->recipe->updateRecipe($recipe->recipe_id, [
-                                'problem' => trim($problem),
-                                'category_id' => $category->category_id,
-                                'solution' => trim($this->convertGfm($solution)),
-                                'discussion' => trim($this->convertGfm($discussion)),
-                                'position' => trim($position)
-                            ]
-                        );
-                        $this->recipeTag->deleteRecipeTags($recipe->recipe_id);
-                        $this->addTags($recipe->recipe_id, $topics);
-                        $this->comment("Updated : recipe:{$title} : {$files}/{$value}");
-                    }
-                }
-            }
-        }
-    }
-
-
-    /**
-     * @access private
-     * @param $tag
-     * @param $file
-     * @return mixed
-     */
-    private function getParseContents($tag, $file)
-    {
-        $preg = preg_match_all("/\{$tag\}(.*?)\{\/$tag\}/us", $file, $matches);
-        if ($preg) {
-            return end($matches)[0];
-        }
-
-        return false;
-    }
-
-    /**
-     * @access private
-     * @param $element
-     * @param $file
-     * @return bool
-     */
-    private function getParseHeader($element, $file)
-    {
-        $preg = preg_match_all("/---(.*?)---/us", $file, $matches);
-        if ($preg) {
-            $explode = explode("\n", end($matches)[0]);
-            if ($explode) {
-                foreach ($explode as $row) {
-                    switch ($element) {
-                        case 'title':
-                            if (strpos($row, 'Title:') === 0) {
-                                return trim(str_replace('Title:', '', $row));
-                            }
-                            break;
-                        case 'position':
-                            if (strpos($row, 'Position:') === 0) {
-                                return trim(str_replace('Position:', '', $row));
-                            }
-                            break;
-                        case 'topics':
-                            if (strpos($row, 'Topics:') === 0) {
-                                return trim(str_replace('Topics:', '', $row));
-                            }
-                            break;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param string $string
-     * @return string
-     */
-    protected function convertGfm($string)
-    {
-        $pattern = [
-            "/{((?!\/)(php|js|bash|java|css|html|text))}/us",
-            "/{(\/.*?)}/us",
-        ];
-        $replace = [
-            "```$1",
-            "```",
-        ];
-
-        return preg_replace($pattern, $replace, $string);
     }
 
     /**

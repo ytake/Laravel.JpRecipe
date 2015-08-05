@@ -48,22 +48,22 @@ class AppServiceProvider extends ServiceProvider
             \App\DataAccess\Fluent\SectionRepository::class
         );
         $this->app->bind(
-            \App\Repositories\CategoryRepositoryInterface::class,
-            \App\DataAccess\Fluent\Category::class
-        );
-        $this->app->bind(
             \App\Repositories\RecipeTagRepositoryInterface::class,
             \App\DataAccess\Fluent\RecipeTagRepository::class
         );
+        */
         $this->app->bind(
-            \App\Repositories\AnalyticsRepositoryInterface::class,
-            \App\DataAccess\Fluent\AnalyticsRepository::class
+            \App\Repositories\RecipeRepositoryInterface::class,
+            \App\Repositories\RecipeRepository::class
+        );
+        $this->app->bind(
+            \App\Repositories\CategoryRepositoryInterface::class,
+            \App\Repositories\CategoryRepository::class
         );
         $this->app->bind(
             \App\Repositories\FileRepositoryInterface::class,
             \App\Repositories\FileRepository::class
         );
-        */
         // view composer
         $this->app['view']->composer('elements.sidebar', 'App\Composers\CategoryComposer');
         $this->app['view']->composer('home.index', 'App\Composers\FeederComposer');
