@@ -1,7 +1,6 @@
 ---
 Title:    PHPUnitを利用しよう
 Topics:   testing
-Position: 1
 ---
 
 # Header {.problem}

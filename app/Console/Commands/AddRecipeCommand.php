@@ -11,7 +11,8 @@
 
 namespace App\Console\Commands;
 
-use App\Services\ConsoleRecipeService;
+use App\Services\RecipeService;
+use App\Services\ContentService;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 
@@ -23,9 +24,11 @@ use Illuminate\Database\QueryException;
  */
 class AddRecipeCommand extends Command
 {
-    /** @var ConsoleRecipeService */
+    /** @var RecipeService */
     protected $recipe;
 
+    /** @var ContentService  */
+    protected $content;
     /**
      * The console command name.
      *
@@ -41,12 +44,13 @@ class AddRecipeCommand extends Command
     protected $description = "recipes to database";
 
     /**
-     * @param ConsoleRecipeService $recipe
+     * @param RecipeService $recipe
      */
-    public function __construct(ConsoleRecipeService $recipe)
+    public function __construct(RecipeService $recipe, ContentService $content)
     {
         parent::__construct();
         $this->recipe = $recipe;
+        $this->content = $content;
     }
 
     /**
@@ -57,35 +61,7 @@ class AddRecipeCommand extends Command
     public function fire()
     {
         $path = config('recipe.document_path');
-        $this->recipe->addRecipes(
-            $this->recipe->scanRecipeFiles(
-                $path . '/' . $this->laravel->getLocale()
-            )
-        );
-
-    }
-
-    /**
-     * @param        $recipeId
-     * @param string $string
-     */
-    protected function addTags($recipeId, $string = '-')
-    {
-        if ($string != '-' && $string != '') {
-            $tags = explode(',', $string);
-            foreach ($tags as $tag) {
-                try {
-                    $tagId = $this->tag->addTag(['tag_name' => trim($tag)]);
-                } catch (QueryException $e) {
-                    $tag = $this->tag->getTagFromName(trim($tag));
-                    $tagId = $tag->tag_id;
-                }
-                try {
-                    $this->recipeTag->addRecipeTag(['tag_id' => $tagId, 'recipe_id' => $recipeId]);
-                } catch (QueryException $e) {
-                    // no process
-                }
-            }
-        }
+        $files = $this->content->scanRecipeFiles($path . '/' . $this->laravel->getLocale());
+        $this->recipe->addRecipes($this->content->getContent($files));
     }
 }

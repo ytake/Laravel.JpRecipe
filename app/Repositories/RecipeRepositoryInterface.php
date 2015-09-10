@@ -30,11 +30,11 @@ interface RecipeRepositoryInterface
     public function getRecipesPage($limit = 25, $categoryId = null);
 
     /**
-     * @param Content $attribute
+     * @param array $attribute
      *
      * @return mixed
      */
-    public function addRecipe(Content $attribute);
+    public function addRecipe(array $attribute);
 
     /**
      * @param       $id

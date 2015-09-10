@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\DataAccess\Fluent\Recipe;
-use App\Entities\Content;
 
 /**
  * Class RecipeRepository
@@ -36,18 +35,13 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
-     * @param Content $attribute
+     * @param array $attribute
      *
      * @return mixed
      */
-    public function addRecipe(Content $attribute)
+    public function addRecipe(array $attribute)
     {
-        return $this->recipe->add([
-            'title' => $attribute->getTitle(),
-            'description' => $attribute->getDescription(),
-            'body' => $attribute->getBody(),
-            'category_id' => $attribute->getCategoryIdentifier()
-        ]);
+        return $this->recipe->add($attribute);
     }
 
     /**
