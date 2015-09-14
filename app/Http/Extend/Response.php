@@ -33,7 +33,7 @@ class Response extends BaseResponse
      * @param array $header
      * @return \Illuminate\Http\Response
      */
-    public static function hal(Hal $data, $status = 200, array $header = [])
+    public function hal(Hal $data, $status = 200, array $header = [])
     {
         $hal = new HalRender($data);
 

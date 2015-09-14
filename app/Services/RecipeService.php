@@ -12,6 +12,7 @@
 namespace App\Services;
 
 use App\Repositories\RecipeRepositoryInterface;
+use Ytake\LaravelAspect\Annotation\Transactional;
 
 /**
  * Class RecipeService
@@ -20,7 +21,7 @@ use App\Repositories\RecipeRepositoryInterface;
  */
 class RecipeService
 {
-    /** @var RecipeRepositoryInterface  */
+    /** @var RecipeRepositoryInterface */
     protected $recipe;
 
     /**
@@ -36,12 +37,21 @@ class RecipeService
      */
     public function addRecipes(array $contents)
     {
-        foreach($contents as $content) {
-            if($content['body'] && isset($content['title'])) {
+        foreach ($contents as $content) {
+            if ($content['body'] && isset($content['title'])) {
                 var_dump($content);
                 // $identifier = $this->recipe->addRecipe($entity);
             }
         }
+    }
+
+    /**
+     * @Transactional("master")
+     * @param array $content
+     */
+    public function addRecipe(array $content)
+    {
+
     }
 
     public function hasRecipe($title)

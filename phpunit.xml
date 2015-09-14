@@ -41,6 +41,6 @@
     </php>
     <logging>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <log type="coverage-clover" target="tests/build/clover.xml"/>
+        <log type="coverage-clover" target="tests/logs/clover.xml"/>
     </logging>
 </phpunit>

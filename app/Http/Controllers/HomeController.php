@@ -21,7 +21,6 @@ use App\Services\RecipeService;
  */
 class HomeController extends Controller
 {
-
     /** @var RecipeService */
     protected $service;
 

@@ -34,7 +34,7 @@ class FeedController extends Controller
     }
 
     /**
-     * @get("feed/{format?}", as="feed.index")
+     * @Get("feed/{format?}", as="feed.index")
      * @param string $format
      * @return mixed
      */
