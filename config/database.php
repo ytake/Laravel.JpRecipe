@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'fetch' => PDO::FETCH_CLASS,
+    'fetch'       => PDO::FETCH_CLASS,
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'master'),
+    'default'     => env('DB_CONNECTION', 'master'),
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -44,60 +44,60 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
-            'driver' => 'sqlite',
+        'sqlite'  => [
+            'driver'   => 'sqlite',
             'database' => storage_path('database.sqlite'),
-            'prefix' => '',
+            'prefix'   => '',
         ],
         // for testing
         'testing' => [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
-            'options' => [
+            'prefix'   => '',
+            'options'  => [
                 PDO::ATTR_PERSISTENT => true,
             ]
         ],
-        'master' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
+        'master'  => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'forge'),
+            'username'  => env('DB_USERNAME', 'forge'),
+            'password'  => env('DB_PASSWORD', ''),
+            'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-            'strict' => false,
+            'prefix'    => '',
+            'strict'    => false,
         ],
-        'slave' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
+        'slave'   => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'forge'),
+            'username'  => env('DB_USERNAME', 'forge'),
+            'password'  => env('DB_PASSWORD', ''),
+            'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-            'strict' => false,
+            'prefix'    => '',
+            'strict'    => false,
         ],
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'localhost'),
+        'pgsql'   => [
+            'driver'   => 'pgsql',
+            'host'     => env('DB_HOST', 'localhost'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
         ],
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
+        'sqlsrv'  => [
+            'driver'   => 'sqlsrv',
+            'host'     => env('DB_HOST', 'localhost'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
+            'charset'  => 'utf8',
+            'prefix'   => '',
         ],
 
     ],
@@ -112,7 +112,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations'  => 'migrations',
     /*
     |--------------------------------------------------------------------------
     | Redis Databases
@@ -124,15 +124,13 @@ return [
     |
     */
 
-    'redis' => [
+    'redis'       => [
 
         'cluster' => false,
         'default' => [
-            'host' => '127.0.0.1',
-            'port' => 6379,
+            'host'     => '127.0.0.1',
+            'port'     => 6379,
             'database' => 0,
         ],
-
     ],
-
 ];

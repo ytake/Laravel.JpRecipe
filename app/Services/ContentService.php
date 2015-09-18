@@ -50,7 +50,9 @@ class ContentService
         foreach ($files as $file) {
             $category = $this->getContentCategory($file->getRelativePath());
             if (count($category)) {
-                $result[] = $this->parsedContent($file->getRealPath());
+                $content = $this->parsedContent($file->getRealPath());
+                $content['category_id'] = $category->category_id;
+                $result[] = $content;
             }
         }
         return $result;

@@ -3,6 +3,10 @@
 namespace App\Repositories;
 
 use App\DataAccess\Fluent\Recipe;
+use Ytake\LaravelAspect\Annotation\CachePut;
+use Ytake\LaravelAspect\Annotation\Cacheable;
+use Ytake\LaravelAspect\Annotation\CacheEvict;
+use Ytake\LaravelAspect\Annotation\Transactional;
 
 /**
  * Class RecipeRepository
@@ -45,6 +49,7 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
+     * @CachePut(cacheName="recipe",tags={"recipe"},key={"#id"})
      * @param       $id
      * @param array $attribute
      *
@@ -52,10 +57,11 @@ class RecipeRepository implements RecipeRepositoryInterface
      */
     public function updateRecipe($id, array $attribute)
     {
-        // TODO: Implement updateRecipe() method.
+        return $this->recipe->update($id, $attribute);
     }
 
     /**
+     * @CacheEvict(cacheName="recipe",tags={"recipe"},key={"#id"})
      * @param $id
      *
      * @return mixed
@@ -66,6 +72,7 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
+     * @Cacheable(cacheName="recipe",tags={"recipe"},key={"#id"})
      * @param $id
      *
      * @return mixed
@@ -76,13 +83,14 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
+     * @Cacheable(cacheName="recipeTitle",key={"#title"})
      * @param $title
      *
      * @return mixed
      */
     public function getRecipeFromTitle($title)
     {
-        // TODO: Implement getRecipeFromTitle() method.
+        return $this->recipe->getRecipeFromTitle($title);
     }
 
     /**

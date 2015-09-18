@@ -98,9 +98,6 @@ abstract class AbstractFluent implements FluentInterface
      */
     public function update($id, array $attributes)
     {
-        // cache forget
-        // \Cache::forget($this->cacheKey . $id);
-
         return $this->db->connection($this->master)->table($this->table)
             ->where($this->primary, $id)->update($attributes);
     }

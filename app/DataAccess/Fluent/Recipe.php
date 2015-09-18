@@ -12,7 +12,6 @@
 namespace App\DataAccess\Fluent;
 
 use App\Presenter\MaterializePresenter;
-use App\Repositories\RecipeRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
@@ -63,20 +62,6 @@ class Recipe extends AbstractFluent
 
         return $query->orderBy('recipe.position', 'ASC')
             ->get(['recipe.recipe_id', 'recipe.title', 'cat.name']);
-    }
-
-    /**
-     * @param       $id
-     * @param array $attribute
-     *
-     * @return mixed
-     */
-    public function updateRecipe($id, array $attribute)
-    {
-        $this->table = 'recipes';
-        \Cache::forget("recipe:category:{$attribute['category_id']}");
-
-        return $this->update($id, $attribute);
     }
 
     /**

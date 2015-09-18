@@ -14,7 +14,6 @@ namespace App\Console\Commands;
 use App\Services\RecipeService;
 use App\Services\ContentService;
 use Illuminate\Console\Command;
-use Illuminate\Database\QueryException;
 
 /**
  * Class AddRecipeCommand
@@ -44,24 +43,13 @@ class AddRecipeCommand extends Command
     protected $description = "recipes to database";
 
     /**
-     * @param RecipeService $recipe
+     * @param RecipeService  $recipe
+     * @param ContentService $content
      */
-    public function __construct(RecipeService $recipe, ContentService $content)
-    {
-        parent::__construct();
-        $this->recipe = $recipe;
-        $this->content = $content;
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function fire()
+    public function fire(RecipeService $recipe, ContentService $content)
     {
         $path = config('recipe.document_path');
-        $files = $this->content->scanRecipeFiles($path . '/' . $this->laravel->getLocale());
-        $this->recipe->addRecipes($this->content->getContent($files));
+        $files = $content->scanRecipeFiles($path . '/' . $this->laravel->getLocale());
+        $recipe->addRecipes($content->getContent($files));
     }
 }

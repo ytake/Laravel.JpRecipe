@@ -12,6 +12,7 @@
 namespace App\Repositories;
 
 use App\DataAccess\Fluent\Category;
+use Ytake\LaravelAspect\Annotation\Cacheable;
 
 /**
  * Interface CategoryRepositoryInterface
@@ -68,6 +69,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     /**
+     * @Cacheable(cacheName="categorySlug",key={"#slug"})
      * @param $slug
      * @return mixed
      */

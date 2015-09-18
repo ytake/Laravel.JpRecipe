@@ -6,3 +6,4 @@ composer.phar
 .env
 Thumbs.db
 myreport.html
+Homestead.yaml

@@ -11,8 +11,6 @@
 
 namespace App\Repositories;
 
-use App\Entities\Content;
-
 /**
  * Interface RecipeRepositoryInterface
  *

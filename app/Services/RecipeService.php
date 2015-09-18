@@ -33,29 +33,39 @@ class RecipeService
     }
 
     /**
+     * @Transactional
      * @param array $contents
      */
     public function addRecipes(array $contents)
     {
         foreach ($contents as $content) {
             if ($content['body'] && isset($content['title'])) {
-                var_dump($content);
-                // $identifier = $this->recipe->addRecipe($entity);
+                $exists = $this->recipe->getRecipeFromTitle($content['title']);
+                if ($exists) {
+                    $this->recipe->updateRecipe($exists->recipe_id, $content);
+                }
+                if (!$exists) {
+                    $this->addRecipe($content);
+                }
             }
         }
     }
 
     /**
-     * @Transactional("master")
      * @param array $content
+     * @return mixed
      */
     public function addRecipe(array $content)
     {
-
+        return $this->recipe->addRecipe($content);
     }
 
+    /**
+     * @param $title
+     * @return mixed
+     */
     public function hasRecipe($title)
     {
-
+        return $this->recipe->getRecipeFromTitle($title);
     }
 }

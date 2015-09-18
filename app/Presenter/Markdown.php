@@ -12,56 +12,39 @@
 namespace App\Presenter;
 
 use ParsedownExtra;
-use App\Services\RecipeService;
+use Ytake\LaravelAspect\Annotation\Cacheable;
+
 /**
  * Class Markdown
+ *
  * @package App\Presenter
  * @author  yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  *
- * @see https://help.github.com/articles/github-flavored-markdown
+ * @see     https://help.github.com/articles/github-flavored-markdown
  */
 class Markdown implements MarkdownInterface
 {
-
     /** @var ParsedownExtra */
     protected $parser;
 
-    /** @var RecipeService */
-    protected $recipe;
-
     /**
      * @param ParsedownExtra $parser
-     * @param RecipeService  $recipe
      */
-    public function __construct(ParsedownExtra $parser, RecipeService $recipe)
+    public function __construct(ParsedownExtra $parser)
     {
         $this->parser = $parser;
-        $this->recipe = $recipe;
     }
 
     /**
-     *
-     * @param $text
+     * @Cacheable(cacheName="recipe:render",tags={"recipe"},key={"#cacheKey"})
+     * @param      $text
      * @param null $cacheKey
-     * @param int $life cache life time
      * @return mixed|string
      */
-    public function render($text, $cacheKey = null, $life = 0)
+    public function render($text, $cacheKey = null)
     {
-        //
-        if(!$life || is_null($cacheKey)) {
-            $text = $this->convertToRef($text);
-            return $this->parser->text($text);
-        }
-        if(\Cache::has($cacheKey)) {
-            return \Cache::get($cacheKey);
-        }
-        $text = $this->convertToRef($text);
-        $result = $this->parser->text($text);
-        \Cache::put($cacheKey, $result, $life);
-        return $result;
+        return $this->parser->text($text);
     }
-
 
     /**
      * @param $string
@@ -69,9 +52,10 @@ class Markdown implements MarkdownInterface
      */
     public function convertToRef($string)
     {
-        if(preg_match_all("/\[\[((.*?))\]\]/us", $string, $matches)) {
+        /*
+        if (preg_match_all("/\[\[((.*?))\]\]/us", $string, $matches)) {
 
-            foreach($matches[0] as $key => $match) {
+            foreach ($matches[0] as $key => $match) {
                 $recipe = $this->recipe->getRecipeFromTitle($matches[1][$key]);
                 if ($recipe) {
                     if (isset($matches[1][$key])) {
@@ -82,6 +66,7 @@ class Markdown implements MarkdownInterface
                 }
             }
         }
+        */
         return $string;
     }
 }

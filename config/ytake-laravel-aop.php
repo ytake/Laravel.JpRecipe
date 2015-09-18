@@ -30,14 +30,15 @@ return [
             // boolean Determines whether or not kernel is in debug mode
             'debug' => env('ASPECT_DEBUG', true),
             // string Path to the application root directory.
-            'appDir' => app_path('Services'),
+            'appDir' => app_path(),
             // string Path to the cache directory where compiled classes will be stored
             'cacheDir' => storage_path('framework/aop'),
             // integer Binary mask of features
             // 'features' => 0,
             // array WhiteList of directories where aspects should be applied. Empty for everywhere.
             'includePaths' => [
-               app_path('Services')
+               app_path('Services'),
+               app_path('Repositories')
             ],
             // array BlackList of directories or files where aspects shouldn't be applied.
             // 'excludePaths' => []

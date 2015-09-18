@@ -19,13 +19,11 @@ namespace App\Presenter;
  */
 interface MarkdownInterface
 {
-
     /**
      *
      * @param      $text
      * @param null $cacheKey
-     * @param int  $life cache life time
      * @return mixed|string
      */
-    public function render($text, $cacheKey = null, $life = 360);
-} 
+    public function render($text, $cacheKey = null);
+}

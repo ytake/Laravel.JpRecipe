@@ -1,6 +1,6 @@
 ---
 Title:    PHPUnitを利用しよう
-Topics:   testing
+Description:   testing
 ---
 
 # Header {.problem}

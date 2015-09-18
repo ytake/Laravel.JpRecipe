@@ -21,7 +21,6 @@ use Illuminate\Pagination\BootstrapThreePresenter;
  */
 class MaterializePresenter extends BootstrapThreePresenter
 {
-
     /**
      * Convert the URL window into Bootstrap HTML.
      *
