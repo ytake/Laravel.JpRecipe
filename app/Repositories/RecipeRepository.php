@@ -6,7 +6,6 @@ use App\DataAccess\Fluent\Recipe;
 use Ytake\LaravelAspect\Annotation\CachePut;
 use Ytake\LaravelAspect\Annotation\Cacheable;
 use Ytake\LaravelAspect\Annotation\CacheEvict;
-use Ytake\LaravelAspect\Annotation\Transactional;
 
 /**
  * Class RecipeRepository
@@ -83,7 +82,7 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
-     * @Cacheable(cacheName="recipeTitle",key={"#title"})
+     * @Cacheable(cacheName="recipe",tags={"recipeTitle"},key={"#title"})
      * @param $title
      *
      * @return mixed
@@ -115,13 +114,13 @@ class RecipeRepository implements RecipeRepositoryInterface
     }
 
     /**
+     * @Cacheable(cacheName="recipe",tags={"latest"},key={"#limit"},lifetime=30)
      * @param int $limit
-     *
-     * @return mixed
+     * @return mixed|void
      */
     public function getLatestRecipe($limit = 5)
     {
-        // TODO: Implement getLatestRecipe() method.
+        return $this->recipe->getLatestRecipe($limit);
     }
 
     /**
@@ -145,5 +144,4 @@ class RecipeRepository implements RecipeRepositoryInterface
     {
         // TODO: Implement getPrevNextRecipes() method.
     }
-
 }

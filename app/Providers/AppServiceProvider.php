@@ -84,11 +84,6 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\FileRepositoryInterface::class,
             \App\Repositories\FileRepository::class
         );
-        // view composer
-        $this->app['view']->composer('elements.sidebar', 'App\Composers\CategoryComposer');
-        $this->app['view']->composer('home.index', 'App\Composers\FeederComposer');
-        $this->app['view']->composer('home.index', 'App\Composers\NewsFeederComposer');
-
         /*
         $this->app->singleton('markdown', function ($app) {
             return new \App\Presenter\Markdown(new \App\Presenter\Parsedown,

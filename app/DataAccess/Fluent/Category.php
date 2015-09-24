@@ -80,7 +80,7 @@ class Category extends AbstractFluent
      *
      * @return mixed
      */
-    private function getCategoryPosition($sectionId)
+    protected function getCategoryPosition($sectionId)
     {
         return $this->getConnection('slave')
             ->where('section_id', $sectionId)->max('position');
@@ -91,11 +91,11 @@ class Category extends AbstractFluent
      */
     public function getNavigationCategory()
     {
-        $sql = "SELECT cat.*, COUNT(recipe.category_id) AS recipe_count"
+        $sql = "SELECT cat.slug, cat.name, cat.description,"
+            . " COUNT(recipe.category_id) AS recipe_count"
             . " FROM categories AS cat"
             . " LEFT JOIN recipes AS recipe ON recipe.category_id = cat.category_id"
-            . " GROUP BY cat.category_id"
-            . " ORDER BY slug ASC";
+            . " GROUP BY cat.category_id ORDER BY slug ASC";
         return $this->db->connection('slave')->select($sql);
     }
 }

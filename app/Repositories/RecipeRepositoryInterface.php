@@ -19,7 +19,6 @@ namespace App\Repositories;
  */
 interface RecipeRepositoryInterface
 {
-
     /**
      * @param int $limit
      * @param int $categoryId

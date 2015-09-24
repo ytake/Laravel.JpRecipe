@@ -108,10 +108,10 @@ class Recipe extends AbstractFluent
     public function getLatestRecipe($limit = 5)
     {
         return $this->getConnection('slave')
-            ->join('categories AS cat', 'cat.category_id', '=', 'recipe.category_id')
-            ->orderBy('recipe.recipe_id', 'DESC')->take($limit)
+            ->join('categories AS cat', 'cat.category_id', '=', 'recipes.category_id')
+            ->orderBy('recipes.recipe_id', 'DESC')->take($limit)
             ->get([
-                "recipe.*",
+                "recipes.*",
                 "cat.name",
                 "cat.description"
             ]);

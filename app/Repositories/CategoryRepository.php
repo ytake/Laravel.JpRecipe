@@ -79,10 +79,11 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     /**
+     * @Cacheable(cacheName="categoryCount",tags={"count"})
      * @return mixed
      */
     public function getCategoryWithCount()
     {
-
+        return $this->category->getNavigationCategory();
     }
 }

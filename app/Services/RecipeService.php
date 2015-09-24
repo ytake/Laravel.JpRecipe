@@ -68,4 +68,13 @@ class RecipeService
     {
         return $this->recipe->getRecipeFromTitle($title);
     }
+
+    /**
+     * @param int $num
+     * @return mixed
+     */
+    public function getLatestRecipe($num = 5)
+    {
+        return $this->recipe->getLatestRecipe($num);
+    }
 }

@@ -38,9 +38,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = $this->service->getIndexContents();
+        dd($this->service->getLatestRecipe(5));
+        // $data = $this->service->getIndexContents();
 
+        /*
         return view('home.index', $data);
+        */
     }
 
     /**

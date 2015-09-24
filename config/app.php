@@ -88,7 +88,7 @@ return [
     |
     */
 
-    'log'             => 'single',
+    'log'             => 'daily',
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -135,11 +135,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AnnotationsServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
         App\Providers\LocalServiceProvider::class,
         // added AspectServiceProvider
-        \Ytake\LaravelAspect\AspectServiceProvider::class,
+        Ytake\LaravelAspect\AspectServiceProvider::class,
         // added Artisan Command
-        \Ytake\LaravelAspect\ConsoleServiceProvider::class
+        Ytake\LaravelAspect\ConsoleServiceProvider::class
     ],
     /*
     |--------------------------------------------------------------------------

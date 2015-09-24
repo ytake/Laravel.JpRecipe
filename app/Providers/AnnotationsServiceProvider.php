@@ -27,10 +27,11 @@ class AnnotationsServiceProvider extends ServiceProvider
      */
     protected $scanRoutes = [
         \App\Http\Controllers\HomeController::class,
+        /*
         \App\Http\Controllers\SearchController::class,
         \App\Http\Controllers\FeedController::class,
         \App\Http\Controllers\Api\RecipeController::class,
-        \App\Http\Controllers\FaqController::class
+        \App\Http\Controllers\FaqController::class*/
     ];
 
     /**
